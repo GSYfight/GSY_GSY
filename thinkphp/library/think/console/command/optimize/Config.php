@@ -25,7 +25,7 @@ class Config extends Command
     {
         $this->setName('optimize:config')
             ->addArgument('module', Argument::OPTIONAL, 'Build module config cache .')
-            ->setDescription('Build config and widget file cache.');
+            ->setDescription('Build config and common file cache.');
     }
 
     protected function execute(Input $input, Output $output)
@@ -83,8 +83,8 @@ class Config extends Command
         }
 
         // 加载公共文件
-        if (is_file($path . 'widget' . EXT)) {
-            $content .= substr(php_strip_whitespace($path . 'widget' . EXT), 5) . PHP_EOL;
+        if (is_file($path . 'common' . EXT)) {
+            $content .= substr(php_strip_whitespace($path . 'common' . EXT), 5) . PHP_EOL;
         }
 
         $content .= '\think\Config::set(' . var_export(ThinkConfig::get(), true) . ');';

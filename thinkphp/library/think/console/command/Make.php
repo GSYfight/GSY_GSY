@@ -89,7 +89,7 @@ abstract class Make extends Command
             if (strpos($name, '/')) {
                 list($module, $name) = explode('/', $name, 2);
             } else {
-                $module = 'widget';
+                $module = 'common';
             }
         } else {
             $module = null;
