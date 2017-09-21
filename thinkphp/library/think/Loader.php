@@ -363,7 +363,7 @@ class Loader
      * @return object
      * @throws ClassNotFoundException
      */
-    public static function model($name = '', $layer = 'model', $appendSuffix = false, $common = 'common')
+    public static function model($name = '', $layer = 'model', $appendSuffix = false, $common = 'widget')
     {
         $guid = $name . $layer;
         if (isset(self::$instance[$guid])) {
@@ -434,7 +434,7 @@ class Loader
      * @return object|false
      * @throws ClassNotFoundException
      */
-    public static function validate($name = '', $layer = 'validate', $appendSuffix = false, $common = 'common')
+    public static function validate($name = '', $layer = 'validate', $appendSuffix = false, $common = 'widget')
     {
         $name = $name ?: Config::get('default_validate');
         if (empty($name)) {
