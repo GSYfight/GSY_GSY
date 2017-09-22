@@ -1,0 +1,233 @@
+.main{
+    min-height: 1360px;
+}
+
+.main .head{
+    height: 360px;
+}
+
+.head .left{
+    width: 260px;
+    height: 325px;
+    margin-right: 25px;
+}
+.head .left img{
+    width: 260px;
+    height: 325px;
+}
+
+.main .center{
+    width: 670px;
+    height: 350px;
+    overflow: hidden;
+}
+
+.center .window{
+    width: 670px;
+    height: 320px;
+}
+
+.center .window img{
+    width: 670px;
+    height: 320px;
+    float: left;
+    display: none;
+}
+.center .window img.active{
+    display: block;
+}
+.center .bottom{
+    height: 50px;
+}
+.center .bottom ol{
+    margin-left: 250px;
+}
+.center .bottom li{
+    float: left;
+    list-style: none;
+    margin-left: 15px;
+}
+
+.center .bottom a{
+    font-size: 6px;
+    text-decoration: none;
+    background: #D6E2E6;
+    padding-left: 13px;
+    border-radius: 50%;
+}
+
+.center .bottom a.active{
+    background: #15374A;
+}
+
+.main .head .right img{
+    width: 215px;
+    height: 150px;
+}
+.main .head .right img:first-child{
+    margin-bottom: 15px;
+}
+.main .body{
+    min-height: 100px;
+    position: relative;
+}
+.main .body .left{
+    width: 260px;
+    min-height: 350px;
+    position: absolute;
+    top: 0px;;
+}
+
+.main .body .left .list{
+    clear: both;
+}
+
+.body .left .opBtn{
+    width: 12px;
+    height: 12px;
+    background-image: url(../img/pro_open.png);
+    background-repeat: no-repeat;
+    background-size: 12px;
+    cursor: pointer;
+    margin: 15px 0 0 0;
+}
+
+.body .left .opData{
+    width: 95%;
+}
+
+
+.body .left .opData h4{
+    border-bottom: 2px solid #d6e2e6;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 5px 0;
+    margin-bottom: 10px;
+    line-height: 24px;
+    color: rgba(21, 55, 74, 0.64);
+    padding-left: 23px;
+}
+
+.body .left .opData .seclectDiv input{
+    width: 15px;
+    height: 15px;
+}
+
+.body .left .opData .seclectDiv li{
+    list-style: none;
+    cursor: pointer;
+    float: left;
+    width: 50%;
+}
+
+
+.body .left .opData .seclectDiv a{
+    cursor: pointer;
+    height: 30px;
+    text-decoration: none;
+    line-height: 30px;
+}
+.body .left .opData .seclectDiv span{
+    cursor: pointer;
+    font-size: 14px;
+    position: relative;
+    top: -3px;
+    left: 10px;
+}
+
+.body .left .opData .seclectDiv li:hover{
+    text-decoration: underline;
+}
+
+.main .body .right{
+    width: 890px;
+    min-height: 100px;
+    padding-left: 25px;
+    padding-right: 0;
+    margin-left: 260px;
+}
+
+.main .body .right .head{
+    box-sizing: border-box;
+    border-bottom: 2px solid #d6e2e6;
+    line-height: 24px;
+    overflow: auto;
+    margin-bottom: 20px;
+    color: #0d3749;
+    font-size: 14px;
+    height: 36px;
+}
+.main .body .right .head .pro_count{
+    cursor: pointer;
+    margin-right: 15px;
+    font-weight: bold;
+    font-family: 'Din-Bold';
+}
+
+.main .body .right .head .btn{
+    margin-left: 12px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #d6e2e6;
+    border-radius: 13px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.main .body .right .head .strongTag{
+    background: url(../img/icon_sortAroow_down.png) no-repeat #86b6c5;
+    background-size: 9px;
+    background-position: 10px 7px;
+    padding-left: 26px;
+    margin-left: 12px;
+    margin-bottom: 10px;
+    padding-right: 10px;
+    border-radius: 13px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    box-sizing: border-box;
+    display: block;
+    width: 62px;
+    height: 24px;
+}
+
+.divModel {
+    min-height: 100px;
+    position: relative;
+}
+
+.main .foot{
+    width: 360px;
+    margin: 0 auto;
+    min-height: 21px;
+    position: relative;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.main .foot li{
+    float: left;
+    list-style: none;
+
+}
+.main .foot span{
+    cursor: pointer;
+    display: inline-block;
+    height: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.main .foot .active{
+    border-bottom: 2px #0D3749 solid;
+}
+
+
+
+
+
+

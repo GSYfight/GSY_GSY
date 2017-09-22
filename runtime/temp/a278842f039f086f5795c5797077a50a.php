@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:60:"E:\PHP\GSY\public/../application/admin\view\index\index.html";i:1505962195;s:62:"E:\PHP\GSY\public/../application/admin\view\widget\header.html";i:1505962195;s:60:"E:\PHP\GSY\public/../application/admin\view\widget\left.html";i:1505993606;}*/ ?>
 <div class="page-sidebar" id="sidebar">
     <!-- Page Sidebar Header-->
     <div class="sidebar-header-wrapper">
@@ -33,7 +34,7 @@
             </a>
             <ul class="submenu">
                 <li>
-                    <a href="{:url('Member/index')}">
+                    <a href="<?php echo url('Member/index'); ?>">
                                     <span class="menu-text">
                                         会员列表                                    </span>
                         <i class="menu-expand"></i>
@@ -49,7 +50,7 @@
             </a>
             <ul class="submenu">
                 <li>
-                    <a href="{:url('Cate/lis')}">
+                    <a href="<?php echo url('Cate/lis'); ?>">
                                     <span class="menu-text">
                                         分类列表                                    </span>
                         <i class="menu-expand"></i>

@@ -1,0 +1,108 @@
+{:widget('Widget/header')}
+<!-- /头部 -->
+
+<div class="main-container container-fluid">
+    <div class="page-container">
+        <!-- Page Sidebar -->
+        {:widget('Widget/left')}
+            <!-- /Sidebar Menu -->
+        </div>
+        <!-- /Page Sidebar -->
+        <!-- Page Content -->
+        <div class="page-content">
+            <!-- Page Breadcrumb -->
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="#">系统</a>
+                    </li>
+                    <li class="active">会员管理</li>
+                </ul>
+            </div>
+            <!-- /Page Breadcrumb -->
+
+            <!-- Page Body -->
+            <div class="page-body">
+
+                <button type="button" tooltip="添加用户" class="btn btn-sm btn-azure btn-addon"
+                        onClick="javascript:window.location.href = '{:url("Member/addMember")}'"><i class="fa fa-plus"></i>
+                    添加会员
+                </button>
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                        <div class="widget">
+                            <div class="widget-body">
+                                <div class="flip-scroll">
+                                    <table class="table table-bordered table-hover">
+                                        <thead class="">
+                                        <tr>
+                                            <th class="text-center">ID</th>
+                                            <th class="text-center">用户名</th>
+                                            <th class="text-center">手机号</th>
+                                            <th class="text-center">邮箱</th>
+                                            <th class="text-center">登录IP</th>
+                                            <th class="text-center">头像</th>
+                                            <th class="text-center">是否冻结</th>
+                                            <th class="text-center">登录次数</th>
+                                            <th class="text-center">注册时间</th>
+                                            <th class="text-center">最近更新时间</th>
+                                            <th class="text-center">操作</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {foreach $data as $val}
+                                        <tr>
+                                            <td align="center" style="vertical-align: middle">{$val.member_id}</td>
+                                            <td align="center" style="vertical-align: middle">{$val.username}</td>
+                                            <td align="center" style="vertical-align: middle">{$val.mobile}</td>
+                                            <td align="center" style="vertical-align: middle">{$val.email}</td>
+                                            <td align="center" style="vertical-align: middle">{$val.ip}</td>
+                                            <td align="center" style="vertical-align: middle">
+                                                <img src="{$val.pic}" width="100" height="100"/>
+                                            </td>
+                                            <td align="center" style="vertical-align: middle">
+                                                {if condition='$val.lock eq 0'}正常{elseif condition='$val.lock eq 1'}冻结{else/}永久冻结{/if}
+                                            </td>
+                                            <td align="center" style="vertical-align: middle">{$val.login_count}</td>
+                                            <td align="center" style="vertical-align: middle">{$val.login_time}</td>
+                                            <td align="center" style="vertical-align: middle">{$val.last_modify}</td>
+                                            <td align="center" style="vertical-align: middle">
+                                                <a href="{:url('Member/edit',array('member_id'=>$val.member_id))}"
+                                                   class="btn btn-primary btn-sm shiny">
+                                                    <i class="fa fa-edit"></i> 编辑
+                                                </a>
+                                                <a href="#" onClick="warning('确实要删除吗', '{:url(\"Member/del",[\'member_id\'=>$val.member_id]\)}')"
+                                                   class="btn btn-danger btn-sm shiny">
+                                                    <i class="fa fa-trash-o"></i> 删除
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        {/foreach}
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {$data->render()}
+            </div>
+            <!-- /Page Body -->
+        </div>
+        <!-- /Page Content -->
+    </div>
+</div>
+
+<!--Basic Scripts-->
+<script src="__STATIC__/admin/style/jquery_002.js"></script>
+<script src="__STATIC__/admin/style/bootstrap.js"></script>
+<script src="__STATIC__/admin/style/jquery.js"></script>
+<!--Beyond Scripts-->
+<script src="__STATIC__/admin/style/beyond.js"></script>
+
+
+</body>
+</html>

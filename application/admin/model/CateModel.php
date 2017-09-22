@@ -9,13 +9,12 @@ namespace app\admin\model;
 use think\Model;
 
 class CateModel extends Model{
-    //获取数据库的数据
+    /*
+     * 获取数据库的数据
+     * */
     static public function listAll(){
-        /*
-         * 获取数据库数据
-         * */
+        // 获取数据库数
         $data=db('cate')->order('path')->paginate(8);
-
         $page =$data->render();
         //将$data转成数组
         $data=$data->all();
@@ -82,7 +81,7 @@ class CateModel extends Model{
         }
         //删除数据
         $res['msg'] = db('cate')->delete($id);
-//        var_dump($res);exit;
+        //如果该分类有商品，不能删除该分类
         return $res;
     }
 }
