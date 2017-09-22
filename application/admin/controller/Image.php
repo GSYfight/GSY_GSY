@@ -27,11 +27,19 @@ class Image extends Controller{
 //                 }
 //             }
              $imageData['goods_id']=input('goods_id');
+             //判断是否有选择商品
+             if (!$imageData['goods_id']){
+                 return $this->error('请选择商品');
+             }
+             //当要加入的图片选为封面时判断
              if (input('is_face') == 'on') {
                  $imageData['is_face'] = 1;
+                 //把该商品其他图片的is_face改为0非封面
+                 $res=ImageModel::changeGoodsPicFace( $imageData['goods_id']);
              } else {
                  $imageData['is_face'] = 0;
              }
+
              if ($_FILES['image_url']['tmp_name'] != '') {
                  //上传图片
                  $arr = ImageModel::uploadPic('image_url');
@@ -58,7 +66,7 @@ class Image extends Controller{
 
          }
         $goodsData=Goods::index();
-        $this->assign('goodsData',$goodsData);
+        $this->assign('goodsData',$goodsData['data']);
         return $this->fetch();
     }
     public function goodsPicList(){

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:59:"F:\php\GSY\public/../application/admin\view\goods\edit.html";i:1506009101;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:59:"F:\php\GSY\public/../application/admin\view\goods\edit.html";i:1506059831;}*/ ?>
 <?php echo widget('Widget/header'); ?>
 
 <!-- /头部 -->
@@ -34,7 +34,7 @@
                         </div>
                         <div class="widget-body">
                             <div id="horizontal-form">
-                                <form class="form-horizontal" role="form" action="<?php echo url('Goods/upd'); ?>" method="post" enctype="multipart/form-data">
+                                <form class="form-horizontal" role="form" action="<?php echo url('Goods/edit'); ?>" method="post" enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label for="goods_name" class="col-sm-2 control-label no-padding-right">商品名</label>
                                         <div class="col-sm-6">
@@ -47,10 +47,12 @@
                                         <label for="cate_id" class="col-sm-2 control-label no-padding-right">商品分类</label>
                                         <div class="col-sm-6">
                                             <select name="cate_id" style="width: 100%;">
-                                                <option value=""><?php echo $data['cate_id']; ?></option>
-
-                                                <option value="1">1</option>
-
+                                                <option value=""><?php echo $data['name']; ?></option>
+                                                <?php foreach($cateData as $v): if($v['disabled'] == 'disabled'): ?>
+                                                <option value="<?php echo $v['cate_id']; ?>" disabled="disabled"><?php echo $v['name']; ?></option>
+                                                <?php else: ?>
+                                                <option value="<?php echo $v['cate_id']; ?>"><?php echo $v['name']; ?></option>
+                                                <?php endif; endforeach; ?>
                                             </select>
                                         </div>
                                         <p class="help-block col-sm-4 red">* 必填</p>
@@ -62,9 +64,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="image_url" class="col-sm-2 control-label no-padding-right">图片</label>
                                         <div class="col-sm-6">
-                                            <input type="file" name="image_url" id="">
                                             <img src="<?php echo $data['image_url']; ?>" alt="" width="80" height="40">
                                         </div>
                                     </div>
@@ -128,7 +128,9 @@
                                         </div>
                                     </div>
                                     <input type="hidden" name="goods_id" value="<?php echo $data['goods_id']; ?>">
-                                    <!--user_id为当前登录这id-->
+                                    <input type="hidden" name="user_id" value="1">
+                                    <!--user_id为当前登录这id <?php echo \think\Request::instance()->session('admin.user_id'); ?>-->
+
                                     <div class="form-group">
                                         <div class="col-sm-offset-2 col-sm-10">
                                             <button type="submit" class="btn btn-default">保存信息</button>

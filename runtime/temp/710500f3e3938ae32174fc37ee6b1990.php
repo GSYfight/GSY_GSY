@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:59:"F:\php\GSY\public/../application/admin\view\goods\edit.html";i:1506009101;s:62:"F:\php\GSY\public/../application/admin\view\widget\header.html";i:1506009154;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"F:\php\GSY\public/../application/admin\view\widget\header.html";i:1506044537;}*/ ?>
 <!DOCTYPE html>
 <html><head>
     <meta charset="utf-8">
@@ -52,19 +52,19 @@
                                     <img src="__STATIC__/admin/images/adam-jansen.jpg">
                                 </div>
                                 <section>
-                                    <h2><span class="profile"><span>admin</span></span></h2>
+                                    <h2><span class="profile"><span><?php echo \think\Request::instance()->session('admin.username'); ?></span></span></h2>
                                 </section>
                             </a>
                             <!--Login Area Dropdown-->
                             <ul class="pull-right dropdown-menu dropdown-arrow dropdown-login-area">
                                 <li class="username"><a>David Stevenson</a></li>
                                 <li class="dropdown-footer">
-                                    <a href="/admin/user/logout.html">
+                                    <a href="<?php echo url('Login/index'); ?>">
                                         退出登录
                                     </a>
                                 </li>
                                 <li class="dropdown-footer">
-                                    <a href="/admin/user/changePwd.html">
+                                    <a href="<?php echo url('Admin/edit'); ?>">
                                         修改密码
                                     </a>
                                 </li>

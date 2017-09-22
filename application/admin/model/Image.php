@@ -38,30 +38,24 @@ class Image extends Model{
             }
         }
     }
-
+//比例缩放方法
     static public function thumb($url, $width = 120, $height = 120)
     {
-
         $image = \think\Image::open('.' . $url);
-
-
         $dir_name = dirname($url);//目录名
         $file_name = basename($url);//文件名
         $save_name = $dir_name . '/' . $width . '_' . $file_name;
-        //保存路经
-
-
-//
 //// 按照原图的比例生成一个最大为150*150的缩略图并保存为thumb.png
 //        $image->thumb(150, 150)->save('./thumb.png');
+        //保存路经
         $result = $image->thumb($width, $height)->save('./' . $save_name);
         if (!$result) {
             return false;
         }
-
         //缩放成功返回缩放图片的图片名
         return $save_name;
     }
+    //添加图片
      static public function addImage($data){
     $res=db('image')->insert($data);
     return $res?true:false;
@@ -74,6 +68,7 @@ class Image extends Model{
             ->paginate(4);
         return $data;
     }
+    //通过商品id寻找商品所有哦图片信息
     static public function goodsImageInfo($id){
         $data=db('image')->where(['goods_id'=>$id])->paginate(4);
         $page=$data->render();
@@ -83,5 +78,14 @@ class Image extends Model{
             'data'=>$data,
         ];
         return $arr;
+    }
+    //通过商品id把现有的图片改为不是封面
+    static public function changeGoodsPicFace($id){
+        $data=db('image')->where(['goods_id'=>$id])->select();
+        foreach ($data as $k=>$v){
+            $data[$k]['is_face']=0;
+            $res=db('image')->update($data[$k]);
+        }
+        return $res!==false?true:false;
     }
 }
