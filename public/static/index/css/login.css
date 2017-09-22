@@ -1,0 +1,135 @@
+.section{
+    width:100%;
+    height: 580px;
+}
+
+.section .left{
+    width: 350px;
+    height:100%;
+}
+
+h1{
+    width: 100%;
+    line-height: 70px;
+    font-size: 1.5em;
+    letter-spacing: 0.6em;
+}
+
+.left form{
+    padding-top: 30px;
+}
+
+.left form p{
+    font-size: 0.9em;
+    line-height: 2.2em;
+}
+
+.left form input{
+    width: 320px;
+    height: 30px;
+    border: #D6E2E6 2px solid !important;
+    padding: 5px 15px;
+}
+
+.left form .checkbox{
+    width: 19px;
+    height: 19px;
+    border: #D6E2E6 2px solid !important;
+    outline: none;
+    position: relative;
+    top: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.left form .submit{
+    margin: 36px 0 20px 0;
+    color: white;
+    background-color: #15374A;
+    font-size: 1.2em;
+    letter-spacing: 0.5em;
+    cursor: pointer;
+    width: 100%;
+    height: 50px;
+}
+.section a{
+    text-decoration: none;
+    color: #515E6B;
+    font-weight: 100;
+}
+
+.section a:hover{
+    text-decoration: underline;
+}
+
+.section .right{
+    width: 800px;
+    height:100%;
+    margin-left: 50px;
+}
+
+.section .right .bg{
+    width: 790px;
+    height: 470px;
+    background: url("../img/bkg_tags.jpg");
+    background-size: 790px;
+}
+
+.section .right p{
+    font-size: 0.86em;
+    width: 100%;
+    text-align: center;
+    line-height: 90px;
+    display: block;
+}
+
+#shortIn{
+    width: 80px;
+    padding: 3px 10px;
+}
+
+
+.tishi{
+    width: 260px;
+    height: 50px;
+    position: fixed;
+    top:45%;
+    left: 45%;
+    background-color: white;
+    z-index: 100;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    display: none;
+}
+
+.tishi span{
+    display: inline-block;
+    width: 33px;
+    height: 33px;
+    background-color: red;
+    line-height: 33px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 2em;
+    color: white;
+    margin: 0px 0 0 1.5em;
+    position: relative;
+    left: -10px;
+    top: 7px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
