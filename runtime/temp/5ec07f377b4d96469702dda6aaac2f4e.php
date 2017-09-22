@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:64:"D:\PHPfile\GSY\public/../application/admin\view\widget\left.html";i:1505962877;}*/ ?>
 <div class="page-sidebar" id="sidebar">
     <!-- Page Sidebar Header-->
     <div class="sidebar-header-wrapper">
@@ -17,7 +18,7 @@
             </a>
             <ul class="submenu">
                 <li>
-                    <a href="{:url('Admin/index')}">
+                    <a href="<?php echo url('Admin/index'); ?>">
                                     <span class="menu-text">
                                         管理列表                                    </span>
                         <i class="menu-expand"></i>

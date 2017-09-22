@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:64:"D:\PHPfile\GSY\public/../application/admin\view\index\index.html";i:1505959411;s:66:"D:\PHPfile\GSY\public/../application/admin\view\widget\header.html";i:1505991824;}*/ ?>
 <!DOCTYPE html>
 <html><head>
     <meta charset="utf-8">
@@ -48,19 +49,19 @@
                                     <img src="__STATIC__/admin/images/adam-jansen.jpg">
                                 </div>
                                 <section>
-                                    <h2><span class="profile"><span>{$Request.session.admin.username}</span></span></h2>
+                                    <h2><span class="profile"><span><?php echo \think\Request::instance()->session('admin.username'); ?></span></span></h2>
                                 </section>
                             </a>
                             <!--Login Area Dropdown-->
                             <ul class="pull-right dropdown-menu dropdown-arrow dropdown-login-area">
                                 <li class="username"><a>David Stevenson</a></li>
                                 <li class="dropdown-footer">
-                                    <a href="{:url('Login/index')}">
+                                    <a href="<?php echo url('Login/index'); ?>">
                                         退出登录
                                     </a>
                                 </li>
                                 <li class="dropdown-footer">
-                                    <a href="{:url('Admin/edit')}">
+                                    <a href="<?php echo url('Admin/edit'); ?>">
                                         修改密码
                                     </a>
                                 </li>
