@@ -1,0 +1,105 @@
+{:widget('Widget/header')}
+
+<!-- /头部 -->
+
+<div class="main-container container-fluid">
+    <div class="page-container">
+        {:widget('Widget/left')}
+        </ul>
+        <!-- /Sidebar Menu -->
+    </div>
+    <!-- /Page Sidebar -->
+    <!-- Page Content -->
+    <div class="page-content">
+        <!-- Page Breadcrumb -->
+        <div class="page-breadcrumbs">
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">系统</a>
+                </li>
+                <li class="active">用户管理</li>
+            </ul>
+        </div>
+        <!-- /Page Breadcrumb -->
+
+        <!-- Page Body -->
+        <div class="page-body">
+
+            <button type="button" tooltip="添加用户" class="btn btn-sm btn-azure btn-addon"
+                    onClick="javascript:window.location.href = '{:url('Admin/add')}'"><i class="fa fa-plus"></i> Add
+            </button>
+            <div class="row">
+                <div class="col-lg-12 col-sm-12 col-xs-12">
+                    <div class="widget">
+                        <div class="widget-body">
+                            <div class="flip-scroll">
+                                <table class="table table-bordered table-hover">
+                                    <thead class="">
+                                    <tr>
+                                        <th class="text-center">ID</th>
+                                        <th class="text-center">用户IP</th>
+                                        <th class="text-center">用户名称</th>
+                                        <th class="text-center">密码</th>
+                                        <th class="text-center">创建时间</th>
+                                        <th class="text-center">登录次数</th>
+                                        <th class="text-center">是否冻结</th>
+                                        <th class="text-center">权限级别</th>
+                                        <th class="text-center">操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {foreach $data as $val}
+                                    <tr>
+                                        <td align="center">{$val.user_id}</td>
+                                        <td align="center">{$val.ip}</td>
+                                        <td align="center">{$val.username}</td>
+                                        <td align="center">{$val.password}</td>
+                                        <td align="center">{$val.creat_time|date="y-m-d H:i:s",###}</td>
+                                        <td align="center">{$val.login_time}</td>
+                                        <td align="center">
+                                            {if condition='$val.lock eq 0'}
+                                             否
+                                            {else/}
+                                            是
+                                            {/if}
+                                        </td>
+                                        <td align="center">{$val.limit}</td>
+                                        <td align="center">
+                                            <a href='{:url('Admin/edit',array('user_id'=>$val.user_id))}' class="btn btn-primary btn-sm shiny">
+                                                <i class="fa fa-edit"></i> 编辑
+                                            </a>
+                                            {if condition='$val.username neq "admin"'}
+                                            <a href="#" onClick="warning('确实要删除吗', '{:url('Admin/del',array('user_id'=>$val.user_id))}')"
+                                               class="btn btn-danger btn-sm shiny">
+                                                <i class="fa fa-trash-o"></i> 删除
+                                            </a>
+                                            {/if}
+                                        </td>
+                                    </tr>
+                                    {/foreach}
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {$data->render()}
+        </div>
+        <!-- /Page Body -->
+    </div>
+    <!-- /Page Content -->
+</div>
+</div>
+
+<!--Basic Scripts-->
+<script src="__STATIC__/admin/style/jquery_002.js"></script>
+<script src="__STATIC__/admin/style/bootstrap.js"></script>
+<script src="__STATIC__/admin/style/jquery.js"></script>
+<!--Beyond Scripts-->
+<script src="__STATIC__/admin/style/beyond.js"></script>
+
+
+</body></html>

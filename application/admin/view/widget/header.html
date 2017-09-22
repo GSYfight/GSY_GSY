@@ -17,6 +17,9 @@
     <link href="__STATIC__/admin/style/demo.css" rel="stylesheet">
     <link href="__STATIC__/admin/style/typicons.css" rel="stylesheet">
     <link href="__STATIC__/admin/style/animate.css" rel="stylesheet">
+    <script src="__STATIC__/ueditor/ueditor.config.js"></script>
+    <script src="__STATIC__/ueditor/ueditor.all.min.js"></script>
+    <script src="__STATIC__/ueditor/lang/zh-cn/zh-cn.js"></script>
 
 </head>
 <body>
@@ -48,19 +51,19 @@
                                     <img src="__STATIC__/admin/images/adam-jansen.jpg">
                                 </div>
                                 <section>
-                                    <h2><span class="profile"><span>admin</span></span></h2>
+                                    <h2><span class="profile"><span>{$Request.session.admin.username}</span></span></h2>
                                 </section>
                             </a>
                             <!--Login Area Dropdown-->
                             <ul class="pull-right dropdown-menu dropdown-arrow dropdown-login-area">
                                 <li class="username"><a>David Stevenson</a></li>
                                 <li class="dropdown-footer">
-                                    <a href="/admin/user/logout.html">
+                                    <a href="{:url('Login/index')}">
                                         退出登录
                                     </a>
                                 </li>
                                 <li class="dropdown-footer">
-                                    <a href="/admin/user/changePwd.html">
+                                    <a href="{:url('Admin/edit')}">
                                         修改密码
                                     </a>
                                 </li>
