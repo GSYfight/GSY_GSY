@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"F:\php\GSY\public/../application/admin\view\widget\header.html";i:1505961461;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:59:"F:\php\GSY\public/../application/admin\view\goods\edit.html";i:1506009101;s:62:"F:\php\GSY\public/../application/admin\view\widget\header.html";i:1506009154;}*/ ?>
 <!DOCTYPE html>
 <html><head>
     <meta charset="utf-8">
@@ -18,6 +18,9 @@
     <link href="__STATIC__/admin/style/demo.css" rel="stylesheet">
     <link href="__STATIC__/admin/style/typicons.css" rel="stylesheet">
     <link href="__STATIC__/admin/style/animate.css" rel="stylesheet">
+    <script src="__STATIC__/ueditor/ueditor.config.js"></script>
+    <script src="__STATIC__/ueditor/ueditor.all.min.js"></script>
+    <script src="__STATIC__/ueditor/lang/zh-cn/zh-cn.js"></script>
 
 </head>
 <body>

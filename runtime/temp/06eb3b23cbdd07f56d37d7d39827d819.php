@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:62:"F:\php\GSY\public/../application/admin\view\widget\header.html";i:1505961461;s:60:"F:\php\GSY\public/../application/admin\view\widget\left.html";i:1505984541;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:60:"F:\php\GSY\public/../application/admin\view\widget\left.html";i:1506001463;}*/ ?>
 <div class="page-sidebar" id="sidebar">
     <!-- Page Sidebar Header-->
     <div class="sidebar-header-wrapper">
@@ -34,7 +34,7 @@
             </a>
             <ul class="submenu">
                 <li>
-                    <a href="/admin/document/index.html">
+                    <a href="<?php echo url('Cate/lis'); ?>">
                                     <span class="menu-text">
                                         分类列表                                    </span>
                         <i class="menu-expand"></i>

@@ -13,12 +13,16 @@ class Goods extends Model{
         $data=db('goods')->order('goods_id desc')->paginate(5);
         return $data;
     }
+    //通过id获取商品数据
     static public function getgoodsById($id){
         $data=db('goods')->find($id);
         return $data;
     }
+    //添加商品数据
     static public function addGoods($data){
-
+        if(!$data){
+            return false;
+        }
         $goods_id=db('goods')->insertGetId($data);
         return $goods_id??false;
 

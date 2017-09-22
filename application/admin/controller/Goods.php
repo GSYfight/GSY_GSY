@@ -89,6 +89,12 @@ class Goods extends Controller
         $this->assign('cateData', $cateData);
         return $this->fetch();
     }
+    public function edit(){
+        $id=input('goods_id');
+        $data=GoodsModel::getgoodsById($id);
+        $this->assign('data',$data);
+        return $this->fetch();
+    }
     public function upd()
     {
         return $this->fetch();
