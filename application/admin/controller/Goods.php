@@ -79,6 +79,7 @@ class Goods extends Controller
                 $this->error('添加失败');
             }
             $imageData['goods_id'] = $goods_id;
+
             if (input('is_face') == 'on') {
                 $imageData['is_face'] = 1;
                 //把该商品其他图片的is_face改为0非封面
@@ -86,6 +87,7 @@ class Goods extends Controller
             } else {
                 $imageData['is_face'] = 0;
             }
+
             $imageData['image_b_url'] = ImageModel::thumb($imageData['image_url'], $width = 650, $height = 650);
             $imageData['image_m_url'] = ImageModel::thumb($imageData['image_url'], $width = 240, $height = 240);
             $imageData['image_s_url'] = ImageModel::thumb($imageData['image_url'], $width = 120, $height = 120);

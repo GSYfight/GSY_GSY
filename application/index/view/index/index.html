@@ -100,15 +100,16 @@
             </div>
 
         </div>
-        {foreach $data as $val}
-        {if condition="$val.path eq '1,%'"}
-        {for start='1' end='8'}
+
+        {foreach $data as $v}
+        {foreach $v as $val}
+        {if condition='$val.pid eq 33'}
         <div class="regouRight fl">
             <div class="regouR fl">
                 <span class="numSpan">2</span>
                 <dl>
                     <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
+                        <img src="{$val.image_b_url}" alt="" class="goodsImg">
                         <div class="youhuiDiv">
                             <img src="__STATIC__/index/./img/new.png" alt="" class="youhuiImg">
                         </div>
@@ -129,9 +130,10 @@
                 </dl>
             </div><!--2-->
         </div>
-        {/for}
         {/if}
         {/foreach}
+        {/foreach}
+
     </div>
     <!--新到尖货-->
     <div class="divModel borderD">
