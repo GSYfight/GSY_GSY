@@ -75,9 +75,9 @@ class Goods extends Controller
             }
             $imageData['goods_id'] = $goods_id;
             $imageData['is_face'] = 1;
-            $imageData['image_b_url'] = ImageModel::thumb($data['image_url'], $width = 650, $height = 650);
-            $imageData['image_m_url'] = ImageModel::thumb($data['image_url'], $width = 240, $height = 240);
-            $imageData['image_s_url'] = ImageModel::thumb($data['image_url'], $width = 120, $height = 120);
+            $imageData['image_b_url'] = ImageModel::thumb($imageData['image_url'], $width = 650, $height = 650);
+            $imageData['image_m_url'] = ImageModel::thumb($imageData['image_url'], $width = 240, $height = 240);
+            $imageData['image_s_url'] = ImageModel::thumb($imageData['image_url'], $width = 120, $height = 120);
 
             $res = ImageModel::addImage($imageData);
 

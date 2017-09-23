@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"D:\PHPfile\GSY\public/../application/admin\view\goods\list.html";i:1506042001;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"D:\PHPfile\GSY\public/../application/admin\view\goods\list.html";i:1506064811;}*/ ?>
 <?php echo widget('Widget/header'); ?>
 <!-- /头部 -->
 <div class="main-container container-fluid">
@@ -50,11 +50,11 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <?php foreach($data as $v): ?>
+                                    <?php foreach($data['data'] as $v): ?>
                                     <tr>
                                         <td align="center"><?php echo $v['goods_id']; ?></td>
                                         <td align="center"><?php echo $v['goods_name']; ?></td>
-                                        <td align="center"><?php echo $v['cate_id']; ?></td>
+                                        <td align="center"><?php echo $v['name']; ?></td>
                                         <td align="center">
                                             <img src="<?php echo $v['image_url']; ?>" alt="" width="80" height="40">
 
@@ -64,15 +64,15 @@
                                         <td align="center"><?php echo $v['sell_price']; ?></td>
                                         <td align="center"><?php echo $v['store']; ?></td>
                                         <td align="center"><?php echo !empty($v['maketable'])?'是':'否'; ?></td>
-                                        <td align="center"><?php echo date('Y-m-d H-i-s',$v['create_time']); ?></td>
-                                        <td align="center"><?php echo date('Y-m-d H-i-s',$v['last_time']); ?></td>
-                                        <td align="center"><?php echo $v['last_modify_id']; ?></td>
+                                        <td align="center"><?php echo date('Y-m-d H:i:s',$v['create_time']); ?></td>
+                                        <td align="center"><?php echo date('Y-m-d H:i:s',$v['last_time']); ?></td>
+                                        <td align="center"><?php echo $v['username']; ?></td>
                                         <td align="center"><?php echo $v['status']; ?></td>
                                         <td align="center">
                                             <a href="<?php echo url('Image/goodsPicList',array('id'=>$v['goods_id'],'goods_name'=>$v['goods_name'])); ?>" class="btn btn-primary btn-sm shiny">
                                                 <i class="fa fa-edit"></i> 图片管理
                                             </a>
-                                            <a href="<?php echo url('Goods/edit',array('id'=>$v['goods_id'])); ?>" class="btn btn-primary btn-sm shiny">
+                                            <a href="<?php echo url('Goods/edit',['goods_id'=>$v['goods_id']]); ?>" class="btn btn-primary btn-sm shiny">
                                                 <i class="fa fa-edit"></i> 编辑
                                             </a>
                                             <!--判断id 是不是为1，如果不是1，加删除按钮neq不等于--eq是等于-->
@@ -94,7 +94,7 @@
                     </div>
                 </div>
             </div>
-            <?php echo $data->render(); ?>
+            <?php echo $data['page']; ?>
         </div>
         <!-- /Page Body -->
     </div>

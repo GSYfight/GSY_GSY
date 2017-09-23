@@ -120,7 +120,7 @@ class Admin extends Base{
     {
         //清空session的数据
         session('admin', null);
-        $this->success('登出成功',url('Login/login'));
+        $this->success('登出成功',url('Login/index'));
 //        只执行跳转
 //        return $this->redirect('Login/login');
     }

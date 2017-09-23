@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:64:"D:\PHPfile\GSY\public/../application/index\view\index\index.html";i:1506062432;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:64:"D:\PHPfile\GSY\public/../application/index\view\index\index.html";i:1506124428;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -101,17 +101,18 @@
             </div>
 
         </div>
-        <?php foreach($data as $val): if($val['path'] == '1,%'): ?>
+
+        <?php foreach($data as $v): foreach($v as $val): if($val['pid'] == 33): ?>
         <div class="regouRight fl">
             <div class="regouR fl">
                 <span class="numSpan">2</span>
                 <dl>
                     <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
+                        <img src="<?php echo $val['image_b_url']; ?>" alt="" class="goodsImg">
                         <div class="youhuiDiv">
                             <img src="__STATIC__/index/./img/new.png" alt="" class="youhuiImg">
                         </div>
-                        <div class="numDiv">
+                        <div class="numDiv" onclick="<?php echo url('Product/index'); ?>">
                             <span>0</span>
                             <button class="reduceBtn">-</button>
                             <button class="addBtn">+</button>
@@ -128,7 +129,8 @@
                 </dl>
             </div><!--2-->
         </div>
-        <?php endif; endforeach; ?>
+        <?php endif; endforeach; endforeach; ?>
+
     </div>
     <!--新到尖货-->
     <div class="divModel borderD">
