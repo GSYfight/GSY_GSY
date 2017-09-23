@@ -100,4 +100,12 @@ class Image extends Model{
         $res=db('image')->update($data);
         return $res!==false?true:false;
     }
+    //通过图片id
+    static public function delImage($id){
+        if (!$id){
+            return false;
+        }
+        $res=db('image')->delete($id);
+        return $res??false;
+    }
 }

@@ -129,18 +129,18 @@ class Image extends Controller{
         return $this->fetch();
     }
     public function del(){
-//        {//可以在参数列表填参，接收url传过来的参数del（$id）
-//            $id = input('id');//接收url传过来的id
-//            if ($id == 1) {
-//                return $this->error('管理员不能删除！');
-//            }
-//            //删除对应id的管理员信息,必须加where条件
-//            $res = Db::name('admin')->delete($id);//返回受影响行数
-//            if ($res) {
-//                return $this->success('删除成功！', url('Admin/index'));
-//            } else {
-//                return $this->error('删除失败！');
-//            }
-//        }
+        {//可以在参数列表填参，接收url传过来的参数del（$id）
+            $image_id = input('image_id');//接收url传过来的id
+            if ($image_id == 1) {
+                return $this->error('管理员不能删除！');
+            }
+            //删除对应id的管理员信息,必须加where条件
+            $res = Db::name('admin')->delete($id);//返回受影响行数
+            if ($res) {
+                return $this->success('删除成功！', url('Admin/index'));
+            } else {
+                return $this->error('删除失败！');
+            }
+        }
     }
 }

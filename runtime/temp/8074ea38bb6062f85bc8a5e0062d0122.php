@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:58:"F:\php\GSY\public/../application/admin\view\goods\add.html";i:1506097992;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:58:"F:\php\GSY\public/../application/admin\view\goods\add.html";i:1506130928;}*/ ?>
 <?php echo widget('Widget/header'); ?>
 <!-- /头部 -->
 
@@ -66,7 +66,7 @@
                                         <label for="image_url" class="col-sm-2 control-label no-padding-right">图片</label>
                                         <div class="col-sm-6">
                                             <input type="file" name="image_url" id="image_url">
-                                            <img src="" style="border: 0px solid white;float:right;outline: hidden;border: white;" alt="" id="image" width="80" height="60">
+                                            <img src=""  alt="" id="image" width="80" >
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -163,6 +163,7 @@
 <!--Beyond Scripts-->
 <script src="__STATIC__/admin/style/beyond.js"></script>
 <script>
+    //    图片预览
     $("#image_url").change(function(e) {
         for (var i = 0; i < e.target.files.length; i++) {
             var file = e.target.files.item(i);
