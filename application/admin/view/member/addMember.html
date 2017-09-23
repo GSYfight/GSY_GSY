@@ -103,7 +103,17 @@
 <script src="__STATIC__/admin/style/jquery.js"></script>
 <!--Beyond Scripts-->
 <script src="__STATIC__/admin/style/beyond.js"></script>
-
+<script src="__STATIC__/jquery-3.2.1.min.js"></script>
+<script>
+    $("#id").change(function() {
+        var objUrl = getObjectURL(this.files[0]);
+        alert(objUrl);
+        console.log("objUrl = " + objUrl);
+        if (objUrl) {
+            $('#picAdd').attr('src',objUrl);
+        }
+    })
+</script>
 
 
 </body></html>

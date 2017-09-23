@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:63:"E:\PHP\GSY\public/../application/index\view\login\register.html";i:1506063651;s:62:"E:\PHP\GSY\public/../application/index\view\widget\header.html";i:1501643918;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:63:"E:\PHP\GSY\public/../application/index\view\login\register.html";i:1506064319;s:62:"E:\PHP\GSY\public/../application/index\view\widget\header.html";i:1501643918;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -268,19 +268,19 @@
         <div class="left fl">
             <h1>会员注册</h1>
             <!--注册表单-->
-            <form action="javascript:;" method="post">
+            <form action="<?php echo url('Login/register'); ?>" method="post">
                 <p>
                     <span>手机号</span>
-                    <label  class="s2"><span class="s1">!</span>请填写正确的手机号</label>
+                    <label for="mobile" class="s2"><span class="s1">!</span>请填写正确的手机号</label>
                     <input type="text" placeholder="请填写正确手机号" name="mobile" id="mobile" maxlength="11">
                     <br>
 
                 </p>
                 <p>
                     <span>密码</span>
-                    <input type="password" placeholder="6-20个字符" name="password" minlength="6" maxlength="20">
+                    <input type="password" placeholder="6-20个字符" name="password" id="password" minlength="6" maxlength="20">
                     <br>
-                    <label class="s2"><span class="s1">!</span>密码长度为6-20字符</label>
+                    <label class="s2" for="password"><span class="s1">!</span>密码长度为6-20字符</label>
                 </p>
                 <p>
                     <span></span>
@@ -297,14 +297,14 @@
                 </p>
                 <p>
                     <span>验证码</span>
-                    <input type="text" placeholder="请填写校验码" name="jiaoyanma" class="shortIn">
+                    <input type="text" placeholder="请填写校验码" name="code" class="shortIn">
                     <img src="" alt="" width="65px" height="20px">
                     <a href="">看不清楚?换一个</a>
                     <label class="s2"><span class="s1">!</span>请输入校验码</label>
                 </p>
                 <p>
                     <span>验证码</span>
-                    <input type="text" placeholder="请填写验证码" name="yanzhengma" class="shortIn">
+                    <input type="text" placeholder="请填写验证码" name="smsCode" class="shortIn">
                     <button>获取短信验证码</button>
                     <br>
                     <label class="s2"><span class="s1">!</span>本项必填</label>
@@ -343,7 +343,7 @@
 <script>
     //注册表单验证
 //    手机号验证
-    $('input[name=phone]').blur(function () {
+    $('input[name=mobile]').blur(function () {
         var $phone = this.value;
         if ((!(/^1[3|4|5|8][0-9]\d{4,8}$/.test($phone)))) {
             $(this).next().next().show();
@@ -389,9 +389,9 @@
         }
     });
 //    校验码
-    $('input[name=jiaoyanma]').blur(function () {
-        var $jiaoyanma = this.value;
-        if($jiaoyanma.length < 4){
+    $('input[name=code]').blur(function () {
+        var $code = this.value;
+        if($code.length < 4){
             $(this).next().next().next().show();
         }else {
             $(this).next().next().next().hide();
@@ -400,11 +400,11 @@
 //    提交判断，验证码
     $('form').submit(function () {
         $('input[name]').blur();//触发其他判断
-        $yanzhengma  = $('input[name=yanzhengma]').val();
-        if($yanzhengma.length < 4){
-            $('input[name=yanzhengma]').next().next().next().show();
+        $smsCode  = $('input[name=smsCode]').val();
+        if($smsCode.length < 4){
+            $('input[name=smsCode]').next().next().next().show();
         }else {
-            $('input[name=yanzhengma]').next().next().next().hdie();
+            $('input[name=smsCode]').next().next().next().hide();
         }
 
         if(!$('.s2').is(':visible')){

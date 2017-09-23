@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"E:\PHP\GSY\public/../application/admin\view\widget\header.html";i:1505962195;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:61:"E:\PHP\GSY\public/../application/admin\view\cate\addcate.html";i:1505977936;s:62:"E:\PHP\GSY\public/../application/admin\view\widget\header.html";i:1506065568;}*/ ?>
 <!DOCTYPE html>
 <html><head>
     <meta charset="utf-8">
@@ -18,6 +18,9 @@
     <link href="__STATIC__/admin/style/demo.css" rel="stylesheet">
     <link href="__STATIC__/admin/style/typicons.css" rel="stylesheet">
     <link href="__STATIC__/admin/style/animate.css" rel="stylesheet">
+    <script src="__STATIC__/ueditor/ueditor.config.js"></script>
+    <script src="__STATIC__/ueditor/ueditor.all.min.js"></script>
+    <script src="__STATIC__/ueditor/lang/zh-cn/zh-cn.js"></script>
 
 </head>
 <body>
@@ -49,19 +52,19 @@
                                     <img src="__STATIC__/admin/images/adam-jansen.jpg">
                                 </div>
                                 <section>
-                                    <h2><span class="profile"><span>admin</span></span></h2>
+                                    <h2><span class="profile"><span><?php echo \think\Request::instance()->session('admin.username'); ?></span></span></h2>
                                 </section>
                             </a>
                             <!--Login Area Dropdown-->
                             <ul class="pull-right dropdown-menu dropdown-arrow dropdown-login-area">
                                 <li class="username"><a>David Stevenson</a></li>
                                 <li class="dropdown-footer">
-                                    <a href="/admin/user/logout.html">
+                                    <a href="<?php echo url('Login/index'); ?>">
                                         退出登录
                                     </a>
                                 </li>
                                 <li class="dropdown-footer">
-                                    <a href="/admin/user/changePwd.html">
+                                    <a href="<?php echo url('Admin/edit'); ?>">
                                         修改密码
                                     </a>
                                 </li>

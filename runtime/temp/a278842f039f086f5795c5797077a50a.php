@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:60:"E:\PHP\GSY\public/../application/admin\view\index\index.html";i:1505962195;s:62:"E:\PHP\GSY\public/../application/admin\view\widget\header.html";i:1505962195;s:60:"E:\PHP\GSY\public/../application/admin\view\widget\left.html";i:1505993606;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:60:"E:\PHP\GSY\public/../application/admin\view\widget\left.html";i:1506065570;}*/ ?>
 <div class="page-sidebar" id="sidebar">
     <!-- Page Sidebar Header-->
     <div class="sidebar-header-wrapper">
@@ -18,7 +18,7 @@
             </a>
             <ul class="submenu">
                 <li>
-                    <a href="/admin/document/index.html">
+                    <a href="<?php echo url('Admin/index'); ?>">
                                     <span class="menu-text">
                                         管理列表                                    </span>
                         <i class="menu-expand"></i>
@@ -66,7 +66,7 @@
             </a>
             <ul class="submenu">
                 <li>
-                    <a href="/admin/document/index.html">
+                    <a href="<?php echo url('Goods/index'); ?>">
                                     <span class="menu-text">
                                         商品列表                                    </span>
                         <i class="menu-expand"></i>
@@ -82,7 +82,7 @@
             </a>
             <ul class="submenu">
                 <li>
-                    <a href="/admin/document/index.html">
+                    <a href="<?php echo url('Image/index'); ?>">
                                     <span class="menu-text">
                                         图片列表                                    </span>
                         <i class="menu-expand"></i>

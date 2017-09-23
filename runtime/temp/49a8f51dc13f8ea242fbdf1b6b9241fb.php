@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"E:\PHP\GSY\public/../application/admin\view\member\addmember.html";i:1506047847;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"E:\PHP\GSY\public/../application/admin\view\member\addmember.html";i:1506081559;}*/ ?>
 <?php echo widget('widget/header'); ?>
 <!-- /头部 -->
 <div class="main-container container-fluid">
@@ -104,7 +104,17 @@
 <script src="__STATIC__/admin/style/jquery.js"></script>
 <!--Beyond Scripts-->
 <script src="__STATIC__/admin/style/beyond.js"></script>
-
+<script src="__STATIC__/jquery-3.2.1.min.js"></script>
+<script>
+    $("#id").change(function() {
+        var objUrl = getObjectURL(this.files[0]);
+        alert(objUrl);
+        console.log("objUrl = " + objUrl);
+        if (objUrl) {
+            $('#picAdd').attr('src',objUrl);
+        }
+    })
+</script>
 
 
 </body></html>
