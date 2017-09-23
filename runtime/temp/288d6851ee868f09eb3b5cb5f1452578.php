@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"F:\php\GSY\public/../application/admin\view\image\goodspiclist.html";i:1505999861;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"F:\php\GSY\public/../application/admin\view\image\goodspiclist.html";i:1506085163;}*/ ?>
 <?php echo widget('Widget/header'); ?>
 <!-- /头部 -->
 <div class="main-container container-fluid">
@@ -23,7 +23,7 @@
         <div class="page-body">
 
             <button type="button" tooltip="添加图片" class="btn btn-sm btn-azure btn-addon"
-                    onClick="javascript:window.location.href = '<?php echo url('Image/addGoodsPic'); ?>'"><i class="fa fa-plus"></i> Add
+                    onClick="javascript:window.location.href = '<?php echo url('Image/addGoodsPic',array('goods_id'=>$data['data'][0]['goods_id'],'goods_name'=>$goods_name)); ?>'"><i class="fa fa-plus"></i> Add
             </button>
             <div class="row">
                 <div class="col-lg-12 col-sm-12 col-xs-12">
@@ -50,7 +50,14 @@
                                         <td align="center">
                                             <img src="<?php echo $v['image_url']; ?>" alt="" width="80" height="40">
                                         </td>
-                                        <td align="center"><?php echo $v['is_face']; ?></td>
+                                        <td align="center">
+                                            <!--判断是否为封面-->
+                                            <?php if($v['is_face'] == 1): ?>
+                                            是
+                                            <?php else: ?>
+                                            <a href="<?php echo url('Image/isFace',['image_id'=>$v['image_id'],'goods_id'=>$v['goods_id']]); ?>">否</a>
+                                            <?php endif; ?>
+                                        </td>
                                         <td align="center">
                                             <a href="#" onClick="warning('确实要删除吗', '<?php echo url('Image/del',array('id'=>$v['image_id'])); ?>')"
                                                class="btn btn-danger btn-sm shiny">

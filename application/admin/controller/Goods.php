@@ -26,8 +26,6 @@ class Goods extends Controller
         if (request()->isPost()) {
             $data = [
                 'goods_name' => input('goods_name'),
-
-                'desc' => input('desc'),
                 'market_price' => input('market_price'),
                 'sell_price' => input('sell_price'),
                 'store' => input('store'),
@@ -40,6 +38,11 @@ class Goods extends Controller
                 return $this->error('商品分类未选择');
             }else{
                 $data['cate_id']=input('cate_id');
+            }
+            if (input('desc')==null){
+                $data['desc']='暂无简介';
+            }else{
+                $data['desc']=input('desc');
             }
             //判断是否上架
             if (input('maketable') == 'on') {
@@ -67,6 +70,8 @@ class Goods extends Controller
                 } else {
                     return $this->error($arr['msg']);
                 }
+            }else{
+                return $this->error('未选择图片');
             }
             //把商品信息加入数据库，返回id
             $goods_id = GoodsModel::addGoods($data);
@@ -74,10 +79,16 @@ class Goods extends Controller
                 $this->error('添加失败');
             }
             $imageData['goods_id'] = $goods_id;
-            $imageData['is_face'] = 1;
-            $imageData['image_b_url'] = ImageModel::thumb($data['image_url'], $width = 650, $height = 650);
-            $imageData['image_m_url'] = ImageModel::thumb($data['image_url'], $width = 240, $height = 240);
-            $imageData['image_s_url'] = ImageModel::thumb($data['image_url'], $width = 120, $height = 120);
+            if (input('is_face') == 'on') {
+                $imageData['is_face'] = 1;
+                //把该商品其他图片的is_face改为0非封面
+                $res=ImageModel::changeGoodsPicFace( $imageData['goods_id']);
+            } else {
+                $imageData['is_face'] = 0;
+            }
+            $imageData['image_b_url'] = ImageModel::thumb($imageData['image_url'], $width = 650, $height = 650);
+            $imageData['image_m_url'] = ImageModel::thumb($imageData['image_url'], $width = 240, $height = 240);
+            $imageData['image_s_url'] = ImageModel::thumb($imageData['image_url'], $width = 120, $height = 120);
 
             $res = ImageModel::addImage($imageData);
 
