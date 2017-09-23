@@ -1,0 +1,172 @@
+.section{
+    width:100%;
+    height: 680px;
+}
+
+.section .left{
+    width: 420px;
+    height:100%;
+}
+
+h1{
+    width: 100%;
+    font-size: 1.5em;
+    letter-spacing: 0.88em;
+}
+
+.left form{
+    padding-top: 30px;
+}
+
+.left p {
+    font-size: 0.88em;
+    height: 55px;
+    margin-bottom: 10px;
+}
+
+.left p span{
+    height: 45px;
+    width: 90px;
+    display: inline-block;
+}
+
+.left form input{
+    width: 290px;
+    height: 30px;
+    border: #D6E2E6 2px solid !important;
+    padding: 5px 15px;
+}
+
+
+.left form .shortIn{
+    width: 80px;
+    padding: 3px 10px;
+}
+
+.left form img{
+    margin:0  15px 0 15px;
+}
+
+.section a:hover{
+    background-color: #96ADB5;
+}
+
+
+.left form button{
+    width: 140px;
+    height: 45px;
+    margin-left: 15px;
+    background-color: #15374A;
+    color: white;
+    border: none;
+    font-size: 1.1em;
+    cursor: pointer;
+
+}
+
+
+.left form .checkbox{
+    width: 19px;
+    height: 19px;
+    border: #D6E2E6 2px solid !important;
+    outline: none;
+    position: relative;
+    top: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.left form .submit{
+    width: 422px;
+    color: white;
+    background-color: #15374A;
+    font-size: 1.2em;
+    letter-spacing: 0.5em;
+    cursor: pointer;
+    width: 100%;
+    height: 50px;
+}
+
+.tishi{
+    position: relative;
+    top: -25px;
+}
+
+.mimaqiangdu{
+    font-size: 0.8em;
+}
+
+.mimaqiangduVal{
+    position: relative;
+    top: -18px;
+    left: 100px;
+    height: 15px ;
+    color: red;
+}
+/*底色*/
+.mimaqiangduImg1{
+    width: 111px !important;
+    height: 8px !important;
+    line-height: 6px;
+    background-color: #D6E2E6;
+    position: relative;
+    top: -50px;;
+}
+/*进度条*/
+#mimaqiangduImg{
+    width: 0px;
+    height: 8px;
+    line-height: 6px;
+    background: #E88771;
+    position: relative;
+    top: -67px;
+}
+
+.section .right{
+    width: 730px;
+    height:100%;
+    margin-left: 50px;
+}
+
+.section .right .bg{
+    width: 730px;
+    height: 600px;
+    background: url("../img/regist_bg.jpg");
+    background-size: 730px;
+}
+
+form .s1{
+    width: 15px !important;
+    height: 15px !important;
+    background-color: #B14C49;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    font-size: 0.6em;
+    font-weight: 100;
+}
+
+form .s2{
+    width: 250px;
+    height: 15px !important;
+    font-size: 0.6em;
+    position: relative;
+    top: -11px;
+    left: 100px;
+    color: #666666;
+    line-height: 15px;
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -65,9 +65,16 @@ class Admin extends Base{
         //1.接受数据
         $id=input('user_id');
 //        dump($id);exit;
+
         //2.数据库查找数据
         $data=adminModel::edit($id);
-//        dump($data);exit;
+//        判断是否有权限更改
+//        dump(session('admin'));exit;
+        $limit=$data['limit'];
+        if($limit<session('admin')['limit']){
+            $this->error('无权限更改');
+        }
+
         $this->assign('data',$data);
         return $this->fetch();
 
