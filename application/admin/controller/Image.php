@@ -39,7 +39,7 @@ class Image extends Controller{
              } else {
                  $imageData['is_face'] = 0;
              }
-
+             //判断是否有上传图片
              if ($_FILES['image_url']['tmp_name'] != '') {
                  //上传图片
                  $arr = ImageModel::uploadPic('image_url');
@@ -52,21 +52,16 @@ class Image extends Controller{
              $imageData['image_b_url'] = ImageModel::thumb($imageData['image_url'], $width = 650, $height = 650);
              $imageData['image_m_url'] = ImageModel::thumb($imageData['image_url'], $width = 240, $height = 240);
              $imageData['image_s_url'] = ImageModel::thumb($imageData['image_url'], $width = 120, $height = 120);
-
              $res = ImageModel::addImage($imageData);
-
              if ($res) {
                  return $this->success('添加成功', url('Goods/index'));
              } else {
                  return $this->error('添加失败');
              }
-
-
-
-
          }
-        $goodsData=Goods::index();
-        $this->assign('goodsData',$goodsData['data']);
+         //通过get访问的
+        $goodsData=Goods::getAllGoods();
+        $this->assign('goodsData',$goodsData);
         return $this->fetch();
     }
     public function goodsPicList(){
@@ -78,5 +73,74 @@ class Image extends Controller{
             'goods_name'=>$goods_name,
         ]);
         return $this->fetch();
+    }
+    public function isFace(){
+        $image_id=input('image_id');
+        $goods_id=input('goods_id');
+        //把该商品其他图片的is_face改为0非封面
+        $res1=ImageModel::changeGoodsPicFace($goods_id);
+        //把该图片的is_face改为1封面
+        $res2=ImageModel::changePicFace($image_id);
+        $data=imageModel::imageInfo();
+        $this->assign('data',$data);
+        return $this->fetch('list');
+    }
+    public function addGoodsPic(){
+        if (request()->isPost()){
+            $imageData['goods_id'] = input('goods_id');
+            if (input('is_face') == 'on') {
+                $imageData['is_face'] = 1;
+                //把该商品其他图片的is_face改为0非封面
+                $res=ImageModel::changeGoodsPicFace( $imageData['goods_id']);
+            } else {
+                $imageData['is_face'] = 0;
+            }
+            if ($_FILES['image_url']['tmp_name'] != '') {
+                //上传图片
+                $arr = ImageModel::uploadPic('image_url');
+                if ($arr['status'] == 'success') {
+                    $imageData['image_url'] = $arr['url'];
+                } else {
+                    return $this->error($arr['msg']);
+                }
+            }else{
+                return $this->error('没有上传图片');
+            }
+            $imageData['image_b_url'] = ImageModel::thumb($imageData['image_url'], $width = 650, $height = 650);
+            $imageData['image_m_url'] = ImageModel::thumb($imageData['image_url'], $width = 240, $height = 240);
+            $imageData['image_s_url'] = ImageModel::thumb($imageData['image_url'], $width = 120, $height = 120);
+
+            $res = ImageModel::addImage($imageData);
+            if ($res) {
+                return $this->success('添加成功', url('Goods/index'));
+            } else {
+                return $this->error('添加失败');
+            }
+        }
+        //通过get访问的
+        $goods_id=input('goods_id');
+        $goods_name=input('goods_name');
+        $goodsData=Goods::index();
+        $this->assign([
+            'goods_id'=>$goods_id,
+            'goods_name'=>$goods_name,
+            'goodsData'=>$goodsData['data'],
+        ]);
+        return $this->fetch();
+    }
+    public function del(){
+//        {//可以在参数列表填参，接收url传过来的参数del（$id）
+//            $id = input('id');//接收url传过来的id
+//            if ($id == 1) {
+//                return $this->error('管理员不能删除！');
+//            }
+//            //删除对应id的管理员信息,必须加where条件
+//            $res = Db::name('admin')->delete($id);//返回受影响行数
+//            if ($res) {
+//                return $this->success('删除成功！', url('Admin/index'));
+//            } else {
+//                return $this->error('删除失败！');
+//            }
+//        }
     }
 }

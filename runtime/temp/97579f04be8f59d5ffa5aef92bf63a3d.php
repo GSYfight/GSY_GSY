@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:59:"F:\php\GSY\public/../application/admin\view\goods\edit.html";i:1506059831;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:59:"F:\php\GSY\public/../application/admin\view\goods\edit.html";i:1506067439;}*/ ?>
 <?php echo widget('Widget/header'); ?>
 
 <!-- /头部 -->
@@ -61,14 +61,10 @@
                                         <label for="desc" class="col-sm-2 control-label no-padding-right">商品简介</label>
                                         <div class="col-sm-6">
                                             <textarea name="desc" id="desc" class="form-control"><?php echo $data['desc']; ?></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-6">
                                             <img src="<?php echo $data['image_url']; ?>" alt="" width="80" height="40">
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group">33
                                         <label for="keywords"
                                                class="col-sm-2 control-label no-padding-right">关键字</label>
                                         <div class="col-sm-6">
@@ -76,6 +72,14 @@
                                                    type="text">
                                         </div>
                                         <p class="help-block col-sm-4 red">多个关键字用逗号隔开</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="unit" class="col-sm-2 control-label no-padding-right">单位</label>
+                                        <div class="col-sm-6">
+                                            <input class="form-control" id="unit" placeholder="" name="market_price" value="<?php echo $data['unit']; ?>"
+                                                   required="" type="text">
+                                        </div>
+                                        <p class="help-block col-sm-4 red">* 必填</p>
                                     </div>
                                     <div class="form-group">
                                         <label for="market_price" class="col-sm-2 control-label no-padding-right">市场价</label>

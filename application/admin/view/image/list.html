@@ -49,7 +49,14 @@
                                         <td align="center">
                                             <img src="{$v.image_url}" alt="" width="80" height="40">
                                         </td>
-                                        <td align="center">{$v.is_face}</td>
+                                        <td align="center">
+                                            <!--判断是否为封面-->
+                                            {if condition='$v.is_face eq 1'}
+                                            是
+                                            {else/}
+                                            <a href="{:url('Image/isFace',['image_id'=>$v.image_id,'goods_id'=>$v.goods_id])}">否</a>
+                                            {/if}
+                                        </td>
                                         <td align="center">
                                             <a href="#" onClick="warning('确实要删除吗', '{:url('Image/del',array('id'=>$v.image_id))}')"
                                                class="btn btn-danger btn-sm shiny">
