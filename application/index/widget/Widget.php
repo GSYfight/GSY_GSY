@@ -17,3 +17,4 @@ class Widget extends Controller{
         return $this->fetch('widget/footer');
     }
 }
+

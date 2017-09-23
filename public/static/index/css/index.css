@@ -166,7 +166,11 @@
     /*隐藏模块*/
 /*购物车*/
 .cartDiv{
+<<<<<<< HEAD
+    width: 325px;
+=======
     width: 320px;
+>>>>>>> b6409ebe7a7a59ef451c2ab8e2bfa4398dacca54
     height: 50px;
     background-color: white;
     position: absolute;

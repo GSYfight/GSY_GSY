@@ -112,7 +112,11 @@ h1{
     text-align: center;
     font-size: 2em;
     color: white;
+<<<<<<< HEAD
+    margin: 0 0 0 1.5em;
+=======
     margin: 0px 0 0 1.5em;
+>>>>>>> b6409ebe7a7a59ef451c2ab8e2bfa4398dacca54
     position: relative;
     left: -10px;
     top: 7px;
