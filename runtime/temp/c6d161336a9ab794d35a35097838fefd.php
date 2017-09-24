@@ -1,13 +1,9 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"F:\php\GSY\public/../application/index\view\widget\footer.html";i:1506154274;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"F:\php\GSY\public/../application/index\view\widget\footer.html";i:1506233989;}*/ ?>
 <footer class="footer">
 	<div class="bg">
 		<div class="container">
 			<div class="logo fl">
-
 				<img src="__STATIC__/index/./img/logo_v.png" alt="">
-
-
-
 			</div>
 			<div class="data fl">
 				<p>我们希望从每个家庭餐桌上的最小单位一粒米开始，以线上市集的方法，让更多人结识友善耕耘的农夫，一步一步、一米一米地改善全中国的饮食生态。</p>
@@ -29,7 +25,6 @@
 				<p><a href="">优惠券用法</a></p>
 				<p><a href="">支付方式</a></p>
 			</div>
-
 			<div class="info fl">
 				<p>服务热线</p>
 				<p class="inf">400-655-1212</p>

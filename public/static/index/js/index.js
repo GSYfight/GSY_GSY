@@ -19,8 +19,7 @@ $(function () {
     $i = 1;
     $('.navBtn li').click(function () {
         $i = $('.navBtn li').index($(this)) + 1;
-        $src = '/static/message/./img/nav' + $i + '.jpg';
-
+        $src = '/static/index/./img/nav' + $i + '.jpg';
         $(this).parent().parent().prev().children().attr({'src': $src});
         $(this).addClass('borderD');
         $(this).removeClass('liHover');
@@ -149,10 +148,6 @@ $(function () {
     }).mouseleave(function () {
         $('.useDiv').hide();
     });
-
-
-
-
     //临时跳转效果
     //购物车
     $('.cart').click(function () {
@@ -166,28 +161,4 @@ $(function () {
     $('#tijiaoBtn').click(function () {
         location.href = 'paycenter.html';
     });
-
-    //四时菜蔬
-    $('.head .headRight ul a').click(function () {
-        location.href = 'products.html';
-        return false;
-    });
-    //商品详情
-    $('.modelI a').click(function () {
-        location.href = 'product.html';
-        return false;
-    });
-    $('.regouLeft a').click(function () {
-        location.href = 'product.html';
-        return false;
-    });
-    $('.regouR a').click(function () {
-        location.href = 'product.html';
-        return false;
-    });
-
-
-
-
-
 });

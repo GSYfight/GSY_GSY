@@ -12,13 +12,13 @@
                     <div class="culumn fl">
                         <a href="">
                             <div class="hDiv borderD">
-                                <img src="__STATIC__/index/./img/column1.jpg" alt="">
+                                <img src="{$v[0]['icon']}" alt="">
                                 <p><a href="">{$k}</a></p>
                             </div>
                         </a>
                         <div>
-                            {foreach $v as $j}
-                            <p><a href="">{$j.name}</a></p>
+                            {foreach $v as $k=>$j}
+                            <p><a href="{:url('ProductList/index',['cate_id'=>$j.cate_id])}">{$j.name}</a></p>
                             {/foreach}
                         </div>
                     </div>
