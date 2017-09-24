@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:63:"E:\PHP\GSY\public/../application/index\view\login\register.html";i:1506064319;s:62:"E:\PHP\GSY\public/../application/index\view\widget\header.html";i:1501643918;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:63:"E:\PHP\GSY\public/../application/index\view\login\register.html";i:1506155459;s:62:"E:\PHP\GSY\public/../application/index\view\widget\header.html";i:1501643918;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -298,17 +298,16 @@
                 <p>
                     <span>验证码</span>
                     <input type="text" placeholder="请填写校验码" name="code" class="shortIn">
-                    <img src="" alt="" width="65px" height="20px">
-                    <a href="">看不清楚?换一个</a>
-                    <label class="s2"><span class="s1">!</span>请输入校验码</label>
+                    <img style="vertical-align: middle" src="<?php echo captcha_src(); ?>" alt="captcha" id="codeImg" onclick="this.src='<?php echo captcha_src(); ?>'"/>
+                    <a id="changeOne">换张验证码</a>
+                    <label class="s2" ><span class="s1">!</span>请输入校验码</label>
                 </p>
                 <p>
                     <span>验证码</span>
                     <input type="text" placeholder="请填写验证码" name="smsCode" class="shortIn">
-                    <button>获取短信验证码</button>
+                    <a id="smsCode" style="margin-left: 10px;">获取短信验证码</a>
                     <br>
                     <label class="s2"><span class="s1">!</span>本项必填</label>
-
                 </p>
                 <p class="tishi">
                     <span> </span>
@@ -411,6 +410,22 @@
             $('form').attr({'action':'a.php'});
         }
     });
-
+    //短信获取验证码
+    $('#smsCode').click(function () {
+        var mobile=$('input[name=mobile]').val();
+        $.ajax({
+            type:'POST',
+            dataType:'json',
+            url:"<?php echo url('Login/sendCode'); ?>",
+            data:{mobile:mobile},
+            success:function (d) {
+                    alert(d.msg);
+            }
+        })
+    });
+    //点击更换验证码图片
+    $('#changeOne').click(function () {
+        $('#codeImg').attr('src','<?php echo captcha_src(); ?>');
+    })
 </script>
 </html>
