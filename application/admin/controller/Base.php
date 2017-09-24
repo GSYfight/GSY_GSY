@@ -18,7 +18,7 @@ class Base extends Controller{
         //获取admin数据
         $admin=session('admin');
         if(!isset($admin)||empty($admin)){
-            $this->error('请先登入',url('Login/index'));
+            $this->error('请先登入',url('Login/message'));
         }
     }
 

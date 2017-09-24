@@ -17,7 +17,7 @@ class Image extends Controller{
     }
     public function add(){
          if (request()->isPost()){
-//             $data=Goods::index();
+//             $data=Goods::message();
 //             $data=$data->all();
 //             foreach ($data as $k=>$v){
 //                 if ($v['goods_id']==input('goods_id')){
@@ -54,7 +54,7 @@ class Image extends Controller{
              $imageData['image_s_url'] = ImageModel::thumb($imageData['image_url'], $width = 120, $height = 120);
              $res = ImageModel::addImage($imageData);
              if ($res) {
-                 return $this->success('添加成功', url('Goods/index'));
+                 return $this->success('添加成功', url('Goods/message'));
              } else {
                  return $this->error('添加失败');
              }
@@ -112,7 +112,7 @@ class Image extends Controller{
 
             $res = ImageModel::addImage($imageData);
             if ($res) {
-                return $this->success('添加成功', url('Goods/index'));
+                return $this->success('添加成功', url('Goods/message'));
             } else {
                 return $this->error('添加失败');
             }
@@ -137,7 +137,7 @@ class Image extends Controller{
             //删除对应id的管理员信息,必须加where条件
             $res = Db::name('admin')->delete($id);//返回受影响行数
             if ($res) {
-                return $this->success('删除成功！', url('Admin/index'));
+                return $this->success('删除成功！', url('Admin/message'));
             } else {
                 return $this->error('删除失败！');
             }

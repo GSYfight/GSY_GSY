@@ -179,7 +179,7 @@ class Promise implements PromiseInterface
     }
 
     /**
-     * Call a stack of handlers using a specific callback index and value.
+     * Call a stack of handlers using a specific callback message and value.
      *
      * @param int   $index   1 (resolve) or 2 (reject).
      * @param mixed $value   Value to pass to the callback.

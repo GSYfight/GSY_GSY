@@ -13,14 +13,18 @@ class Goods extends Model{
         $data=db('goods')
             ->alias('g')//别名
             ->order('g.goods_id desc')
-            ->field('g.goods_id,g.goods_name,g.sell_price,g.market_price,g.maketable,g.store,g.freez,g.create_time,
+            ->field('g.goods_id,g.recycle,g.goods_name,g.sell_price,g.market_price,g.maketable,g.store,g.freez,g.create_time,
             g.last_time,g.keywords,g.desc,g.content,g.status,p.image_url,c.name,a.username')//字段
             ->join('image p','g.goods_id=p.goods_id','LEFT')//参数(‘关联的表 别名’，‘关联的条件’)
             ->join('cate c','g.cate_id=c.cate_id','LEFT')
             ->join('management a','g.last_modify_id=a.user_id','LEFT')
             ->where('p.is_face=1')
-            ->paginate(6);
-        $page=$data->render();
+            ->paginate(8);
+         $page=$data->render();
+//        echo db()->getLastSql();
+////        $data1=db('goods')->select();
+////        dump($data1);
+//        exit;
         $data=$data->all();
         $arr=[
             'data'=>$data,

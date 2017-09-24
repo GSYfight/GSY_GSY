@@ -80,14 +80,7 @@ class Goods extends Controller
             }
             $imageData['goods_id'] = $goods_id;
 
-            if (input('is_face') == 'on') {
-                $imageData['is_face'] = 1;
-                //把该商品其他图片的is_face改为0非封面
-                $res=ImageModel::changeGoodsPicFace( $imageData['goods_id']);
-            } else {
-                $imageData['is_face'] = 0;
-            }
-
+            $imageData['is_face'] = 1;
             $imageData['image_b_url'] = ImageModel::thumb($imageData['image_url'], $width = 650, $height = 650);
             $imageData['image_m_url'] = ImageModel::thumb($imageData['image_url'], $width = 240, $height = 240);
             $imageData['image_s_url'] = ImageModel::thumb($imageData['image_url'], $width = 120, $height = 120);
@@ -95,7 +88,7 @@ class Goods extends Controller
             $res = ImageModel::addImage($imageData);
 
             if ($res) {
-                return $this->success('添加成功', url('Goods/index'));
+                return $this->success('添加成功', url('Goods/message'));
             } else {
                 return $this->error('添加失败');
             }
@@ -161,7 +154,7 @@ class Goods extends Controller
 //            }
             $res=GoodsModel::updGoods($data);
            if ($res) {
-                return $this->success('修改成功', url('Goods/index'));
+                return $this->success('修改成功', url('Goods/message'));
            } else {
                 return $this->error('修改失败');
            }
