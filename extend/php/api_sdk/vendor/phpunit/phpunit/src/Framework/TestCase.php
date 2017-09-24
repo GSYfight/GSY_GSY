@@ -1687,7 +1687,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
 
     /**
      * Returns a matcher that matches when the method is executed
-     * at the given index.
+     * at the given message.
      *
      * @param int $index
      *

@@ -225,7 +225,7 @@ class PHP_CodeCoverage_Report_HTML_Renderer_Dashboard extends PHP_CodeCoverage_R
     }
 
     /**
-     * Returns the project risks according to the CRAP index.
+     * Returns the project risks according to the CRAP message.
      *
      * @param  array  $classes
      * @param  string $baseLink
@@ -287,7 +287,7 @@ class PHP_CodeCoverage_Report_HTML_Renderer_Dashboard extends PHP_CodeCoverage_R
     protected function getActiveBreadcrumb(PHP_CodeCoverage_Report_Node $node)
     {
         return sprintf(
-            '        <li><a href="index.html">%s</a></li>' . "\n" .
+            '        <li><a href="message.html">%s</a></li>' . "\n" .
             '        <li class="active">(Dashboard)</li>' . "\n",
             $node->getName()
         );

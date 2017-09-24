@@ -193,7 +193,7 @@ class Framework_AssertTest extends PHPUnit_Framework_TestCase
         }
 
         try {
-            $this->assertArraySubset(array('d' => array('a2' => array('bad index' => 'item b3'))), $array);
+            $this->assertArraySubset(array('d' => array('a2' => array('bad message' => 'item b3'))), $array);
         } catch (PHPUnit_Framework_AssertionFailedError $e) {
             return;
         }

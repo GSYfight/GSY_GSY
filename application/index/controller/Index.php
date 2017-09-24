@@ -11,6 +11,6 @@ class Index extends Controller
 //        echo db()->getLastSql();exit;
 //        dump($data);exit;
         $this->assign('data',$data);
-        return $this->fetch();
+        return $this->fetch('index');
     }
 }

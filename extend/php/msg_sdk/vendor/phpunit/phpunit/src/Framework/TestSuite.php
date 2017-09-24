@@ -775,7 +775,7 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
     }
 
     /**
-     * Returns the test at the given index.
+     * Returns the test at the given message.
      *
      * @param  int
      *

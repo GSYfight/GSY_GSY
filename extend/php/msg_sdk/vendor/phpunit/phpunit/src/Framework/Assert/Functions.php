@@ -1837,7 +1837,7 @@ function assertXmlStringNotEqualsXmlString($expectedXml, $actualXml, $message = 
 
 /**
  * Returns a matcher that matches when the method is executed
- * at the given $index.
+ * at the given $message.
  *
  * @param int $index
  *

@@ -47,7 +47,7 @@ class Member extends Controller{
             //调用model方法，将$data添加到数据库
             $res = MemberModel::addData($data);
             if($res){
-                $this->success('添加成功',url('Member/index'));
+                $this->success('添加成功',url('Member/message'));
             }else{
                 $this->error("添加失败");
             }
@@ -89,7 +89,7 @@ class Member extends Controller{
             //调用model函数，更新数据
             $result = MemberModel::updData($data);
             if($result!==false){
-                $this->success('修改成功',url('Member/index'));
+                $this->success('修改成功',url('Member/message'));
             }else{
                 $this->error('修改失败');
             }
@@ -106,7 +106,7 @@ class Member extends Controller{
         $res = MemberModel::del($member_id);
         //返回结果
         if($res){
-            $this->success('删除成功',url('Member/index'));
+            $this->success('删除成功',url('Member/message'));
         }else{
             $this->error('删除失败');
         }

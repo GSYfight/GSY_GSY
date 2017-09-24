@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:60:"F:\php\GSY\public/../application/index\view\index\index.html";i:1506131671;s:62:"F:\php\GSY\public/../application/index\view\widget\header.html";i:1506223312;}*/ ?>
+=======
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:60:"F:\php\GSY\public/../application/index\view\index\index.html";i:1506131671;s:62:"F:\php\GSY\public/../application/index\view\widget\header.html";i:1506224147;}*/ ?>
+>>>>>>> 9a9e682934656038770f6b2a5c03e0ba125c488e
 <header id="header" class="head">
     <a href="index.html">
         <div class="icon fl"></div>
@@ -18,6 +22,7 @@
                             </div>
                         </a>
                         <div>
+<<<<<<< HEAD
                                 <?php foreach($v as $j): ?>
                             <p><a href=""><?php echo $j['name']; ?></a></p>
                            <?php endforeach; ?>
@@ -174,6 +179,14 @@
                             <!--<p><a href="">瓜类</a></p>-->
                         <!--</div>-->
                     <!--</div>-->
+=======
+                            <?php foreach($v as $j): ?>
+                            <p><a href=""><?php echo $j['name']; ?></a></p>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                    <?php endforeach; ?>'
+>>>>>>> 9a9e682934656038770f6b2a5c03e0ba125c488e
                 </div>
             </li>
             <li class="fl ct borderL">
@@ -208,7 +221,11 @@
         <!--搜索框-->
         <div class="fl borderD">
             <div class="search fl">
+<<<<<<< HEAD
                 <input id="searchInput" type="text" class="fl" placeholder="搜索你喜欢的" >
+=======
+                <input id="searchInput" type="text" class="fl" placeholder="搜索你喜欢的">
+>>>>>>> 9a9e682934656038770f6b2a5c03e0ba125c488e
                 <button id="searchBtn"></button>
             </div>
         </div>

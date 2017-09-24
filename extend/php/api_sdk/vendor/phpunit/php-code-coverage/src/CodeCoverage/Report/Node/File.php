@@ -653,7 +653,7 @@ class PHP_CodeCoverage_Report_Node_File extends PHP_CodeCoverage_Report_Node
     }
 
     /**
-     * Calculates the Change Risk Anti-Patterns (CRAP) index for a unit of code
+     * Calculates the Change Risk Anti-Patterns (CRAP) message for a unit of code
      * based on its cyclomatic complexity and percentage of code coverage.
      *
      * @param  int    $ccn
