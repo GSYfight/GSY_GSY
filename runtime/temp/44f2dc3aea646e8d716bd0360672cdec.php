@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:60:"F:\php\GSY\public/../application/index\view\index\index.html";i:1506131671;s:62:"F:\php\GSY\public/../application/index\view\widget\header.html";i:1506223312;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:60:"F:\php\GSY\public/../application/index\view\index\index.html";i:1506131671;s:62:"F:\php\GSY\public/../application/index\view\widget\header.html";i:1506224147;}*/ ?>
 <header id="header" class="head">
     <a href="index.html">
         <div class="icon fl"></div>
@@ -18,162 +18,12 @@
                             </div>
                         </a>
                         <div>
-                                <?php foreach($v as $j): ?>
+                            <?php foreach($v as $j): ?>
                             <p><a href=""><?php echo $j['name']; ?></a></p>
-                           <?php endforeach; ?>
+                            <?php endforeach; ?>
                         </div>
                     </div>
-                    <?php endforeach; ?>
-                    <!--<div class="culumn fl">-->
-                        <!--<a href="">-->
-                            <!--<div class="hDiv borderD">-->
-                                <!--<img src="__STATIC__/index/./img/column2.jpg" alt="">-->
-                                <!--<p><a href="">安全水果</a></p>-->
-                            <!--</div>-->
-                        <!--</a>-->
-                        <!--<div>-->
-                            <!--<p><a href="">热带水果</a></p>-->
-                            <!--<p><a href="">苹果和梨</a></p>-->
-                            <!--<p><a href="">西瓜</a></p>-->
-                            <!--<p><a href="">葡萄和浆果类</a></p>-->
-                            <!--<p><a href="">瓜类</a></p>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                    <!--<div class="culumn fl">-->
-                        <!--<a href="">-->
-                            <!--<div class="hDiv borderD">-->
-                                <!--<img src="__STATIC__/index/./img/column2.jpg" alt="">-->
-                                <!--<p><a href="">安全水果</a></p>-->
-                            <!--</div>-->
-                        <!--</a>-->
-                        <!--<div>-->
-                            <!--<p><a href="">热带水果</a></p>-->
-                            <!--<p><a href="">苹果和梨</a></p>-->
-                            <!--<p><a href="">西瓜</a></p>-->
-                            <!--<p><a href="">葡萄和浆果类</a></p>-->
-                            <!--<p><a href="">瓜类</a></p>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                    <!--<div class="culumn fl">-->
-                        <!--<a href="">-->
-                            <!--<div class="hDiv borderD">-->
-                                <!--<img src="__STATIC__/index/./img/column2.jpg" alt="">-->
-                                <!--<p><a href="">安全水果</a></p>-->
-                            <!--</div>-->
-                        <!--</a>-->
-                        <!--<div>-->
-                            <!--<p><a href="">热带水果</a></p>-->
-                            <!--<p><a href="">苹果和梨</a></p>-->
-                            <!--<p><a href="">西瓜</a></p>-->
-                            <!--<p><a href="">葡萄和浆果类</a></p>-->
-                            <!--<p><a href="">瓜类</a></p>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                    <!--<div class="culumn fl">-->
-                        <!--<a href="">-->
-                            <!--<div class="hDiv borderD">-->
-                                <!--<img src="__STATIC__/index/./img/column2.jpg" alt="">-->
-                                <!--<p><a href="">安全水果</a></p>-->
-                            <!--</div>-->
-                        <!--</a>-->
-                        <!--<div>-->
-                            <!--<p><a href="">热带水果</a></p>-->
-                            <!--<p><a href="">苹果和梨</a></p>-->
-                            <!--<p><a href="">西瓜</a></p>-->
-                            <!--<p><a href="">葡萄和浆果类</a></p>-->
-                            <!--<p><a href="">瓜类</a></p>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                    <!--<div class="culumn fl">-->
-                        <!--<a href="">-->
-                            <!--<div class="hDiv borderD">-->
-                                <!--<img src="__STATIC__/index/./img/column2.jpg" alt="">-->
-                                <!--<p><a href="">安全水果</a></p>-->
-                            <!--</div>-->
-                        <!--</a>-->
-                        <!--<div>-->
-                            <!--<p><a href="">热带水果</a></p>-->
-                            <!--<p><a href="">苹果和梨</a></p>-->
-                            <!--<p><a href="">西瓜</a></p>-->
-                            <!--<p><a href="">葡萄和浆果类</a></p>-->
-                            <!--<p><a href="">瓜类</a></p>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                    <!--<div class="culumn fl">-->
-                        <!--<a href="">-->
-                            <!--<div class="hDiv borderD">-->
-                                <!--<img src="__STATIC__/index/./img/column2.jpg" alt="">-->
-                                <!--<p><a href="">安全水果</a></p>-->
-                            <!--</div>-->
-                        <!--</a>-->
-                        <!--<div>-->
-                            <!--<p><a href="">热带水果</a></p>-->
-                            <!--<p><a href="">苹果和梨</a></p>-->
-                            <!--<p><a href="">西瓜</a></p>-->
-                            <!--<p><a href="">葡萄和浆果类</a></p>-->
-                            <!--<p><a href="">瓜类</a></p>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                    <!--<div class="culumn fl">-->
-                        <!--<a href="">-->
-                            <!--<div class="hDiv borderD">-->
-                                <!--<img src="__STATIC__/index/./img/column2.jpg" alt="">-->
-                                <!--<p><a href="">安全水果</a></p>-->
-                            <!--</div>-->
-                        <!--</a>-->
-                        <!--<div>-->
-                            <!--<p><a href="">热带水果</a></p>-->
-                            <!--<p><a href="">苹果和梨</a></p>-->
-                            <!--<p><a href="">西瓜</a></p>-->
-                            <!--<p><a href="">葡萄和浆果类</a></p>-->
-                            <!--<p><a href="">瓜类</a></p>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                    <!--<div class="culumn fl">-->
-                        <!--<a href="">-->
-                            <!--<div class="hDiv borderD">-->
-                                <!--<img src="__STATIC__/index/./img/column2.jpg" alt="">-->
-                                <!--<p><a href="">安全水果</a></p>-->
-                            <!--</div>-->
-                        <!--</a>-->
-                        <!--<div>-->
-                            <!--<p><a href="">热带水果</a></p>-->
-                            <!--<p><a href="">苹果和梨</a></p>-->
-                            <!--<p><a href="">西瓜</a></p>-->
-                            <!--<p><a href="">葡萄和浆果类</a></p>-->
-                            <!--<p><a href="">瓜类</a></p>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                    <!--<div class="culumn fl">-->
-                        <!--<a href="">-->
-                            <!--<div class="hDiv borderD">-->
-                                <!--<img src="__STATIC__/index/./img/column2.jpg" alt="">-->
-                                <!--<p><a href="">安全水果</a></p>-->
-                            <!--</div>-->
-                        <!--</a>-->
-                        <!--<div>-->
-                            <!--<p><a href="">热带水果</a></p>-->
-                            <!--<p><a href="">苹果和梨</a></p>-->
-                            <!--<p><a href="">西瓜</a></p>-->
-                            <!--<p><a href="">葡萄和浆果类</a></p>-->
-                            <!--<p><a href="">瓜类</a></p>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                    <!--<div class="culumn fl">-->
-                        <!--<a href="">-->
-                            <!--<div class="hDiv borderD">-->
-                                <!--<img src="__STATIC__/index/./img/column2.jpg" alt="">-->
-                                <!--<p><a href="">安全水果</a></p>-->
-                            <!--</div>-->
-                        <!--</a>-->
-                        <!--<div>-->
-                            <!--<p><a href="">热带水果</a></p>-->
-                            <!--<p><a href="">苹果和梨</a></p>-->
-                            <!--<p><a href="">西瓜</a></p>-->
-                            <!--<p><a href="">葡萄和浆果类</a></p>-->
-                            <!--<p><a href="">瓜类</a></p>-->
-                        <!--</div>-->
-                    <!--</div>-->
+                    <?php endforeach; ?>'
                 </div>
             </li>
             <li class="fl ct borderL">
@@ -208,7 +58,7 @@
         <!--搜索框-->
         <div class="fl borderD">
             <div class="search fl">
-                <input id="searchInput" type="text" class="fl" placeholder="搜索你喜欢的" >
+                <input id="searchInput" type="text" class="fl" placeholder="搜索你喜欢的">
                 <button id="searchBtn"></button>
             </div>
         </div>

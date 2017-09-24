@@ -138,7 +138,7 @@ function InitiateSideMenu() {
                 .removeClass("open");
         } else {
             if ($('.page-sidebar').hasClass('sidebar-fixed')) {
-                var position = (readCookie("rtl-support") || location.pathname == "/index-rtl-fa.html" || location.pathname == "/index-rtl-ar.html") ? 'right' : 'left';
+                var position = (readCookie("rtl-support") || location.pathname == "/message-rtl-fa.html" || location.pathname == "/message-rtl-ar.html") ? 'right' : 'left';
                 $('.sidebar-menu').slimscroll({
                     height: 'auto',
                     position: position,

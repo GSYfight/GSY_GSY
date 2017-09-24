@@ -36,7 +36,6 @@ class Index extends Model
         $data8 = self::dataSearch(61);
         $data9 = self::dataSearch(69);
         $data10 = self::dataSearch(1);
-
         $data=[
           $data1,$data2,$data3,$data4,$data5,$data6,$data7,$data8,$data9,$data10,
         ];

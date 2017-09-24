@@ -82,7 +82,7 @@ class Goods extends Base{
             $imageData['image_s_url'] = ImageModel::thumb($imageData['image_url'], $width = 120, $height = 120);
             $res = ImageModel::addImage($imageData);
             if ($res) {
-                return $this->success('添加成功', url('Goods/index'));
+                return $this->success('添加成功', url('Goods/message'));
             } else {
                 return $this->error('添加失败');
             }
@@ -148,9 +148,15 @@ class Goods extends Base{
 //            }
             //传入商品信息，进行更新
             $res=GoodsModel::updGoods($data);
+<<<<<<< HEAD
             if ($res) {
                 return $this->success('修改成功', url('Goods/index'));
             } else {
+=======
+           if ($res) {
+                return $this->success('修改成功', url('Goods/message'));
+           } else {
+>>>>>>> 6ad2c0b2170ae93871251924d51cc4545feb08c7
                 return $this->error('修改失败');
             }
         }

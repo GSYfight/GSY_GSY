@@ -70,7 +70,7 @@ class Login extends Controller
 
 
 
-        $this->success('跳转成功，正在跳转中', 'Admin/index');
+        $this->success('跳转成功，正在跳转中', 'Admin/message');
     }
 
     public function _empty(){

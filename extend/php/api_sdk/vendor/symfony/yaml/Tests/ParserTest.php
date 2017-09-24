@@ -67,7 +67,7 @@ class ParserTest extends TestCase
 
     public function getDataFormSpecifications()
     {
-        return $this->loadTestsFromFixtureFiles('index.yml');
+        return $this->loadTestsFromFixtureFiles('message.yml');
     }
 
     /**

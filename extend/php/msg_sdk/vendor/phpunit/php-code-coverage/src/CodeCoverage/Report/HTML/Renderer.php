@@ -230,7 +230,7 @@ abstract class PHP_CodeCoverage_Report_HTML_Renderer
         $id    = $node->getId();
         $depth = substr_count($id, '/');
 
-        if ($id != 'index' &&
+        if ($id != 'message' &&
             $node instanceof PHP_CodeCoverage_Report_Node_Directory) {
             $depth++;
         }

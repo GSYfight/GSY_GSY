@@ -53,7 +53,7 @@ class Admin extends Base{
             $res=adminModel::addUser($data);
 //        4.返回结果
             if($res){
-                $this->success('添加用户成功','Admin/index');
+                $this->success('添加用户成功','Admin/message');
             }else{
                 $this->error('添加用户失败');
             }
@@ -100,7 +100,7 @@ class Admin extends Base{
         $res=adminModel::upd($data);
 
         if($res){
-            $this->success('修改用户成功','Admin/index');
+            $this->success('修改用户成功','Admin/message');
         }else{
             $this->error('修改用户失败');
         }
@@ -110,7 +110,7 @@ class Admin extends Base{
         $user_id=input('user_id');
         $res=adminModel::del($user_id);
         if($res){
-            $this->success('用户删除成功','Admin/index');
+            $this->success('用户删除成功','Admin/message');
         }else{
             $this->error('用户删除失败');
         }
@@ -120,7 +120,7 @@ class Admin extends Base{
     {
         //清空session的数据
         session('admin', null);
-        $this->success('登出成功',url('Login/index'));
+        $this->success('登出成功',url('Login/message'));
 //        只执行跳转
 //        return $this->redirect('Login/login');
     }

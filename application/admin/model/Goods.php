@@ -19,8 +19,12 @@ class Goods extends Model{
             ->join('cate c','g.cate_id=c.cate_id','LEFT')
             ->join('management a','g.last_modify_id=a.user_id','LEFT')
             ->where('p.is_face=1')
-            ->paginate(6);
-        $page=$data->render();
+            ->paginate(8);
+         $page=$data->render();
+//        echo db()->getLastSql();
+////        $data1=db('goods')->select();
+////        dump($data1);
+//        exit;
         $data=$data->all();
         $arr=[
             'data'=>$data,
