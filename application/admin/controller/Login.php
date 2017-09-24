@@ -31,7 +31,7 @@ class Login extends Controller
         $data = [
             'username' => input('username'),
             'password' => input('password'),
-//            'code' => input('code'),
+            'code'=>input('code'),
         ];
         //先验证验证码是否正确  再验证用户名和密码
 
@@ -41,13 +41,13 @@ class Login extends Controller
         if ($data['password'] == '') {
             $this->error('密码必须填写');
         }
-//        if ($data['code'] == '') {
-//            $this->error('验证码必须填写');
-//        }
+        if ($data['code'] == '') {
+            $this->error('验证码必须填写');
+        }
 //        判断验证码是否正确
-//        if (!captcha_check($data['code'])) {
-//            return $this->error('验证码错误', url('Login/login'));
-//        }
+        if (!captcha_check($data['code'])) {
+            return $this->error('验证码错误', url('Login/login'));
+        }
 //        判断用户是否存在
         $info = db('management')->where(['username' => $data['username']])->find();
         if (!isset($info) || empty($info)) {

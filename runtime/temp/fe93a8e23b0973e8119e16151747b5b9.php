@@ -1,9 +1,10 @@
-{:widget('Widget/header')}
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:59:"F:\php\GSY\public/../application/admin\view\goods\list.html";i:1506138927;}*/ ?>
+<?php echo widget('Widget/header'); ?>
 <!-- /头部 -->
 <div class="main-container container-fluid">
     <div class="page-container">
         <!-- Page Sidebar -->
-        {:widget('Widget/left')}
+        <?php echo widget('Widget/left'); ?>
     <!-- /Page Sidebar -->
     <!-- Page Content -->
     <div class="page-content">
@@ -22,7 +23,7 @@
         <div class="page-body">
 
             <button type="button" tooltip="添加商品" class="btn btn-sm btn-azure btn-addon"
-                    onClick="javascript:window.location.href = '{:url('Goods/add')}'"><i class="fa fa-plus"></i> Add
+                    onClick="javascript:window.location.href = '<?php echo url('Goods/add'); ?>'"><i class="fa fa-plus"></i> Add
             </button>
             <div class="row">
                 <div class="col-lg-12 col-sm-12 col-xs-12">
@@ -49,45 +50,45 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    {foreach $data['data'] as $v}
+                                    <?php foreach($data['data'] as $v): ?>
                                     <tr>
-                                        <td align="center">{$v.goods_id}</td>
-                                        <td align="center">{$v.goods_name}</td>
-                                        <td align="center">{$v.name}</td>
+                                        <td align="center"><?php echo $v['goods_id']; ?></td>
+                                        <td align="center"><?php echo $v['goods_name']; ?></td>
+                                        <td align="center"><?php echo $v['name']; ?></td>
                                         <td align="center">
-                                            <img src="{$v.image_url}" alt="" width="80" height="40">
+                                            <img src="<?php echo $v['image_url']; ?>" alt="" width="80" height="40">
                                         </td>
-                                        <td align="center">{$v.keywords}</td>
-                                        <td align="center">{$v.market_price}</td>
-                                        <td align="center">{$v.sell_price}</td>
-                                        <td align="center">{$v.store}</td>
-                                        <td align="center">{$v.maketable?'是':'否'}</td>
-                                        <td align="center">{$v.create_time|date='Y-m-d H:i:s',###}</td>
-                                        <td align="center">{$v.last_time|date='Y-m-d H:i:s',###}</td>
-                                        <td align="center">{$v.username}</td>
-                                        <td align="center">{$v.status}</td>
+                                        <td align="center"><?php echo $v['keywords']; ?></td>
+                                        <td align="center"><?php echo $v['market_price']; ?></td>
+                                        <td align="center"><?php echo $v['sell_price']; ?></td>
+                                        <td align="center"><?php echo $v['store']; ?></td>
+                                        <td align="center"><?php echo !empty($v['maketable'])?'是':'否'; ?></td>
+                                        <td align="center"><?php echo date('Y-m-d H:i:s',$v['create_time']); ?></td>
+                                        <td align="center"><?php echo date('Y-m-d H:i:s',$v['last_time']); ?></td>
+                                        <td align="center"><?php echo $v['username']; ?></td>
+                                        <td align="center"><?php echo $v['status']; ?></td>
                                         <td align="center">
-                                            <a href="{:url('Image/goodsPicList',array('id'=>$v.goods_id,'goods_name'=>$v.goods_name))}" class="btn btn-primary btn-sm shiny">
+                                            <a href="<?php echo url('Image/goodsPicList',array('id'=>$v['goods_id'],'goods_name'=>$v['goods_name'])); ?>" class="btn btn-primary btn-sm shiny">
                                                 <i class="fa fa-edit"></i> 图片管理
                                             </a>
-                                            <a href="{:url('Goods/edit',['goods_id'=>$v.goods_id])}" class="btn btn-primary btn-sm shiny">
+                                            <a href="<?php echo url('Goods/edit',['goods_id'=>$v['goods_id']]); ?>" class="btn btn-primary btn-sm shiny">
                                                 <i class="fa fa-edit"></i> 编辑
                                             </a>
                                             <!--判断id 是不是为1，如果不是1，加删除按钮neq不等于--eq是等于-->
-                                            {if condition='$v.recycle eq 0'}
-                                            <a href="#" onClick="warning('确实要删除吗','{:url('Goods/del',['goods_id'=>$v.goods_id])}')"
+                                            <?php if($v['recycle'] == 0): ?>
+                                            <a href="#" onClick="warning('确实要删除吗','<?php echo url('Goods/del',['goods_id'=>$v['goods_id']]); ?>')"
                                                class="btn btn-danger btn-sm shiny">
                                                 <i class="fa fa-trash-o"></i> 删除
                                             </a>
-                                            {else/}
-                                            <a href="#" onClick="warning('确实要删除吗','{:url('Goods/backDel',['goods_id'=>$v.goods_id])}')"
+                                            <?php else: ?>
+                                            <a href="#" onClick="warning('确实要删除吗','<?php echo url('Goods/backDel',['goods_id'=>$v['goods_id']]); ?>')"
                                                class="btn btn-danger btn-sm shiny">
                                                 <i class="fa fa-trash-o"></i> 撤销删除
                                             </a>
-                                            {/if}
+                                            <?php endif; ?>
                                         </td>
                                     </tr>
-                                    {/foreach}
+                                    <?php endforeach; ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -97,7 +98,7 @@
                     </div>
                 </div>
             </div>
-            {$data['page']}
+            <?php echo $data['page']; ?>
         </div>
         <!-- /Page Body -->
     </div>

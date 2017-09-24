@@ -13,7 +13,7 @@ class Goods extends Model{
         $data=db('goods')
             ->alias('g')//别名
             ->order('g.goods_id desc')
-            ->field('g.goods_id,g.goods_name,g.sell_price,g.market_price,g.maketable,g.store,g.freez,g.create_time,
+            ->field('g.goods_id,g.recycle,g.goods_name,g.sell_price,g.market_price,g.maketable,g.store,g.freez,g.create_time,
             g.last_time,g.keywords,g.desc,g.content,g.status,p.image_url,c.name,a.username')//字段
             ->join('image p','g.goods_id=p.goods_id','LEFT')//参数(‘关联的表 别名’，‘关联的条件’)
             ->join('cate c','g.cate_id=c.cate_id','LEFT')
@@ -74,7 +74,26 @@ class Goods extends Model{
         }
         $res=db('goods')->update($data);
         return $res!==false?true:false;
-
+    }
+    //假删除商品，改变商品的是否删除字段
+    static public function delGoods($goods_id){
+        if (!$goods_id){
+            return false;
+        }
+        $goodsData['recycle']=1;
+        $goodsData['goods_id']=$goods_id;
+        $res=db('goods')->update($goodsData);
+        return $res !==false?true:false;
+    }
+    //撤销删除商品，改变商品的是否删除字段
+    static public function backDelGoods($goods_id){
+        if (!$goods_id){
+            return false;
+        }
+        $goodsData['recycle']=0;
+        $goodsData['goods_id']=$goods_id;
+        $res=db('goods')->update($goodsData);
+        return $res !==false?true:false;
     }
 
 

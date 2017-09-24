@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"F:\php\GSY\public/../application/index\view\widget\footer.html";i:1506154274;}*/ ?>
 <footer class="footer">
 	<div class="bg">
 		<div class="container">

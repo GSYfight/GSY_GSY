@@ -7,9 +7,12 @@
  */
 namespace app\index\widget;
 use think\Controller;
+use app\index\model\Widget as WidgetModel;
 class Widget extends Controller{
 
     public function header(){
+        $data=WidgetModel::getCateByPid();
+        $this->assign('data',$data);
         return $this->fetch('widget/header');
     }
 
