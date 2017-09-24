@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:59:"F:\php\GSY\public/../application/admin\view\goods\list.html";i:1506059678;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:59:"F:\php\GSY\public/../application/admin\view\goods\list.html";i:1506138927;}*/ ?>
 <?php echo widget('Widget/header'); ?>
 <!-- /头部 -->
 <div class="main-container container-fluid">
@@ -57,7 +57,6 @@
                                         <td align="center"><?php echo $v['name']; ?></td>
                                         <td align="center">
                                             <img src="<?php echo $v['image_url']; ?>" alt="" width="80" height="40">
-
                                         </td>
                                         <td align="center"><?php echo $v['keywords']; ?></td>
                                         <td align="center"><?php echo $v['market_price']; ?></td>
@@ -76,12 +75,17 @@
                                                 <i class="fa fa-edit"></i> 编辑
                                             </a>
                                             <!--判断id 是不是为1，如果不是1，加删除按钮neq不等于--eq是等于-->
-
-                                            <a href="#" onClick="warning('确实要删除吗', '<?php echo url('Goods/del',array('id'=>$v['goods_id'])); ?>')"
+                                            <?php if($v['recycle'] == 0): ?>
+                                            <a href="#" onClick="warning('确实要删除吗','<?php echo url('Goods/del',['goods_id'=>$v['goods_id']]); ?>')"
                                                class="btn btn-danger btn-sm shiny">
                                                 <i class="fa fa-trash-o"></i> 删除
                                             </a>
-
+                                            <?php else: ?>
+                                            <a href="#" onClick="warning('确实要删除吗','<?php echo url('Goods/backDel',['goods_id'=>$v['goods_id']]); ?>')"
+                                               class="btn btn-danger btn-sm shiny">
+                                                <i class="fa fa-trash-o"></i> 撤销删除
+                                            </a>
+                                            <?php endif; ?>
                                         </td>
                                     </tr>
                                     <?php endforeach; ?>

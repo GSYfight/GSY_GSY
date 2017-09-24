@@ -44,7 +44,7 @@ class PHP_CodeCoverage_Report_XML
         $index                     = $this->project->asDom();
         $index->formatOutput       = true;
         $index->preserveWhiteSpace = false;
-        $index->save($target . '/index.xml');
+        $index->save($target . '/message.xml');
     }
 
     private function initTargetDirectory($dir)

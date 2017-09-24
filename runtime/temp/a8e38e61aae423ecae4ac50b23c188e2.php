@@ -1,9 +1,9 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"D:\PHPfile\GSY\public/../application/index\view\widget\footer.html";i:1501609476;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"D:\PHPfile\GSY\public/../application/index\view\widget\footer.html";i:1506155579;}*/ ?>
 <footer class="footer">
 	<div class="bg">
 		<div class="container">
 			<div class="logo fl">
-				<img src="./img/logo_v.png" alt="">
+				<img src="__STATIC__/index/./img/logo_v.png" alt="">
 			</div>
 			<div class="data fl">
 				<p>我们希望从每个家庭餐桌上的最小单位一粒米开始，以线上市集的方法，让更多人结识友善耕耘的农夫，一步一步、一米一米地改善全中国的饮食生态。</p>
@@ -32,7 +32,8 @@
 				<p>周一至周日</p>
 				<p class="inf">8:00-21:00</p>
 				<p>微信公众号</p>
-				<img src="./img/qr.png" alt="">
+				<img src="__STATIC__/index/./img/qr.png" alt="">
+
 			</div>
 		</div>
 	</div>

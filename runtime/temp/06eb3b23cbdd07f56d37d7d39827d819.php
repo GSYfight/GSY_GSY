@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:60:"F:\php\GSY\public/../application/admin\view\widget\left.html";i:1506044537;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:60:"F:\php\GSY\public/../application/admin\view\widget\left.html";i:1506129250;}*/ ?>
 <div class="page-sidebar" id="sidebar">
     <!-- Page Sidebar Header-->
     <div class="sidebar-header-wrapper">
@@ -21,6 +21,22 @@
                     <a href="<?php echo url('Admin/index'); ?>">
                                     <span class="menu-text">
                                         管理列表                                    </span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" class="menu-dropdown">
+                <i class="menu-icon fa fa-user"></i>
+                <span class="menu-text">会员管理</span>
+                <i class="menu-expand"></i>
+            </a>
+            <ul class="submenu">
+                <li>
+                    <a href="<?php echo url('Member/index'); ?>">
+                                    <span class="menu-text">
+                                        会员列表                                    </span>
                         <i class="menu-expand"></i>
                     </a>
                 </li>

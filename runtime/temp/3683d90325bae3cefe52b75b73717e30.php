@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"D:\PHPfile\GSY\public/../application/index\view\widget\header.html";i:1501643918;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"D:\PHPfile\GSY\public/../application/index\view\widget\header.html";i:1506156965;}*/ ?>
 <header id="header" class="head">
     <a href="index.html">
         <div class="icon fl"></div>
@@ -213,7 +213,7 @@
         <!--搜索框-->
         <div class="fl borderD">
             <div class="search fl">
-                <input id="searchInput" type="text" class="fl" placeholder="搜索你喜欢的" value="8424">
+                <input id="searchInput" type="text" class="fl" placeholder="搜索你喜欢的" value="">
                 <button id="searchBtn"></button>
             </div>
         </div>

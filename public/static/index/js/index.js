@@ -19,7 +19,7 @@ $(function () {
     $i = 1;
     $('.navBtn li').click(function () {
         $i = $('.navBtn li').index($(this)) + 1;
-        $src = '/static/index/./img/nav' + $i + '.jpg';
+        $src = '/static/message/./img/nav' + $i + '.jpg';
 
         $(this).parent().parent().prev().children().attr({'src': $src});
         $(this).addClass('borderD');

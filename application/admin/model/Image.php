@@ -88,4 +88,24 @@ class Image extends Model{
         }
         return $res!==false?true:false;
     }
+    //通过图片id把图片改为封面
+    static public function changePicFace($image_id){
+        if (!$image_id){
+            return false;
+        }
+        $data=[
+            'image_id'=>$image_id,
+            'is_face'=>1,
+        ];
+        $res=db('image')->update($data);
+        return $res!==false?true:false;
+    }
+    //通过图片id
+    static public function delImage($id){
+        if (!$id){
+            return false;
+        }
+        $res=db('image')->delete($id);
+        return $res??false;
+    }
 }

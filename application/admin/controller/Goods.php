@@ -11,23 +11,18 @@ namespace app\admin\controller;
 use think\Controller;
 use app\admin\model\Goods as GoodsModel;
 use app\admin\model\Image as ImageModel;
-use app\admin\model\CateModel;
-class Goods extends Controller
-{
-    public function index()
-    {
+class Goods extends Base{
+    //加载所有商品信息
+    public function index(){
         $data = GoodsModel::index();
         $this->assign('data', $data);
         return $this->fetch('list');
     }
-
-    public function add()
-    {
+    //添加商品信息
+    public function add(){
         if (request()->isPost()) {
             $data = [
                 'goods_name' => input('goods_name'),
-
-                'desc' => input('desc'),
                 'market_price' => input('market_price'),
                 'sell_price' => input('sell_price'),
                 'store' => input('store'),
@@ -40,6 +35,11 @@ class Goods extends Controller
                 return $this->error('商品分类未选择');
             }else{
                 $data['cate_id']=input('cate_id');
+            }
+            if (input('desc')==null){
+                $data['desc']='暂无简介';
+            }else{
+                $data['desc']=input('desc');
             }
             //判断是否上架
             if (input('maketable') == 'on') {
@@ -67,6 +67,8 @@ class Goods extends Controller
                 } else {
                     return $this->error($arr['msg']);
                 }
+            }else{
+                return $this->error('未选择图片');
             }
             //把商品信息加入数据库，返回id
             $goods_id = GoodsModel::addGoods($data);
@@ -75,14 +77,12 @@ class Goods extends Controller
             }
             $imageData['goods_id'] = $goods_id;
             $imageData['is_face'] = 1;
-            $imageData['image_b_url'] = ImageModel::thumb($data['image_url'], $width = 650, $height = 650);
-            $imageData['image_m_url'] = ImageModel::thumb($data['image_url'], $width = 240, $height = 240);
-            $imageData['image_s_url'] = ImageModel::thumb($data['image_url'], $width = 120, $height = 120);
-
+            $imageData['image_b_url'] = ImageModel::thumb($imageData['image_url'], $width = 650, $height = 650);
+            $imageData['image_m_url'] = ImageModel::thumb($imageData['image_url'], $width = 240, $height = 240);
+            $imageData['image_s_url'] = ImageModel::thumb($imageData['image_url'], $width = 120, $height = 120);
             $res = ImageModel::addImage($imageData);
-
             if ($res) {
-                return $this->success('添加成功', url('Goods/index'));
+                return $this->success('添加成功', url('Goods/message'));
             } else {
                 return $this->error('添加失败');
             }
@@ -103,6 +103,7 @@ class Goods extends Controller
         $this->assign('cateData', $cateData);
         return $this->fetch();
     }
+    //编辑商品信息
     public function edit(){
         $id=input('goods_id');
         if (request()->isPost()){
@@ -118,7 +119,6 @@ class Goods extends Controller
                 'content' => input('content'),
                 'last_modify_id' => input('user_id'),
             ];
-
            //判断分类'cate_id' => input('cate_id')
             //判断是否上架
             if (input('maketable') == 'on') {
@@ -146,15 +146,15 @@ class Goods extends Controller
 //                    return $this->error($arr['msg']);
 //                }
 //            }
+            //传入商品信息，进行更新
             $res=GoodsModel::updGoods($data);
-           if ($res) {
+            if ($res) {
                 return $this->success('修改成功', url('Goods/index'));
-           } else {
+            } else {
                 return $this->error('修改失败');
-           }
-
-
+            }
         }
+        //修改之前先加载信息，所有分类信息，还有该商品的原有信息
         $cateData =CateModel::listAllData();
         foreach ($cateData as $key=>$val){
             //通过两个fro循环，判断是不是有子分类，给有子分类加个属性disabled
@@ -175,9 +175,29 @@ class Goods extends Controller
         ]);
         return $this->fetch();
     }
-    public function upd()
-    {
-        return $this->fetch();
+    //假删除商品，改变商品的是否删除字段
+    public function del(){
+        $goods_id=input('goods_id');
+        $res=GoodsModel::delGoods($goods_id);
+//        dump($res);
+//        exit;
+        if ($res){
+            $this->success('删除成功',url('Goods/index'));
+        }else{
+            $this->error('删除失败');
+        }
+    }
+    //撤销删除商品，改变商品的是否删除字段
+    public function backDel(){
+        $goods_id=input('goods_id');
+        $res=GoodsModel::backDelGoods($goods_id);
+//        dump($res);
+//        exit;
+        if ($res){
+            $this->success('撤销删除成功',url('Goods/index'));
+        }else{
+            $this->error('撤销删除失败');
+        }
     }
 
 

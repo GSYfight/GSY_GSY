@@ -46,7 +46,7 @@ final class Compound implements Type, IteratorAggregate
     }
 
     /**
-     * Returns the type at the given index.
+     * Returns the type at the given message.
      *
      * @param integer $index
      *
@@ -62,7 +62,7 @@ final class Compound implements Type, IteratorAggregate
     }
 
     /**
-     * Tests if this compound type has a type with the given index.
+     * Tests if this compound type has a type with the given message.
      *
      * @param integer $index
      *

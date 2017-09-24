@@ -18,13 +18,17 @@ class Base extends Controller{
         //获取admin数据
         $admin=session('admin');
         if(!isset($admin)||empty($admin)){
-            $this->error('请先登入',url('Login/index'));
+            $this->error('请先登入',url('Login/message'));
         }
     }
-
-
         public function _empty(){
-            return '非法访问';
+            return '<html>  
+ <head><title>404 Not Found</title></head>  
+ <body bgcolor="white">  
+ <center><h1>404 Not Found</h1></center>  
+ <hr>
+ </body>  
+ </html>';
         }
 
 

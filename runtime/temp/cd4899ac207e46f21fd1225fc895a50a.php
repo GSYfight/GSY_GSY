@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:59:"F:\php\GSY\public/../application/admin\view\image\list.html";i:1505996440;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:59:"F:\php\GSY\public/../application/admin\view\image\list.html";i:1506133299;}*/ ?>
 <?php echo widget('Widget/header'); ?>
 <!-- /头部 -->
 <div class="main-container container-fluid">
@@ -50,9 +50,16 @@
                                         <td align="center">
                                             <img src="<?php echo $v['image_url']; ?>" alt="" width="80" height="40">
                                         </td>
-                                        <td align="center"><?php echo $v['is_face']; ?></td>
                                         <td align="center">
-                                            <a href="#" onClick="warning('确实要删除吗', '<?php echo url('Image/del',array('id'=>$v['image_id'])); ?>')"
+                                            <!--判断是否为封面-->
+                                            <?php if($v['is_face'] == 1): ?>
+                                            是
+                                            <?php else: ?>
+                                            <a href="<?php echo url('Image/isFace',['image_id'=>$v['image_id'],'goods_id'=>$v['goods_id']]); ?>">否</a>
+                                            <?php endif; ?>
+                                        </td>
+                                        <td align="center">
+                                            <a href="#" onClick="warning('确实要删除吗', '<?php echo url('Image/del',['image_id'=>$v['image_id'],'is_face'=>$v['is_face']]); ?>')"
                                                class="btn btn-danger btn-sm shiny">
                                                 <i class="fa fa-trash-o"></i> 删除
                                             </a>
