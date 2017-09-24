@@ -9,6 +9,12 @@ namespace app\admin\controller;
 use think\Controller;
 class Error extends Controller{
     public function _empty(){
-        return '无法找到控制器';
+        return '<html>  
+ <head><title>404 Not Found</title></head>  
+ <body bgcolor="white">  
+ <center><h1>404 Not Found</h1></center>  
+ <hr>
+ </body>  
+ </html>';
     }
 }

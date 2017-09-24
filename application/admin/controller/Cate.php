@@ -6,10 +6,9 @@
  * Time: 11:08
  */
 namespace app\admin\controller;
-use think\Controller;
 use app\admin\model\CateModel;
 //无限级分类
-class Cate extends Controller{
+class Cate extends Base{
     /*
      * 分类列表页
      * */
