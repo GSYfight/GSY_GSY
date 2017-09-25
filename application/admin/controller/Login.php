@@ -68,9 +68,7 @@ class Login extends Controller
 //        登陆次数+1
         db('management')->where(['username'=>$data['username']])->setInc('login_time');
 
-
-
-        $this->success('跳转成功，正在跳转中', 'Admin/message');
+        $this->success('跳转成功，正在跳转中', 'Admin/index');
     }
 
     public function _empty(){

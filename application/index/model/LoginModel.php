@@ -19,13 +19,26 @@ class LoginModel extends Model{
         return $res=db('member')->insert($data);
     }
     /*
-     * 根据参数mobile获取数据
+     * 根据参数mobile获取member数据
      * */
     static public function dataByMobile($mobile){
         if(empty($mobile)){
             return false;
         }
         return $res=db('member')->where('mobile',$mobile)->find();
+    }
+    /*
+     * 将数据添加至member数据库
+     * */
+    static public function loginUpd($data){
+        if(!$data){
+            return false;
+        }
+        $id =db('member')->where('mobile',$data['mobile'])->find();
+
+            db('member')->where('member_id',$id['member_id'])->setInc('login_count');
+        return db('member')->where('member_id',$id['member_id'])->update($data);
+
     }
     /*
      * 将验证码存入表中

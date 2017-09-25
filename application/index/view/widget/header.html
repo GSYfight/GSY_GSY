@@ -8,6 +8,7 @@
                 <span class="spanH ">所有商品</span>
                 <!--隐藏模块1-->
                 <div class="d1">
+
                     {foreach $data as $k=>$v}
                     <div class="culumn fl">
                         <a href="">
@@ -77,11 +78,11 @@
                 <div class="userA "></div>
                 <div class="useDiv">
                     <div class="sanjiaoxing"></div>
-                    <a href="./login.html">
-                        <button>登录</button>
+                    <a href="{:url('Login/login',['urlAddress'=>$urlAddress])}">
+                        <button>登录{$urlAddress}</button>
                     </a>
                     <hr>
-                    <a href="./regist.html">
+                    <a href="{:url('Login/register')}">
                         <button>注册</button>
                     </a>
                 </div>
