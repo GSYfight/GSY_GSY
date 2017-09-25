@@ -205,7 +205,17 @@
     function checkboxOnclick(checkbox){
 
         if ( checkbox.checked == true){
-            alert(checkbox.value);
+            var cate=checkbox.value;
+            alert('id:'+cate);
+            $.ajax({
+                type:'POST',
+                dataType:'json',
+                url:"{:url('ProductList/index')}",
+                data:{keywords:phone},
+                success:function (d) {
+                    alert(d.msg);
+                }
+            });
 
 
 

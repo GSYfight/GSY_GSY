@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"F:\php\GSY\public/../application/index\view\productlist\productlist.html";i:1506267699;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"F:\php\GSY\public/../application/index\view\productlist\productlist.html";i:1506310903;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -204,7 +204,17 @@
     function checkboxOnclick(checkbox){
 
         if ( checkbox.checked == true){
-            alert(checkbox.value);
+            var cate=checkbox.value;
+            alert('id:'+cate);
+            $.ajax({
+                type:'POST',
+                dataType:'json',
+                url:"<?php echo url('ProductList/index'); ?>",
+                data:{keywords:phone},
+                success:function (d) {
+                    alert(d.msg);
+                }
+            });
 
 
 

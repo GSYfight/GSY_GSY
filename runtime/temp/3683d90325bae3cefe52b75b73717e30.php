@@ -1,4 +1,8 @@
+<<<<<<< HEAD:runtime/temp/2d70b46f62416da37a53031b2df7408c.php
 <?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:60:"E:\PHP\GSY\public/../application/index\view\login\login.html";i:1506323670;s:62:"E:\PHP\GSY\public/../application/index\view\widget\header.html";i:1506325775;}*/ ?>
+=======
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"D:\PHPfile\GSY\public/../application/index\view\widget\header.html";i:1506301474;}*/ ?>
+>>>>>>> f4299c62f2222bd2aa408b0617b4581ba6f01a3c:runtime/temp/3683d90325bae3cefe52b75b73717e30.php
 <header id="header" class="head">
     <a href="index.html">
         <div class="icon fl"></div>
@@ -20,7 +24,11 @@
                         </a>
                         <div>
                             <?php foreach($v as $k=>$j): ?>
+<<<<<<< HEAD:runtime/temp/2d70b46f62416da37a53031b2df7408c.php
                             <p><a href="<?php echo url('ProductList/productlist',['cate_id'=>$j['cate_id']]); ?>"><?php echo $j['name']; ?></a></p>
+=======
+                            <p><a href="<?php echo url('ProductList/index',['cate_id'=>$j['cate_id']]); ?>"><?php echo $j['name']; ?></a></p>
+>>>>>>> f4299c62f2222bd2aa408b0617b4581ba6f01a3c:runtime/temp/3683d90325bae3cefe52b75b73717e30.php
                             <?php endforeach; ?>
                         </div>
                     </div>

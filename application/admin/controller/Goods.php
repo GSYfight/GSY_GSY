@@ -11,6 +11,7 @@ namespace app\admin\controller;
 use think\Controller;
 use app\admin\model\Goods as GoodsModel;
 use app\admin\model\Image as ImageModel;
+use app\admin\model\CateModel;
 class Goods extends Base{
     //加载所有商品信息
     public function index(){
@@ -82,7 +83,7 @@ class Goods extends Base{
             $imageData['image_s_url'] = ImageModel::thumb($imageData['image_url'], $width = 120, $height = 120);
             $res = ImageModel::addImage($imageData);
             if ($res) {
-                return $this->success('添加成功', url('Goods/message'));
+                return $this->success('添加成功', url('Goods/index'));
             } else {
                 return $this->error('添加失败');
             }

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:60:"E:\PHP\GSY\public/../application/admin\view\login\login.html";i:1506065568;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:60:"F:\php\GSY\public/../application/admin\view\login\login.html";i:1506148103;}*/ ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"><!--Head--><head>
     <meta charset="utf-8">
@@ -29,7 +29,12 @@
                 <div class="loginbox-textbox">
                     <input  class="form-control" placeholder="password" name="password" required="" type="password">
                 </div>
-
+                <div class="loginbox-textbox">
+                    <img src="<?php echo captcha_src(); ?>" alt="captcha" onclick="this.src='<?php echo captcha_src(); ?>'"/>
+                </div>
+                <div class="loginbox-textbox">
+                    <input  class="form-control" placeholder="验证码" required="" name="code" type="text">
+                </div>
                 <div class="loginbox-submit">
                     <input class="btn btn-primary btn-block" required='' value="Login" type="submit">
                 </div>

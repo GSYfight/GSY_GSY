@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:60:"F:\php\GSY\public/../application/index\view\index\index.html";i:1506235746;s:62:"F:\php\GSY\public/../application/index\view\widget\header.html";i:1506250776;s:62:"F:\php\GSY\public/../application/index\view\widget\footer.html";i:1506268097;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"F:\php\GSY\public/../application/index\view\widget\footer.html";i:1506268097;}*/ ?>
 <footer class="footer">
 	<div class="bg">
 		<div class="container">

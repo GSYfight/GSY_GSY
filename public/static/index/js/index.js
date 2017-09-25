@@ -20,6 +20,7 @@ $(function () {
     $('.navBtn li').click(function () {
         $i = $('.navBtn li').index($(this)) + 1;
         $src = '/static/index/./img/nav' + $i + '.jpg';
+
         $(this).parent().parent().prev().children().attr({'src': $src});
         $(this).addClass('borderD');
         $(this).removeClass('liHover');
@@ -67,18 +68,27 @@ $(function () {
             $(this).children().eq(2).children().eq(2).hide();
         }
     });
+//遮罩点击事件
+
 //添加减少
-    $('.addBtn').click(function () {
+    $('.addBtn').click(function (e) {
+
         $num = parseInt($(this).prev().prev().html());
         $(this).prev().prev().html($num + 1);
+        var eve=e|window.event;
+        eve.stopPropagation()
     });
-    $('.reduceBtn').click(function () {
+
+    $('.reduceBtn').click(function (e) {
+
         $num = parseInt($(this).prev().html());
         if ($num == 0) {
 
         } else {
             $(this).prev().html($num - 1);
         }
+        var eve=e|window.event;
+        eve.stopPropagation();
     });
 
 //回到顶部按钮
@@ -130,7 +140,7 @@ $(function () {
 
 //客服按钮
     $('.customerBtn').click(function () {
-        alert('没有，快滚');
+        alert('还没开通，敬请期待');
     });
 //header隐藏导航设置
     $('#header .headRight li').mouseenter(function () {
@@ -149,10 +159,6 @@ $(function () {
         $('.useDiv').hide();
     });
     //临时跳转效果
-    //购物车
-    $('.cart').click(function () {
-        location.href = 'cart.html';
-    });
     //提交订单
     $('#jiesuan').click(function () {
         location.href = 'cart-checkout.html';
@@ -161,5 +167,6 @@ $(function () {
     $('#tijiaoBtn').click(function () {
         location.href = 'paycenter.html';
     });
+
 
 });

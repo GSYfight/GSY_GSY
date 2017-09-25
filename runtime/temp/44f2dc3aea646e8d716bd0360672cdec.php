@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:60:"F:\php\GSY\public/../application/index\view\index\index.html";i:1506235746;s:62:"F:\php\GSY\public/../application/index\view\widget\header.html";i:1506250776;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"F:\php\GSY\public/../application/index\view\widget\header.html";i:1506302488;}*/ ?>
 <header id="header" class="head">
     <a href="index.html">
         <div class="icon fl"></div>
@@ -9,6 +9,7 @@
                 <span class="spanH ">所有商品</span>
                 <!--隐藏模块1-->
                 <div class="d1">
+
                     <?php foreach($data as $k=>$v): ?>
                     <div class="culumn fl">
                         <a href="">
@@ -78,11 +79,11 @@
                 <div class="userA "></div>
                 <div class="useDiv">
                     <div class="sanjiaoxing"></div>
-                    <a href="./login.html">
-                        <button>登录</button>
+                    <a href="<?php echo url('Login/login',['urlAddress'=>$urlAddress]); ?>">
+                        <button>登录<?php echo $urlAddress; ?></button>
                     </a>
                     <hr>
-                    <a href="./regist.html">
+                    <a href="<?php echo url('Login/register'); ?>">
                         <button>注册</button>
                     </a>
                 </div>

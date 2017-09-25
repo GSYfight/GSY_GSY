@@ -1,4 +1,8 @@
+<<<<<<< HEAD:runtime/temp/d049a458b2ae424c17bf66f1518c8ee6.php
 <?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:60:"E:\PHP\GSY\public/../application/index\view\index\index.html";i:1506301021;}*/ ?>
+=======
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:64:"D:\PHPfile\GSY\public/../application/index\view\index\index.html";i:1506310741;}*/ ?>
+>>>>>>> f4299c62f2222bd2aa408b0617b4581ba6f01a3c:runtime/temp/beb5bf19978ce43114c9ba0ef8bac8ce.php
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,9 +22,15 @@
     <!--头部-->
     <?php echo widget('Widget/header'); ?>
     <!--nav-->
-    <div class="nav ">
+    <div class="nav">
         <div class="navImg">
+<<<<<<< HEAD:runtime/temp/d049a458b2ae424c17bf66f1518c8ee6.php
             <img src="__STATIC__/index/img/nav1.jpg" alt="717美食5件5折">
+=======
+
+            <img src="__STATIC__/index/img/nav1.jpg" alt="717美食5件5折">
+
+>>>>>>> f4299c62f2222bd2aa408b0617b4581ba6f01a3c:runtime/temp/beb5bf19978ce43114c9ba0ef8bac8ce.php
         </div>
         <div class="navBtn">
             <ul class="borderD">
@@ -37,37 +47,37 @@
         <ul>
             <li>
                 <dl>
-                    <dd><img src="__STATIC__/index/./img/lanmei.jpg" alt=""></dd>
+                    <dd><img src="__STATIC__/index/./img/top1.jpg" alt=""></dd>
                     <dt>
-                    <h4><a href="#">蓝莓新鲜上市</a></h4>
-                    <p>安心又美味的新鲜蓝莓到货了！遵照 GAP 「良好农业规范」生态种植，不打药不催熟，采茶工人戴手套采摘，清水冲冲就可食。</p>
+                    <h4><a href="#">海拔3300米小金青苹果</a></h4>
+                    <p>川藏高原独特的气候环境给予最自然的味道；生产过程不用农药、化肥和除草剂 ,果实甘甜可口，吸引周边鸟儿们每天来吃。</p>
                     </dt>
                 </dl>
             </li>
             <li>
                 <dl>
-                    <dd><img src="__STATIC__/index/./img/lanmei.jpg" alt=""></dd>
+                    <dd><img src="__STATIC__/index/./img/top2.jpg" alt=""></dd>
                     <dt>
-                    <h4><a href="#">蓝莓新鲜上市</a></h4>
-                    <p>安心又美味的新鲜蓝莓到货了！遵照 GAP 「良好农业规范」生态种植，不打药不催熟，采茶工人戴手套采摘，清水冲冲就可食。</p>
+                    <h4><a href="#">膳博士冰鲜黑猪肉</a></h4>
+                    <p>喝山中水，吃五谷杂粮、苜蓿草，慢慢长足10个月的「黑猪」，猪肉胶原蛋白丰富，鲜香美味。</p>
                     </dt>
                 </dl>
             </li>
             <li>
                 <dl>
-                    <dd><img src="__STATIC__/index/./img/lanmei.jpg" alt=""></dd>
+                    <dd><img src="__STATIC__/index/./img/top3.jpg" alt=""></dd>
                     <dt>
-                    <h4><a href="#">蓝莓新鲜上市</a></h4>
-                    <p>安心又美味的新鲜蓝莓到货了！遵照 GAP 「良好农业规范」生态种植，不打药不催熟，采茶工人戴手套采摘，清水冲冲就可食。</p>
+                    <h4><a href="#">优惠专区</a></h4>
+                    <p>在这个优惠自选区里，有很多好的食材值得一试，只要经过简单的处理，就可以享受到美食的味道。</p>
                     </dt>
                 </dl>
             </li>
             <li>
                 <dl>
-                    <dd><img src="__STATIC__/index/./img/lanmei.jpg" alt=""></dd>
+                    <dd><img src="__STATIC__/index/./img/top4.jpg" alt=""></dd>
                     <dt>
-                    <h4><a href="#">蓝莓新鲜上市</a></h4>
-                    <p>安心又美味的新鲜蓝莓到货了！遵照 GAP 「良好农业规范」生态种植，不打药不催熟，采茶工人戴手套采摘，清水冲冲就可食。</p>
+                    <h4><a href="#">可以喝的沙拉</a></h4>
+                    <p>均衡全食饮，可以喝的沙拉！1瓶包含10种蔬果、粗粮谷物、植物蛋白，维生素和酶的活性完整保存。红瓶抗氧化，绿瓶清肠道，健康好味道！</p>
                     </dt>
                 </dl>
             </li>
@@ -78,24 +88,23 @@
         <div class="regouLeft fl">
             <img src="__STATIC__/index/./img/regou.jpg" alt="" class="fl hImg">
             <div class="regou1 fl">
-                <span class="numSpan">1</span>
                 <dl>
                     <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
+                        <img src="__STATIC__/index/./img/hot1.jpg" alt="" class="goodsImg">
                         <img src="__STATIC__/index/./img/new.png" alt="" class="youhuiImg">
-                        <div class="numDiv" id="firNumDiv">
+                        <div class="numDiv" id="firNumDiv" >
                             <span>0</span>
                             <button class="reduceBtn">-</button>
                             <button class="addBtn">+</button>
                         </div>
                     </dd>
                     <dt>
-                    <h4><a href="">原农公社</a></h4>
+                    <h4><a href="">果蔬净</a></h4>
                     <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
+                        <button>Soapnut Republic</button>
+                        <span class="likeP">500ml</span>/瓶
                     </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
+                    <p class="money">￥<span class="money">50.00</span></p>
                     </dt>
                 </dl>
             </div>
@@ -145,7 +154,7 @@
                     <dd>
                         <img src="<?php echo $val['image_b_url']; ?>" alt="" class="goodsImg">
                         <div class="youhuiDiv"></div>
-                        <div class="numDiv">
+                        <div class="numDiv" onclick="javascript:window.location.href='<?php echo url('Product/index',['goodsId'=>$val['goods_id']]); ?>'">
                             <span>0</span>
                             <button class="reduceBtn">-</button>
                             <button class="addBtn">+</button>
@@ -178,7 +187,7 @@
                     <dd>
                         <img src="<?php echo $val['image_b_url']; ?>" alt="" class="goodsImg">
                         <div class="youhuiDiv"></div>
-                        <div class="numDiv">
+                        <div class="numDiv" onclick="javascript:window.location.href='<?php echo url('Product/index',['goodsId'=>$val['goods_id']]); ?>'">
                             <span>0</span>
                             <button class="reduceBtn">-</button>
                             <button class="addBtn">+</button>
@@ -211,7 +220,7 @@
                     <dd>
                         <img src="<?php echo $val['image_b_url']; ?>" alt="" class="goodsImg">
                         <div class="youhuiDiv"></div>
-                        <div class="numDiv">
+                        <div class="numDiv" onclick="javascript:window.location.href='<?php echo url('Product/index',['goodsId'=>$val['goods_id']]); ?>'">
                             <span>0</span>
                             <button class="reduceBtn">-</button>
                             <button class="addBtn">+</button>
@@ -244,7 +253,7 @@
                     <dd>
                         <img src="<?php echo $val['image_b_url']; ?>" alt="" class="goodsImg">
                         <div class="youhuiDiv"></div>
-                        <div class="numDiv">
+                        <div class="numDiv" onclick="javascript:window.location.href='<?php echo url('Product/index',['goodsId'=>$val['goods_id']]); ?>'">
                             <span>0</span>
                             <button class="reduceBtn">-</button>
                             <button class="addBtn">+</button>
@@ -276,7 +285,7 @@
                     <dd>
                         <img src="<?php echo $val['image_b_url']; ?>" alt="" class="goodsImg">
                         <div class="youhuiDiv"></div>
-                        <div class="numDiv">
+                        <div class="numDiv" onclick="javascript:window.location.href='<?php echo url('Product/index',['goodsId'=>$val['goods_id']]); ?>'">
                             <span>0</span>
                             <button class="reduceBtn">-</button>
                             <button class="addBtn">+</button>
@@ -308,7 +317,7 @@
                     <dd>
                         <img src="<?php echo $val['image_b_url']; ?>" alt="" class="goodsImg">
                         <div class="youhuiDiv"></div>
-                        <div class="numDiv">
+                        <div class="numDiv" onclick="javascript:window.location.href='<?php echo url('Product/index',['goodsId'=>$val['goods_id']]); ?>'">
                             <span>0</span>
                             <button class="reduceBtn">-</button>
                             <button class="addBtn">+</button>
@@ -340,7 +349,7 @@
                     <dd>
                         <img src="<?php echo $val['image_b_url']; ?>" alt="" class="goodsImg">
                         <div class="youhuiDiv"></div>
-                        <div class="numDiv">
+                        <div class="numDiv" onclick="javascript:window.location.href='<?php echo url('Product/index',['goodsId'=>$val['goods_id']]); ?>'">
                             <span>0</span>
                             <button class="reduceBtn">-</button>
                             <button class="addBtn">+</button>
@@ -372,7 +381,7 @@
                     <dd>
                         <img src="<?php echo $val['image_b_url']; ?>" alt="" class="goodsImg">
                         <div class="youhuiDiv"></div>
-                        <div class="numDiv">
+                        <div class="numDiv" onclick="javascript:window.location.href='<?php echo url('Product/index',['goodsId'=>$val['goods_id']]); ?>'">
                             <span>0</span>
                             <button class="reduceBtn">-</button>
                             <button class="addBtn">+</button>
@@ -404,7 +413,7 @@
                     <dd>
                         <img src="<?php echo $val['image_b_url']; ?>" alt="" class="goodsImg">
                         <div class="youhuiDiv"></div>
-                        <div class="numDiv">
+                        <div class="numDiv" onclick="javascript:window.location.href='<?php echo url('Product/index',['goodsId'=>$val['goods_id']]); ?>'">
                             <span>0</span>
                             <button class="reduceBtn">-</button>
                             <button class="addBtn">+</button>
@@ -436,80 +445,80 @@
         </div>
         <div class="menu fl">
             <div class="icon">
-                <img src="__STATIC__/index/./img/icon1.jpg" alt="">
+                <img src="__STATIC__/index/./img/select_icon4.jpg" alt="">
                 <span>可持续发展</span>
             </div>
             <div class="icon">
-                <img src="__STATIC__/index/./img/icon2.jpg" alt="">
+                <img src="__STATIC__/index/./img/select_icon3.jpg" alt="">
                 <span>小农栽种</span>
             </div>
             <div class="icon">
-                <img src="__STATIC__/index/./img/icon2.jpg" alt="">
-                <span>可持续发展</span>
+                <img src="__STATIC__/index/./img/select_icon2.jpg" alt="">
+                <span>无激抗</span>
             </div>
             <div class="icon">
-                <img src="__STATIC__/index/./img/icon2.jpg" alt="">
-                <span>可持续发展</span>
+                <img src="__STATIC__/index/./img/select_icon1.jpg" alt="">
+                <span>天然无毒</span>
             </div>
             <div class="icon">
-                <img src="__STATIC__/index/./img/icon2.jpg" alt="">
-                <span>可持续发展</span>
+                <img src="__STATIC__/index/./img/select_icon0.jpg" alt="">
+                <span>本地食材</span>
             </div>
             <div class="icon">
-                <img src="__STATIC__/index/./img/icon2.jpg" alt="">
-                <span>可持续发展</span>
+                <img src="__STATIC__/index/./img/select_icon9.jpg" alt="">
+                <span>一米亲访</span>
             </div>
             <div class="icon">
-                <img src="__STATIC__/index/./img/icon2.jpg" alt="">
-                <span>可持续发展</span>
+                <img src="__STATIC__/index/./img/select_icon8.jpg" alt="">
+                <span>古法手作</span>
             </div>
             <div class="icon">
-                <img src="__STATIC__/index/./img/icon2.jpg" alt="">
-                <span>可持续发展</span>
+                <img src="__STATIC__/index/./img/select_icon7.jpg" alt="">
+                <span>无负面添加</span>
             </div>
             <div class="icon">
-                <img src="__STATIC__/index/./img/icon2.jpg" alt="">
-                <span>可持续发展</span>
+                <img src="__STATIC__/index/./img/select_icon6.jpg" alt="">
+                <span>自然农法</span>
             </div>
             <div class="icon">
-                <img src="__STATIC__/index/./img/icon2.jpg" alt="">
-                <span>可持续发展</span>
+                <img src="__STATIC__/index/./img/select_icon5.jpg" alt="">
+                <span>走地散养</span>
             </div>
             <div class="icon">
-                <img src="__STATIC__/index/./img/icon2.jpg" alt="">
-                <span>可持续发展</span>
+                <img src="__STATIC__/index/./img/select_icon14.jpg" alt="">
+                <span>人道主义</span>
             </div>
             <div class="icon">
-                <img src="__STATIC__/index/./img/icon2.jpg" alt="">
-                <span>可持续发展</span>
+                <img src="__STATIC__/index/./img/select_icon13.jpg" alt="">
+                <span>生态养殖</span>
             </div>
             <div class="icon">
-                <img src="__STATIC__/index/./img/icon2.jpg" alt="">
-                <span>可持续发展</span>
+                <img src="__STATIC__/index/./img/select_icon12.jpg" alt="">
+                <span>野生捕捞</span>
             </div>
             <div class="icon">
-                <img src="__STATIC__/index/./img/icon2.jpg" alt="">
-                <span>可持续发展</span>
+                <img src="__STATIC__/index/./img/select_icon11.jpg" alt="">
+                <span>优质产地</span>
             </div>
             <div class="icon">
-                <img src="__STATIC__/index/./img/icon2.jpg" alt="">
-                <span>可持续发展</span>
+                <img src="__STATIC__/index/./img/select_icon10.jpg" alt="">
+                <span>无麸质</span>
             </div>
             <div class="icon">
-                <img src="__STATIC__/index/./img/icon2.jpg" alt="">
-                <span>可持续发展</span>
+                <img src="__STATIC__/index/./img/select_icon18.jpg" alt="">
+                <span>草饲</span>
             </div>
             <div class="icon">
-                <img src="__STATIC__/index/./img/icon2.jpg" alt="">
-                <span>可持续发展</span>
+                <img src="__STATIC__/index/./img/select_icon17.jpg" alt="">
+                <span>纯天然原料</span>
             </div>
             <div class="icon">
-                <img src="__STATIC__/index/./img/icon2.jpg" alt="">
-                <span>可持续发展</span>
+                <img src="__STATIC__/index/./img/select_icon16.jpg" alt="">
+                <span>非转基因</span>
             </div>
             <div class="icon">
-                <img src="__STATIC__/index/./img/icon2.jpg" alt="">
-                <span>可持续发展</span>
+                <img src="__STATIC__/index/./img/select_icon15.jpg" alt="">
+                <span>有机生产</span>
             </div>
 
         </div>
@@ -537,7 +546,7 @@
                 <div class="right fl">
                     <dl class="fl cook">
                     <dd>
-                        <img src="__STATIC__/index/./img/nangua.jpg" alt="" class="goodsImg">
+                        <img src="__STATIC__/index/./img/cook1.jpg" alt="" class="goodsImg">
                         <div class="youhuiDiv">
                             <img src="__STATIC__/index/./img/new.png" alt="" class="youhuiImg">
                         </div>
@@ -548,17 +557,17 @@
                         </div>
                     </dd>
                     <dt>
-                        <h4><a href="">生态种植板栗南瓜</a></h4>
+                        <h4><a href="">零农残佳沛绿果 4粒</a></h4>
                         <p>
                             <button>君禾园</button>
-                            <span class="likeP">1250</span>g/份
+                            <span class="likeP">450</span>g/份
                         </p>
                         <p class="money">￥<span class="money">25.00</span></p>
                     </dt>
                 </dl>
                     <dl class="fl cook">
                         <dd>
-                            <img src="__STATIC__/index/./img/nangua.jpg" alt="" class="goodsImg">
+                            <img src="__STATIC__/index/./img/cook2.jpg" alt="" class="goodsImg">
                             <div class="youhuiDiv">
                                 <img src="__STATIC__/index/./img/new.png" alt="" class="youhuiImg">
                             </div>
@@ -569,17 +578,17 @@
                             </div>
                         </dd>
                         <dt>
-                            <h4><a href="">生态种植板栗南瓜</a></h4>
+                            <h4><a href="">柠檬君的青柠檬 500g</a></h4>
                             <p>
-                                <button>君禾园</button>
-                                <span class="likeP">1250</span>g/份
+                                <button>柠檬君</button>
+                                <span class="likeP">500</span>g/份
                             </p>
-                            <p class="money">￥<span class="money">25.00</span></p>
+                            <p class="money">￥<span class="money">30.00</span></p>
                         </dt>
                     </dl>
                     <dl class="fl cook">
                         <dd>
-                            <img src="__STATIC__/index/./img/nangua.jpg" alt="" class="goodsImg">
+                            <img src="__STATIC__/index/./img/cook3.jpg" alt="" class="goodsImg">
                             <div class="youhuiDiv">
                                 <img src="__STATIC__/index/./img/new.png" alt="" class="youhuiImg">
                             </div>
@@ -590,17 +599,17 @@
                             </div>
                         </dd>
                         <dt>
-                            <h4><a href="">生态种植板栗南瓜</a></h4>
+                            <h4><a href="">金凯利爱尔兰风味切达干酪 </a></h4>
                             <p>
-                                <button>君禾园</button>
-                                <span class="likeP">1250</span>g/份
+                                <button>Kerrygold</button>
+                                <span class="likeP">250</span>g/份
                             </p>
-                            <p class="money">￥<span class="money">25.00</span></p>
+                            <p class="money">￥<span class="money">39.00</span></p>
                         </dt>
                     </dl>
                     <dl class="fl cook">
                         <dd>
-                            <img src="__STATIC__/index/./img/nangua.jpg" alt="" class="goodsImg">
+                            <img src="__STATIC__/index/./img/cook4.jpg" alt="" class="goodsImg">
                             <div class="youhuiDiv">
                                 <img src="__STATIC__/index/./img/new.png" alt="" class="youhuiImg">
                             </div>
@@ -611,12 +620,12 @@
                             </div>
                         </dd>
                         <dt>
-                            <h4><a href="">生态种植板栗南瓜</a></h4>
+                            <h4><a href="">有机尼奥长通粉</a></h4>
                             <p>
-                                <button>君禾园</button>
-                                <span class="likeP">1250</span>g/份
+                                <button>有机尼奥</button>
+                                <span class="likeP">250</span>g/份
                             </p>
-                            <p class="money">￥<span class="money">25.00</span></p>
+                            <p class="money">￥<span class="money">13.00</span></p>
                         </dt>
                     </dl>
                 </div>
