@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:68:"D:\PHPfile\GSY\public/../application/index\view\product\product.html";i:1506309923;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:68:"D:\PHPfile\GSY\public/../application/index\view\product\product.html";i:1506319452;}*/ ?>
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -20,13 +20,16 @@
     <!--主模块-->
     <div class="main">
         <div class="row">
+
             <div class="fl current">
-                <a href="#" class="sp" style="background-image: url(__STATIC__/index/./img/pro_s1.jpg)"></a>
+                <?php foreach($data as $val): ?>
+                <a href="#" class="sp" style="background-image: url(<?php echo $val['image_m_url']; ?>)"></a>
+                <?php endforeach; ?>
             </div>
             <div class="sp_large">
                 <div class="cenTop">
                     <a href="#" class="sp_current_img">
-                        <img src="__STATIC__/index/./img/pro_s1.jpg" >
+                        <img src="" >
                     </a>
                 </div>
                 <div class="col">
@@ -45,7 +48,7 @@
             </div>
             <div class="right fr">
                 <div class="title">
-                    <p>心心</p>
+                    <p><?php echo $data[0]['keywords']; ?></p>
                     <p class="spName"><?php echo $data[0]['goods_name']; ?></p>
                     <p class="spJiesao">巨玫瑰葡萄为紫红色，有浓郁玫瑰香气，口感好且甜度高。有机种植的葡萄，只需要用水冲洗后就可以连皮带籽一起吃。</p>
                     <p class="spPrice">￥ <span><?php echo $data[0]['sell_price']; ?></span></p>
@@ -73,9 +76,9 @@
                     </div>
                     <div class="caozuo">
                         <div class="d1 fl">
-                            <span class="fl left">-</span>
-                            <input type="text" class="fl" maxlength="2" value="1">
-                            <span class="fl right">+</span>
+                            <a href=""  class="fl left" id="goods_sub">-</a>
+                            <input type="text" class="fl" maxlength="2" value="1" id="goods_num">
+                            <a href="" class="fl right" id="goods_add">+</a>
                         </div>
                         <button id="jiaru" class="fr">加入购物车</button>
                     </div>
@@ -245,12 +248,12 @@
 <script>
     //商品图标选择
     $('.sp').eq(0).css({'opacity': '1'});
-    $('.sp_current_img').children().eq(0).attr('src', '__STATIC__/index/./img/pro_s1.jpg');
+    $('.sp_current_img').children().eq(0).attr('src', '<?php echo $data[0]['image_b_url']; ?>');
     $('.sp').mousemove(function () {
         srcIndex = $(this).index('.sp') + 1;
         $(this).css({'opacity': '1'});
         $('.sp').not($(this)).css({'opacity': '0.4'});
-        $('.sp_current_img').children().eq(0).attr('src', '__STATIC__/index/./img/pro_s'+ srcIndex +'.jpg');
+        $('.sp_current_img').children().eq(0).attr('src', '<?php echo $data[$srcIndex]['image_b_url']; ?>');
     });
     //显示隐藏分享选择
     $('.jq1').mousemove(function () {

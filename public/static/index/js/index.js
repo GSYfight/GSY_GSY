@@ -171,4 +171,23 @@ $(function () {
     $('#tijiaoBtn').click(function () {
         location.href = 'paycenter.html';
     });
+
+    //    商品数量加减
+    $("#goods_sub").click(function (e) {
+        e=e||window.event;
+        e.preventDefault();
+        var num=parseInt($(this).siblings("#goods_num").val())-1;
+        if(num<=1){
+            $(this).css({'cursor':'no-drop'});
+            num=0;
+        }
+        $(this).siblings("#goods_num").val(num);
+    });
+    $("#goods_add").click(function (e) {
+        e=e||window.event;
+        e.preventDefault();
+        var num=parseInt($(this).siblings("#goods_num").val());
+        $(this).siblings("#goods_num").val(num+1).siblings("#goods_sub").css({'cursor':'pointer'});
+    });
+
 });

@@ -205,8 +205,9 @@
 .caozuo input:focus {
     outline: none;
 }
-.caozuo span {
+.caozuo a {
     display: block;
+    text-decoration: none;
     width: 40px !important;
     height: 40px !important;
     font-size: 1.5em;
@@ -217,17 +218,17 @@
     line-height: 40px;
 }
 
-.caozuo span.left {
+.caozuo a.left {
     border-right: 1px solid #AFC5CD;
 }
 
-.caozuo span.right {
+.caozuo a.right {
     /*抵消重名影响*/
     min-height: 4px !important;
     border-left: 1px solid #AFC5CD;
 }
 
-.caozuo span:hover {
+.caozuo a:hover {
     color: #143749;
 
 }
