@@ -13,7 +13,7 @@ class Product extends Controller{
 
         $goodsId=input('goodsId');
         $data=indexProduct::search($goodsId);
-        dump($data);exit;
+//        dump($data);exit;
         $this->assign('data',$data);
         return $this->fetch('product');
     }
