@@ -108,4 +108,11 @@ class Image extends Model{
         $res=db('image')->delete($id);
         return $res??false;
     }
+    static public function getGoodsName($id){
+        if (!$id){
+            return false;
+        }
+        $data=db('goods')->find($id);
+        return $data;
+    }
 }

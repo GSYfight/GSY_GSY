@@ -8,6 +8,8 @@
 namespace app\admin\controller;
 use app\admin\model\Image as imageModel;
 use app\admin\model\Goods;
+use phpDocumentor\Reflection\Types\Array_;
+
 class Image extends Base{
     //加载所有商品的所有的图片
      public function index(){
@@ -72,6 +74,7 @@ class Image extends Base{
         //传入商品id，获取商品所有图片
         $data=imageModel::goodsImageInfo($id);
         $this->assign([
+            'goods_id'=>$id,
             'data'=>$data,
             'goods_name'=>$goods_name,
         ]);
@@ -85,7 +88,7 @@ class Image extends Base{
         $res1=ImageModel::changeGoodsPicFace($goods_id);
         //把该图片的is_face改为1封面
         $res2=ImageModel::changePicFace($image_id);
-        $data=imageModel::imageInfo();
+        $data=ImageModel::imageInfo();
         $this->assign('data',$data);
         return $this->fetch('list');
     }
@@ -93,6 +96,10 @@ class Image extends Base{
     public function addGoodsPic(){
         if (request()->isPost()){
             $imageData['goods_id'] = input('goods_id');
+            $arr1=[
+                'goods_id'=>input('goods_id')
+            ];
+            $goods_name=ImageModel::getGoodsName($arr1);
             if (input('is_face') == 'on') {
                 $imageData['is_face'] = 1;
                 //把该商品其他图片的is_face改为0非封面
@@ -114,10 +121,9 @@ class Image extends Base{
             $imageData['image_b_url'] = ImageModel::thumb($imageData['image_url'], $width = 650, $height = 650);
             $imageData['image_m_url'] = ImageModel::thumb($imageData['image_url'], $width = 240, $height = 240);
             $imageData['image_s_url'] = ImageModel::thumb($imageData['image_url'], $width = 120, $height = 120);
-
             $res = ImageModel::addImage($imageData);
             if ($res) {
-                return $this->success('添加成功', url('Goods/index'));
+                return $this->success('添加成功', url('Image/goodsPicList',array('id'=>$imageData['goods_id'],'goods_name'=>$goods_name['goods_name'])));
             } else {
                 return $this->error('添加失败');
             }
@@ -144,7 +150,7 @@ class Image extends Base{
             //传入image的id，删除图片
             $res=ImageModel::delImage($image_id);
             if ($res) {
-                return $this->success('删除成功！', url('image/index'));
+                return $this->success('删除成功！');
             } else {
                 return $this->error('删除失败！');
             }

@@ -17,5 +17,9 @@ class Product extends Model{
             ->select();
         return $data;
     }
+    static public function foundImg($imgId){
+        $data=db('image')->find($imgId);
+        return $data;
+    }
 
 }
