@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:68:"D:\PHPfile\GSY\public/../application/index\view\product\product.html";i:1506309923;}*/ ?>
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -15,7 +16,7 @@
 <!--主要内容-->
 <div class="container">
     <!--头部-->
-    {:widget('Widget/header')}
+    <?php echo widget('Widget/header'); ?>
     <!--主模块-->
     <div class="main">
         <div class="row">
@@ -45,9 +46,9 @@
             <div class="right fr">
                 <div class="title">
                     <p>心心</p>
-                    <p class="spName">{$data[0]['goods_name']}</p>
+                    <p class="spName"><?php echo $data[0]['goods_name']; ?></p>
                     <p class="spJiesao">巨玫瑰葡萄为紫红色，有浓郁玫瑰香气，口感好且甜度高。有机种植的葡萄，只需要用水冲洗后就可以连皮带籽一起吃。</p>
-                    <p class="spPrice">￥ <span>{$data[0]['sell_price']}</span></p>
+                    <p class="spPrice">￥ <span><?php echo $data[0]['sell_price']; ?></span></p>
                     <p class="spJianjia">
                         订单满299减40元
                         <span class="fr">!</span>
@@ -235,7 +236,7 @@
 </div>
 
 <!--底部-->
-{:widget('Widget/footer')}
+<?php echo widget('Widget/footer'); ?>
 
 <!--回到顶部按钮-->
 <div class="toTopBtn"></div>
