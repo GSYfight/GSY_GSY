@@ -76,10 +76,10 @@
                     <div class="caozuo">
                         <div class="d1 fl">
                             <a href=""  class="fl left" id="goods_sub">-</a>
-                            <input type="text" class="fl" maxlength="2" value="1" id="goods_num">
+                            <input type="text" class="fl" maxlength="2" value="1" goodsid="{$data[0]['goods_id']}" id="goods_num">
                             <a href="" class="fl right" id="goods_add">+</a>
                         </div>
-                        <button id="jiaru" class="fr">加入购物车</button>
+                        <button id="add_cart" class="fr">加入购物车</button>
                     </div>
                 </div>
             </div>
@@ -264,6 +264,27 @@ $(".goods_add").click(function (e) {
     var num=parseInt($(this).siblings(".goods_num").val());
     $(this).siblings(".goods_num").val(num+1).siblings(".goods_sub").css({'cursor':'pointer'});
 });
+$("#add_cart").click(function () {
+    var goods_id=$("#goods_num").attr('goodsid');
+    var goods_num=$("#goods_num").val();
+    $.ajax({
+        type:"POST",
+        datatype:"json",
+        data:{goods_id:goods_id,goods_num:goods_num},
+        url:"{:url('Cart/add')}",
+        success:function (data) {
+            if(data.status=='success'){
+                location.href="{:url('Cart/index')}"
+            }else {
+
+            }
+        },
+
+
+
+    })
+})
+
 
 
 

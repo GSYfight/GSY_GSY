@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:60:"F:\php\GSY\public/../application/index\view\index\index.html";i:1506322106;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:60:"F:\php\GSY\public/../application/index\view\index\index.html";i:1506327864;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -109,7 +109,7 @@
                         <div class="youhuiDiv">
                             <img src="__STATIC__/index/./img/new.png" alt="" class="youhuiImg">
                         </div>
-                        <div class="numDiv">
+                        <div class="numDiv" onclick="javascript:window.location.href='<?php echo url('Product/index',['goodsId'=>$val['goods_id']]); ?>'">
                             <span>0</span>
                             <button class="reduceBtn">-</button>
                             <button class="addBtn">+</button>
