@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:68:"D:\PHPfile\GSY\public/../application/index\view\product\product.html";i:1506319452;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:68:"D:\PHPfile\GSY\public/../application/index\view\product\product.html";i:1506326968;}*/ ?>
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -23,7 +23,7 @@
 
             <div class="fl current">
                 <?php foreach($data as $val): ?>
-                <a href="#" class="sp" style="background-image: url(<?php echo $val['image_m_url']; ?>)"></a>
+                <a href="#" imgid='<?php echo $val['image_id']; ?>' class="sp" style="background-image: url(<?php echo $val['image_m_url']; ?>)"></a>
                 <?php endforeach; ?>
             </div>
             <div class="sp_large">
@@ -50,7 +50,7 @@
                 <div class="title">
                     <p><?php echo $data[0]['keywords']; ?></p>
                     <p class="spName"><?php echo $data[0]['goods_name']; ?></p>
-                    <p class="spJiesao">巨玫瑰葡萄为紫红色，有浓郁玫瑰香气，口感好且甜度高。有机种植的葡萄，只需要用水冲洗后就可以连皮带籽一起吃。</p>
+                    <p class="spJiesao"><?php echo $data[0]['desc']; ?></p>
                     <p class="spPrice">￥ <span><?php echo $data[0]['sell_price']; ?></span></p>
                     <p class="spJianjia">
                         订单满299减40元
@@ -69,7 +69,7 @@
                             <span>保质期</span>
                         </p>
                         <p>
-                            <span>500g/盒</span>
+                            <span><?php echo $data[0]['unit']; ?></span>
                             <span>冷藏</span>
                             <span>2天</span>
                         </p>
@@ -250,10 +250,21 @@
     $('.sp').eq(0).css({'opacity': '1'});
     $('.sp_current_img').children().eq(0).attr('src', '<?php echo $data[0]['image_b_url']; ?>');
     $('.sp').mousemove(function () {
-        srcIndex = $(this).index('.sp') + 1;
+
+        var imgId=$(this).attr('imgid');
         $(this).css({'opacity': '1'});
         $('.sp').not($(this)).css({'opacity': '0.4'});
-        $('.sp_current_img').children().eq(0).attr('src', '<?php echo $data[$srcIndex]['image_b_url']; ?>');
+
+        $.ajax({
+            type:'POST',
+            dataType:'json',
+            url:"<?php echo url('Product/ajaxImg'); ?>",
+            data:{imgId:imgId},
+            success:function (d) {
+                $('.sp_current_img').children().eq(0).attr('src', d['image_b_url']);
+            }
+        });
+
     });
     //显示隐藏分享选择
     $('.jq1').mousemove(function () {

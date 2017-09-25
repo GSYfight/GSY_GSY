@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 <<<<<<< HEAD:runtime/temp/d049a458b2ae424c17bf66f1518c8ee6.php
 <?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:60:"E:\PHP\GSY\public/../application/index\view\index\index.html";i:1506301021;}*/ ?>
 =======
 <?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:64:"D:\PHPfile\GSY\public/../application/index\view\index\index.html";i:1506310741;}*/ ?>
 >>>>>>> f4299c62f2222bd2aa408b0617b4581ba6f01a3c:runtime/temp/beb5bf19978ce43114c9ba0ef8bac8ce.php
+=======
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:64:"D:\PHPfile\GSY\public/../application/index\view\index\index.html";i:1506326434;}*/ ?>
+>>>>>>> ac2255a9cbb6e626ef2b5f03efc69803e8aa7a83
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -121,7 +125,7 @@
                         <div class="youhuiDiv">
                             <img src="__STATIC__/index/./img/new.png" alt="" class="youhuiImg">
                         </div>
-                        <div class="numDiv">
+                        <div class="numDiv" onclick="javascript:window.location.href='<?php echo url('Product/index',['goodsId'=>$val['goods_id']]); ?>'">
                             <span>0</span>
                             <button class="reduceBtn">-</button>
                             <button class="addBtn">+</button>

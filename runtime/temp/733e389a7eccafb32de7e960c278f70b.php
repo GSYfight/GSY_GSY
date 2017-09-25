@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"D:\PHPfile\GSY\public/../application/admin\view\image\goodspiclist.html";i:1506130145;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"D:\PHPfile\GSY\public/../application/admin\view\image\goodspiclist.html";i:1506322800;}*/ ?>
 <?php echo widget('Widget/header'); ?>
 <!-- /头部 -->
 <div class="main-container container-fluid">
@@ -23,7 +23,7 @@
         <div class="page-body">
 
             <button type="button" tooltip="添加图片" class="btn btn-sm btn-azure btn-addon"
-                    onClick="javascript:window.location.href = '<?php echo url('Image/addGoodsPic',array('goods_id'=>$data['data'][0]['goods_id'],'goods_name'=>$goods_name)); ?>'"><i class="fa fa-plus"></i> Add
+                    onClick="javascript:window.location.href = '<?php echo url('Image/addGoodsPic',array('goods_id'=>$goods_id,'goods_name'=>$goods_name)); ?>'"><i class="fa fa-plus"></i> Add
             </button>
             <div class="row">
                 <div class="col-lg-12 col-sm-12 col-xs-12">
@@ -59,7 +59,7 @@
                                             <?php endif; ?>
                                         </td>
                                         <td align="center">
-                                            <a href="#" onClick="warning('确实要删除吗', '<?php echo url('Image/del',array('id'=>$v['image_id'])); ?>')"
+                                            <a href="#" onClick="warning('确实要删除吗', '<?php echo url('Image/del',array('image_id'=>$v['image_id'])); ?>')"
                                                class="btn btn-danger btn-sm shiny">
                                                 <i class="fa fa-trash-o"></i> 删除
                                             </a>

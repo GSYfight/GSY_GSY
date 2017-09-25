@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:64:"F:\php\GSY\public/../application/index\view\product\product.html";i:1506321539;}*/ ?>
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -15,15 +16,15 @@
 <!--主要内容-->
 <div class="container">
     <!--头部-->
-    {:widget('Widget/header')}
+    <?php echo widget('Widget/header'); ?>
     <!--主模块-->
     <div class="main">
         <div class="row">
 
             <div class="fl current">
-                {foreach $data as $val}
-                <a href="#" imgid='{$val.image_id}' class="sp" style="background-image: url({$val['image_m_url']})"></a>
-                {/foreach}
+                <?php foreach($data as $val): ?>
+                <a href="#" class="sp" style="background-image: url(<?php echo $val['image_m_url']; ?>)"></a>
+                <?php endforeach; ?>
             </div>
             <div class="sp_large">
                 <div class="cenTop">
@@ -47,10 +48,10 @@
             </div>
             <div class="right fr" style="z-index: 100">
                 <div class="title">
-                    <p>{$data[0]['keywords']}</p>
-                    <p class="spName">{$data[0]['goods_name']}</p>
-                    <p class="spJiesao">{$data[0]['desc']}</p>
-                    <p class="spPrice">￥ <span>{$data[0]['sell_price']}</span></p>
+                    <p><?php echo $data[0]['keywords']; ?></p>
+                    <p class="spName"><?php echo $data[0]['goods_name']; ?></p>
+                    <p class="spJiesao">巨玫瑰葡萄为紫红色，有浓郁玫瑰香气，口感好且甜度高。有机种植的葡萄，只需要用水冲洗后就可以连皮带籽一起吃。</p>
+                    <p class="spPrice">￥ <span><?php echo $data[0]['sell_price']; ?></span></p>
                     <p class="spJianjia">
                         订单满299减40元
                         <span class="fr">!</span>
@@ -68,17 +69,16 @@
                             <span>保质期</span>
                         </p>
                         <p>
-                            <span>{$data[0]['unit']}</span>
+                            <span>500g/盒</span>
                             <span>冷藏</span>
                             <span>2天</span>
                         </p>
                     </div>
                     <div class="caozuo">
                         <div class="d1 fl">
-                            <a href="#"  class="fl left" id="goods_sub">-</a>
-                            <input type="text" class="fl" maxlength="2" value="1" id="goods_num" >
-                            <input type="hidden" name="goods_id" id="goods_id" value="{$data[0]['goods_id']}">
-                            <a href="#" class="fl right" id="goods_add">+</a>
+                            <a href=""  class="fl left" id="goods_sub">-</a>
+                            <input type="text" class="fl" maxlength="2" value="1" id="goods_num">
+                            <a href="" class="fl right" id="goods_add">+</a>
                         </div>
                         <button id="jiaru" class="fr">加入购物车</button>
                     </div>
@@ -241,48 +241,13 @@
 </div>
 
 <!--底部-->
-{:widget('Widget/footer')}
+<?php echo widget('Widget/footer'); ?>
 
 <!--回到顶部按钮-->
 <div class="toTopBtn"></div>
 <div class="customerBtn"></div>
 </body>
 <script>
-<<<<<<< HEAD
-    //    商品数量加减
-    $("#goods_sub").click(function (e) {
-        e=e|window.event;
-        var num=parseInt($(this).siblings("#goods_num").val())-1;
-        if(num<=1){
-            $(this).css({'cursor':'no-drop'});
-            num=0;
-        }
-        $(this).siblings("#goods_num").val(num);
-    });
-    $("#goods_add").click(function (e) {
-        e=e|window.event;
-        var num=parseInt($(this).siblings("#goods_num").val());
-        $(this).siblings("#goods_num").val(num+1).siblings("#goods_sub").css({'cursor':'pointer'});
-    });
-    $('#jiaru').click(function () {
-        var goods_id=$('#goods_id').val();
-        var goods_num=$('#goods_num').val();
-//        alert(goods_id+goods_num);
-        $.ajax({
-            type:'POST',
-            dataType:'array',
-            url:"{:url('Cart/index')}",
-            data:{goods_id:goods_id,goods_num:goods_num},
-            success:function (d) {
-                var res=JSON.parse(d);
-                alert(res);
-            }
-        })
-    })
-
-</script>
-<script>
-=======
 //    商品数量加减
 $(".goods_sub").click(function (e) {
     e=e||window.event;
@@ -308,26 +273,14 @@ $(".goods_add").click(function (e) {
 
 
 
->>>>>>> ac2255a9cbb6e626ef2b5f03efc69803e8aa7a83
     //商品图标选择
     $('.sp').eq(0).css({'opacity': '1'});
-    $('.sp_current_img').children().eq(0).attr('src', '{$data[0][\'image_b_url\']}');
+    $('.sp_current_img').children().eq(0).attr('src', '<?php echo $data[0]['image_b_url']; ?>');
     $('.sp').mousemove(function () {
-
-        var imgId=$(this).attr('imgid');
+        var srcIndex = $(this).index('.sp') + 1;
         $(this).css({'opacity': '1'});
         $('.sp').not($(this)).css({'opacity': '0.4'});
-
-        $.ajax({
-            type:'POST',
-            dataType:'json',
-            url:"{:url('Product/ajaxImg')}",
-            data:{imgId:imgId},
-            success:function (d) {
-                $('.sp_current_img').children().eq(0).attr('src', d['image_b_url']);
-            }
-        });
-
+        $('.sp_current_img').children().eq(0).attr('src', '<?php echo $data[0]['image_b_url']; ?>');
     });
     //显示隐藏分享选择
     $('.jq1').mousemove(function () {
@@ -342,6 +295,5 @@ $(".goods_add").click(function (e) {
         $(this).children().eq(0).toggle();
     });
 </script>
-
 
 </html>
