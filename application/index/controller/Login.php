@@ -15,19 +15,39 @@ class Login extends Controller{
      * 登录界面
      * */
     public function login(){
+        //点击登录时的界面的控制器和方法
+        $urlAddress=input('urlAddress');
+        $this->assign('urlAddress',$urlAddress);
+//        var_dump($urlAddress);exit;
+        return $this->fetch();
+    }
+    /*
+     * 执行登录界面
+     * */
+    public function doLogin(){
         //接受参数
+        //点击登录时的界面的控制器和方法
+        $urlAddress=str_replace(',','/',input('urlAddress'));
         if(request()->isPost()){
+//            //验证码是否正为空
+//            if (input('code') == '') {
+//                $this->error('验证码必须填写');
+//            }
+////        判断验证码是否正确
+//            if (!captcha_check(input('code'))) {
+//                $this->error('验证码错误', url('Login/login'));
+//            }
+
             $data=[
               'mobile'=>input('mobile'),
               'password'=>input('password'),
-              'code'=>input('code'),
             ];
             //验证
             $validate=validate('Login');
             if(!$validate->scene('login')->check($data)){
                 $this->error($validate->getError());
             }
-            //根据mobile获取数据库数据，并返回该条数据
+//            //根据mobile获取数据库数据，并返回该条数据
             $res = LoginModel::dataByMobile($data['mobile']);
             if($res==''){
                 //如果返回值为空，提示手机号未注册
@@ -36,12 +56,16 @@ class Login extends Controller{
                 //手机号如果已注册，验证密码是否一致
                 if(md5($data['password'])==$res['password']){
                     //将信息存储到session
-
-                    $this->success('登录成功，即将跳至首页',url('Index/index'));
+                    session("index",$data);
+                    //更新member数据库，登录次数字段和最近更新时间字段
+                    $data['last_modify'] =time();
+                    //调用model方法，更新数据库
+                     LoginModel::loginUpd($data);
+                    $this->success('登录成功',url($urlAddress));
                 }
+                $this->error('账号或密码错误');
             }
         }
-        return $this->fetch();
     }
     /*
      * 注册界面
@@ -56,7 +80,7 @@ class Login extends Controller{
                 'mobile'=>input('mobile'),
                 'password'=>input('password'),
             ];
-            //验证码是否正确
+            //验证码是否正为空
             if (input('code') == '') {
                 $this->error('验证码必须填写');
             }

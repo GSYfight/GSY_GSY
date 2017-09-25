@@ -167,27 +167,4 @@ $(function () {
         location.href = 'paycenter.html';
     });
 
-    //四时菜蔬
-    $('.head .headRight ul a').click(function () {
-        location.href = 'products.html';
-        return false;
-    });
-    //商品详情
-    $('.modelI a').click(function () {
-        location.href = 'product.html';
-        return false;
-    });
-    $('.regouLeft a').click(function () {
-        location.href = 'product.html';
-        return false;
-    });
-    $('.regouR a').click(function () {
-        location.href = 'product.html';
-        return false;
-    });
-
-
-
-
-
 });

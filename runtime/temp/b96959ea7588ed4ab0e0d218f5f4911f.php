@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"E:\PHP\GSY\public/../application/index\view\widget\footer.html";i:1506153901;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"E:\PHP\GSY\public/../application/index\view\widget\footer.html";i:1506252029;}*/ ?>
 <footer class="footer">
 	<div class="bg">
 		<div class="container">
@@ -27,7 +27,6 @@
 				<p><a href="">优惠券用法</a></p>
 				<p><a href="">支付方式</a></p>
 			</div>
-
 			<div class="info fl">
 				<p>服务热线</p>
 				<p class="inf">400-655-1212</p>
