@@ -11,6 +11,7 @@ namespace app\admin\controller;
 use think\Controller;
 use app\admin\model\Goods as GoodsModel;
 use app\admin\model\Image as ImageModel;
+use app\admin\model\CateModel;
 class Goods extends Base{
     //加载所有商品信息
     public function index(){

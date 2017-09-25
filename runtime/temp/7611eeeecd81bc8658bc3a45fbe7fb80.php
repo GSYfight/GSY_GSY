@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"F:\php\GSY\public/../application/index\view\productlist\productlist.html";i:1506310903;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +16,7 @@
 <!--主要内容-->
 <div class="container">
     <!--头部-->
-    {:widget('widget/header')}
+    <?php echo widget('widget/header'); ?>
     <!--主模块-->
     <div class="main">
         <div class="head">
@@ -61,9 +62,9 @@
                         </div>
                         <div class="seclectDiv">
                             <ul>
-                                {foreach $cateData as $v}
-                                <li><a href="#"><label><input class="cateName" type="checkbox" value="{$v.cate_id}" onclick="checkboxOnclick(this)"><span>{$v.name}</span></label></a></li>
-                                {/foreach}
+                                <?php foreach($cateData as $v): ?>
+                                <li><a href="#"><label><input class="cateName" type="checkbox" value="<?php echo $v['cate_id']; ?>" onclick="checkboxOnclick(this)"><span><?php echo $v['name']; ?></span></label></a></li>
+                                <?php endforeach; ?>
                                 <li><a href="#"><span>清除</span></a></li>
                             </ul>
                         </div>
@@ -90,11 +91,9 @@
                         </div>
                         <div class="seclectDiv">
                             <ul>
-                                {foreach $keywordsData as $k=>$v}
-                                {if condition="$k gt 10"}
-                                <li><a href="#"><label><input class="keywords" type="checkbox" value="{$v.keywords}"><span>{$v.keywords}</span></label></a></li>
-                                {/if}
-                                {/foreach}
+                                <?php foreach($keywordsData as $k=>$v): if($k > 10): ?>
+                                <li><a href="#"><label><input class="keywords" type="checkbox" value="<?php echo $v['keywords']; ?>"><span><?php echo $v['keywords']; ?></span></label></a></li>
+                                <?php endif; endforeach; ?>
                                 <li><a href="#"><span>清除</span></a></li>
                             </ul>
                         </div>
@@ -161,11 +160,11 @@
                             </dt>
                         </dl>
                     </div><!--1-->
-                    {foreach $goodsData['data'] as $v}
+                    <?php foreach($goodsData['data'] as $v): ?>
                     <div class="modelI fl">
                         <dl>
                             <dd>
-                                <img src="{$v.image_url}" alt="" class="goodsImg">
+                                <img src="<?php echo $v['image_url']; ?>" alt="" class="goodsImg">
                                 <div class="youhuiDiv">
                                     <!--<img src="__STATIC__/index/./img/new.png" alt="" class="youhuiImg">-->
                                 </div>
@@ -176,25 +175,25 @@
                                 </div>
                             </dd>
                             <dt>
-                            <h4><a href="">{$v.goods_name}</a></h4>
+                            <h4><a href=""><?php echo $v['goods_name']; ?></a></h4>
                             <p>
-                                <button>{$v.keywords}</button>
-                                <span class="likeP">{$v.sell_price}</span>{$v.unit}
+                                <button><?php echo $v['keywords']; ?></button>
+                                <span class="likeP"><?php echo $v['sell_price']; ?></span><?php echo $v['unit']; ?>
                             </p>
                             <p class="money">￥<span class="money">25.00</span></p>
                             </dt>
                         </dl>
                     </div><!--1-->
-                    {/foreach}
+                    <?php endforeach; ?>
                 </div>
                 <div class="foot fc">
-                   {$goodsData['page']}
+                   <?php echo $goodsData['page']; ?>
                 </div>
             </div>
         </div>
     </div>
     <div style="clear: both"></div>
-    {:widget('widget/footer')}
+    <?php echo widget('widget/footer'); ?>
 </div>
 <!--底部-->
 <!--回到顶部按钮-->
@@ -210,7 +209,7 @@
             $.ajax({
                 type:'POST',
                 dataType:'json',
-                url:"{:url('ProductList/index')}",
+                url:"<?php echo url('ProductList/index'); ?>",
                 data:{keywords:phone},
                 success:function (d) {
                     alert(d.msg);
