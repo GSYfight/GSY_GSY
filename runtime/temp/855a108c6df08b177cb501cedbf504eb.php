@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:60:"F:\php\GSY\public/../application/index\view\index\index.html";i:1506302488;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:60:"F:\php\GSY\public/../application/index\view\index\index.html";i:1506311933;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -84,7 +84,7 @@
                     <dd>
                         <img src="__STATIC__/index/./img/hot1.jpg" alt="" class="goodsImg">
                         <img src="__STATIC__/index/./img/new.png" alt="" class="youhuiImg">
-                        <div class="numDiv" id="firNumDiv">
+                        <div class="numDiv" id="firNumDiv" onclick="javascript:window.location.href=''">
                             <span>0</span>
                             <button class="reduceBtn">-</button>
                             <button class="addBtn">+</button>
@@ -179,7 +179,7 @@
                     <dd>
                         <img src="<?php echo $val['image_b_url']; ?>" alt="" class="goodsImg">
                         <div class="youhuiDiv"></div>
-                        <div class="numDiv">
+                        <div class="numDiv" onclick="javascript:window.location.href='<?php echo url('Product/index',['goodsId'=>$val['goods_id']]); ?>'">
                             <span>0</span>
                             <button class="reduceBtn">-</button>
                             <button class="addBtn">+</button>
@@ -212,7 +212,7 @@
                     <dd>
                         <img src="<?php echo $val['image_b_url']; ?>" alt="" class="goodsImg">
                         <div class="youhuiDiv"></div>
-                        <div class="numDiv">
+                        <div class="numDiv" onclick="javascript:window.location.href='<?php echo url('Product/index',['goodsId'=>$val['goods_id']]); ?>'">
                             <span>0</span>
                             <button class="reduceBtn">-</button>
                             <button class="addBtn">+</button>
@@ -245,7 +245,7 @@
                     <dd>
                         <img src="<?php echo $val['image_b_url']; ?>" alt="" class="goodsImg">
                         <div class="youhuiDiv"></div>
-                        <div class="numDiv">
+                        <div class="numDiv" onclick="javascript:window.location.href='<?php echo url('Product/index',['goodsId'=>$val['goods_id']]); ?>'">
                             <span>0</span>
                             <button class="reduceBtn">-</button>
                             <button class="addBtn">+</button>
@@ -277,7 +277,7 @@
                     <dd>
                         <img src="<?php echo $val['image_b_url']; ?>" alt="" class="goodsImg">
                         <div class="youhuiDiv"></div>
-                        <div class="numDiv">
+                        <div class="numDiv" onclick="javascript:window.location.href='<?php echo url('Product/index',['goodsId'=>$val['goods_id']]); ?>'">
                             <span>0</span>
                             <button class="reduceBtn">-</button>
                             <button class="addBtn">+</button>
@@ -309,7 +309,7 @@
                     <dd>
                         <img src="<?php echo $val['image_b_url']; ?>" alt="" class="goodsImg">
                         <div class="youhuiDiv"></div>
-                        <div class="numDiv">
+                        <div class="numDiv" onclick="javascript:window.location.href='<?php echo url('Product/index',['goodsId'=>$val['goods_id']]); ?>'">
                             <span>0</span>
                             <button class="reduceBtn">-</button>
                             <button class="addBtn">+</button>
@@ -341,7 +341,7 @@
                     <dd>
                         <img src="<?php echo $val['image_b_url']; ?>" alt="" class="goodsImg">
                         <div class="youhuiDiv"></div>
-                        <div class="numDiv">
+                        <div class="numDiv" onclick="javascript:window.location.href='<?php echo url('Product/index',['goodsId'=>$val['goods_id']]); ?>'">
                             <span>0</span>
                             <button class="reduceBtn">-</button>
                             <button class="addBtn">+</button>
@@ -373,7 +373,7 @@
                     <dd>
                         <img src="<?php echo $val['image_b_url']; ?>" alt="" class="goodsImg">
                         <div class="youhuiDiv"></div>
-                        <div class="numDiv">
+                        <div class="numDiv" onclick="javascript:window.location.href='<?php echo url('Product/index',['goodsId'=>$val['goods_id']]); ?>'">
                             <span>0</span>
                             <button class="reduceBtn">-</button>
                             <button class="addBtn">+</button>
@@ -405,7 +405,7 @@
                     <dd>
                         <img src="<?php echo $val['image_b_url']; ?>" alt="" class="goodsImg">
                         <div class="youhuiDiv"></div>
-                        <div class="numDiv">
+                        <div class="numDiv" onclick="javascript:window.location.href='<?php echo url('Product/index',['goodsId'=>$val['goods_id']]); ?>'">
                             <span>0</span>
                             <button class="reduceBtn">-</button>
                             <button class="addBtn">+</button>
