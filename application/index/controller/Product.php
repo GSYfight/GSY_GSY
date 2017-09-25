@@ -18,4 +18,10 @@ class Product extends Controller{
         return $this->fetch('product');
     }
 
+    public function ajaxImg(){
+        $imgId=input('imgId');
+        $data=indexProduct::foundImg($imgId);
+        return $data;
+    }
+
 }

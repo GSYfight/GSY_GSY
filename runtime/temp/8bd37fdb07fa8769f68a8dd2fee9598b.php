@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:70:"D:\PHPfile\GSY\public/../application/admin\view\image\addgoodspic.html";i:1506131721;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:70:"D:\PHPfile\GSY\public/../application/admin\view\image\addgoodspic.html";i:1506324799;}*/ ?>
 <?php echo widget('Widget/header'); ?>
 <!-- /头部 -->
 
@@ -36,7 +36,7 @@
                                 <form class="form-horizontal" role="form" action="<?php echo url('Image/addGoodsPic'); ?>" method="post" enctype="multipart/form-data">
                                     <input type="hidden" name="goods_id" value="$goods_id">
                                     <div class="form-group">
-                                        <label for="cate_id" class="col-sm-2 control-label no-padding-right">商品</label>
+                                        <label for="goods_id" class="col-sm-2 control-label no-padding-right">商品</label>
                                         <div class="col-sm-6">
                                             <select name="goods_id" style="width: 100%;">
                                                 <option value="<?php echo $goods_id; ?>"><?php echo $goods_id.'.'.$goods_name; ?></option>
