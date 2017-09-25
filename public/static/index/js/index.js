@@ -140,7 +140,7 @@ $(function () {
 
 //客服按钮
     $('.customerBtn').click(function () {
-        alert('没有，快滚');
+        alert('还没开通，敬请期待');
     });
 //header隐藏导航设置
     $('#header .headRight li').mouseenter(function () {
