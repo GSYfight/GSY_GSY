@@ -7,8 +7,14 @@
  */
 namespace app\index\controller;
 use think\Controller;
+use app\index\model\Product as indexProduct;
 class Product extends Controller{
     public function index(){
+        $goodsId=input('goodsId');
+        $data=indexProduct::search($goodsId);
+        dump($data);exit;
+        $this->assign('data',$data);
         return $this->fetch('product');
     }
+
 }
