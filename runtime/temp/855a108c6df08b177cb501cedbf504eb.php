@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:60:"F:\php\GSY\public/../application/index\view\index\index.html";i:1506131671;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:60:"F:\php\GSY\public/../application/index\view\index\index.html";i:1506235746;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,12 +20,12 @@
     <!--nav-->
     <div class="nav ">
         <div class="navImg">
-            <img src=".img/nav1.jpg" alt="717美食5件5折">
+            <img src="__STATIC__/index/img/nav1.jpg" alt="717美食5件5折">
         </div>
         <div class="navBtn">
             <ul class="borderD">
-                <li>717美食5件5折</li>
-                <li>充值返现</li>
+                <li>亲子买菜基金</li>
+                <li>极致新鲜</li>
                 <li>满额立减</li>
                 <li>购物纸袋回收计划</li>
                 <li>中伏吃面</li>
@@ -102,10 +102,10 @@
 
         </div>
 
-        <?php foreach($data as $v): foreach($v as $val): if($val['pid'] == 33): ?>
+        <?php foreach($data as $v): foreach($v as $val): if($val['pid'] == 69): ?>
         <div class="regouRight fl">
             <div class="regouR fl">
-                <span class="numSpan">2</span>
+                <span class=""></span>
                 <dl>
                     <dd>
                         <img src="<?php echo $val['image_b_url']; ?>" alt="" class="goodsImg">
@@ -122,7 +122,7 @@
                     <h4><a href=""><?php echo $val['goods_name']; ?></a></h4>
                     <p>
                         <button><?php echo $val['keywords']; ?></button>
-                        <span class="likeP">4500</span>g/份
+                        <span class="likeP"><?php echo $val['unit']; ?></span>
                     </p>
                     <p class="money">￥<span class="money"><?php echo $val['sell_price']; ?></span></p>
                     </dt>
@@ -139,13 +139,12 @@
             <a href="#"><h4>更多新到尖货 >></h4></a>
         </div>
         <div class="right fl">
+            <?php foreach($data as $v): foreach($v as $val): if($val['pid'] == 44): ?>
             <div class="modelI fl">
                 <dl>
                     <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
+                        <img src="<?php echo $val['image_b_url']; ?>" alt="" class="goodsImg">
+                        <div class="youhuiDiv"></div>
                         <div class="numDiv">
                             <span>0</span>
                             <button class="reduceBtn">-</button>
@@ -153,177 +152,16 @@
                         </div>
                     </dd>
                     <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
+                        <h4><a href=""><?php echo $val['goods_name']; ?></a></h4>
+                        <p>
+                            <button><?php echo $val['keywords']; ?></button>
+                            <span class="likeP"><?php echo $val['unit']; ?></span>
+                        </p>
+                        <p class="money">￥<span class="money"><?php echo $val['sell_price']; ?></span></p>
                     </dt>
                 </dl>
-            </div><!--1-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--2-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--3-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--4-->
-            <div class="fc"></div>
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--5-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--6-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--7-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--8-->
+            </div>
+            <?php endif; endforeach; endforeach; ?>
         </div>
     </div>
     <!--安全水果-->
@@ -332,14 +170,14 @@
             <a href="#"><img src="__STATIC__/index/./img/anquanshuiguo.jpg" alt=""></a>
             <a href="#"><h4>更多安全水果 >></h4></a>
         </div>
+
         <div class="right fl">
+            <?php foreach($data as $v): foreach($v as $val): if($val['pid'] == 11): ?>
             <div class="modelI fl">
                 <dl>
                     <dd>
-                        <img src="__STATIC__/index/./img/apple.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/new.png" alt="" class="youhuiImg">
-                        </div>
+                        <img src="<?php echo $val['image_b_url']; ?>" alt="" class="goodsImg">
+                        <div class="youhuiDiv"></div>
                         <div class="numDiv">
                             <span>0</span>
                             <button class="reduceBtn">-</button>
@@ -347,178 +185,18 @@
                         </div>
                     </dd>
                     <dt>
-                    <h4><a href="">新西兰有机苹果</a></h4>
+                    <h4><a href=""><?php echo $val['goods_name']; ?></a></h4>
                     <p>
-                        <button>Bostack</button>
-                        <span class="likeP">550</span>g/份
+                        <button><?php echo $val['keywords']; ?></button>
+                        <span class="likeP"><?php echo $val['unit']; ?></span>
                     </p>
-                    <p class="money">￥<span class="money">36.00</span></p>
+                    <p class="money">￥<span class="money"><?php echo $val['sell_price']; ?></span></p>
                     </dt>
                 </dl>
-            </div><!--1-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--2-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--3-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--4-->
-            <div class="fc"></div>
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--5-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--6-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--7-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--8-->
+            </div>
+            <?php endif; endforeach; endforeach; ?>
         </div>
+
     </div>
     <!--四时菜蔬-->
     <div class="divModel borderD">
@@ -527,13 +205,12 @@
             <a href="#"><h4>更多四时菜蔬 >></h4></a>
         </div>
         <div class="right fl">
+            <?php foreach($data as $v): foreach($v as $val): if($val['pid'] == 1): ?>
             <div class="modelI fl">
                 <dl>
                     <dd>
-                        <img src="__STATIC__/index/./img/nangua.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/new.png" alt="" class="youhuiImg">
-                        </div>
+                        <img src="<?php echo $val['image_b_url']; ?>" alt="" class="goodsImg">
+                        <div class="youhuiDiv"></div>
                         <div class="numDiv">
                             <span>0</span>
                             <button class="reduceBtn">-</button>
@@ -541,179 +218,19 @@
                         </div>
                     </dd>
                     <dt>
-                    <h4><a href="">生态种植板栗南瓜</a></h4>
-                    <p>
-                        <button>君禾园</button>
-                        <span class="likeP">1250</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">25.00</span></p>
+                        <h4><a href=""><?php echo $val['goods_name']; ?></a></h4>
+                        <p>
+                            <button><?php echo $val['keywords']; ?></button>
+                            <span class="likeP"><?php echo $val['unit']; ?></span>
+                        </p>
+                        <p class="money">￥<span class="money"><?php echo $val['sell_price']; ?></span></p>
                     </dt>
                 </dl>
-            </div><!--1-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--2-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--3-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--4-->
-            <div class="fc"></div>
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--5-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--6-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--7-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--8-->
+            </div>
+            <?php endif; endforeach; endforeach; ?>
         </div>
-    </div>
+
+        </div>
     <!--肉禽蛋品-->
     <div class="divModel borderD">
         <div class="left fl">
@@ -721,13 +238,12 @@
             <a href="#"><h4>更多肉禽蛋品 >></h4></a>
         </div>
         <div class="right fl">
+            <?php foreach($data as $v): foreach($v as $val): if($val['pid'] == 19): ?>
             <div class="modelI fl">
                 <dl>
                     <dd>
-                        <img src="__STATIC__/index/./img/nangua.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/new.png" alt="" class="youhuiImg">
-                        </div>
+                        <img src="<?php echo $val['image_b_url']; ?>" alt="" class="goodsImg">
+                        <div class="youhuiDiv"></div>
                         <div class="numDiv">
                             <span>0</span>
                             <button class="reduceBtn">-</button>
@@ -735,177 +251,16 @@
                         </div>
                     </dd>
                     <dt>
-                    <h4><a href="">生态种植板栗南瓜</a></h4>
-                    <p>
-                        <button>君禾园</button>
-                        <span class="likeP">1250</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">25.00</span></p>
+                        <h4><a href=""><?php echo $val['goods_name']; ?></a></h4>
+                        <p>
+                            <button><?php echo $val['keywords']; ?></button>
+                            <span class="likeP"><?php echo $val['unit']; ?></span>
+                        </p>
+                        <p class="money">￥<span class="money"><?php echo $val['sell_price']; ?></span></p>
                     </dt>
                 </dl>
-            </div><!--1-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--2-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--3-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--4-->
-            <div class="fc"></div>
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--5-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--6-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--7-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--8-->
+            </div>
+            <?php endif; endforeach; endforeach; ?>
         </div>
     </div>
     <!--粮油酱醋-->
@@ -915,13 +270,12 @@
             <a href="#"><h4>更多粮油酱醋 >></h4></a>
         </div>
         <div class="right fl">
+            <?php foreach($data as $v): foreach($v as $val): if($val['pid'] == 61): ?>
             <div class="modelI fl">
                 <dl>
                     <dd>
-                        <img src="__STATIC__/index/./img/nangua.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/new.png" alt="" class="youhuiImg">
-                        </div>
+                        <img src="<?php echo $val['image_b_url']; ?>" alt="" class="goodsImg">
+                        <div class="youhuiDiv"></div>
                         <div class="numDiv">
                             <span>0</span>
                             <button class="reduceBtn">-</button>
@@ -929,177 +283,16 @@
                         </div>
                     </dd>
                     <dt>
-                    <h4><a href="">生态种植板栗南瓜</a></h4>
-                    <p>
-                        <button>君禾园</button>
-                        <span class="likeP">1250</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">25.00</span></p>
+                        <h4><a href=""><?php echo $val['goods_name']; ?></a></h4>
+                        <p>
+                            <button><?php echo $val['keywords']; ?></button>
+                            <span class="likeP"><?php echo $val['unit']; ?></span>
+                        </p>
+                        <p class="money">￥<span class="money"><?php echo $val['sell_price']; ?></span></p>
                     </dt>
                 </dl>
-            </div><!--1-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--2-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--3-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--4-->
-            <div class="fc"></div>
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--5-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--6-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--7-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--8-->
+            </div>
+            <?php endif; endforeach; endforeach; ?>
         </div>
     </div>
     <!--水中鲜物-->
@@ -1109,13 +302,12 @@
             <a href="#"><h4>更多水中鲜物 >></h4></a>
         </div>
         <div class="right fl">
+            <?php foreach($data as $v): foreach($v as $val): if($val['pid'] == 33): ?>
             <div class="modelI fl">
                 <dl>
                     <dd>
-                        <img src="__STATIC__/index/./img/nangua.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/new.png" alt="" class="youhuiImg">
-                        </div>
+                        <img src="<?php echo $val['image_b_url']; ?>" alt="" class="goodsImg">
+                        <div class="youhuiDiv"></div>
                         <div class="numDiv">
                             <span>0</span>
                             <button class="reduceBtn">-</button>
@@ -1123,177 +315,16 @@
                         </div>
                     </dd>
                     <dt>
-                    <h4><a href="">生态种植板栗南瓜</a></h4>
-                    <p>
-                        <button>君禾园</button>
-                        <span class="likeP">1250</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">25.00</span></p>
+                        <h4><a href=""><?php echo $val['goods_name']; ?></a></h4>
+                        <p>
+                            <button><?php echo $val['keywords']; ?></button>
+                            <span class="likeP"><?php echo $val['unit']; ?></span>
+                        </p>
+                        <p class="money">￥<span class="money"><?php echo $val['sell_price']; ?></span></p>
                     </dt>
                 </dl>
-            </div><!--1-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--2-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--3-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--4-->
-            <div class="fc"></div>
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--5-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--6-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--7-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--8-->
+            </div>
+            <?php endif; endforeach; endforeach; ?>
         </div>
     </div>
     <!--零食酒饮-->
@@ -1303,13 +334,12 @@
             <a href="#"><h4>更多零食酒饮 >></h4></a>
         </div>
         <div class="right fl">
+            <?php foreach($data as $v): foreach($v as $val): if($val['pid'] == 51): ?>
             <div class="modelI fl">
                 <dl>
                     <dd>
-                        <img src="__STATIC__/index/./img/nangua.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/new.png" alt="" class="youhuiImg">
-                        </div>
+                        <img src="<?php echo $val['image_b_url']; ?>" alt="" class="goodsImg">
+                        <div class="youhuiDiv"></div>
                         <div class="numDiv">
                             <span>0</span>
                             <button class="reduceBtn">-</button>
@@ -1317,177 +347,16 @@
                         </div>
                     </dd>
                     <dt>
-                    <h4><a href="">生态种植板栗南瓜</a></h4>
-                    <p>
-                        <button>君禾园</button>
-                        <span class="likeP">1250</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">25.00</span></p>
+                        <h4><a href=""><?php echo $val['goods_name']; ?></a></h4>
+                        <p>
+                            <button><?php echo $val['keywords']; ?></button>
+                            <span class="likeP"><?php echo $val['unit']; ?></span>
+                        </p>
+                        <p class="money">￥<span class="money"><?php echo $val['sell_price']; ?></span></p>
                     </dt>
                 </dl>
-            </div><!--1-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--2-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--3-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--4-->
-            <div class="fc"></div>
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--5-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--6-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--7-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--8-->
+            </div>
+            <?php endif; endforeach; endforeach; ?>
         </div>
     </div>
     <!--面点小食-->
@@ -1497,13 +366,12 @@
             <a href="#"><h4>更多面点小食 >></h4></a>
         </div>
         <div class="right fl">
+            <?php foreach($data as $v): foreach($v as $val): if($val['pid'] == 39): ?>
             <div class="modelI fl">
                 <dl>
                     <dd>
-                        <img src="__STATIC__/index/./img/nangua.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/new.png" alt="" class="youhuiImg">
-                        </div>
+                        <img src="<?php echo $val['image_b_url']; ?>" alt="" class="goodsImg">
+                        <div class="youhuiDiv"></div>
                         <div class="numDiv">
                             <span>0</span>
                             <button class="reduceBtn">-</button>
@@ -1511,177 +379,16 @@
                         </div>
                     </dd>
                     <dt>
-                    <h4><a href="">生态种植板栗南瓜</a></h4>
-                    <p>
-                        <button>君禾园</button>
-                        <span class="likeP">1250</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">25.00</span></p>
+                        <h4><a href=""><?php echo $val['goods_name']; ?></a></h4>
+                        <p>
+                            <button><?php echo $val['keywords']; ?></button>
+                            <span class="likeP"><?php echo $val['unit']; ?></span>
+                        </p>
+                        <p class="money">￥<span class="money"><?php echo $val['sell_price']; ?></span></p>
                     </dt>
                 </dl>
-            </div><!--1-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--2-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--3-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--4-->
-            <div class="fc"></div>
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--5-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--6-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--7-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--8-->
+            </div>
+            <?php endif; endforeach; endforeach; ?>
         </div>
     </div>
     <!--乳制品类-->
@@ -1691,13 +398,12 @@
             <a href="#"><h4>更多乳制品类 >></h4></a>
         </div>
         <div class="right fl">
+            <?php foreach($data as $v): foreach($v as $val): if($val['pid'] == 26): ?>
             <div class="modelI fl">
                 <dl>
                     <dd>
-                        <img src="__STATIC__/index/./img/nangua.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/new.png" alt="" class="youhuiImg">
-                        </div>
+                        <img src="<?php echo $val['image_b_url']; ?>" alt="" class="goodsImg">
+                        <div class="youhuiDiv"></div>
                         <div class="numDiv">
                             <span>0</span>
                             <button class="reduceBtn">-</button>
@@ -1705,177 +411,16 @@
                         </div>
                     </dd>
                     <dt>
-                    <h4><a href="">生态种植板栗南瓜</a></h4>
-                    <p>
-                        <button>君禾园</button>
-                        <span class="likeP">1250</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">25.00</span></p>
+                        <h4><a href=""><?php echo $val['goods_name']; ?></a></h4>
+                        <p>
+                            <button><?php echo $val['keywords']; ?></button>
+                            <span class="likeP"><?php echo $val['unit']; ?></span>
+                        </p>
+                        <p class="money">￥<span class="money"><?php echo $val['sell_price']; ?></span></p>
                     </dt>
                 </dl>
-            </div><!--1-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--2-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--3-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--4-->
-            <div class="fc"></div>
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--5-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--6-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--7-->
-            <div class="modelI fl">
-                <dl>
-                    <dd>
-                        <img src="__STATIC__/index/./img/putao.jpg" alt="" class="goodsImg">
-                        <div class="youhuiDiv">
-                            <img src="__STATIC__/index/./img/5zhe.png" alt="" class="youhuiImg">
-                        </div>
-                        <div class="numDiv">
-                            <span>0</span>
-                            <button class="reduceBtn">-</button>
-                            <button class="addBtn">+</button>
-                        </div>
-                    </dd>
-                    <dt>
-                    <h4><a href="">零农残南汇8424</a></h4>
-                    <p>
-                        <button>原农公社</button>
-                        <span class="likeP">4500</span>g/份
-                    </p>
-                    <p class="money">￥<span class="money">79.00</span></p>
-                    </dt>
-                </dl>
-            </div><!--8-->
+            </div>
+            <?php endif; endforeach; endforeach; ?>
         </div>
     </div>
 </div>
@@ -1990,7 +535,28 @@
             </div>
             <div class="d3 fc divModel">
                 <div class="right fl">
-                    <dl>
+                    <dl class="fl cook">
+                    <dd>
+                        <img src="__STATIC__/index/./img/nangua.jpg" alt="" class="goodsImg">
+                        <div class="youhuiDiv">
+                            <img src="__STATIC__/index/./img/new.png" alt="" class="youhuiImg">
+                        </div>
+                        <div class="numDiv">
+                            <span>0</span>
+                            <button class="reduceBtn">-</button>
+                            <button class="addBtn">+</button>
+                        </div>
+                    </dd>
+                    <dt>
+                        <h4><a href="">生态种植板栗南瓜</a></h4>
+                        <p>
+                            <button>君禾园</button>
+                            <span class="likeP">1250</span>g/份
+                        </p>
+                        <p class="money">￥<span class="money">25.00</span></p>
+                    </dt>
+                </dl>
+                    <dl class="fl cook">
                         <dd>
                             <img src="__STATIC__/index/./img/nangua.jpg" alt="" class="goodsImg">
                             <div class="youhuiDiv">
@@ -2003,17 +569,15 @@
                             </div>
                         </dd>
                         <dt>
-                        <h4><a href="">生态种植板栗南瓜</a></h4>
-                        <p>
-                            <button>君禾园</button>
-                            <span class="likeP">1250</span>g/份
-                        </p>
-                        <p class="money">￥<span class="money">25.00</span></p>
+                            <h4><a href="">生态种植板栗南瓜</a></h4>
+                            <p>
+                                <button>君禾园</button>
+                                <span class="likeP">1250</span>g/份
+                            </p>
+                            <p class="money">￥<span class="money">25.00</span></p>
                         </dt>
                     </dl>
-                </div>
-                <div class="right fl">
-                    <dl>
+                    <dl class="fl cook">
                         <dd>
                             <img src="__STATIC__/index/./img/nangua.jpg" alt="" class="goodsImg">
                             <div class="youhuiDiv">
@@ -2026,17 +590,15 @@
                             </div>
                         </dd>
                         <dt>
-                        <h4><a href="">生态种植板栗南瓜</a></h4>
-                        <p>
-                            <button>君禾园</button>
-                            <span class="likeP">1250</span>g/份
-                        </p>
-                        <p class="money">￥<span class="money">25.00</span></p>
+                            <h4><a href="">生态种植板栗南瓜</a></h4>
+                            <p>
+                                <button>君禾园</button>
+                                <span class="likeP">1250</span>g/份
+                            </p>
+                            <p class="money">￥<span class="money">25.00</span></p>
                         </dt>
                     </dl>
-                </div>
-                <div class="right fl">
-                    <dl>
+                    <dl class="fl cook">
                         <dd>
                             <img src="__STATIC__/index/./img/nangua.jpg" alt="" class="goodsImg">
                             <div class="youhuiDiv">
@@ -2049,58 +611,12 @@
                             </div>
                         </dd>
                         <dt>
-                        <h4><a href="">生态种植板栗南瓜</a></h4>
-                        <p>
-                            <button>君禾园</button>
-                            <span class="likeP">1250</span>g/份
-                        </p>
-                        <p class="money">￥<span class="money">25.00</span></p>
-                        </dt>
-                    </dl>
-                </div>
-                <div class="right fl">
-                    <dl>
-                        <dd>
-                            <img src="__STATIC__/index/./img/nangua.jpg" alt="" class="goodsImg">
-                            <div class="youhuiDiv">
-                                <img src="__STATIC__/index/./img/new.png" alt="" class="youhuiImg">
-                            </div>
-                            <div class="numDiv">
-                                <span>0</span>
-                                <button class="reduceBtn">-</button>
-                                <button class="addBtn">+</button>
-                            </div>
-                        </dd>
-                        <dt>
-                        <h4><a href="">生态种植板栗南瓜</a></h4>
-                        <p>
-                            <button>君禾园</button>
-                            <span class="likeP">1250</span>g/份
-                        </p>
-                        <p class="money">￥<span class="money">25.00</span></p>
-                        </dt>
-                    </dl>
-                </div>
-                <div class="right fl">
-                    <dl>
-                        <dd>
-                            <img src="__STATIC__/index/./img/nangua.jpg" alt="" class="goodsImg">
-                            <div class="youhuiDiv">
-                                <img src="__STATIC__/index/./img/new.png" alt="" class="youhuiImg">
-                            </div>
-                            <div class="numDiv">
-                                <span>0</span>
-                                <button class="reduceBtn">-</button>
-                                <button class="addBtn">+</button>
-                            </div>
-                        </dd>
-                        <dt>
-                        <h4><a href="">生态种植板栗南瓜</a></h4>
-                        <p>
-                            <button>君禾园</button>
-                            <span class="likeP">1250</span>g/份
-                        </p>
-                        <p class="money">￥<span class="money">25.00</span></p>
+                            <h4><a href="">生态种植板栗南瓜</a></h4>
+                            <p>
+                                <button>君禾园</button>
+                                <span class="likeP">1250</span>g/份
+                            </p>
+                            <p class="money">￥<span class="money">25.00</span></p>
                         </dt>
                     </dl>
                 </div>

@@ -1,12 +1,10 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"F:\php\GSY\public/../application/index\view\widget\footer.html";i:1506154274;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:60:"F:\php\GSY\public/../application/index\view\index\index.html";i:1506235746;s:62:"F:\php\GSY\public/../application/index\view\widget\header.html";i:1506250776;s:62:"F:\php\GSY\public/../application/index\view\widget\footer.html";i:1506268097;}*/ ?>
 <footer class="footer">
 	<div class="bg">
 		<div class="container">
 			<div class="logo fl">
 
 				<img src="__STATIC__/index/./img/logo_v.png" alt="">
-
-
 
 			</div>
 			<div class="data fl">
@@ -29,14 +27,15 @@
 				<p><a href="">优惠券用法</a></p>
 				<p><a href="">支付方式</a></p>
 			</div>
-
 			<div class="info fl">
 				<p>服务热线</p>
 				<p class="inf">400-655-1212</p>
 				<p>周一至周日</p>
 				<p class="inf">8:00-21:00</p>
 				<p>微信公众号</p>
+
 				<img src="__STATIC__/index/./img/qr.png" alt="">
+
 			</div>
 		</div>
 	</div>

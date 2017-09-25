@@ -19,8 +19,7 @@ $(function () {
     $i = 1;
     $('.navBtn li').click(function () {
         $i = $('.navBtn li').index($(this)) + 1;
-        $src = '/static/message/./img/nav' + $i + '.jpg';
-
+        $src = '/static/index/./img/nav' + $i + '.jpg';
         $(this).parent().parent().prev().children().attr({'src': $src});
         $(this).addClass('borderD');
         $(this).removeClass('liHover');
@@ -149,10 +148,6 @@ $(function () {
     }).mouseleave(function () {
         $('.useDiv').hide();
     });
-
-
-
-
     //临时跳转效果
     //购物车
     $('.cart').click(function () {
