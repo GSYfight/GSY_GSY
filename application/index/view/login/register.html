@@ -15,7 +15,7 @@
 <!--主要内容-->
 <div class="container">
     <!--头部-->
-    {include file="widget/header" /}
+    {:widget('Widget/header')}
     <!--主模块-->
     <div class="section">
         <div class="left fl">
@@ -51,17 +51,16 @@
                 <p>
                     <span>验证码</span>
                     <input type="text" placeholder="请填写校验码" name="code" class="shortIn">
-                    <img src="" alt="" width="65px" height="20px">
-                    <a href="">看不清楚?换一个</a>
-                    <label class="s2"><span class="s1">!</span>请输入校验码</label>
+                    <img style="vertical-align: middle" src="{:captcha_src()}" alt="captcha" id="codeImg" onclick="this.src='{:captcha_src()}'"/>
+                    <a id="changeOne">换张验证码</a>
+                    <label class="s2" ><span class="s1">!</span>请输入校验码</label>
                 </p>
                 <p>
                     <span>验证码</span>
                     <input type="text" placeholder="请填写验证码" name="smsCode" class="shortIn">
-                    <button>获取短信验证码</button>
+                    <a id="smsCode" style="margin-left: 10px;">获取短信验证码</a>
                     <br>
                     <label class="s2"><span class="s1">!</span>本项必填</label>
-
                 </p>
                 <p class="tishi">
                     <span> </span>
@@ -164,6 +163,22 @@
             $('form').attr({'action':'a.php'});
         }
     });
-
+    //短信获取验证码
+    $('#smsCode').click(function () {
+        var mobile=$('input[name=mobile]').val();
+        $.ajax({
+            type:'POST',
+            dataType:'json',
+            url:"{:url('Login/sendCode')}",
+            data:{mobile:mobile},
+            success:function (d) {
+                    alert(d.msg);
+            }
+        })
+    });
+    //点击更换验证码图片
+    $('#changeOne').click(function () {
+        $('#codeImg').attr('src','{:captcha_src()}');
+    })
 </script>
 </html>

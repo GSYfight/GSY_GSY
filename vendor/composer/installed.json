@@ -136,5 +136,43 @@
             }
         ],
         "description": "The ThinkPHP5 Image Package"
+    },
+    {
+        "name": "topthink/think-captcha",
+        "version": "2.0",
+        "version_normalized": "2.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/top-think/think-captcha.git",
+            "reference": "3a08ebeeec7788f627077f26acf9c940855389f0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/top-think/think-captcha/3a08ebeeec7788f627077f26acf9c940855389f0.zip",
+            "reference": "3a08ebeeec7788f627077f26acf9c940855389f0",
+            "shasum": ""
+        },
+        "time": "2017-09-15T08:12:40+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "think\\captcha\\": "src/"
+            },
+            "files": [
+                "src/helper.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "authors": [
+            {
+                "name": "yunwuxin",
+                "email": "448901948@qq.com"
+            }
+        ],
+        "description": "captcha package for thinkphp5"
     }
 ]

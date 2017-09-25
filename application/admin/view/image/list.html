@@ -58,7 +58,7 @@
                                             {/if}
                                         </td>
                                         <td align="center">
-                                            <a href="#" onClick="warning('确实要删除吗', '{:url('Image/del',array('id'=>$v.image_id))}')"
+                                            <a href="#" onClick="warning('确实要删除吗', '{:url('Image/del',['image_id'=>$v.image_id,'is_face'=>$v.is_face])}')"
                                                class="btn btn-danger btn-sm shiny">
                                                 <i class="fa fa-trash-o"></i> 删除
                                             </a>

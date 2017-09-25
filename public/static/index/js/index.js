@@ -158,10 +158,6 @@ $(function () {
     }).mouseleave(function () {
         $('.useDiv').hide();
     });
-
-
-
-
     //临时跳转效果
     //购物车
     $('.cart').click(function () {
@@ -175,11 +171,4 @@ $(function () {
     $('#tijiaoBtn').click(function () {
         location.href = 'paycenter.html';
     });
-
-
-
-
-
-
-
 });

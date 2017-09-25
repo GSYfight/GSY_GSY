@@ -28,7 +28,12 @@
                 <div class="loginbox-textbox">
                     <input  class="form-control" placeholder="password" name="password" required="" type="password">
                 </div>
-
+                <div class="loginbox-textbox">
+                    <img src="{:captcha_src()}" alt="captcha" onclick="this.src='{:captcha_src()}'"/>
+                </div>
+                <div class="loginbox-textbox">
+                    <input  class="form-control" placeholder="验证码" required="" name="code" type="text">
+                </div>
                 <div class="loginbox-submit">
                     <input class="btn btn-primary btn-block" required='' value="Login" type="submit">
                 </div>

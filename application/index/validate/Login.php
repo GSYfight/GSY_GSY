@@ -12,7 +12,7 @@ use think\Validate;
 class Login extends Validate {
     //    验证规则
     protected $rule=[
-        'mobile'=>['regex'=>'/^1[3|4|5|8][0-9]\d{4,8}/','require'],
+        'mobile'=>['regex'=>'/^1[3|4|5|8][0-9]{9}/','require'],
         'password'=>'min:6|max:20',
     ];
 //    错误提示信息
@@ -24,7 +24,6 @@ class Login extends Validate {
     ];
 //    验证场景
     protected $scene=[
-        'register'=>'mobile,password',
-        'edit'=>'mobile'
+        'login'=>'mobile,password',
     ];
 }

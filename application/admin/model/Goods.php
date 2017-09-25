@@ -78,7 +78,26 @@ class Goods extends Model{
         }
         $res=db('goods')->update($data);
         return $res!==false?true:false;
-
+    }
+    //假删除商品，改变商品的是否删除字段
+    static public function delGoods($goods_id){
+        if (!$goods_id){
+            return false;
+        }
+        $goodsData['recycle']=1;
+        $goodsData['goods_id']=$goods_id;
+        $res=db('goods')->update($goodsData);
+        return $res !==false?true:false;
+    }
+    //撤销删除商品，改变商品的是否删除字段
+    static public function backDelGoods($goods_id){
+        if (!$goods_id){
+            return false;
+        }
+        $goodsData['recycle']=0;
+        $goodsData['goods_id']=$goods_id;
+        $res=db('goods')->update($goodsData);
+        return $res !==false?true:false;
     }
 
 
