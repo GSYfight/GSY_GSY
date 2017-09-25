@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:60:"E:\PHP\GSY\public/../application/index\view\index\index.html";i:1506251859;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:60:"E:\PHP\GSY\public/../application/index\view\index\index.html";i:1506301021;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,12 +20,12 @@
     <!--nav-->
     <div class="nav ">
         <div class="navImg">
-            <img src=".img/nav1.jpg" alt="717美食5件5折">
+            <img src="__STATIC__/index/img/nav1.jpg" alt="717美食5件5折">
         </div>
         <div class="navBtn">
             <ul class="borderD">
-                <li>717美食5件5折</li>
-                <li>充值返现</li>
+                <li>亲子买菜基金</li>
+                <li>极致新鲜</li>
                 <li>满额立减</li>
                 <li>购物纸袋回收计划</li>
                 <li>中伏吃面</li>

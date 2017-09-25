@@ -10,15 +10,15 @@ use think\Controller;
 use app\index\model\ProductList as ProductListModel;
 class ProductList extends Controller{
     public function index(){
-        $cate_id=input('cate_id');
-        $keywordsData=ProductListModel::keyWordsList();
-        $cateData=ProductListModel::cateList($cate_id);
-        $goodsData=ProductListModel::getGoodsByCateId($cate_id);
-        $this->assign([
-            'goodsData'=>$goodsData,
-            'keywordsData'=>$keywordsData,
-            'cateData'=>$cateData,
-        ]);
+            $cate_id=input('cate_id');
+            $keywordsData=ProductListModel::keyWordsList();
+            $cateData=ProductListModel::cateList($cate_id);
+            $goodsData=ProductListModel::getGoodsByCateId($cate_id);
+            $this->assign([
+                'goodsData'=>$goodsData,
+                'keywordsData'=>$keywordsData,
+                'cateData'=>$cateData,
+            ]);
         return $this->fetch('productlist/productlist');
     }
 

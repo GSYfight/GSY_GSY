@@ -11,11 +11,11 @@ use app\index\model\Widget as WidgetModel;
 class Widget extends Controller{
 
     public function header(){
+        //获取数据库所有栏目
         $data=WidgetModel::getCateByPid();
         //获取当前的REQUEST_URI，并将字符串转为数组
         $urlAddress=explode('/',$_SERVER['REQUEST_URI']);
-//            var_dump($urlAddress);exit;
-        if($urlAddress[1]){
+        if(!$urlAddress[1]){
             //如果地址没有输入模板，控制器，方法，返回'index,index'
             $urlRes='index,index';
         }else if(!isset($urlAddress[2])||$urlAddress[2]==''){
@@ -28,8 +28,8 @@ class Widget extends Controller{
             if($urlAddress[2]=='login'){
                 $urlRes='index,index';
             }
-        }else{
-
+        }
+        else{
             //如果地址有输入模板，控制器和方法
             //截取控制器和方法，并转化为字符串
             $urlRes=implode(',',[$urlAddress[2],$urlAddress[3],]);
@@ -44,7 +44,18 @@ class Widget extends Controller{
                 }
             }
         }
+//        var_dump($urlAddress);exit;
+//        //判断用户是否已登录
+        $isLogined=session('index');
+        $res =[];
+        if(!empty($isLogined)){
+            //如果用户已经登录，获取member信息
+            $res = WidgetModel::memberData($isLogined);
+        }
+
+        $this->assign('res',$res);
         $this->assign(['urlAddress'=>$urlRes,'data'=>$data]);
+
         return $this->fetch('widget/header');
     }
 

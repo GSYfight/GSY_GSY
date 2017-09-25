@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:60:"E:\PHP\GSY\public/../application/index\view\Login\login.html";i:1506263109;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:60:"E:\PHP\GSY\public/../application/index\view\Login\login.html";i:1506321869;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,7 +44,7 @@
         <div class="right fl">
             <div class="bg"></div>
             <div class="regist">
-                <p>我不是会员，<a href="./regist.html">要加入</a></p>
+                <p>我不是会员，<a href="#" onClick="warning('确实要删除吗', '<?php echo url("Login/logout",['urlAddress'=>$urlAddress]); ?>')">要加入</a></p>
             </div>
         </div>
     </div>
