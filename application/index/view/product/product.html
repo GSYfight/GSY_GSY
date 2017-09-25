@@ -19,13 +19,16 @@
     <!--主模块-->
     <div class="main">
         <div class="row">
+
             <div class="fl current">
-                <a href="#" class="sp" style="background-image: url(__STATIC__/index/./img/pro_s1.jpg)"></a>
+                {foreach $data as $val}
+                <a href="#" class="sp" style="background-image: url({$val['image_m_url']})"></a>
+                {/foreach}
             </div>
             <div class="sp_large">
                 <div class="cenTop">
                     <a href="#" class="sp_current_img">
-                        <img src="__STATIC__/index/./img/pro_s1.jpg" >
+                        <img src="" >
                     </a>
                 </div>
                 <div class="col">
@@ -44,7 +47,7 @@
             </div>
             <div class="right fr" style="z-index: 100">
                 <div class="title">
-                    <p>心心</p>
+                    <p>{$data[0]['keywords']}</p>
                     <p class="spName">{$data[0]['goods_name']}</p>
                     <p class="spJiesao">巨玫瑰葡萄为紫红色，有浓郁玫瑰香气，口感好且甜度高。有机种植的葡萄，只需要用水冲洗后就可以连皮带籽一起吃。</p>
                     <p class="spPrice">￥ <span>{$data[0]['sell_price']}</span></p>
@@ -72,9 +75,9 @@
                     </div>
                     <div class="caozuo">
                         <div class="d1 fl">
-                            <a class="fl left goods_sub">-</a>
-                            <input type="text" class="fl goods_num" maxlength="2" value="1">
-                            <a class="fl right goods_add">+</a>
+                            <a href=""  class="fl left" id="goods_sub">-</a>
+                            <input type="text" class="fl" maxlength="2" value="1" id="goods_num">
+                            <a href="" class="fl right" id="goods_add">+</a>
                         </div>
                         <button id="jiaru" class="fr">加入购物车</button>
                     </div>
@@ -271,12 +274,12 @@ $(".goods_add").click(function (e) {
 
     //商品图标选择
     $('.sp').eq(0).css({'opacity': '1'});
-    $('.sp_current_img').children().eq(0).attr('src', '__STATIC__/index/./img/pro_s1.jpg');
+    $('.sp_current_img').children().eq(0).attr('src', '{$data[0][\'image_b_url\']}');
     $('.sp').mousemove(function () {
-        srcIndex = $(this).index('.sp') + 1;
+        var srcIndex = $(this).index('.sp') + 1;
         $(this).css({'opacity': '1'});
         $('.sp').not($(this)).css({'opacity': '0.4'});
-        $('.sp_current_img').children().eq(0).attr('src', '__STATIC__/index/./img/pro_s'+ srcIndex +'.jpg');
+        $('.sp_current_img').children().eq(0).attr('src', '{$data[0][\'image_b_url\']}');
     });
     //显示隐藏分享选择
     $('.jq1').mousemove(function () {

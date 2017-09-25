@@ -1,9 +1,10 @@
-{:widget('Widget/header')}
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"D:\PHPfile\GSY\public/../application/admin\view\image\goodspiclist.html";i:1506130145;}*/ ?>
+<?php echo widget('Widget/header'); ?>
 <!-- /头部 -->
 <div class="main-container container-fluid">
     <div class="page-container">
         <!-- Page Sidebar -->
-        {:widget('Widget/left')}
+        <?php echo widget('Widget/left'); ?>
     <!-- /Page Sidebar -->
     <!-- Page Content -->
     <div class="page-content">
@@ -22,7 +23,7 @@
         <div class="page-body">
 
             <button type="button" tooltip="添加图片" class="btn btn-sm btn-azure btn-addon"
-                    onClick="javascript:window.location.href = '{:url('Image/addGoodsPic',array('goods_id'=>$data[\'data\'][0][\'goods_id\'],'goods_name'=>$goods_name))}'"><i class="fa fa-plus"></i> Add
+                    onClick="javascript:window.location.href = '<?php echo url('Image/addGoodsPic',array('goods_id'=>$data['data'][0]['goods_id'],'goods_name'=>$goods_name)); ?>'"><i class="fa fa-plus"></i> Add
             </button>
             <div class="row">
                 <div class="col-lg-12 col-sm-12 col-xs-12">
@@ -41,30 +42,30 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    {foreach $data['data'] as $v}
+                                    <?php foreach($data['data'] as $v): ?>
                                     <tr>
-                                        <td align="center">{$v.image_id}</td>
-                                        <td align="center">{$v.goods_id}</td>
-                                        <td align="center">{$goods_name}</td>
+                                        <td align="center"><?php echo $v['image_id']; ?></td>
+                                        <td align="center"><?php echo $v['goods_id']; ?></td>
+                                        <td align="center"><?php echo $goods_name; ?></td>
                                         <td align="center">
-                                            <img src="{$v.image_url}" alt="" width="80" height="40">
+                                            <img src="<?php echo $v['image_url']; ?>" alt="" width="80" height="40">
                                         </td>
                                         <td align="center">
                                             <!--判断是否为封面-->
-                                            {if condition='$v.is_face eq 1'}
+                                            <?php if($v['is_face'] == 1): ?>
                                             是
-                                            {else/}
-                                            <a href="{:url('Image/isFace',['image_id'=>$v.image_id,'goods_id'=>$v.goods_id])}">否</a>
-                                            {/if}
+                                            <?php else: ?>
+                                            <a href="<?php echo url('Image/isFace',['image_id'=>$v['image_id'],'goods_id'=>$v['goods_id']]); ?>">否</a>
+                                            <?php endif; ?>
                                         </td>
                                         <td align="center">
-                                            <a href="#" onClick="warning('确实要删除吗', '{:url('Image/del',array('image_id'=>$v.image_id))}')"
+                                            <a href="#" onClick="warning('确实要删除吗', '<?php echo url('Image/del',array('id'=>$v['image_id'])); ?>')"
                                                class="btn btn-danger btn-sm shiny">
                                                 <i class="fa fa-trash-o"></i> 删除
                                             </a>
                                         </td>
                                     </tr>
-                                    {/foreach}
+                                    <?php endforeach; ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -74,7 +75,7 @@
                     </div>
                 </div>
             </div>
-            {$data['page']}
+            <?php echo $data['page']; ?>
         </div>
         <!-- /Page Body -->
     </div>

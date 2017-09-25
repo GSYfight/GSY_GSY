@@ -19,9 +19,7 @@
     <!--nav-->
     <div class="nav">
         <div class="navImg">
-
             <img src="__STATIC__/index/img/nav1.jpg" alt="717美食5件5折">
-
         </div>
         <div class="navBtn">
             <ul class="borderD">
@@ -83,7 +81,7 @@
                     <dd>
                         <img src="__STATIC__/index/./img/hot1.jpg" alt="" class="goodsImg">
                         <img src="__STATIC__/index/./img/new.png" alt="" class="youhuiImg">
-                        <div class="numDiv" id="firNumDiv" onclick="javascript:window.location.href=''">
+                        <div class="numDiv" id="firNumDiv" >
                             <span>0</span>
                             <button class="reduceBtn">-</button>
                             <button class="addBtn">+</button>
@@ -99,9 +97,7 @@
                     </dt>
                 </dl>
             </div>
-
         </div>
-
         {foreach $data as $v}
         {foreach $v as $val}
         {if condition='$val.pid eq 69'}
@@ -134,7 +130,6 @@
         {/if}
         {/foreach}
         {/foreach}
-
     </div>
     <!--新到尖货-->
     <div class="divModel borderD">
@@ -178,7 +173,6 @@
             <a href="#"><img src="__STATIC__/index/./img/anquanshuiguo.jpg" alt=""></a>
             <a href="#"><h4>更多安全水果 >></h4></a>
         </div>
-
         <div class="right fl">
             {foreach $data as $v}
             {foreach $v as $val}
@@ -208,7 +202,6 @@
             {/foreach}
             {/foreach}
         </div>
-
     </div>
     <!--四时菜蔬-->
     <div class="divModel borderD">
@@ -245,7 +238,6 @@
             {/foreach}
             {/foreach}
         </div>
-
         </div>
     <!--肉禽蛋品-->
     <div class="divModel borderD">
