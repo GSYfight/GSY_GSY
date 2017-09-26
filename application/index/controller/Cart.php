@@ -83,13 +83,21 @@ class Cart extends Controller{
         ];
     }
     public function index(){
-        $cookie=cookie('cart');
-        $cart=unserialize($cookie);
-        $data=CartModel::cartList($cart);
+        //判断是否登录
+        $member_id=$this->isLogin();
+        if(!$member_id){
+            $cookie=cookie('cart');
+            $cart=unserialize($cookie);
+            $data=CartModel::cartList($cart);
+
+        }else{
+            $data=CartModel::cartMember($member_id);
+        }
         $this->assign([
             'data'=>$data['data'],
             'sum'=>$data['sum'],
         ]);
+
         return $this->fetch('cart/cart');
     }
 
@@ -99,7 +107,7 @@ class Cart extends Controller{
             'member_id'=>$this->isLogin(),
         ];
         //判断用户是否登录
-        if($data['member_id']){
+        if($data['member_idj 5']){
             //登录状态
             $cartData=CartModel::delOneGoods($data);
 
