@@ -113,7 +113,7 @@ class Cart extends Controller{
             'member_id'=>$this->isLogin(),
         ];
         //判断用户是否登录
-        if($data['member_idj 5']){
+        if($data['member_id']){
             //登录状态
             $cartData=CartModel::delOneGoods($data);
 

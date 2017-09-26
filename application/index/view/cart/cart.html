@@ -144,7 +144,9 @@
 </body>
 <script>
     $(".delOneGoods").click(function () {
+
         var goods_id = $(this).attr('goodsid');
+
         $.ajax({
             type: "POST",
             datatype: "json",
