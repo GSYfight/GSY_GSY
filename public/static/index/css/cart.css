@@ -223,20 +223,24 @@
     color: #143749;
 
 }
-.cart-has table .cz span{
+/*购物车，列表后叉号*/
+.cart-has table .cz a{
     width: 28px;
     height: 28px;
-    display: block;
+    display: inline-block;
+    text-decoration: none;
     background: #AFC5CD;
     border-radius: 50%;
-    font-size: 1.9em;
+    font-size: 1.5em;
     text-align: center;
     color: #143749;
     cursor: pointer;
     font-weight: 100;
     line-height: 28px;
 }
-
+.cart-has table .cz a:hover{
+    background-color: #8280ff;
+}
 .cart-has table .end {
     height: 100px;
     background: #EBF1F3;

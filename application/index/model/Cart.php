@@ -32,4 +32,30 @@ class Cart extends Model{
         ];
         return $all;
     }
+    static public function delOneGoods($data){
+        if (!$data){
+            return false;
+        }
+        //通过用户id和商品id删除购物车商品
+        $res=db('cart')->where(['goods_id'=>$data['goods_id'],'member_id'=>$data['member_id']])->delete();
+        if (!$res){
+            return false;
+        }
+//        通过用户id查找购物车商品信息,并返回
+        $cartData=db('cart')->where(['member_id'=>$data['member_id']])->select();
+        if (!$cartData){
+            return [
+                'cartData'=>$cartData,
+                'status'=>'success',
+                'msg'=>'购物车空了，请加入商品！'
+            ];
+        }else{
+            return [
+                'cartData'=>$cartData,
+                'status'=>'error',
+                'msg'=>'购物车空了，请加入商品！'
+            ];
+        }
+
+    }
 }

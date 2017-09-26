@@ -79,12 +79,9 @@ class Cart extends Controller{
 
             }
         }
-
         return [
             'status'=>'success',
         ];
-
-
     }
     public function index(){
         $cookie=cookie('cart');
@@ -96,8 +93,33 @@ class Cart extends Controller{
         ]);
         return $this->fetch('cart/cart');
     }
+
+    public function del(){
+        $data=[
+            'goods_id'=>input('goods_id'),
+            'member_id'=>$this->isLogin(),
+        ];
+        //判断用户是否登录
+        if($data['member_id']){
+            //登录状态
+            $cartData=CartModel::delOneGoods($data);
+
+        }else{
+        //未登录状态
+            $cookie=cookie('cart');
+            $cart=unserialize($cookie);
+            unset($cart[$data['goods_id']]);
+            $cookie=serialize($cart);
+            cookie('cart',$cookie);
+        }
+        return [
+            'status'=>'success',
+        ];
+    }
+
     public function isLogin(){
         $member_id=session('index')['member_id'];
         return $member_id;
     }
+
 }

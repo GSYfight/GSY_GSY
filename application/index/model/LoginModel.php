@@ -21,11 +21,11 @@ class LoginModel extends Model{
     /*
      * 根据参数mobile获取member数据
      * */
-    static public function dataByMobile($mobile){
+    static public function dataByMobile($mobile,$col){
         if(empty($mobile)){
             return false;
         }
-        return $res=db('member')->where('mobile',$mobile)->find();
+        return $res=db('member')->where($col,$mobile)->find();
     }
     /*
      * 将数据添加至member数据库
