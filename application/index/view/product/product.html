@@ -259,7 +259,7 @@ $(".goods_sub").click(function (e) {
     $(this).siblings(".goods_num").val(num);
 });
 $(".goods_add").click(function (e) {
-    e=e||window.event;
+    e=e|window.event;
     e.preventDefault();
     var num=parseInt($(this).siblings(".goods_num").val());
     $(this).siblings(".goods_num").val(num+1).siblings(".goods_sub").css({'cursor':'pointer'});
