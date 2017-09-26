@@ -135,5 +135,10 @@ class Cart extends Controller{
         $member_id=$member['member_id'];
         return $member_id;
     }
+    public function addGoods(){
+        $goods_id=input('goods_id');
+        $goods_num=input('goods_num');
+
+    }
 
 }
