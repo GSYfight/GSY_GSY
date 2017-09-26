@@ -1,5 +1,6 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"F:\php\GSY\public/../application/index\view\widget\header.html";i:1506414001;}*/ ?>
 <header id="header" class="head">
-    <a href="{:url('Index/index')}">
+    <a href="<?php echo url('Index/index'); ?>">
         <div class="icon fl"></div>
     </a>
     <div class="headRight fl">
@@ -9,21 +10,21 @@
                 <!--隐藏模块1-->
                 <div class="d1">
 
-                    {foreach $data as $k=>$v}
+                    <?php foreach($data as $k=>$v): ?>
                     <div class="culumn fl">
                         <a href="">
                             <div class="hDiv borderD">
-                                <img src="{$v[0]['icon']}" alt="">
-                                <p><a href="">{$k}</a></p>
+                                <img src="<?php echo $v[0]['icon']; ?>" alt="">
+                                <p><a href=""><?php echo $k; ?></a></p>
                             </div>
                         </a>
                         <div>
-                            {foreach $v as $k=>$j}
-                            <p><a href="{:url('ProductList/index',['cate_id'=>$j.cate_id])}">{$j.name}</a></p>
-                            {/foreach}
+                            <?php foreach($v as $k=>$j): ?>
+                            <p><a href="<?php echo url('ProductList/index',['cate_id'=>$j['cate_id']]); ?>"><?php echo $j['name']; ?></a></p>
+                            <?php endforeach; ?>
                         </div>
                     </div>
-                    {/foreach}'
+                    <?php endforeach; ?>'
                 </div>
             </li>
             <li class="fl ct borderL">
@@ -76,12 +77,12 @@
             <!--用户登录-->
             <div class="user fl">
                 <div class="userA "></div>
-                {if condition="$res eq []"}
+                <?php if($res == []): ?>
                 <div class="useDiv">
                     <div class="sanjiaoxing"></div>
                     <a href="#">
                         <button id="login">登录</button>
-                        <input type="hidden" name="fullUrl" value="{$fullUrl}" id="fullUrl">
+                        <input type="hidden" name="fullUrl" value="<?php echo $fullUrl; ?>" id="fullUrl">
                         <script>
                             $(function () {
                                 $('#login').click(function () {
@@ -90,9 +91,9 @@
                                         type:'POST',
                                         dataType:'json',
                                         data:{fullUrl:fullUrl},
-                                        url:"{:url('Login/login')}",
+                                        url:"<?php echo url('Login/login'); ?>",
                                         success:function (d) {
-                                            window.location.href = "{:url('Login/login')}";
+                                            window.location.href = "<?php echo url('Login/login'); ?>";
                                         },
                                         error:function (d) {
                                             alert(222);
@@ -103,35 +104,35 @@
                         </script>
                     </a>
                     <hr>
-                    <a href="{:url('Login/register')}">
+                    <a href="<?php echo url('Login/register'); ?>">
                         <button>注册</button>
 
                     </a>
                 </div>
-                {else/}
+                <?php else: ?>
                 <div class="useDiv" style="height: auto;width: 200px;left: -100px;">
                     <div class="sanjiaoxing" style="left: 135px;"></div>
                     <div style="text-align: center;background: #ccc">
-                        <div><img src="{$res.pic}" alt="" style="width: 30px;border-radius: 50%;margin-top: 10px;"></div>
-                        <a>{$res.username}</a>
+                        <div><img src="<?php echo $res['pic']; ?>" alt="" style="width: 30px;border-radius: 50%;margin-top: 10px;"></div>
+                        <a><?php echo $res['username']; ?></a>
                         <p style="text-align: center;font-size: 12px;">友善会员</p>
                         <a href="">200分</a>
                     </div>
-                    <a href="{:url('Login/login')}">
+                    <a href="<?php echo url('Login/login'); ?>">
                         <button style="height: 40px;width: 200px;text-align: center">个人中心</button>
                     </a>
                     <hr>
-                    <a href="{:url('Login/register')}">
+                    <a href="<?php echo url('Login/register'); ?>">
                         <button style="height: 40px;width: 200px;text-align: center">我的订单</button>
                     </a>
                     <hr>
-                    <a href="{:url('Login/register')}">
+                    <a href="<?php echo url('Login/register'); ?>">
                         <button style="height: 40px;width: 200px;text-align: center">我的优惠券</button>
                     </a>
                     <hr>
                     <a href="#" id="logout">
                         <button style="height: 40px;width: 200px;text-align: center">退出</button>
-                        <input type="hidden" name="fullUrl" value="{$fullUrl}" id="logoutUrl">
+                        <input type="hidden" name="fullUrl" value="<?php echo $fullUrl; ?>" id="logoutUrl">
                     </a>
                     <script>
                         $(function () {
@@ -141,7 +142,7 @@
                                     type:'POST',
                                     dataType:'json',
                                     data:{fullUrl:fullUrl},
-                                    url:"{:url('Login/logout')}",
+                                    url:"<?php echo url('Login/logout'); ?>",
                                     success:function (d) {
                                         window.location.href=d;
                                     },
@@ -153,7 +154,7 @@
                         })
                     </script>
                 </div>
-                {/if}
+                <?php endif; ?>
             </div>
         </div>
     </div>
