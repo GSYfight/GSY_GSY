@@ -92,13 +92,18 @@ class Cart extends Controller{
             $data=CartModel::cartList($cart);
 
         }else{
+            //用户登录状态
+            if(!empty(cookie('cart'))){
+                $cookie=unserialize(cookie('cart'));
+                cookie('cart',null);
+                CartModel::addOrigin($cookie,$member_id);
+            }
             $data=CartModel::cartMember($member_id);
         }
         $this->assign([
             'data'=>$data['data'],
             'sum'=>$data['sum'],
         ]);
-
         return $this->fetch('cart/cart');
     }
 

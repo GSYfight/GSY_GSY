@@ -18,7 +18,25 @@
     {:widget("widget/header")}
     <!--主模块-->
     <!--购物车为空时-->
-
+    {if condition='$data eq null'}
+    <div class="cart-section section cart-null">
+        <div class="head">
+            <div class="cart-icon">
+                <h1>
+                    <img src="__STATIC__/index/./img/ym_icon_cart.png" alt="">
+                    购物车
+                </h1>
+            </div>
+        </div>
+        <div class="data">
+            <div class="mess">
+                <img src="__STATIC__/index/./img/ym_icon_cart.png" alt="">
+                <p>购物篮中空空的喔,慢慢逛，不要忘记带上「食欲」</p>
+            </div>
+        </div>
+    </div>
+    <!--购物车空时-->
+    {else/}
     <!--购物车非空时-->
     <div class="cart-section section cart-has">
         <div class="head">
@@ -60,7 +78,8 @@
                         <input type="checkbox" name="" checked="checked" class="chk">
                     </td>
                     <td class="sp">
-                        <img src="{$v.image_s_url}" alt="{$v.goods_name}" onclick="javascript:window.location.href='{:url('Product/index',['goodsId'=>$v.goods_id])}'">
+                        <img src="{$v.image_s_url}" alt="{$v.goods_name}"
+                             onclick="javascript:window.location.href='{:url('Product/index',['goodsId'=>$v.goods_id])}'">
                         <span><a href="{:url('Product/index',['goodsId'=>$v.goods_id])}">{$v.goods_name}</a></span>
                     </td>
                     <td class="sj">
@@ -100,16 +119,22 @@
                 <div class="mingxi fr">
                     <h2>金额明细</h2>
                     <ul>
-                        <li class="li1"><span class="left">商品小计</span><span class="right">￥<span class="allMoney">{$sum}</span></span></li>
-                        <li class="li2"><hr></li>
-                        <li class="li3"><span class="left ">购买金额</span><span class="right">￥<span class="allMoney">{$sum}</span></span></li>
-                        <li><span class="left">可得积分</span><span class="right"><span class="allMoney">{$sum}</span>点</span></li>
+                        <li class="li1"><span class="left">商品小计</span><span class="right">￥<span
+                                class="allMoney">{$sum}</span></span></li>
+                        <li class="li2">
+                            <hr>
+                        </li>
+                        <li class="li3"><span class="left ">购买金额</span><span class="right">￥<span class="allMoney">{$sum}</span></span>
+                        </li>
+                        <li><span class="left">可得积分</span><span class="right"><span
+                                class="allMoney">{$sum}</span>点</span></li>
                     </ul>
                     <button class="btn1">查看优惠详情</button>
                 </div>
             </div>
         </div>
     </div>
+    {/if}
 </div>
 <!--底部-->
 {:widget("widget/footer")}
@@ -119,20 +144,19 @@
 </body>
 <script>
     $(".delOneGoods").click(function () {
-        var goods_id=$(this).attr('goodsid');
+        var goods_id = $(this).attr('goodsid');
         $.ajax({
-            type:"POST",
-            datatype:"json",
-            data:{goods_id:goods_id},
-            url:"{:url('Cart/del')}",
-            success:function (data) {
-                if(data.status=='success'){
-                    location.href="{:url('Cart/index')}"
-                }else {
+            type: "POST",
+            datatype: "json",
+            data: {goods_id: goods_id},
+            url: "{:url('Cart/del')}",
+            success: function (data) {
+                if (data.status == 'success') {
+                    location.href = "{:url('Cart/index')}"
+                } else {
 
                 }
             },
-
 
 
         })

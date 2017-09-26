@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"D:\PHPfile\GSY\public/../application/index\view\cart\cart.html";i:1506404759;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"D:\PHPfile\GSY\public/../application/index\view\cart\cart.html";i:1506416401;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +19,25 @@
     <?php echo widget("widget/header"); ?>
     <!--主模块-->
     <!--购物车为空时-->
-
+    <?php if($data == null): ?>
+    <div class="cart-section section cart-null">
+        <div class="head">
+            <div class="cart-icon">
+                <h1>
+                    <img src="__STATIC__/index/./img/ym_icon_cart.png" alt="">
+                    购物车
+                </h1>
+            </div>
+        </div>
+        <div class="data">
+            <div class="mess">
+                <img src="__STATIC__/index/./img/ym_icon_cart.png" alt="">
+                <p>购物篮中空空的喔,慢慢逛，不要忘记带上「食欲」</p>
+            </div>
+        </div>
+    </div>
+    <!--购物车空时-->
+    <?php else: ?>
     <!--购物车非空时-->
     <div class="cart-section section cart-has">
         <div class="head">
@@ -61,7 +79,8 @@
                         <input type="checkbox" name="" checked="checked" class="chk">
                     </td>
                     <td class="sp">
-                        <img src="<?php echo $v['image_s_url']; ?>" alt="<?php echo $v['goods_name']; ?>" onclick="javascript:window.location.href='<?php echo url('Product/index',['goodsId'=>$v['goods_id']]); ?>'">
+                        <img src="<?php echo $v['image_s_url']; ?>" alt="<?php echo $v['goods_name']; ?>"
+                             onclick="javascript:window.location.href='<?php echo url('Product/index',['goodsId'=>$v['goods_id']]); ?>'">
                         <span><a href="<?php echo url('Product/index',['goodsId'=>$v['goods_id']]); ?>"><?php echo $v['goods_name']; ?></a></span>
                     </td>
                     <td class="sj">
@@ -101,16 +120,22 @@
                 <div class="mingxi fr">
                     <h2>金额明细</h2>
                     <ul>
-                        <li class="li1"><span class="left">商品小计</span><span class="right">￥<span class="allMoney"><?php echo $sum; ?></span></span></li>
-                        <li class="li2"><hr></li>
-                        <li class="li3"><span class="left ">购买金额</span><span class="right">￥<span class="allMoney"><?php echo $sum; ?></span></span></li>
-                        <li><span class="left">可得积分</span><span class="right"><span class="allMoney"><?php echo $sum; ?></span>点</span></li>
+                        <li class="li1"><span class="left">商品小计</span><span class="right">￥<span
+                                class="allMoney"><?php echo $sum; ?></span></span></li>
+                        <li class="li2">
+                            <hr>
+                        </li>
+                        <li class="li3"><span class="left ">购买金额</span><span class="right">￥<span class="allMoney"><?php echo $sum; ?></span></span>
+                        </li>
+                        <li><span class="left">可得积分</span><span class="right"><span
+                                class="allMoney"><?php echo $sum; ?></span>点</span></li>
                     </ul>
                     <button class="btn1">查看优惠详情</button>
                 </div>
             </div>
         </div>
     </div>
+    <?php endif; ?>
 </div>
 <!--底部-->
 <?php echo widget("widget/footer"); ?>
@@ -120,20 +145,19 @@
 </body>
 <script>
     $(".delOneGoods").click(function () {
-        var goods_id=$(this).attr('goodsid');
+        var goods_id = $(this).attr('goodsid');
         $.ajax({
-            type:"POST",
-            datatype:"json",
-            data:{goods_id:goods_id},
-            url:"<?php echo url('Cart/del'); ?>",
-            success:function (data) {
-                if(data.status=='success'){
-                    location.href="<?php echo url('Cart/index'); ?>"
-                }else {
+            type: "POST",
+            datatype: "json",
+            data: {goods_id: goods_id},
+            url: "<?php echo url('Cart/del'); ?>",
+            success: function (data) {
+                if (data.status == 'success') {
+                    location.href = "<?php echo url('Cart/index'); ?>"
+                } else {
 
                 }
             },
-
 
 
         })
