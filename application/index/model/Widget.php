@@ -17,4 +17,13 @@ class Widget extends Model{
         }
         return $arr;
     }
+    /*
+     * 获取成员信息member
+     * */
+    static public function memberData($data){
+        if(empty($data)){
+            return false;
+        }
+        return $res = db('member')->where('mobile',$data['mobile'])->find();
+    }
 }

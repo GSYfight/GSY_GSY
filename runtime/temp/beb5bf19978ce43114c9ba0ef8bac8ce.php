@@ -1,4 +1,12 @@
+<<<<<<< HEAD
+<<<<<<< HEAD:runtime/temp/d049a458b2ae424c17bf66f1518c8ee6.php
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:60:"E:\PHP\GSY\public/../application/index\view\index\index.html";i:1506301021;}*/ ?>
+=======
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:64:"D:\PHPfile\GSY\public/../application/index\view\index\index.html";i:1506310741;}*/ ?>
+>>>>>>> f4299c62f2222bd2aa408b0617b4581ba6f01a3c:runtime/temp/beb5bf19978ce43114c9ba0ef8bac8ce.php
+=======
 <?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:64:"D:\PHPfile\GSY\public/../application/index\view\index\index.html";i:1506326434;}*/ ?>
+>>>>>>> ac2255a9cbb6e626ef2b5f03efc69803e8aa7a83
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,9 +28,13 @@
     <!--nav-->
     <div class="nav">
         <div class="navImg">
+<<<<<<< HEAD:runtime/temp/d049a458b2ae424c17bf66f1518c8ee6.php
+            <img src="__STATIC__/index/img/nav1.jpg" alt="717美食5件5折">
+=======
 
             <img src="__STATIC__/index/img/nav1.jpg" alt="717美食5件5折">
 
+>>>>>>> f4299c62f2222bd2aa408b0617b4581ba6f01a3c:runtime/temp/beb5bf19978ce43114c9ba0ef8bac8ce.php
         </div>
         <div class="navBtn">
             <ul class="borderD">

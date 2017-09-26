@@ -1,4 +1,8 @@
+<<<<<<< HEAD:runtime/temp/2d70b46f62416da37a53031b2df7408c.php
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:60:"E:\PHP\GSY\public/../application/index\view\login\login.html";i:1506323670;s:62:"E:\PHP\GSY\public/../application/index\view\widget\header.html";i:1506325775;}*/ ?>
+=======
 <?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"D:\PHPfile\GSY\public/../application/index\view\widget\header.html";i:1506301474;}*/ ?>
+>>>>>>> f4299c62f2222bd2aa408b0617b4581ba6f01a3c:runtime/temp/3683d90325bae3cefe52b75b73717e30.php
 <header id="header" class="head">
     <a href="index.html">
         <div class="icon fl"></div>
@@ -20,7 +24,11 @@
                         </a>
                         <div>
                             <?php foreach($v as $k=>$j): ?>
+<<<<<<< HEAD:runtime/temp/2d70b46f62416da37a53031b2df7408c.php
+                            <p><a href="<?php echo url('ProductList/productlist',['cate_id'=>$j['cate_id']]); ?>"><?php echo $j['name']; ?></a></p>
+=======
                             <p><a href="<?php echo url('ProductList/index',['cate_id'=>$j['cate_id']]); ?>"><?php echo $j['name']; ?></a></p>
+>>>>>>> f4299c62f2222bd2aa408b0617b4581ba6f01a3c:runtime/temp/3683d90325bae3cefe52b75b73717e30.php
                             <?php endforeach; ?>
                         </div>
                     </div>
@@ -70,23 +78,51 @@
                 <div class="cartDiv">
                     <div class="sanjiaoxing"></div>
                     <div class="cartData">
-                        <p>购物篮中空空的喔,慢慢逛，不要忘记带上「食欲」</p>
+                        <p>购物篮中空空的喔,慢慢逛，不要忘记带上「食欲」<?php echo $urlAddress; ?></p>
                     </div>
                 </div>
             </div>
             <!--用户登录-->
             <div class="user fl">
                 <div class="userA "></div>
+                <?php if($res == []): ?>
                 <div class="useDiv">
                     <div class="sanjiaoxing"></div>
                     <a href="<?php echo url('Login/login',['urlAddress'=>$urlAddress]); ?>">
-                        <button>登录<?php echo $urlAddress; ?></button>
+                        <button>登录</button>
                     </a>
                     <hr>
                     <a href="<?php echo url('Login/register'); ?>">
                         <button>注册</button>
                     </a>
                 </div>
+                <?php else: ?>
+                <div class="useDiv" style="height: auto;width: 200px;left: -100px;">
+                    <div class="sanjiaoxing" style="left: 135px;"></div>
+                    <div style="text-align: center;background: #ccc">
+                        <div><img src="<?php echo $res['pic']; ?>" alt="" style="width: 30px;border-radius: 50%;margin-top: 10px;"></div>
+                        <a><?php echo $res['username']; ?></a>
+                        <p style="text-align: center;font-size: 12px;">友善会员</p>
+                        <a href="">200分</a>
+                    </div>
+                    <a href="<?php echo url('Login/login',['urlAddress'=>$urlAddress]); ?>">
+                        <button style="height: 40px;width: 200px;text-align: center">个人中心</button>
+                    </a>
+                    <hr>
+                    <a href="<?php echo url('Login/register'); ?>">
+                        <button style="height: 40px;width: 200px;text-align: center">我的订单</button>
+                    </a>
+                    <hr>
+                    <a href="<?php echo url('Login/register'); ?>">
+                        <button style="height: 40px;width: 200px;text-align: center">我的优惠券</button>
+                    </a>
+                    <hr>
+                    <a href="<?php echo url('Login/logout'); ?>" >
+                        <button style="height: 40px;width: 200px;text-align: center">退出</button>
+                    </a>
+                </div>
+                <?php endif; ?>
+
             </div>
 
         </div>
