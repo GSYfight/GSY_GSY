@@ -79,12 +79,33 @@
                 {if condition="$res eq []"}
                 <div class="useDiv">
                     <div class="sanjiaoxing"></div>
-                    <a href="{:url('Login/login',['urlAddress'=>$urlAddress])}">
-                        <button>登录</button>
+                    <a href="#">
+                        <button id="login">登录</button>
+                        <input type="hidden" name="fullUrl" value="{$fullUrl}" id="fullUrl">
+                        <script>
+                            $(function () {
+                                $('#login').click(function () {
+                                    var fullUrl=$('#fullUrl').val();
+                                    $.ajax({
+                                        type:'POST',
+                                        dataType:'json',
+                                        data:{fullUrl:fullUrl},
+                                        url:"{:url('Login/login')}",
+                                        success:function (d) {
+                                            window.location.href = "{:url('Login/login')}";
+                                        },
+                                        error:function (d) {
+                                            alert(222);
+                                        }
+                                    })
+                                })
+                            })
+                        </script>
                     </a>
                     <hr>
                     <a href="{:url('Login/register')}">
                         <button>注册</button>
+
                     </a>
                 </div>
                 {else/}
@@ -96,7 +117,7 @@
                         <p style="text-align: center;font-size: 12px;">友善会员</p>
                         <a href="">200分</a>
                     </div>
-                    <a href="{:url('Login/login',['urlAddress'=>$urlAddress])}">
+                    <a href="{:url('Login/login')}">
                         <button style="height: 40px;width: 200px;text-align: center">个人中心</button>
                     </a>
                     <hr>
@@ -108,14 +129,32 @@
                         <button style="height: 40px;width: 200px;text-align: center">我的优惠券</button>
                     </a>
                     <hr>
-                    <a href="{:url('Login/logout')}" >
+                    <a href="#" id="logout">
                         <button style="height: 40px;width: 200px;text-align: center">退出</button>
+                        <input type="hidden" name="fullUrl" value="{$fullUrl}" id="logoutUrl">
                     </a>
+                    <script>
+                        $(function () {
+                            $('#logout').click(function () {
+                                var fullUrl=$('#logoutUrl').val();
+                                $.ajax({
+                                    type:'POST',
+                                    dataType:'json',
+                                    data:{fullUrl:fullUrl},
+                                    url:"{:url('Login/logout')}",
+                                    success:function (d) {
+                                        window.location.href=d;
+                                    },
+                                    error:function (d) {
+                                        alert(111);
+                                    }
+                                })
+                            })
+                        })
+                    </script>
                 </div>
                 {/if}
-
             </div>
-
         </div>
     </div>
 </header>

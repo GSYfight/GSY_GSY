@@ -13,49 +13,18 @@ class Widget extends Controller{
     public function header(){
         //获取数据库所有栏目
         $data=WidgetModel::getCateByPid();
-        //获取当前的REQUEST_URI，并将字符串转为数组
-        $urlAddress=explode('/',$_SERVER['REQUEST_URI']);
-        if(!$urlAddress[1]){
-            //如果地址没有输入模板，控制器，方法，返回'index,index'
-            $urlRes='index,index';
-        }else if(!isset($urlAddress[2])||$urlAddress[2]==''){
-            //如果地址有输入模板，没有输入控制器，方法，返回'index,index'
-            $urlRes='index,index';
-        }else if(!isset($urlAddress[3])||$urlAddress[3]==''){
-            //如果地址有输入模板，控制器，没有输入方法，返回 控制器名+',index'
-            $urlRes=$urlAddress[2].',index';
-            //如果控制器是login，返回'index,index'
-            if($urlAddress[2]=='login'){
-                $urlRes='index,index';
-            }
-        }
-        else{
-            //如果地址有输入模板，控制器和方法
-            //截取控制器和方法，并转化为字符串
-            $urlRes=implode(',',[$urlAddress[2],$urlAddress[3],]);
-            //查找字符串中.出现的索引
-            $num=stripos($urlRes,'.');
-            //如果字符串有.出现，截取逗号前的字符串
-            if($num!=0){
-                $urlRes=substr($urlRes,0,$num);
-                //如果控制器是login，返回'index,index'
-                if($urlAddress[2]=='login'){
-                    $urlRes='index,index';
-                }
-            }
-        }
-//        var_dump($urlAddress);exit;
-//        //判断用户是否已登录
+        $this->assign('data',$data);
+        //判断用户是否已登录
         $isLogined=session('index');
         $res =[];
         if(!empty($isLogined)){
             //如果用户已经登录，获取member信息
             $res = WidgetModel::memberData($isLogined);
         }
-
         $this->assign('res',$res);
-        $this->assign(['urlAddress'=>$urlRes,'data'=>$data]);
-
+        //返回当前页面的url
+        $fullUrl = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'];
+        $this->assign('fullUrl',$fullUrl);
         return $this->fetch('widget/header');
     }
 

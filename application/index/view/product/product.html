@@ -77,7 +77,7 @@
                         <div class="d1 fl">
                             <a href=""  class="fl left" id="goods_sub">-</a>
                             <input type="text" class="fl" maxlength="2" value="1" goodsid="{$data[0]['goods_id']}" id="goods_num">
-                            <a href="" class="fl right" id="goods_add">+</a>
+                            <a href="#" class="fl right" id="goods_add">+</a>
                         </div>
                         <button id="add_cart" class="fr">加入购物车</button>
                     </div>
@@ -266,7 +266,7 @@ $(".goods_add").click(function (e) {
 });
 $("#add_cart").click(function () {
     var goods_id=$("#goods_num").attr('goodsid');
-    var goods_num=$("#goods_num").val();
+    var goods_num=$("#goods_num").val()+1;
     $.ajax({
         type:"POST",
         datatype:"json",
