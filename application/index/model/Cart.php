@@ -9,6 +9,7 @@ namespace app\index\model;
 use think\Model;
 class Cart extends Model{
     static public function cartList($arr){
+
         if (!$arr){
             return false;
         }
