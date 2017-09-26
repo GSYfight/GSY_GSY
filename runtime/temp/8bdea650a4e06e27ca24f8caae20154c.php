@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:58:"F:\php\GSY\public/../application/index\view\cart\cart.html";i:1506422014;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:58:"F:\php\GSY\public/../application/index\view\cart\cart.html";i:1506430483;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,7 +89,7 @@
                     <td class="sl">
                         <div class="d1">
                             <a href="#" class="fl left sum_bun" id="sum_bun" goodsid="<?php echo $v['goods_id']; ?>">-</a>
-                            <input type="text" class="fl goods_num" maxlength="3"  value="<?php echo $v['goods_num']; ?>">
+                            <input type="text" class="fl goods_num" maxlength="3" goodsid="<?php echo $v['goods_id']; ?>"  value="<?php echo $v['goods_num']; ?>">
                             <a href="#" class="fl right add_bun" goodsid="<?php echo $v['goods_id']; ?>" id="sum_add">+</a>
                         </div>
                     </td>
@@ -109,7 +109,7 @@
                     <td colspan="4">
                         <div class="allDiv fl">
                             <p class="p1">订单金额</p>
-                            <p class="p2">￥<span class="allMoney"><?php echo $sum; ?></span></p>
+                            <p class="p2">￥<span class="allMoney" id="allMoneyOne"><?php echo $sum; ?></span></p>
                             <p class="p3">不含运费</p>
                         </div>
                         <button id="jiesuan" class="fl">提交订单</button>
@@ -121,14 +121,14 @@
                     <h2>金额明细</h2>
                     <ul>
                         <li class="li1"><span class="left">商品小计</span><span class="right">￥<span
-                                class="allMoney"><?php echo $sum; ?></span></span></li>
+                                class="allMoney" ><?php echo $sum; ?></span></span></li>
                         <li class="li2">
                             <hr>
                         </li>
-                        <li class="li3"><span class="left ">购买金额</span><span class="right">￥<span class="allMoney"><?php echo $sum; ?></span></span>
+                        <li class="li3"><span class="left ">购买金额</span><span class="right">￥<span class="allMoney" id="allMoneytwo"><?php echo $sum; ?></span></span>
                         </li>
                         <li><span class="left">可得积分</span><span class="right"><span
-                                class="allMoney"><?php echo $sum; ?></span>点</span></li>
+                                class="allMoney" id="allMoneythr"><?php echo $sum; ?></span>点</span></li>
                     </ul>
                     <button class="btn1">查看优惠详情</button>
                 </div>
@@ -144,17 +144,14 @@
 <div class="customerBtn"></div>
 </body>
 <script>
-    $(".sum_bun").click(function (e) {
-        e = e || window.event;
-        e.preventDefault();
-        var num = parseInt($(this).siblings(".goods_num").val()) - 1;
-        if (num <= 1) {
-            $(this).css({'cursor': 'no-drop'});
-            num = 1;
-        }
-        $(this).siblings(".goods_num").val(num);
-        num = parseInt($(this).siblings(".goods_num").val());
-        var goods_id = $(this).attr('goodsid');
+
+</script>
+<script>
+
+    $(".goods_num").bind('input oninput',function () {
+        var that=$(this);
+        var num=$(".goods_num").val();
+        var goods_id=$(this).attr('goodsid');
         $.ajax({
             type: "POST",
             datatype: "json",
@@ -162,14 +159,52 @@
             url: "<?php echo url('Cart/add'); ?>",
             success: function (data) {
                 if (data.status == 'success') {
-                    location.href = "<?php echo url('Cart/index'); ?>"
+                    that.parent('.d1').parent('.sl').siblings('.xj').children("span").html($.makeArray(data.data[goods_id].price_sum)[0]);
+                    $("#allMoneyOne").html(data.sum);
+                    $("#allMoneytwo").html(data.sum);
+                    $("#allMoneythr").html(data.sum);
                 } else {
 
                 }
             },
         })
     })
+
+
+
+    $(".sum_bun").click(function (e) {
+        var that=$(this);
+        e = e || window.event;
+        e.preventDefault();
+        var a=-1
+        var num = parseInt($(this).siblings(".goods_num").val()) - 1;
+        if (num < 1) {
+            $(this).css({'cursor': 'no-drop'});
+            num = 1;
+            a=0;
+        }
+        $(this).siblings(".goods_num").val(num);
+        num = parseInt($(this).siblings(".goods_num").val());
+        var goods_id = $(this).attr('goodsid');
+        $.ajax({
+            type: "POST",
+            datatype: "json",
+            data: {goods_id: goods_id,goods_num:a},
+            url: "<?php echo url('Cart/add'); ?>",
+            success: function (data) {
+                if (data.status == 'success') {
+                    that.parent('.d1').parent('.sl').siblings('.xj').children("span").html($.makeArray(data.data[goods_id].price_sum)[0]);
+                    $("#allMoneyOne").html(data.sum);
+                    $("#allMoneytwo").html(data.sum);
+                    $("#allMoneythr").html(data.sum);
+                } else {
+
+                }
+            },
+        })
+    });
     $(".add_bun").click(function (e) {
+        var that=$(this);
         e = e || window.event;
         e.preventDefault();
         var num = parseInt($(this).siblings(".goods_num").val());
@@ -179,22 +214,23 @@
         $.ajax({
             type: "POST",
             datatype: "json",
-            data: {goods_id: goods_id,goods_num:num},
+            data: {goods_id: goods_id,goods_num:1},
             url: "<?php echo url('Cart/add'); ?>",
             success: function (data) {
                 if (data.status == 'success') {
-                    location.href = "<?php echo url('Cart/index'); ?>"
+                    that.parent('.d1').parent('.sl').siblings('.xj').children("span").html($.makeArray(data.data[goods_id].price_sum)[0]);
+                    $("#allMoneyOne").html(data.sum);
+                    $("#allMoneytwo").html(data.sum);
+                    $("#allMoneythr").html(data.sum);
                 } else {
 
                 }
             },
         })
     });
-
-$(".goods_num").input(function () {
-    alert($(this).val());
-})
-    $(".delOneGoods").click(function () {
+    $(".delOneGoods").click(function (e) {
+        e = e || window.event;
+        e.preventDefault();
         var goods_id = $(this).attr('goodsid');
         $.ajax({
             type: "POST",
@@ -210,6 +246,9 @@ $(".goods_num").input(function () {
             },
         })
     })
+
+
+
 
 </script>
 </html>
