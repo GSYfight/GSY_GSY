@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:60:"F:\php\GSY\public/../application/index\view\index\index.html";i:1506327864;s:62:"F:\php\GSY\public/../application/index\view\widget\header.html";i:1506391587;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:58:"F:\php\GSY\public/../application/index\view\cart\cart.html";i:1506398432;s:62:"F:\php\GSY\public/../application/index\view\widget\header.html";i:1506404889;}*/ ?>
 <header id="header" class="head">
     <a href="index.html">
         <div class="icon fl"></div>
@@ -80,12 +80,33 @@
                 <?php if($res == []): ?>
                 <div class="useDiv">
                     <div class="sanjiaoxing"></div>
-                    <a href="<?php echo url('Login/login',['urlAddress'=>$urlAddress]); ?>">
-                        <button>登录</button>
+                    <a href="#">
+                        <button id="login">登录</button>
+                        <input type="hidden" name="fullUrl" value="<?php echo $fullUrl; ?>" id="fullUrl">
+                        <script>
+                            $(function () {
+                                $('#login').click(function () {
+                                    var fullUrl=$('#fullUrl').val();
+                                    $.ajax({
+                                        type:'POST',
+                                        dataType:'json',
+                                        data:{fullUrl:fullUrl},
+                                        url:"<?php echo url('Login/login'); ?>",
+                                        success:function (d) {
+                                            window.location.href = "<?php echo url('Login/login'); ?>";
+                                        },
+                                        error:function (d) {
+                                            alert(222);
+                                        }
+                                    })
+                                })
+                            })
+                        </script>
                     </a>
                     <hr>
                     <a href="<?php echo url('Login/register'); ?>">
                         <button>注册</button>
+
                     </a>
                 </div>
                 <?php else: ?>
@@ -97,7 +118,7 @@
                         <p style="text-align: center;font-size: 12px;">友善会员</p>
                         <a href="">200分</a>
                     </div>
-                    <a href="<?php echo url('Login/login',['urlAddress'=>$urlAddress]); ?>">
+                    <a href="<?php echo url('Login/login'); ?>">
                         <button style="height: 40px;width: 200px;text-align: center">个人中心</button>
                     </a>
                     <hr>
@@ -109,14 +130,32 @@
                         <button style="height: 40px;width: 200px;text-align: center">我的优惠券</button>
                     </a>
                     <hr>
-                    <a href="<?php echo url('Login/logout'); ?>" >
+                    <a href="#" id="logout">
                         <button style="height: 40px;width: 200px;text-align: center">退出</button>
+                        <input type="hidden" name="fullUrl" value="<?php echo $fullUrl; ?>" id="logoutUrl">
                     </a>
+                    <script>
+                        $(function () {
+                            $('#logout').click(function () {
+                                var fullUrl=$('#logoutUrl').val();
+                                $.ajax({
+                                    type:'POST',
+                                    dataType:'json',
+                                    data:{fullUrl:fullUrl},
+                                    url:"<?php echo url('Login/logout'); ?>",
+                                    success:function (d) {
+                                        window.location.href=d;
+                                    },
+                                    error:function (d) {
+                                        alert(111);
+                                    }
+                                })
+                            })
+                        })
+                    </script>
                 </div>
                 <?php endif; ?>
-
             </div>
-
         </div>
     </div>
 </header>

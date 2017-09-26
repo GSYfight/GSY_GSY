@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:64:"F:\php\GSY\public/../application/index\view\product\product.html";i:1506394952;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:64:"F:\php\GSY\public/../application/index\view\product\product.html";i:1506405070;}*/ ?>
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -78,7 +78,7 @@
                         <div class="d1 fl">
                             <a href=""  class="fl left" id="goods_sub">-</a>
                             <input type="text" class="fl" maxlength="2" value="1" goodsid="<?php echo $data[0]['goods_id']; ?>" id="goods_num">
-                            <a href="" class="fl right" id="goods_add">+</a>
+                            <a href="#" class="fl right" id="goods_add">+</a>
                         </div>
                         <button id="add_cart" class="fr">加入购物车</button>
                     </div>
@@ -271,7 +271,7 @@ $("#goods_add").click(function (e) {
 //加入购物车
 $("#add_cart").click(function () {
     var goods_id=$("#goods_num").attr('goodsid');
-    var goods_num=$("#goods_num").val();
+    var goods_num=$("#goods_num").val()+1;
     $.ajax({
         type:"POST",
         datatype:"json",
