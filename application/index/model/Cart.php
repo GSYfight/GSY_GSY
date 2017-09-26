@@ -81,4 +81,19 @@ class Cart extends Model{
             'sum'=>$sum,
         ];
     }
+    //原本未登录状态的购物车，登陆后放到已登录的购物车中
+    static public function addOrigin($data,$member_id){
+        foreach ($data as $v){
+            $v['member_id']=$member_id;
+            $goodsData=db('cart')->where(['goods_id'=>$v['goods_id'],'member_id'=>$member_id])->find();
+
+            if($goodsData){
+                $goodsData['goods_num']+=$v['goods_num'];
+                db('cart')->update($goodsData);
+            }else{
+                db('cart')->insert($v);
+            }
+        }
+
+    }
 }
