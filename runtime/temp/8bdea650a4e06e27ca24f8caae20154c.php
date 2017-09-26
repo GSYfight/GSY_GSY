@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:58:"F:\php\GSY\public/../application/index\view\cart\cart.html";i:1506345311;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:58:"F:\php\GSY\public/../application/index\view\cart\cart.html";i:1506398432;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,7 +78,7 @@
                         ￥<span><?php echo $v['price_sum']; ?></span>
                     </td>
                     <td class="cz">
-                        <span>&times;</span>
+                        <a href="#" class="delOneGoods" goodsid="<?php echo $v['goods_id']; ?>">&times;</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>
@@ -111,17 +111,33 @@
             </div>
         </div>
     </div>
-
 </div>
-
 <!--底部-->
 <?php echo widget("widget/footer"); ?>
-
 <!--回到顶部按钮-->
 <div class="toTopBtn"></div>
 <div class="customerBtn"></div>
-
-
-
 </body>
+<script>
+    $(".delOneGoods").click(function () {
+        var goods_id=$(this).attr('goodsid');
+        $.ajax({
+            type:"POST",
+            datatype:"json",
+            data:{goods_id:goods_id},
+            url:"<?php echo url('Cart/del'); ?>",
+            success:function (data) {
+                if(data.status=='success'){
+                    location.href="<?php echo url('Cart/index'); ?>"
+                }else {
+
+                }
+            },
+
+
+
+        })
+    })
+
+</script>
 </html>

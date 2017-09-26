@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"F:\php\GSY\public/../application/index\view\widget\header.html";i:1506302488;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:60:"F:\php\GSY\public/../application/index\view\index\index.html";i:1506327864;s:62:"F:\php\GSY\public/../application/index\view\widget\header.html";i:1506391587;}*/ ?>
 <header id="header" class="head">
     <a href="index.html">
         <div class="icon fl"></div>
@@ -77,16 +77,44 @@
             <!--用户登录-->
             <div class="user fl">
                 <div class="userA "></div>
+                <?php if($res == []): ?>
                 <div class="useDiv">
                     <div class="sanjiaoxing"></div>
                     <a href="<?php echo url('Login/login',['urlAddress'=>$urlAddress]); ?>">
-                        <button>登录<?php echo $urlAddress; ?></button>
+                        <button>登录</button>
                     </a>
                     <hr>
                     <a href="<?php echo url('Login/register'); ?>">
                         <button>注册</button>
                     </a>
                 </div>
+                <?php else: ?>
+                <div class="useDiv" style="height: auto;width: 200px;left: -100px;">
+                    <div class="sanjiaoxing" style="left: 135px;"></div>
+                    <div style="text-align: center;background: #ccc">
+                        <div><img src="<?php echo $res['pic']; ?>" alt="" style="width: 30px;border-radius: 50%;margin-top: 10px;"></div>
+                        <a><?php echo $res['username']; ?></a>
+                        <p style="text-align: center;font-size: 12px;">友善会员</p>
+                        <a href="">200分</a>
+                    </div>
+                    <a href="<?php echo url('Login/login',['urlAddress'=>$urlAddress]); ?>">
+                        <button style="height: 40px;width: 200px;text-align: center">个人中心</button>
+                    </a>
+                    <hr>
+                    <a href="<?php echo url('Login/register'); ?>">
+                        <button style="height: 40px;width: 200px;text-align: center">我的订单</button>
+                    </a>
+                    <hr>
+                    <a href="<?php echo url('Login/register'); ?>">
+                        <button style="height: 40px;width: 200px;text-align: center">我的优惠券</button>
+                    </a>
+                    <hr>
+                    <a href="<?php echo url('Login/logout'); ?>" >
+                        <button style="height: 40px;width: 200px;text-align: center">退出</button>
+                    </a>
+                </div>
+                <?php endif; ?>
+
             </div>
 
         </div>

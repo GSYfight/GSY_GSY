@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:64:"F:\php\GSY\public/../application/index\view\product\product.html";i:1506336862;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:64:"F:\php\GSY\public/../application/index\view\product\product.html";i:1506394952;}*/ ?>
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -248,23 +248,27 @@
 <div class="customerBtn"></div>
 </body>
 <script>
+
+
+
 //    商品数量加减
-$(".goods_sub").click(function (e) {
+$("#goods_sub").click(function (e) {
     e=e||window.event;
     e.preventDefault();
-    var num=parseInt($(this).siblings(".goods_num").val())-1;
+    var num=parseInt($(this).siblings("#goods_num").val())-1;
     if(num<=1){
         $(this).css({'cursor':'no-drop'});
-        num=0;
+        num=1;
     }
-    $(this).siblings(".goods_num").val(num);
+    $(this).siblings("#goods_num").val(num);
 });
-$(".goods_add").click(function (e) {
+$("#goods_add").click(function (e) {
     e=e||window.event;
     e.preventDefault();
-    var num=parseInt($(this).siblings(".goods_num").val());
-    $(this).siblings(".goods_num").val(num+1).siblings(".goods_sub").css({'cursor':'pointer'});
+    var num=parseInt($(this).siblings("#goods_num").val());
+    $(this).siblings("#goods_num").val(num+1).siblings("#oods_sub").css({'cursor':'pointer'});
 });
+//加入购物车
 $("#add_cart").click(function () {
     var goods_id=$("#goods_num").attr('goodsid');
     var goods_num=$("#goods_num").val();
@@ -326,6 +330,9 @@ $("#add_cart").click(function () {
         $('.showJianjiaData').toggle();
         $(this).children().eq(0).toggle();
     });
+
+
+
 </script>
 
 </html>
