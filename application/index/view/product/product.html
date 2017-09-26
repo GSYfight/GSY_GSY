@@ -270,7 +270,7 @@ $("#goods_add").click(function (e) {
 //加入购物车
 $("#add_cart").click(function () {
     var goods_id=$("#goods_num").attr('goodsid');
-    var goods_num=$("#goods_num").val()+1;
+    var goods_num=$("#goods_num").val();
     $.ajax({
         type:"POST",
         datatype:"json",
