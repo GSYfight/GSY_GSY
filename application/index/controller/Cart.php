@@ -69,14 +69,13 @@ class Cart extends Controller{
                 }
                 //判断商品是否已经存在
                 if(array_key_exists($goods_id,$cartData)){
-                    $cartData['goods_id']['goods_num']+=$goods_num;
+                    $cartData[$goods_id]['goods_num']+=$goods_num;
                     //更新数据库
                     db('cart')->update($cartData[$goods_id]);
                 }else{
                     //插入新数据
                     db('cart')->insert($arr );
                 }
-
             }
         }
         return [
@@ -118,7 +117,8 @@ class Cart extends Controller{
     }
 
     public function isLogin(){
-        $member_id=session('index')['member_id'];
+        $member=session('index');
+        $member_id=$member['member_id'];
         return $member_id;
     }
 

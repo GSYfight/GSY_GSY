@@ -67,7 +67,7 @@ class Login extends Controller
                 $data['password'] = md5($data['password']);
                 if ($data['password'] == $res['password']) {
                     //将信息存储到session
-                    session("index", $data);
+                    session("index", $res);
                     //更新member数据库，登录次数字段和最近更新时间字段
                     $data['last_modify'] = time();
                     //调用model方法，更新数据库
@@ -224,6 +224,7 @@ class Login extends Controller
         $fullUrl = input('fullUrl');
         return $fullUrl;
     }
+
 
 
 
