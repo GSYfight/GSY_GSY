@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"D:\PHPfile\GSY\public/../application/index\view\cart\cart.html";i:1506416401;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"D:\PHPfile\GSY\public/../application/index\view\cart\cart.html";i:1506423207;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -145,7 +145,9 @@
 </body>
 <script>
     $(".delOneGoods").click(function () {
+
         var goods_id = $(this).attr('goodsid');
+
         $.ajax({
             type: "POST",
             datatype: "json",

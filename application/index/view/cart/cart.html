@@ -88,7 +88,8 @@
                     <td class="sl">
                         <div class="d1">
                             <a href="#" class="fl left sum_bun" id="sum_bun" goodsid="{$v.goods_id}">-</a>
-                            <input type="text" class="fl goods_num" maxlength="3" goodsid="{$v.goods_id}"  value="{$v.goods_num}">
+                            <input type="text" class="fl goods_num" maxlength="3" goodsid="{$v.goods_id}"
+                                   value="{$v.goods_num}">
                             <a href="#" class="fl right add_bun" goodsid="{$v.goods_id}" id="sum_add">+</a>
                         </div>
                     </td>
@@ -120,11 +121,12 @@
                     <h2>金额明细</h2>
                     <ul>
                         <li class="li1"><span class="left">商品小计</span><span class="right">￥<span
-                                class="allMoney" >{$sum}</span></span></li>
+                                class="allMoney">{$sum}</span></span></li>
                         <li class="li2">
                             <hr>
                         </li>
-                        <li class="li3"><span class="left ">购买金额</span><span class="right">￥<span class="allMoney" id="allMoneytwo">{$sum}</span></span>
+                        <li class="li3"><span class="left ">购买金额</span><span class="right">￥<span class="allMoney"
+                                                                                                  id="allMoneytwo">{$sum}</span></span>
                         </li>
                         <li><span class="left">可得积分</span><span class="right"><span
                                 class="allMoney" id="allMoneythr">{$sum}</span>点</span></li>
@@ -143,18 +145,14 @@
 <div class="customerBtn"></div>
 </body>
 <script>
-
-</script>
-<script>
-
-    $(".goods_num").bind('input oninput',function () {
-        var that=$(this);
-        var num=$(".goods_num").val();
-        var goods_id=$(this).attr('goodsid');
+    $(".goods_num").bind('input oninput', function () {
+        var that = $(this);
+        var num = $(".goods_num").val();
+        var goods_id = $(this).attr('goodsid');
         $.ajax({
             type: "POST",
             datatype: "json",
-            data: {goods_id: goods_id,goods_num:num},
+            data: {goods_id: goods_id, goods_num: num},
             url: "{:url('Cart/add')}",
             success: function (data) {
                 if (data.status == 'success') {
@@ -168,19 +166,16 @@
             },
         })
     })
-
-
-
     $(".sum_bun").click(function (e) {
-        var that=$(this);
+        var that = $(this);
         e = e || window.event;
         e.preventDefault();
-        var a=-1
+        var a = -1
         var num = parseInt($(this).siblings(".goods_num").val()) - 1;
         if (num < 1) {
             $(this).css({'cursor': 'no-drop'});
             num = 1;
-            a=0;
+            a = 0;
         }
         $(this).siblings(".goods_num").val(num);
         num = parseInt($(this).siblings(".goods_num").val());
@@ -188,7 +183,7 @@
         $.ajax({
             type: "POST",
             datatype: "json",
-            data: {goods_id: goods_id,goods_num:a},
+            data: {goods_id: goods_id, goods_num: a},
             url: "{:url('Cart/add')}",
             success: function (data) {
                 if (data.status == 'success') {
@@ -203,7 +198,7 @@
         })
     });
     $(".add_bun").click(function (e) {
-        var that=$(this);
+        var that = $(this);
         e = e || window.event;
         e.preventDefault();
         var num = parseInt($(this).siblings(".goods_num").val());
@@ -213,7 +208,7 @@
         $.ajax({
             type: "POST",
             datatype: "json",
-            data: {goods_id: goods_id,goods_num:1},
+            data: {goods_id: goods_id, goods_num: 1},
             url: "{:url('Cart/add')}",
             success: function (data) {
                 if (data.status == 'success') {
@@ -245,9 +240,6 @@
             },
         })
     })
-
-
-
 
 </script>
 </html>

@@ -74,8 +74,6 @@ class Cart extends Model{
                 $sum+=$cartData[$k]['price_sum'];
             }
         }
-
-
         return [
             'data'=>$cartData,
             'sum'=>$sum,
