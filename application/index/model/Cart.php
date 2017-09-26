@@ -58,4 +58,27 @@ class Cart extends Model{
         }
 
     }
+    //登录状态 通过member_id从购物车表获取商品信息
+    static public function cartMember($memberId){
+        $sum=0;
+        $cartData=db('cart')
+            ->alias('c')
+            ->join('goods g','g.goods_id=c.goods_id','left')
+            ->join('image i','i.goods_id=c.goods_id','left')
+            ->field('g.goods_id,g.goods_name,c.goods_num,i.image_s_url,g.sell_price,c.selected')
+            ->where(['c.member_id'=>$memberId])
+            ->select();
+        foreach ($cartData as $k=>$v){
+            $cartData[$k]['price_sum']=$cartData[$k]['goods_num']*$cartData[$k]['sell_price'];
+            if($cartData[$k]['selected']==1){
+                $sum+=$cartData[$k]['price_sum'];
+            }
+        }
+
+
+        return [
+            'data'=>$cartData,
+            'sum'=>$sum,
+        ];
+    }
 }

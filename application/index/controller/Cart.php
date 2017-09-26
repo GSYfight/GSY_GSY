@@ -69,7 +69,7 @@ class Cart extends Controller{
                 }
                 //判断商品是否已经存在
                 if(array_key_exists($goods_id,$cartData)){
-                    $cartData['goods_id']['goods_num']+=$goods_num;
+                    $cartData[$goods_id]['goods_num']+=$goods_num;
                     //更新数据库
                     db('cart')->update($cartData[$goods_id]);
                 }else{
@@ -84,13 +84,21 @@ class Cart extends Controller{
         ];
     }
     public function index(){
-        $cookie=cookie('cart');
-        $cart=unserialize($cookie);
-        $data=CartModel::cartList($cart);
+        //判断是否登录
+        $member_id=$this->isLogin();
+        if(!$member_id){
+            $cookie=cookie('cart');
+            $cart=unserialize($cookie);
+            $data=CartModel::cartList($cart);
+
+        }else{
+            $data=CartModel::cartMember($member_id);
+        }
         $this->assign([
             'data'=>$data['data'],
             'sum'=>$data['sum'],
         ]);
+
         return $this->fetch('cart/cart');
     }
 
@@ -118,7 +126,8 @@ class Cart extends Controller{
     }
 
     public function isLogin(){
-        $member_id=session('index')['member_id'];
+        $member=session('index');
+        $member_id=$member['member_id'];
         return $member_id;
     }
 
