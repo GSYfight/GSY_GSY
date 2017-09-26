@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:68:"D:\PHPfile\GSY\public/../application/index\view\product\product.html";i:1506326968;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:68:"D:\PHPfile\GSY\public/../application/index\view\product\product.html";i:1506337456;}*/ ?>
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -77,10 +77,10 @@
                     <div class="caozuo">
                         <div class="d1 fl">
                             <a href=""  class="fl left" id="goods_sub">-</a>
-                            <input type="text" class="fl" maxlength="2" value="1" id="goods_num">
+                            <input type="text" class="fl" maxlength="2" value="1" id="goods_num" goods_id="<?php echo $data[0]['goods_id']; ?>">
                             <a href="" class="fl right" id="goods_add">+</a>
                         </div>
-                        <button id="jiaru" class="fr">加入购物车</button>
+                        <button id="addCart" class="fr" >加入购物车</button>
                     </div>
                 </div>
             </div>
@@ -246,6 +246,27 @@
 <div class="customerBtn"></div>
 </body>
 <script>
+    $("#addCart").click(function () {
+
+        var data= {
+            'goods_id': $("#goods_num").attr('goods_id'),
+            'goods_num': $("#goods_num").val()
+        };
+        $.ajax({
+            type:'POST',
+            dataType:'json',
+            url:"<?php echo url('Cart/index'); ?>",
+            data:{goodsId:data},
+            success:function (d) {
+                if(d==1){
+                    alert(d);
+                    location.href="<?php echo url('Cart/cartList'); ?>"
+                }
+            }
+        });
+    });
+</script>
+<script>
     //商品图标选择
     $('.sp').eq(0).css({'opacity': '1'});
     $('.sp_current_img').children().eq(0).attr('src', '<?php echo $data[0]['image_b_url']; ?>');
@@ -278,6 +299,9 @@
         $('.showJianjiaData').toggle();
         $(this).children().eq(0).toggle();
     });
+
+
+
 </script>
 
 </html>
