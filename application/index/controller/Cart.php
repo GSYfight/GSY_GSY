@@ -33,18 +33,17 @@ class Cart extends Controller
             $cookie = cookie('cart');
             $cart = unserialize($cookie);
             if (!empty($cart)) {
-                //购物车有商品
+                //cookie购物车有商品
                 if (array_key_exists($goods_id, $cart)) {
-                    //购物车有该商品
+                    //cookie购物车有该商品
                     $cart[$goods_id]['goods_num'] += input('goods_num');
                 } else {
-                    //购物车没有该商品
+                    //cookie购物车没有该商品
                     $cart[$goods_id] = [
                         'goods_id' => input('goods_id'),
                         'goods_num' => input('goods_num'),
                         'selected' => 1,
                     ];
-
                 }
                 $str = serialize($cart);
                 cookie('cart', $str);
@@ -57,8 +56,9 @@ class Cart extends Controller
             $cookie = cookie('cart');
             $cart = unserialize($cookie);
             $data = CartModel::cartList($cart);
+
         } else {
-            //已登录
+            //                 已登录
             //查询用户的购物车情况  查询结果为二维数组
             $cartData = db('cart')->where(['member_id' => $member_id])->select();
             $arr = [
@@ -87,7 +87,7 @@ class Cart extends Controller
                     db('cart')->insert($arr);
                 }
             }
-            //            已登录，获取数据当在购物车点击加减时，获取数据
+            //  已登录，获取数据当在购物车点击加减时，获取数据
             if (!empty(cookie('cart'))) {
                 $cookie = unserialize(cookie('cart'));
                 cookie('cart', null);
@@ -95,7 +95,6 @@ class Cart extends Controller
             }
             $data = CartModel::cartMember($member_id);
         }
-
         return [
             'data' => $data['data'],
             'sum' => $data['sum'],
@@ -108,10 +107,10 @@ class Cart extends Controller
         //判断是否登录
         $member_id = $this->isLogin();
         if (!$member_id) {
+            //用户未登录状态
             $cookie = cookie('cart');
             $cart = unserialize($cookie);
             $data = CartModel::cartList($cart);
-
         } else {
             //用户登录状态
             if (!empty(cookie('cart'))) {
@@ -127,6 +126,7 @@ class Cart extends Controller
         ]);
         return $this->fetch('cart/cart');
     }
+
     public function del()
     {
         $data = [
@@ -149,12 +149,14 @@ class Cart extends Controller
             'status' => 'success',
         ];
     }
+    //判断是否登录
     public function isLogin()
     {
         $member = session('index');
         $member_id = $member['member_id'];
         return $member_id;
     }
+
      /*
      *提交订单，判断是否已登录
      * */
@@ -280,10 +282,59 @@ class Cart extends Controller
 
 
     }
-    public function addGoods()
-    {
-        $goods_id = input('goods_id');
-        $goods_num = input('goods_num');
 
+    /*
+     * 改变selected值
+     */
+    public function checkSelected(){
+        $data = [
+            'goods_id' => input('goods_id'),
+            'member_id' => $this->isLogin(),
+        ];
+        //判断用户是否登录
+        if ($data['member_id']) {
+            //登录状态
+            $sum = CartModel::checkSelected($data);
+        } else {
+            //未登录状态
+            $cookie = cookie('cart');
+            $cart = unserialize($cookie);
+            //改变该商品的selected值
+            if ($cart[$data['goods_id']]['selected']==1){
+                $cart[$data['goods_id']]['selected']=0;
+            }else{
+                $cart[$data['goods_id']]['selected']=1;
+            }
+            //计算结果，提取总价
+            $all = CartModel::cartList($cart);
+            $data=serialize($cart);
+            cookie('cart',$data);
+            $sum=$all['sum'];
+            $sum??0;
+        }
+        if ($sum!==false){
+            //数据更改成功
+            return [
+                'sum' => $sum,
+                'status' => 'success',
+            ];
+        }else{
+            //数据更改不成功
+        }
+    }
+    //购物车输入数量的方法
+    public function changeNum(){
+        $goods_id=input('goods_id');
+        $goods_num=input('goods_num');
+        $memberId=$this->isLogin();
+        $datas=CartModel::changeNum($goods_id,$goods_num,$memberId);
+//        用户登录状态
+        if($this->isLogin()){
+            cookie('cart',serialize($datas));
+        }
+        return $data=[
+          'status'=>'success',
+          'data'=>$datas
+        ];
     }
 }
