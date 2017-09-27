@@ -1,6 +1,6 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:62:"E:\PHP\GSY\public/../application/index\view\cart\checkout.html";i:1506411306;s:62:"E:\PHP\GSY\public/../application/index\view\widget\header.html";i:1506412214;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:63:"E:\PHP\GSY\public/../application/index\view\login\register.html";i:1506261989;s:62:"E:\PHP\GSY\public/../application/index\view\widget\header.html";i:1506473289;}*/ ?>
 <header id="header" class="head">
-    <a href="index.html">
+    <a href="<?php echo url('Index/index'); ?>">
         <div class="icon fl"></div>
     </a>
     <div class="headRight fl">

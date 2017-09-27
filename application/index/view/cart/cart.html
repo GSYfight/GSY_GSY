@@ -118,20 +118,18 @@
                         <script>
                             $(function () {
                                 $('#jiesuan').click(function () {
-                                    var data=document.getElementsByName('aaa');
-                                    var arr=[];
-                                    for(var i=0;i<data.length;i++){
-                                        arr.push(data[i].value)
-                                    }
-                                    alert(arr);
+                                    var money=parseInt($('#allMoneyOne').text());
                                     $.ajax({
                                         type:'POST',
-                                        dataType:'text',
-                                        data:{'goodsData':arr},
-                                        url:"{:url('Cart/checkout')}",
-                                        traditional: true,
+                                        dataType:'json',
+                                        data:{},
+                                        url:"{:url('Cart/check')}",
                                         success:function (d) {
-                                            alert(d);
+                                            if(d.login=='no'){
+                                                location.href="{:url('Login/login')}"
+                                            }else if(d.login=='yes'){
+                                                location.href="{:url('Cart/checkout')}"
+                                            }
                                         }
                                     })
                                 })

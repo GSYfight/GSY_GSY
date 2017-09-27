@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:64:"E:\PHP\GSY\public/../application/index\view\product\product.html";i:1506405459;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:64:"E:\PHP\GSY\public/../application/index\view\product\product.html";i:1506473288;}*/ ?>
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -266,12 +266,13 @@ $("#goods_add").click(function (e) {
     e=e||window.event;
     e.preventDefault();
     var num=parseInt($(this).siblings("#goods_num").val());
-    $(this).siblings("#goods_num").val(num+1).siblings("#oods_sub").css({'cursor':'pointer'});
+    $(this).siblings("#goods_num").val(num+1).siblings("#goods_sub").css({'cursor':'pointer'});
 });
 //加入购物车
 $("#add_cart").click(function () {
     var goods_id=$("#goods_num").attr('goodsid');
     var goods_num=$("#goods_num").val();
+//    alert(goods_num);
     $.ajax({
         type:"POST",
         datatype:"json",

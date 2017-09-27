@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"E:\PHP\GSY\public/../application/index\view\cart\checkout.html";i:1506411306;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"E:\PHP\GSY\public/../application/index\view\cart\checkout.html";i:1506496933;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -160,8 +160,12 @@
                 <p class="hP">商品清单</p>
                 <div class="checkbox qingdan borderD fl">
                     <div class="btnDiv"></div>
-                    <p class="dataP"><img src="__STATIC__/index/./img/cartImg1.jpg" alt=""> <span class="fr" style="margin-right: 30px">共 <span
-                            class="spNum">1</span> 件商品</span></p>
+                    <p class="dataP">
+                        <?php foreach($data as $val): ?>
+                        <img src="<?php echo $val['image_s_url']; ?>" alt="" style="margin-right: 10px;">
+                        <?php endforeach; ?>
+                        <span class="fr" style="margin-right: 30px">共 <span
+                            class="spNum"><?php echo $count; ?></span> 件商品</span></p>
                     <div class="qingdanDiv fl">
                         <div class="left fl">
                             <table>
@@ -176,16 +180,18 @@
                                         <hr>
                                     </td>
                                 </tr>
+                                <?php foreach($data as $val): ?>
                                 <tr>
                                     <td class="hTd1">
                                         <a href="">
-                                            <img src="__STATIC__/index/./img/cartImg1.jpg" alt=""><span>零农残特级百香果6只</span>
+                                            <img src="<?php echo $val['image_s_url']; ?>" alt=""><span><?php echo $val['goods_name']; ?></span>
                                         </a>
                                     </td>
-                                    <td class="hTd2"><span>1</span></td>
-                                    <td class="hTd2">￥ <span>16.00</span></td>
-                                    <td class="hTd2">￥ <span>16.00</span></td>
+                                    <td class="hTd2"><span><?php echo $val['goods_num']; ?></span></td>
+                                    <td class="hTd2">￥ <span><?php echo $val['sell_price']; ?></span></td>
+                                    <td class="hTd2">￥ <span><?php echo $val['price_sum']; ?></span></td>
                                 </tr>
+                                <?php endforeach; ?>
 
                             </table>
                         </div>
@@ -232,13 +238,14 @@
 
             <!--商品小计-->
             <div class="xiaoji fr">
-                <p class="fc"><span class="fl">商品小计</span><span class="fr">￥<span>28.00</span></span></p>
+                <p class="fc"><span class="fl">商品小计</span><span class="fr">￥<span><?php echo $sum_price; ?></span></span></p>
                 <p class="fc"><span class="fl">优惠</span><span class="fr">-￥<span>0.00</span></span></p>
                 <p class="fc"><span class="fl">运费</span><span class="fr">+￥<span>30.00</span></span></p>
                 <hr class="fc">
-                <p class="fc"><span class="fl">应付金额</span><span class="fr">￥<span>58.00</span></span></p>
+                <p class="fc"><span class="fl">应付金额</span><span class="fr">￥<span><?php echo $price; ?></span></span></p>
                 <p class="fc">
-                    <button id="tijiaoBtn" class="fl">订单结算</button>
+                    <button id="tijiaoBtn" class="fl" onclick="window.location.href='<?php echo url('Cart/order'); ?>'">订单结算</button>
+
                 </p>
                 <p class="fc"><label><input type="checkbox" name="buzai">不在商品清单上打印价格。</label></p>
             </div>
