@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:58:"F:\php\GSY\public/../application/index\view\cart\cart.html";i:1506502055;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,10 +16,10 @@
 <!--主要内容-->
 <div class="container">
     <!--头部-->
-    {:widget("widget/header")}
+    <?php echo widget("widget/header"); ?>
     <!--主模块-->
     <!--购物车为空时-->
-    {if condition='$data eq null'}
+    <?php if($data == null): ?>
     <div class="cart-section section cart-null">
         <div class="head">
             <div class="cart-icon">
@@ -36,7 +37,7 @@
         </div>
     </div>
     <!--购物车空时-->
-    {else/}
+    <?php else: ?>
     <!--购物车非空时-->
     <div class="cart-section section cart-has">
         <div class="head">
@@ -72,35 +73,35 @@
                     <td class="xj">小计</td>
                     <td class="cz">操作</td>
                 </tr>
-                {foreach $data as $v}
+                <?php foreach($data as $v): ?>
                 <tr>
                     <td class="cb">
-                        <input type="checkbox" name="" {if condition='$v.selected eq 1'} checked="checked" {/if} class="checkbox chk" goodsid="{$v.goods_id}">
+                        <input type="checkbox" name="" <?php if($v['selected'] == 1): ?> checked="checked" <?php endif; ?> class="checkbox chk" goodsid="<?php echo $v['goods_id']; ?>">
                     </td>
                     <td class="sp">
-                        <img src="{$v.image_s_url}" alt="{$v.goods_name}"
-                             onclick="javascript:window.location.href='{:url('Product/index',['goodsId'=>$v.goods_id])}'">
-                        <span><a href="{:url('Product/index',['goodsId'=>$v.goods_id])}">{$v.goods_name}</a></span>
+                        <img src="<?php echo $v['image_s_url']; ?>" alt="<?php echo $v['goods_name']; ?>"
+                             onclick="javascript:window.location.href='<?php echo url('Product/index',['goodsId'=>$v['goods_id']]); ?>'">
+                        <span><a href="<?php echo url('Product/index',['goodsId'=>$v['goods_id']]); ?>"><?php echo $v['goods_name']; ?></a></span>
                     </td>
                     <td class="sj">
-                        ￥<span>{$v.sell_price}</span>
+                        ￥<span><?php echo $v['sell_price']; ?></span>
                     </td>
                     <td class="sl">
                         <div class="d1">
-                            <a href="#" class="fl left sum_bun" id="sum_bun" goodsid="{$v.goods_id}">-</a>
-                            <input type="text" class="fl goods_num" maxlength="3" goodsid="{$v.goods_id}"
-                                   value="{$v.goods_num}">
-                            <a href="#" class="fl right add_bun" goodsid="{$v.goods_id}" id="sum_add">+</a>
+                            <a href="#" class="fl left sum_bun" id="sum_bun" goodsid="<?php echo $v['goods_id']; ?>">-</a>
+                            <input type="text" class="fl goods_num" maxlength="3" goodsid="<?php echo $v['goods_id']; ?>"
+                                   value="<?php echo $v['goods_num']; ?>">
+                            <a href="#" class="fl right add_bun" goodsid="<?php echo $v['goods_id']; ?>" id="sum_add">+</a>
                         </div>
                     </td>
                     <td class="xj">
-                        ￥<span>{$v.price_sum}</span>
+                        ￥<span><?php echo $v['price_sum']; ?></span>
                     </td>
                     <td class="cz">
-                        <a href="#" class="delOneGoods" goodsid="{$v.goods_id}">&times;</a>
+                        <a href="#" class="delOneGoods" goodsid="<?php echo $v['goods_id']; ?>">&times;</a>
                     </td>
                 </tr>
-                {/foreach}
+                <?php endforeach; ?>
                 <tr class="end">
                     <td colspan="2">
                         <button>清空购物车</button>
@@ -109,32 +110,10 @@
                     <td colspan="4">
                         <div class="allDiv fl">
                             <p class="p1">订单金额</p>
-                            <p class="p2">￥<span class="allMoney" id="allMoneyOne">{$sum}</span></p>
+                            <p class="p2">￥<span class="allMoney" id="allMoneyOne"><?php echo $sum; ?></span></p>
                             <p class="p3">不含运费</p>
                         </div>
                         <button id="jiesuan" class="fl">提交订单</button>
-                        <script>
-                            $(function () {
-                                $('#jiesuan').click(function () {
-                                    var data = document.getElementsByName('aaa');
-                                    var arr = [];
-                                    for (var i = 0; i < data.length; i++) {
-                                        arr.push(data[i].value)
-                                    }
-                                    alert(arr);
-                                    $.ajax({
-                                        type: 'POST',
-                                        dataType: 'text',
-                                        data: {'goodsData': arr},
-                                        url: "{:url('Cart/checkout')}",
-                                        traditional: true,
-                                        success: function (d) {
-                                            alert(d);
-                                        }
-                                    })
-                                })
-                            })
-                        </script>
                     </td>
                 </tr>
             </table>
@@ -143,23 +122,25 @@
                     <h2>金额明细</h2>
                     <ul>
                         <li class="li1"><span class="left">商品小计</span><span class="right">￥<span
-                                id="allMoney4" class="allMoney">{$sum}</span></span></li>
+                                class="allMoney"><?php echo $sum; ?></span></span></li>
                         <li class="li2">
                             <hr>
                         </li>
-                        <li class="li3"><span class="left ">购买金额</span><span class="right">￥<span class="allMoney" id="allMoneytwo">{$sum}</span></span>
+                        <li class="li3"><span class="left ">购买金额</span><span class="right">￥<span class="allMoney"
+                                                                                                  id="allMoneytwo"><?php echo $sum; ?></span></span>
                         </li>
-                        <li><span class="left">可得积分</span><span class="right"><span class="allMoney" id="allMoneythr">{$sum}</span>点</span></li>
+                        <li><span class="left">可得积分</span><span class="right"><span
+                                class="allMoney" id="allMoneythr"><?php echo $sum; ?></span>点</span></li>
                     </ul>
                     <button class="btn1">查看优惠详情</button>
                 </div>
             </div>
         </div>
     </div>
-    {/if}
+    <?php endif; ?>
 </div>
 <!--底部-->
-{:widget("widget/footer")}
+<?php echo widget("widget/footer"); ?>
 <!--回到顶部按钮-->
 <div class="toTopBtn"></div>
 <div class="customerBtn"></div>
@@ -182,7 +163,7 @@
             type:'POST',
             dataType:'json',
             data:{goods_id: goods_id},
-            url:"{:url('Cart/checkSelected')}",
+            url:"<?php echo url('Cart/checkSelected'); ?>",
             success: function (data) {
                 if (data.status == 'success') {
                     $("#allMoneyOne").html(data.sum);
@@ -196,36 +177,30 @@
     })
     $(".goods_num").bind('input oninput', function () {
         var that = $(this);
-        var num = parseInt($(this).val());
-        if(isNaN(num)){
-            num=1;
-        }else if(num<1){
-            num=1;
-        }
-        $(this).val(num);
+        var num = $(this).val();
         var goods_id = $(this).attr('goodsid');
         $.ajax({
             type: "POST",
             datatype: "json",
             data: {goods_id: goods_id, goods_num: num},
-            url: "{:url('Cart/changeNum')}",
+            url: "<?php echo url('Cart/add'); ?>",
             success: function (data) {
-                $sum = $.makeArray(data.data['price_sum'])[0];
                 if (data.status == 'success') {
-                    that.parent('.d1').parent('.sl').siblings('.xj').children("span").html(data.data['count'])[0];
-                    $(".allMoney").html($sum);
+                    that.parent('.d1').parent('.sl').siblings('.xj').children("span").html($.makeArray(data.data[goods_id].price_sum)[0]);
+                    $("#allMoneyOne").html(data.sum);
+                    $("#allMoneytwo").html(data.sum);
+                    $("#allMoneythr").html(data.sum);
                 } else {
 
                 }
-            }
+            },
         })
-    });
-    //总结结算的事件
+    })
     $(".sum_bun").click(function (e) {
         var that = $(this);
         e = e || window.event;
         e.preventDefault();
-        var a = -1;
+        var a = -1
         var num = parseInt($(this).siblings(".goods_num").val()) - 1;
         if (num < 1) {
             $(this).css({'cursor': 'no-drop'});
@@ -239,17 +214,19 @@
             type: "POST",
             datatype: "json",
             data: {goods_id: goods_id, goods_num: a},
-            url: "{:url('Cart/add')}",
+            url: "<?php echo url('Cart/add'); ?>",
             success: function (data) {
                 if (data.status == 'success') {
                     that.parent('.d1').parent('.sl').siblings('.xj').children("span").html($.makeArray(data.data[goods_id].price_sum)[0]);
-                    $(".allMoney").html(data.sum);
+                    $("#allMoneyOne").html(data.sum);
+                    $("#allMoneytwo").html(data.sum);
+                    $("#allMoneythr").html(data.sum);
                 } else {
+
                 }
-            }
+            },
         })
     });
-    //添加按钮点击事件
     $(".add_bun").click(function (e) {
         var that = $(this);
         e = e || window.event;
@@ -258,23 +235,23 @@
         $(this).siblings(".goods_num").val(num + 1).siblings(".sum_bun").css({'cursor': 'pointer'});
         num = parseInt($(this).siblings(".goods_num").val());
         var goods_id = $(this).attr('goodsid');
-
         $.ajax({
             type: "POST",
             datatype: "json",
             data: {goods_id: goods_id, goods_num: 1},
-            url: "{:url('Cart/add')}",
+            url: "<?php echo url('Cart/add'); ?>",
             success: function (data) {
                 if (data.status == 'success') {
                     that.parent('.d1').parent('.sl').siblings('.xj').children("span").html($.makeArray(data.data[goods_id].price_sum)[0]);
-                    $(".allMoney").html(data.sum);
+                    $("#allMoneyOne").html(data.sum);
+                    $("#allMoneytwo").html(data.sum);
+                    $("#allMoneythr").html(data.sum);
                 } else {
 
                 }
-            }
+            },
         })
     });
-    //删除商品点击事件
     $(".delOneGoods").click(function (e) {
         e = e || window.event;
         e.preventDefault();
@@ -283,14 +260,14 @@
             type: "POST",
             datatype: "json",
             data: {goods_id: goods_id},
-            url: "{:url('Cart/del')}",
+            url: "<?php echo url('Cart/del'); ?>",
             success: function (data) {
                 if (data.status == 'success') {
-                    location.href = "{:url('Cart/index')}"
+                    location.href = "<?php echo url('Cart/index'); ?>"
                 } else {
 
                 }
-            }
+            },
         })
     })
 
