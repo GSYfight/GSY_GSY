@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)https://www.yimishiji.com/member-setting.html -->
+<html lang="zh-CN" slick-uniqueid="4">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+    <meta name="viewport" content="width=1300">
+
+    <script type="text/javascript" async="" src="__STATIC__/index/message/analytics.js"></script>
+    <script charset="utf-8" src="__STATIC__/index/message/v.js"></script>
+    <script src="__STATIC__/index/message/hm.js"></script>
+    <script src="__STATIC__/index/message/push.js"></script>
+    <script async="" src="__STATIC__/index/message/gtm.js"></script>
+    <script src="__STATIC__/index/message/lang.js"></script>
+    <style type="text/css" abt="234"></style>
+    <link href="__STATIC__/index/message/typical.css" rel="stylesheet" media="screen, projection">
+    <link href="__STATIC__/index/message/bootstrap.min.css" rel="stylesheet" media="screen, projection">
+    <link href="__STATIC__/index/message/bootstrap-theme.min.css" rel="stylesheet" media="screen, projection">
+    <script src="__STATIC__/index/message/moo.min.js"></script>
+    <script src="__STATIC__/index/message/ui.min.js"></script>
+    <script src="__STATIC__/index/message/jquery-1.12.0.min.js"></script>
+    <script src="__STATIC__/index/message/common-index.js"></script>
+    <title>个人中心_一米市集</title>
+    <meta name="keywords" content="个人中心__一米市集">
+    <meta name="description" content="个人中心__一米市集">
+    <link rel="icon" href="https://www.yimishiji.com/public/app/b2c/statics/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="https://www.yimishiji.com/public/app/b2c/statics/favicon.ico" type="image/x-icon">
+    <link href="__STATIC__/index/message/basic.min.css" rel="stylesheet" media="screen, projection">
+    <script src="__STATIC__/index/message/lang(1).js"></script>
+    <script>
+        var Shop = {
+            "url": {
+                "shipping": "\/cart-shipping.html",
+                "total": "\/cart-total.html",
+                "region": "\/tools-selRegion.html",
+                "payment": "\/cart-payment.html",
+                "purchase_shipping": "\/cart-purchase_shipping.html",
+                "purchase_def_addr": "\/cart-purchase_def_addr.html",
+                "purchase_payment": "\/cart-purchase_payment.html",
+                "get_default_info": "\/cart-get_default_info.html",
+                "diff": "\/product-diff.html",
+                "fav_url": "\/member-ajax_fav.html",
+                "datepicker": "https:\/\/www.yimishiji.com\/public\/app\/site\/statics\/js_mini",
+                "placeholder": "https:\/\/www.yimishiji.com\/public\/app\/b2c\/statics\/images\/imglazyload.gif"
+            }, "base_url": "\/"
+        };
+    </script>
+    <link href="__STATIC__/index/message/bootstrap.min.css" rel="stylesheet" media="screen, projection">
+    <link href="__STATIC__/index/message/bootstrap-theme.min.css" rel="stylesheet" media="screen, projection">
+    <script src="__STATIC__/index/message/shop.min.js"></script>
+    <script src="__STATIC__/index/message/jquery-1.12.0.min.js"></script>
+    <script src="__STATIC__/index/message/common-index.js"></script>
+    <link rel="stylesheet" href="__STATIC__/index/message/widgetsproinstance-get_css-yimi-bWVtYmVyLSgxKS5odG1s.html">
+    <link rel="stylesheet" href="__STATIC__/index/message/styles-1200.css">
+    <link rel="stylesheet" href="__STATIC__/index/message/styles-yimi.css">
+    <link rel="stylesheet" href="__STATIC__/index/message/member-1200.css">
+    <script src="__STATIC__/index/./js/jquery.min.js"></script>
+    <script src="__STATIC__/index/./js/index.js"></script>
+    <link rel="stylesheet" href="__STATIC__/index/./css/index.css">
+    <link rel="stylesheet" href="__STATIC__/index/./css/cart.css">
+    <link rel="icon" href="__STATIC__/index/./img/favicon.ico" type="image/x-ico"/>
+</head>
+<body>
+<!--顶部-->
+<div class="top"></div>
+<!--主要内容-->
+<div class="container">
+    <!--头部-->
+    {:widget('Widget/header')}
+<div id="container" class="page-container mb-wrap clearfix">
+    <div class="inner-wrap">
+        <div class="bread-crumbs">
+
+        </div>
+        <div id="main" class="clearfix">
+            <!-- 左栏 -->
+            <div class="page-aside" style="height: 628px;">
+                <!-- 会员中心菜单 -->
+                <div id="member_menu" class="member-menu">
+                    <div class="member-menu-mod">
+                        <h2 class="member-menu-title">交易管理</h2>
+                        <ul class="member-menu-list">
+                            <li>
+                                <a href="https://www.yimishiji.com/member-orders.html" class="">
+                                    我的订单 </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="member-menu-mod">
+                        <h2 class="member-menu-title">评论咨询管理</h2>
+                        <ul class="member-menu-list">
+                            <li>
+                                <a href="https://www.yimishiji.com/member-orders-comment-1.html" class="">
+                                    未评论商品 </a>
+                            </li>
+                            <li>
+                                <a href="https://www.yimishiji.com/member-comment.html" class="">
+                                    我的评论 </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="member-menu-mod">
+                        <h2 class="member-menu-title">我的账户</h2>
+                        <ul class="member-menu-list">
+                            <li>
+                                <a href="https://www.yimishiji.com/member-favorite.html" class="">
+                                    我喜欢的 </a>
+                            </li>
+                            <li>
+                                <a href="https://www.yimishiji.com/member-notify.html" class="">
+                                    到货通知 </a>
+                            </li>
+                            <li>
+                                <a href="https://www.yimishiji.com/member-coupon.html" class="">
+                                    我的优惠券 </a>
+                            </li>
+                            <li>
+                                <a href="https://www.yimishiji.com/member-bought_products.html" class="">
+                                    常购商品 </a>
+                            </li>
+                            <li>
+                                <a href="https://www.yimishiji.com/member-gift_card.html" class="">
+                                    我的充值卡 </a>
+                            </li>
+                            <li>
+                                <a href="https://www.yimishiji.com/point-point_detail.html" class="">
+                                    我的积分 </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="member-menu-mod">
+                        <h2 class="member-menu-title">个人信息管理</h2>
+                        <ul class="member-menu-list">
+                            <li>
+                                <a href="https://www.yimishiji.com/member-setting.html" class="active">
+                                    个人信息 </a>
+                            </li>
+                            <li>
+                                <a href="https://www.yimishiji.com/member-securitycenter.html" class="">
+                                    安全中心 </a>
+                            </li>
+                            <li>
+                                <a href="https://www.yimishiji.com/member-receiver.html" class="">
+                                    收货地址 </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 会员中心主内容区 -->
+            <div class="page-article member-userbox">
+                <!-- 个人信息 -->
+                <div id="" class="">
+
+
+                    <div class="ac_menberInfo">
+                        <iframe src="__STATIC__/index/message/saved_resource.html" name="upload" frameborder="0"
+                                class="hide"></iframe>
+                        <form action="https://www.yimishiji.com/member-save_setting.html" method="POST"
+                              id="member_information" class="" enctype="multipart/form-data" target="upload">
+                            <!-- 个人头像 -->
+                            <div style="">
+                                <div class="form-group">
+                                    <label for="nickname">个人头像<span style="font-size:12px;color:#ddd;margin-left:20px">建议：头像上传为108x108px的图片,格式：jpg,gif,jpeg,png</span></label>
+                                    <img class="profile_picture" src="__STATIC__/index/message/default-avatar.png" alt=""
+                                         href="javascript:void(0);" onclick="write_letter();">
+                                    <input type="hidden" name="MAX_FILE_SIZE" value="2097150" class="upimg_input">
+                                    <input type="file" name="file" id=""
+                                           accept="image/gif,image/jpg,image/jpeg,image/png">
+                                </div>
+                            </div>
+                            <!-- 个人头像 -->
+                            <hr>
+
+                            <!--用户名-->
+                            <div class="form-group">
+                                <label for="nickname">用 户 名</label>
+                                <input id="nickname" type="text" class="form-control" name="pam[name]" value="">
+                            </div>
+                            <!--用户名-->
+
+                            <!--Email-->
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input id="email" class="form-control" type="text" name="pam[email]"
+                                       placeholder="请去安全中心完善邮箱验证" readonly="readonly" value="">
+                            </div>
+                            <!--Email-->
+
+                            <!--手机号-->
+                            <div class="form-group">
+                                <label for="mobile">手机号</label>
+                                <input id="mobile" class="form-control" type="text" name="pam[mobile]"
+                                       placeholder="请去安全中心完善手机验证" readonly="readonly" value="18206021539">
+                            </div>
+                            <!--手机号-->
+
+                            <!--性别-->
+                            <div class="form-group">
+                                <label for="">性别</label>
+                                <label class="radio-inline" for="man">
+                                    <input type="radio" value="1" name="sex" id="man">
+                                    男</label>
+                                <label class="radio-inline" for="women">
+                                    <input type="radio" checked="checked" value="0" name="sex" id="women">
+                                    女</label>
+                            </div>
+                            <!--性别-->
+
+                            <!--QQ-->
+                            <div class="form-group">
+                                <label for="qq">QQ</label>
+                                <input class="x-input form-control" id="qq" type="text" name="qq"></div>
+                            <!--QQ-->
+
+                            <!--MSN-->
+                            <div class="form-group">
+                                <label for="msn">MSN</label>
+                                <input class="x-input form-control" id="msn" type="text" name="msn"></div>
+                            <!--MSN-->
+                            <button type="submit" onclick="tijiao();" class="btn btn-default">保 存</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <script>
+                var submit = $j('#member_information button:submit');
+
+                function ajax_callback(type, msg, url) {
+                    if (type == 'error') {
+                        submit.removeClass('disabled');
+                    }
+                    return top.Message(msg, type, function () {
+                        if (url) location.href = url;
+                    });
+                }
+
+                function tijiao() {
+                    $j('#member_information').submit();
+                }
+            </script>
+        </div>
+    </div>
+</div>
+<div id="im_bar" class="im clearfix" style="top: 300px;">
+    <ul>
+        <li class="ics online"></li>
+        <li class="ics qes"></li>
+        <li class="ics opin"></li>
+    </ul>
+</div>
+<div class="to_top"></div>
+
+<a onclick="javascript:window.open (&#39;http://a1.7x24cc.com/phone_webChat.html?accountId=N000000007766&amp;chatId=ymsj-fafcac20-4d7e-11e6-b3e8-9f0e86ae5798&#39;,&#39;&#39;, &#39;height=500, width=550, top=100 ,left=400, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no&#39;) "
+   target="_self" class="kefu_new"></a>
+
+<script>
+    $j = $j || jQuery.noConflict();
+    (function () {
+        var im = $('im_bar'), top = document.querySelector('.to_top');
+        setImTop();
+
+        function setImTop() {
+            im.tween('top', $(document.body).getScroll().y + 300);
+        }
+
+        var body_height = document.documentElement.clientHeight || document.body.offsetHeight;
+        top.addEvent("click", function () {
+            $j(document.body).animate({'scrollTop': '0'}, 1000);
+        });
+        window.addEvent('scroll', function () {
+            if (document.body.scrollTop > body_height) {
+                $j(top).addClass("show");
+            } else {
+                $j(top).removeClass("show");
+            }
+            setImTop();
+        });
+    })();
+</script>
+
+
+<div class="footer-section">
+    <div class="inner-wrap">
+
+        <div id="footer" class="page-footer">
+            <script>
+                var Shop = window['Shop'] || {
+                    "url": {
+                        "shipping": "\/cart-shipping.html",
+                        "total": "\/cart-total.html",
+                        "region": "\/tools-selRegion.html",
+                        "payment": "\/cart-payment.html",
+                        "purchase_shipping": "\/cart-purchase_shipping.html",
+                        "purchase_def_addr": "\/cart-purchase_def_addr.html",
+                        "purchase_payment": "\/cart-purchase_payment.html",
+                        "get_default_info": "\/cart-get_default_info.html",
+                        "diff": "\/product-diff.html",
+                        "fav_url": "\/member-ajax_fav.html",
+                        "datepicker": "https:\/\/www.yimishiji.com\/public\/app\/site\/statics\/js_mini",
+                        "placeholder": "https:\/\/www.yimishiji.com\/public\/app\/b2c\/statics\/images\/imglazyload.gif"
+                    }, "base_url": "\/"
+                };
+                window.addEvent('domready', function () {
+                    var __time_out = 1000;
+                    if (Shop.set != undefined && Shop.set.refer_timeout) __time_out = Shop.set.refer_timeout;
+                    var ReferObj = {};
+                    Object.append(ReferObj, {
+                        serverTime: 1506525605,
+                        init: function () {
+                            var FIRST_REFER = Memory.get('first_refer');
+                            var NOW_REFER = Memory.get('now_refer');
+                            var nowDate = this.time = this.serverTime * 1000;
+                            if (!window.location.href.test('#r-') && !document.referrer || document.referrer.test(document.domain)) return;
+                            if (window.location.href.test('#r-')) Memory.clean('n');
+                            if (!FIRST_REFER) {
+
+                                if (NOW_REFER) {
+                                    Memory.set('first_refer', NOW_REFER, this.getTimeOut(JSON.decode(NOW_REFER).DATE));
+                                } else {
+                                    this.setRefer('first_refer', __time_out);
+                                }
+                            }
+                            this.setRefer('now_refer', __time_out);
+                            this.createGUID();
+                        },
+                        getUid: function () {
+                            var lf = window.location.href, pos = lf.indexOf('#r-');
+                            return pos != -1 ? lf.substr(pos + 4) : '';
+                        },
+                        getRefer: function () {
+                            return document.referrer ? document.referrer : '';
+                        },
+                        setRefer: function (referName, timeout) {
+                            var uid = this.getUid(), referrer = this.getRefer();
+                            var data = {'ID': uid, 'REFER': referrer, 'DATE': this.time};
+
+                            if ('now_refer' == referName) {
+                                var refer = JSON.decode(Memory.get('first_refer'));
+                                if (uid != '' && refer && refer.ID == '') {
+                                    var fdata = {'ID': uid, 'REFER': refer.REFER, 'DATE': refer.DATE};
+                                    Memory.set('first_refer', JSON.encode(fdata), this.getTimeOut(refer.DATE));
+                                } else if (uid == '') {
+                                    Object.append(data, {'ID': refer.ID});
+                                }
+                            }
+                            Memory.set(referName, JSON.encode(data), __time_out || 15);
+                        },
+                        getTimeOut: function (nowDate) {
+                            var timeout = nowDate + __time_out * 24 * 3600 * 1000;
+                            var date = new Date(timeout);
+                            return date;
+                        },
+                        createGUID: function () {
+                            var GUID = (function () {
+                                var S4 = function () {
+                                    return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+                                };
+                                return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4()).toUpperCase();
+                            })();
+                            Memory.set('n', GUID, 3650);
+                        }
+                    });
+                    ReferObj.init();
+                });
+
+
+                miniCart = {
+                    'show': function (target) {
+                        target = $(target);
+                        if (!target) return;
+
+                        if (this.dialog) {
+                            this.hide();
+                        }
+
+                        var options = {
+                            body: 'popup-body',
+                            header: 'popup-header',
+                            close: 'popup-btn-close',
+                            content: 'popup-content',
+                            title: '正在加入购物车',
+                            main: '<div class="loading" style="padding:12px">loading...</div>'
+                        }, dialog = this.dialog = new Element('div#mini_cart_dialog.popup-container.mini-cart-dialog', {
+                            'html': $('popup_template').get('html').substitute(options),
+                            styles: {
+                                display: 'block',
+                                zIndex: maxZindex('div', 1)
+                            }
+                        }).inject(document.body);
+
+                        this.title = dialog.getElement('.popup-header h2');
+                        this.close = dialog.getElements('.popup-btn-close');
+                        this.content = dialog.getElement('.popup-content');
+                        this.dialog.addEvent('click:relay(.popup-btn-close)', this.hide.bind(this));
+
+                        var setSize = this.setSize = function () {
+                            if (!dialog.isDisplayed()) return;
+                            dialog.setStyles({
+                                top: target.getPosition().y + target.getSize().y,
+                                left: target.getPosition().x.limit(0, window.getSize().x - dialog.getSize().x) + window.getScroll().x
+                            });
+                        };
+
+                        setSize();
+                        window.addEvent('resize', setSize);
+                    },
+                    'hide': function () {
+                        try {
+                            this.dialog.destroy();
+                            window.removeEvent('resize', this.setSize);
+                        } catch (e) {
+                        }
+                    },
+                    'load': function (options) {
+                        options = options || {};
+                        options = Object.merge({
+                            method: 'post',
+                            onRequest: function () {
+                                miniCart.show(options.target);
+                            },
+                            onSuccess: function (re) {
+                                if (re) {
+                                    this.title.innerHTML = '提醒';
+                                    this.content.innerHTML = re;
+                                }
+
+                                updateCartInfo();
+
+                                if (document.getElement('.minicart_box') && document.getElement('.minicart_box').get('show_gallery')) {
+                                    document.getElement('.minicart_box').fireEvent('_show'); //迷你购物车
+                                }
+                                options.callback && options.callback(re);
+                            }.bind(this),
+                            onFailure: function (xhr) {
+                                this.title.innerHTML = '提醒';
+                                this.content.innerHTML = '<div class="minicart-error"><p align="center">加入购物车失败。<br />可能库存不足或提交信息不完整。</p></div>';
+                            }.bind(this)
+                        }, options || {});
+                        if (!options.url) return false;
+
+                        new Request(options).send(options.data ? options.data.toQueryString() + '&mini_cart=true' : 'mini_cart=true');
+                    },
+                    init: function (target, url, data) {
+                        var linktocart;
+                        if (typeOf(target) == 'element') linktocart = target.getElements('[target=_dialog_minicart]');
+                        else if (typeOf(target) == 'elements') linktocart = target;
+                        else linktocart = $$('a[target=_dialog_minicart], button[target=_dialog_minicart]');
+                        if (linktocart.length) {
+                            linktocart.addEvent('click', function (e) {
+                                e.preventDefault();
+                                miniCart.load({
+                                    url: url || this.href,
+                                    data: data || this.getParent('.goods-item') || this.getParent('li'),
+                                    target: this
+                                });
+                            });
+                        }
+                    }
+                };
+
+                formToCart = function (container, target) {
+                    container = $(container || document.body);
+                    target = target || '.action-addtocart';
+                    if (!container) return;
+
+                    var formtocart = container.getElement('form[target=_dialog_minicart]') || container.getFirst().getParent('form[target=_dialog_minicart]');
+                    if (formtocart) {
+                        formtocart.addEvent('submit', function (e) {
+                            e.stop();
+                            target = this.getElement(target) || this.getElement('*[type=submit]');
+                            miniCart.load({
+                                url: this.action,
+                                method: this.method,
+                                data: this,
+                                target: target,
+                                callback: function () {
+                                    target.removeClass('disabled');
+                                }.bind(this)
+                            });
+                        });
+                    }
+                    ;
+                }
+
+                window.addEvent('domready', function () {
+                    miniCart.init();
+                    formToCart();
+                });
+            </script>
+
+            <script id="popup_template" type="text/template">
+                <div class="{body}">
+                    <div class="{header} clearfix">
+                        <h2>{title}</h2>
+                        <span><button type="button" title="关闭" class="{close}" hidefocus><i>×</i></button></span>
+                    </div>
+                    <div class="{content} clearfix">{main}</div>
+                </div>
+            </script>
+            <script id="message_template" type="text/template">
+                <div class="{body} clearfix">
+                    <div class="icon">{icon}</div>
+                    <div class="{content}">{main}</div>
+                </div>
+            </script>
+            <script id="dropmenu_template" type="text/template">
+                <div class="{body}">
+                    <div class="{content} clearfix">{main}</div>
+                </div>
+            </script>
+            <p>&nbsp;</p></div>
+    </div>
+</div>
+
+
+    {:widget('Widget/footer')}
+
+
+    <script>
+        $$('.menu-cat .tgnavs .cat a').setStyle('background', 'none');
+    </script>
+
+    <!--<script type="text/javascript">-->
+
+
+    <!--</script>-->
+
+
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?3f5727f3ee4928b60435ab8698c89360";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <script>
+        tleft = $$('.page-aside').getSize();
+        tmain = $$('.page-article').getSize();
+
+        if (tleft[0].y > tmain[0].y) {
+            //$$('.page-article').setStyle('height',$('main').getSize().y);
+        }
+        if (tleft[0].y < tmain[0].y) {
+            $$('.page-aside').setStyle('height', $('main').getSize().y);
+        }
+    </script>
+
+</div>
+</body>
+</html>
