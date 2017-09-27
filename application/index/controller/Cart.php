@@ -126,7 +126,6 @@ class Cart extends Controller
         ]);
         return $this->fetch('cart/cart');
     }
-
     public function del()
     {
         $data = [
@@ -137,7 +136,6 @@ class Cart extends Controller
         if ($data['member_id']) {
             //登录状态
             $cartData = CartModel::delOneGoods($data);
-
         } else {
             //未登录状态
             $cookie = cookie('cart');
@@ -150,19 +148,23 @@ class Cart extends Controller
             'status' => 'success',
         ];
     }
-
     public function isLogin()
     {
         $member = session('index');
         $member_id = $member['member_id'];
         return $member_id;
     }
-
+     /* 订单页
+     * */
+    public function checkout(){
+        $goodsData=input();
+        return $goodsData;
+        return $this->fetch();
+    }
     public function addGoods()
     {
         $goods_id = input('goods_id');
         $goods_num = input('goods_num');
 
     }
-
 }
