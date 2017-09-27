@@ -68,6 +68,11 @@ class Cart extends Model{
             ->field('g.goods_id,g.goods_name,c.goods_num,i.image_s_url,g.sell_price,c.selected')
             ->where(['c.member_id'=>$memberId,'i.is_face'=>'1'])
             ->select();
+        //遍历数组，将数值键名改为 goods_id
+        foreach ($cartData as $k => $v) {
+            $cartData[$v['goods_id']] = $v;
+            unset($cartData[$k]);
+        }
         foreach ($cartData as $k=>$v){
             $cartData[$k]['price_sum']=$cartData[$k]['goods_num']*$cartData[$k]['sell_price'];
             //计算选中的商品的总价格
@@ -95,5 +100,26 @@ class Cart extends Model{
             }
         }
 
+    }
+    //输入数值，改变数据
+    static public function changeNum($goods_id,$goods_num,$member_id){
+        $data=db('cart')->where(['goods_id'=>$goods_id,'member_id'=>$member_id])->find();
+        $data['goods_num']=$goods_num;
+        db('cart')->update($data);
+        //更新数量
+        $goods_price=db('goods')->find($goods_id);
+        $data['count']=$goods_price['sell_price']*$goods_num;
+        //计算该商品总价
+        $goods=db('cart')
+            ->alias('c')
+            ->where($member_id)
+            ->join('goods g','g.goods_id=c.goods_id','left')
+            ->select();
+        $data['price_sum']='';
+        foreach ($goods as $v){
+            $data['price_sum']+=$v['goods_num']*$v['sell_price'];
+        }
+        //遍历购物车 结算该用户的总价格
+        return $data;
     }
 }

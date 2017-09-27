@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"D:\PHPfile\GSY\public/../application/index\view\widget\header.html";i:1506415769;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"D:\PHPfile\GSY\public/../application/index\view\widget\header.html";i:1506479542;}*/ ?>
 <header id="header" class="head">
     <a href="<?php echo url('Index/index'); ?>">
         <div class="icon fl"></div>
@@ -110,7 +110,7 @@
                     </a>
                 </div>
                 <?php else: ?>
-                <div class="useDiv" style="height: auto;width: 200px;left: -100px;">
+                <div class="useDiv" style="height: auto;width: 200px;left: -100px;z-index: 999;">
                     <div class="sanjiaoxing" style="left: 135px;"></div>
                     <div style="text-align: center;background: #ccc">
                         <div><img src="<?php echo $res['pic']; ?>" alt="" style="width: 30px;border-radius: 50%;margin-top: 10px;"></div>
@@ -144,7 +144,7 @@
                                     data:{fullUrl:fullUrl},
                                     url:"<?php echo url('Login/logout'); ?>",
                                     success:function (d) {
-                                        window.location.href=d;
+                                        setTimeout(window.location.href=d,2000);
                                     },
                                     error:function (d) {
                                         alert(111);
