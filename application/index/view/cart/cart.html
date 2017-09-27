@@ -64,7 +64,7 @@
             <table>
                 <tr class="tr1">
                     <td class="cb">
-                        <input type="checkbox" name="" checked="checked" class="chk chk_all">
+                        <input type="checkbox" name=""  id="chk_all" class="chk chk_all">
                     </td>
                     <td class="sp">商品</td>
                     <td class="sj">售价</td>
@@ -75,7 +75,7 @@
                 {foreach $data as $v}
                 <tr>
                     <td class="cb">
-                        <input type="checkbox" name="" checked="checked" class="chk">
+                        <input type="checkbox" name="" {if condition='$v.selected eq 1'} checked="checked" {/if} class="checkbox chk" goodsid="{$v.goods_id}">
                     </td>
                     <td class="sp">
                         <img src="{$v.image_s_url}" alt="{$v.goods_name}"
@@ -145,9 +145,38 @@
 <div class="customerBtn"></div>
 </body>
 <script>
+    $("#chk_all").change(function () {
+        //val是当前属性值
+        if ($(this).prop('checked')){
+            $(".checkbox").prop('checked',true);
+        }else {
+            $(".checkbox").prop('checked',false);
+        }
+    });
+    $(".checkbox").change(function () {
+        if ($(this).prop('checked')==false){
+            $("#chk_all").prop('checked',false);
+        }
+        var goods_id = $(this).attr('goodsid');
+        $.ajax({
+            type:'POST',
+            dataType:'json',
+            data:{goods_id: goods_id},
+            url:"{:url('Cart/checkSelected')}",
+            success: function (data) {
+                if (data.status == 'success') {
+                    $("#allMoneyOne").html(data.sum);
+                    $("#allMoneytwo").html(data.sum);
+                    $("#allMoneythr").html(data.sum);
+                } else {
+
+                }
+            },
+        });
+    })
     $(".goods_num").bind('input oninput', function () {
         var that = $(this);
-        var num = $(".goods_num").val();
+        var num = $(this).val();
         var goods_id = $(this).attr('goodsid');
         $.ajax({
             type: "POST",
@@ -240,6 +269,8 @@
             },
         })
     })
+
+
 
 </script>
 </html>

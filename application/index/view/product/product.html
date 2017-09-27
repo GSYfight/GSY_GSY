@@ -271,7 +271,7 @@ $("#goods_add").click(function (e) {
 $("#add_cart").click(function () {
     var goods_id=$("#goods_num").attr('goodsid');
     var goods_num=$("#goods_num").val();
-//    alert(goods_num);
+
     $.ajax({
         type:"POST",
         datatype:"json",

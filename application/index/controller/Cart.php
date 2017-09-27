@@ -32,18 +32,17 @@ class Cart extends Controller
             $cookie = cookie('cart');
             $cart = unserialize($cookie);
             if (!empty($cart)) {
-                //购物车有商品
+                //cookie购物车有商品
                 if (array_key_exists($goods_id, $cart)) {
-                    //购物车有该商品
+                    //cookie购物车有该商品
                     $cart[$goods_id]['goods_num'] += input('goods_num');
                 } else {
-                    //购物车没有该商品
+                    //cookie购物车没有该商品
                     $cart[$goods_id] = [
                         'goods_id' => input('goods_id'),
                         'goods_num' => input('goods_num'),
                         'selected' => 1,
                     ];
-
                 }
                 $str = serialize($cart);
                 cookie('cart', $str);
@@ -56,6 +55,7 @@ class Cart extends Controller
             $cookie = cookie('cart');
             $cart = unserialize($cookie);
             $data = CartModel::cartList($cart);
+
         } else {
             //已登录
             //查询用户的购物车情况  查询结果为二维数组
@@ -107,10 +107,10 @@ class Cart extends Controller
         //判断是否登录
         $member_id = $this->isLogin();
         if (!$member_id) {
+            //用户未登录状态
             $cookie = cookie('cart');
             $cart = unserialize($cookie);
             $data = CartModel::cartList($cart);
-
         } else {
             //用户登录状态
             if (!empty(cookie('cart'))) {
@@ -150,18 +150,51 @@ class Cart extends Controller
             'status' => 'success',
         ];
     }
-
     public function isLogin()
     {
         $member = session('index');
         $member_id = $member['member_id'];
         return $member_id;
     }
+    /*
+     * 改变selected值
+     */
+    public function checkSelected(){
+        $data = [
+            'goods_id' => input('goods_id'),
+            'member_id' => $this->isLogin(),
+        ];
+        //判断用户是否登录
+        if ($data['member_id']) {
+            //登录状态
+            $sum = CartModel::checkSelected($data);
+        } else {
+            //未登录状态
+            $cookie = cookie('cart');
+            $cart = unserialize($cookie);
+            //改变该商品的selected值
+            if ($cart[$data['goods_id']]['selected']==1){
+                $cart[$data['goods_id']]['selected']=0;
+            }else{
+                $cart[$data['goods_id']]['selected']=1;
+            }
+            //计算结果，提取总价
+            $all = CartModel::cartList($cart);
+            $data=serialize($cart);
+            cookie('cart',$data);
+            $sum=$all['sum'];
+            $sum??0;
+        }
+        if ($sum!==false){
+            //数据更改成功
+            return [
+                'sum' => $sum,
+                'status' => 'success',
+            ];
+        }else{
+            //数据更改不成功
+        }
 
-    public function addGoods()
-    {
-        $goods_id = input('goods_id');
-        $goods_num = input('goods_num');
 
     }
 

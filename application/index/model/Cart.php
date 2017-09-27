@@ -9,7 +9,6 @@ namespace app\index\model;
 use think\Model;
 class Cart extends Model{
     static public function cartList($arr){
-
         if (!$arr){
             return false;
         }
@@ -19,9 +18,11 @@ class Cart extends Model{
                 ->alias('g')
                 ->field('g.goods_id,g.goods_name,p.image_s_url,g.sell_price')
                 ->join('image p','g.goods_id=p.goods_id','LEFT')
-                ->find($k);
+                ->where(['g.goods_id'=>$k])
+                ->find();
             $data[$k]['goods_num']=$arr[$k]['goods_num'];
             $data[$k]['price_sum']=$arr[$k]['goods_num']*$data[$k]['sell_price'];
+            $data[$k]['selected']=$v['selected'];
             if ($v['selected']==1){
                 $sum+=$data[$k]['price_sum'];
             }
@@ -63,11 +64,16 @@ class Cart extends Model{
         $sum=0;
         $cartData=db('cart')
             ->alias('c')
-            ->join('goods g','g.goods_id=c.goods_id','left')
-            ->join('image i','i.goods_id=c.goods_id','left')
+            ->join('goods g','g.goods_id=c.goods_id','LEFT')
+            ->join('image i','c.goods_id=i.goods_id','LEFT')
             ->field('g.goods_id,g.goods_name,c.goods_num,i.image_s_url,g.sell_price,c.selected')
-            ->where(['c.member_id'=>$memberId])
+            ->where(['c.member_id'=>$memberId,'i.is_face'=>1])
             ->select();
+        //遍历数组，将数值键名改为 goods_id
+        foreach ($cartData as $k => $v) {
+            $cartData[$v['goods_id']] = $v;
+            unset($cartData[$k]);
+        }
         foreach ($cartData as $k=>$v){
             $cartData[$k]['price_sum']=$cartData[$k]['goods_num']*$cartData[$k]['sell_price'];
             if($cartData[$k]['selected']==1){
@@ -84,7 +90,6 @@ class Cart extends Model{
         foreach ($data as $v){
             $v['member_id']=$member_id;
             $goodsData=db('cart')->where(['goods_id'=>$v['goods_id'],'member_id'=>$member_id])->find();
-
             if($goodsData){
                 $goodsData['goods_num']+=$v['goods_num'];
                 db('cart')->update($goodsData);
@@ -93,5 +98,26 @@ class Cart extends Model{
             }
         }
 
+    }
+    //改变selected值
+    static public function checkSelected($data){
+        if (!$data){
+            return false;
+        }
+        $cartData=db("cart")->where(['goods_id'=>$data['goods_id'],'member_id'=>$data['member_id']])->find();
+        if ($cartData['selected']==1){
+            $cartData['selected']=0;
+        }else{
+            $cartData['selected']=1;
+        }
+        $res=db("cart")->update($cartData);
+        if ($res!==false){
+            //通过membe_id获取购物车数据
+            $allDate=self::cartMember($data['member_id']);
+            //返回总金额
+            return $allDate['sum'];
+        }else{
+            return false;
+        }
     }
 }
