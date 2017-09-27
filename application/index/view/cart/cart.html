@@ -18,7 +18,25 @@
     {:widget("widget/header")}
     <!--主模块-->
     <!--购物车为空时-->
-
+    {if condition='$data eq null'}
+    <div class="cart-section section cart-null">
+        <div class="head">
+            <div class="cart-icon">
+                <h1>
+                    <img src="__STATIC__/index/./img/ym_icon_cart.png" alt="">
+                    购物车
+                </h1>
+            </div>
+        </div>
+        <div class="data">
+            <div class="mess">
+                <img src="__STATIC__/index/./img/ym_icon_cart.png" alt="">
+                <p>购物篮中空空的喔,慢慢逛，不要忘记带上「食欲」</p>
+            </div>
+        </div>
+    </div>
+    <!--购物车空时-->
+    {else/}
     <!--购物车非空时-->
     <div class="cart-section section cart-has">
         <div class="head">
@@ -62,7 +80,8 @@
 
                     </td>
                     <td class="sp">
-                        <img src="{$v.image_s_url}" alt="{$v.goods_name}" onclick="javascript:window.location.href='{:url('Product/index',['goodsId'=>$v.goods_id])}'">
+                        <img src="{$v.image_s_url}" alt="{$v.goods_name}"
+                             onclick="javascript:window.location.href='{:url('Product/index',['goodsId'=>$v.goods_id])}'">
                         <span><a href="{:url('Product/index',['goodsId'=>$v.goods_id])}">{$v.goods_name}</a></span>
                     </td>
                     <td class="sj">
@@ -70,9 +89,10 @@
                     </td>
                     <td class="sl">
                         <div class="d1">
-                            <span class="fl left">-</span>
-                            <input type="text" class="fl" maxlength="3" value="{$v.goods_num}">
-                            <span class="fl right">+</span>
+                            <a href="#" class="fl left sum_bun" id="sum_bun" goodsid="{$v.goods_id}">-</a>
+                            <input type="text" class="fl goods_num" maxlength="3" goodsid="{$v.goods_id}"
+                                   value="{$v.goods_num}">
+                            <a href="#" class="fl right add_bun" goodsid="{$v.goods_id}" id="sum_add">+</a>
                         </div>
                     </td>
                     <td class="xj">
@@ -91,7 +111,7 @@
                     <td colspan="4">
                         <div class="allDiv fl">
                             <p class="p1">订单金额</p>
-                            <p class="p2">￥<span class="allMoney">{$sum}</span></p>
+                            <p class="p2">￥<span class="allMoney" id="allMoneyOne">{$sum}</span></p>
                             <p class="p3">不含运费</p>
                         </div>
                         <button id="jiesuan" class="fl">提交订单</button>
@@ -124,16 +144,23 @@
                 <div class="mingxi fr">
                     <h2>金额明细</h2>
                     <ul>
-                        <li class="li1"><span class="left">商品小计</span><span class="right">￥<span class="allMoney">{$sum}</span></span></li>
-                        <li class="li2"><hr></li>
-                        <li class="li3"><span class="left ">购买金额</span><span class="right">￥<span class="allMoney">{$sum}</span></span></li>
-                        <li><span class="left">可得积分</span><span class="right"><span class="allMoney">{$sum}</span>点</span></li>
+                        <li class="li1"><span class="left">商品小计</span><span class="right">￥<span
+                                class="allMoney">{$sum}</span></span></li>
+                        <li class="li2">
+                            <hr>
+                        </li>
+                        <li class="li3"><span class="left ">购买金额</span><span class="right">￥<span class="allMoney"
+                                                                                                  id="allMoneytwo">{$sum}</span></span>
+                        </li>
+                        <li><span class="left">可得积分</span><span class="right"><span
+                                class="allMoney" id="allMoneythr">{$sum}</span>点</span></li>
                     </ul>
                     <button class="btn1">查看优惠详情</button>
                 </div>
             </div>
         </div>
     </div>
+    {/if}
 </div>
 <!--底部-->
 {:widget("widget/footer")}
@@ -142,23 +169,98 @@
 <div class="customerBtn"></div>
 </body>
 <script>
-    $(".delOneGoods").click(function () {
-        var goods_id=$(this).attr('goodsid');
+    $(".goods_num").bind('input oninput', function () {
+        var that = $(this);
+        var num = $(".goods_num").val();
+        var goods_id = $(this).attr('goodsid');
         $.ajax({
-            type:"POST",
-            datatype:"json",
-            data:{goods_id:goods_id},
-            url:"{:url('Cart/del')}",
-            success:function (data) {
-                if(data.status=='success'){
-                    location.href="{:url('Cart/index')}"
-                }else {
+            type: "POST",
+            datatype: "json",
+            data: {goods_id: goods_id, goods_num: num},
+            url: "{:url('Cart/add')}",
+            success: function (data) {
+                if (data.status == 'success') {
+                    that.parent('.d1').parent('.sl').siblings('.xj').children("span").html($.makeArray(data.data[goods_id].price_sum)[0]);
+                    $("#allMoneyOne").html(data.sum);
+                    $("#allMoneytwo").html(data.sum);
+                    $("#allMoneythr").html(data.sum);
+                } else {
 
                 }
-            }
+            },
+        })
+    })
+    $(".sum_bun").click(function (e) {
+        var that = $(this);
+        e = e || window.event;
+        e.preventDefault();
+        var a = -1
+        var num = parseInt($(this).siblings(".goods_num").val()) - 1;
+        if (num < 1) {
+            $(this).css({'cursor': 'no-drop'});
+            num = 1;
+            a = 0;
+        }
+        $(this).siblings(".goods_num").val(num);
+        num = parseInt($(this).siblings(".goods_num").val());
+        var goods_id = $(this).attr('goodsid');
+        $.ajax({
+            type: "POST",
+            datatype: "json",
+            data: {goods_id: goods_id, goods_num: a},
+            url: "{:url('Cart/add')}",
+            success: function (data) {
+                if (data.status == 'success') {
+                    that.parent('.d1').parent('.sl').siblings('.xj').children("span").html($.makeArray(data.data[goods_id].price_sum)[0]);
+                    $("#allMoneyOne").html(data.sum);
+                    $("#allMoneytwo").html(data.sum);
+                    $("#allMoneythr").html(data.sum);
+                } else {
+                }
+            },
+        })
+    });
+    $(".add_bun").click(function (e) {
+        var that = $(this);
+        e = e || window.event;
+        e.preventDefault();
+        var num = parseInt($(this).siblings(".goods_num").val());
+        $(this).siblings(".goods_num").val(num + 1).siblings(".sum_bun").css({'cursor': 'pointer'});
+        num = parseInt($(this).siblings(".goods_num").val());
+        var goods_id = $(this).attr('goodsid');
+        $.ajax({
+            type: "POST",
+            datatype: "json",
+            data: {goods_id: goods_id, goods_num: 1},
+            url: "{:url('Cart/add')}",
+            success: function (data) {
+                if (data.status == 'success') {
+                    that.parent('.d1').parent('.sl').siblings('.xj').children("span").html($.makeArray(data.data[goods_id].price_sum)[0]);
+                    $("#allMoneyOne").html(data.sum);
+                    $("#allMoneytwo").html(data.sum);
+                    $("#allMoneythr").html(data.sum);
+                } else {
 
+                }
+            },
+        })
+    });
+    $(".delOneGoods").click(function (e) {
+        e = e || window.event;
+        e.preventDefault();
+        var goods_id = $(this).attr('goodsid');
+        $.ajax({
+            type: "POST",
+            datatype: "json",
+            data: {goods_id: goods_id},
+            url: "{:url('Cart/del')}",
+            success: function (data) {
+                if (data.status == 'success') {
+                    location.href = "{:url('Cart/index')}"
+                } else {
 
-
+                }
+            },
         })
     })
 

@@ -199,8 +199,9 @@
     outline: none;
 }
 
-.cart-has table .sl span {
-    display: block;
+.cart-has table .sl a {
+    text-decoration: none;
+    display: inline-block;
     width: 30px;
     height: 30px;
     font-size: 1.5em;
@@ -211,15 +212,13 @@
     line-height: 30px;
 }
 
-.cart-has table .sl span.left {
+.cart-has table .sl a.left {
     border-right: 1px solid #AFC5CD;
 }
-
-.cart-has table .sl span.right {
+.cart-has table .sl a.right {
     border-left: 1px solid #AFC5CD;
 }
-
-.cart-has table .sl span:hover {
+.cart-has table .sl a:hover {
     color: #143749;
 
 }
