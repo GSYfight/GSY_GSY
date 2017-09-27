@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:58:"E:\PHP\GSY\public/../application/index\view\cart\cart.html";i:1506405094;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:58:"E:\PHP\GSY\public/../application/index\view\cart\cart.html";i:1506416438;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,7 +58,9 @@
                 <?php foreach($data as $v): ?>
                 <tr>
                     <td class="cb">
-                        <input type="checkbox" name="" checked="checked" class="chk">
+
+                        <input type="checkbox" name="aaa" checked="checked" class="chk" value="<?php echo $v['goods_id']; ?>">
+
                     </td>
                     <td class="sp">
                         <img src="<?php echo $v['image_s_url']; ?>" alt="<?php echo $v['goods_name']; ?>" onclick="javascript:window.location.href='<?php echo url('Product/index',['goodsId'=>$v['goods_id']]); ?>'">
@@ -94,6 +96,28 @@
                             <p class="p3">不含运费</p>
                         </div>
                         <button id="jiesuan" class="fl">提交订单</button>
+                        <script>
+                            $(function () {
+                                $('#jiesuan').click(function () {
+                                    var data=document.getElementsByName('aaa');
+                                    var arr=[];
+                                    for(var i=0;i<data.length;i++){
+                                        arr.push(data[i].value)
+                                    }
+                                    alert(arr);
+                                    $.ajax({
+                                        type:'POST',
+                                        dataType:'text',
+                                        data:{'goodsData':arr},
+                                        url:"<?php echo url('Cart/checkout'); ?>",
+                                        traditional: true,
+                                        success:function (d) {
+                                            alert(d);
+                                        }
+                                    })
+                                })
+                            })
+                        </script>
                     </td>
                 </tr>
             </table>
@@ -132,7 +156,7 @@
                 }else {
 
                 }
-            },
+            }
 
 
 

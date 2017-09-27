@@ -93,6 +93,7 @@ class Cart extends Controller{
         }else{
             $data=CartModel::cartMember($member_id);
         }
+
         $this->assign([
             'data'=>$data['data'],
             'sum'=>$data['sum'],
@@ -107,7 +108,7 @@ class Cart extends Controller{
             'member_id'=>$this->isLogin(),
         ];
         //判断用户是否登录
-        if($data['member_idj 5']){
+        if($data['member_id']){
             //登录状态
             $cartData=CartModel::delOneGoods($data);
 
@@ -129,5 +130,12 @@ class Cart extends Controller{
         $member_id=$member['member_id'];
         return $member_id;
     }
-
+    /*
+     * 订单页
+     * */
+    public function checkout(){
+        $goodsData=input();
+        return $goodsData;
+        return $this->fetch();
+    }
 }

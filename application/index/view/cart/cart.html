@@ -57,7 +57,9 @@
                 {foreach $data as $v}
                 <tr>
                     <td class="cb">
-                        <input type="checkbox" name="" checked="checked" class="chk">
+
+                        <input type="checkbox" name="aaa" checked="checked" class="chk" value="{$v.goods_id}">
+
                     </td>
                     <td class="sp">
                         <img src="{$v.image_s_url}" alt="{$v.goods_name}" onclick="javascript:window.location.href='{:url('Product/index',['goodsId'=>$v.goods_id])}'">
@@ -93,6 +95,28 @@
                             <p class="p3">不含运费</p>
                         </div>
                         <button id="jiesuan" class="fl">提交订单</button>
+                        <script>
+                            $(function () {
+                                $('#jiesuan').click(function () {
+                                    var data=document.getElementsByName('aaa');
+                                    var arr=[];
+                                    for(var i=0;i<data.length;i++){
+                                        arr.push(data[i].value)
+                                    }
+                                    alert(arr);
+                                    $.ajax({
+                                        type:'POST',
+                                        dataType:'text',
+                                        data:{'goodsData':arr},
+                                        url:"{:url('Cart/checkout')}",
+                                        traditional: true,
+                                        success:function (d) {
+                                            alert(d);
+                                        }
+                                    })
+                                })
+                            })
+                        </script>
                     </td>
                 </tr>
             </table>
@@ -131,7 +155,7 @@
                 }else {
 
                 }
-            },
+            }
 
 
 

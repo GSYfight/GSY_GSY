@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"E:\PHP\GSY\public/../application/index\view\cart\checkout.html";i:1506411306;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +16,7 @@
 <!--主要内容-->
 <div class="container">
     <!--头部-->
-    {:widget('Widget/header')}
+    <?php echo widget('Widget/header'); ?>
     <!--主模块-->
     <div class="section cart-has">
         <div class="head">
@@ -249,7 +250,7 @@
 </div>
 
 <!--底部-->
-{:widget('Widget/footer')}
+<?php echo widget('Widget/footer'); ?>
 
 <!--回到顶部按钮-->
 <div class="toTopBtn"></div>

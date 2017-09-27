@@ -159,10 +159,7 @@ $(function () {
         $('.useDiv').hide();
     });
     //临时跳转效果
-    //提交订单
-    $('#jiesuan').click(function () {
-        location.href = 'cart-checkout.html';
-    });
+
     //订单结算
     $('#tijiaoBtn').click(function () {
         location.href = 'paycenter.html';
