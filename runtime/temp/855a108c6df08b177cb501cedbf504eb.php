@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:64:"D:\PHPfile\GSY\public/../application/index\view\index\index.html";i:1506381953;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:60:"F:\php\GSY\public/../application/index\view\index\index.html";i:1506327864;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

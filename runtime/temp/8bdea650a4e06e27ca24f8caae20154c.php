@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:58:"F:\php\GSY\public/../application/index\view\cart\cart.html";i:1506511427;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:58:"F:\php\GSY\public/../application/index\view\cart\cart.html";i:1506512484;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -117,20 +117,17 @@
                         <script>
                             $(function () {
                                 $('#jiesuan').click(function () {
-                                    var data = document.getElementsByName('aaa');
-                                    var arr = [];
-                                    for (var i = 0; i < data.length; i++) {
-                                        arr.push(data[i].value)
-                                    }
-                                    alert(arr);
                                     $.ajax({
-                                        type: 'POST',
-                                        dataType: 'text',
-                                        data: {'goodsData': arr},
-                                        url: "<?php echo url('Cart/checkout'); ?>",
-                                        traditional: true,
-                                        success: function (d) {
-                                            alert(d);
+                                        type:'POST',
+                                        dataType:'json',
+                                        data:{},
+                                        url:"<?php echo url('Cart/check'); ?>",
+                                        success:function (d) {
+                                            if(d.login=='no'){
+                                                location.href="<?php echo url('Login/login'); ?>"
+                                            }else if(d.login=='yes'){
+                                                location.href="<?php echo url('Cart/checkout'); ?>"
+                                            }
                                         }
                                     })
                                 })
@@ -197,7 +194,13 @@
     })
     $(".goods_num").bind('input oninput', function () {
         var that = $(this);
-        var num = $(this).val();
+        var num = parseInt($(this).val());
+        if(isNaN(num)){
+            num=1;
+        }else if(num<1){
+            num=1;
+        }
+        $(this).val(num);
         var goods_id = $(this).attr('goodsid');
         $.ajax({
             type: "POST",
@@ -205,7 +208,6 @@
             data: {goods_id: goods_id, goods_num: num},
             url: "<?php echo url('Cart/changeNum'); ?>",
             success: function (data) {
-//                console.log(data['price_sum']);
                 $sum = $.makeArray(data.data['price_sum'])[0];
                 if (data.status == 'success') {
                     that.parent('.d1').parent('.sl').siblings('.xj').children("span").html(data.data['count'])[0];
