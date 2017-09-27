@@ -9,6 +9,7 @@
 namespace app\index\controller;
 
 use app\index\model\Cart as CartModel;
+use app\index\model\orderFourTable;
 use think\Controller;
 
 class Cart extends Controller
@@ -155,6 +156,133 @@ class Cart extends Controller
         $member_id = $member['member_id'];
         return $member_id;
     }
+
+     /*
+     *提交订单，判断是否已登录
+     * */
+    public function check(){
+        $res =[
+            'login'=>'',
+        ];
+        if(empty(session('index'))){
+            $res['login']='no';
+
+        }else{
+            $res['login']='yes';
+        }
+        return JSON($res);
+    }
+    /*
+     * 订单结算页
+     * */
+    public function checkout(){
+        //保存session中的member_id
+        $member=session('index');
+        $member_id=$member['member_id'];
+        //根据member_id查询cart数据表中数据
+        $res = CartModel::cartMember($member_id);
+        $sum_price= $res['sum'];//商品总价
+        $freight = 30;//运费
+        $price=$sum_price+$freight;//应付金额
+        $data =$res['data'];//商品信息
+        //剔除selected==0的商品
+        foreach ($data as $k=>$val){
+            if($val['selected']==0){
+                unset($data[$k]);
+            }
+        }
+        $count=0;//共买了多少件商品
+        foreach ($data as $k=>$v) {
+            $count +=$v['goods_num'];
+        }
+        //变量提交至模板
+        $this->assign([
+            'data'=>$data,
+            'sum_price'=>$sum_price,
+            'count'=>$count,
+            'price'=>$price,
+        ]);
+        return $this->fetch();
+    }
+    /*
+     * 订单结算结束后，付款页面
+     **/
+    public function order(){
+        //获取当前member_id
+        $member=session('index');
+        $member_id=$member['member_id'];
+        //根据member_id查询购物车商品
+        $res = CartModel::cartMember($member_id);
+        $sum_price= $res['sum'];//商品总价
+        $freight = 30;//运费
+        $price=$sum_price+$freight;//应付金额
+        $data =$res['data'];//商品信息
+        //剔除selected==0的商品
+        foreach ($data as $k=>$val){
+            if($val['selected']==0){
+                unset($data[$k]);
+            }
+        }
+        //生成订单数据
+        //生成订单号，唯一
+        $t=time();
+        $tt=date('ymd',$t);
+        $ttt=date("His",$t);
+        $randNum=rand(10000,99999);
+        $order_id=$tt.$ttt.$randNum;
+        //判断订单号是否唯一
+        $res = orderFourTable::findByOrderId($order_id);
+        if($res){
+            $t=time();
+            $tt=date('ymd',$t);
+            $ttt=date("His",$t);
+            $randNum=rand(10000,99999);
+            $order_id=$tt.$ttt.$randNum;
+        }
+        $orderData=[
+            'order_id'=>$order_id,
+            'total_amount'=>$price,//订单总价
+            'member_id'=>$member_id,
+            'status'=>0,
+            'pay_status'=>0,
+            'create_time'=>$t,
+            'last_modify'=>$t,
+        ];
+//       添加数据到订单详情表中,商品表中增加冻结库存,生成订单,删除购物车选中商品
+//        四条sql语句进行事务操作
+       $itemsData=[];//订单所有商品
+        $goodsCount=[];//所有商品的good_id
+        $cartCount=[];//所有购物车讯中商品的good_id
+        foreach ($data as $k=>$v) {
+            $itemsData[$k]=[
+                'member_id'=>$member_id,
+                'goods_id'=>$v['goods_id'],
+                'goods_num'=>$v['goods_num'],
+                'freight'=>$freight,
+                'subtotal'=>$v['price_sum'],
+            ];
+            $goodsCount[$k]=[
+                'goods_id'=>$v['goods_id'],
+                'goods_num'=> $v['goods_num'],
+            ];
+            $cartCount[$k]=$v['cart_id'];
+        }
+//        var_dump($cartCount);exit;
+        $res =  orderFourTable::submitOrder($orderData,$itemsData,$goodsCount,$cartCount);
+        if($res){
+            $this->assign([
+                'order_id'=>$order_id,
+                'total_amount'=>$price,
+            ]);
+            return $this->fetch();
+        }else{
+            $this->error('订单提交失败');
+        }
+
+
+
+    }
+
     /*
      * 改变selected值
      */

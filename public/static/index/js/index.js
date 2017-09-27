@@ -161,9 +161,6 @@ $(function () {
     //临时跳转效果
 
     //订单结算
-    $('#tijiaoBtn').click(function () {
-        location.href = 'paycenter.html';
-    });
 
 
 });

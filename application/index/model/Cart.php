@@ -73,10 +73,10 @@ class Cart extends Model
         $sum = 0;
         $cartData = db('cart')
             ->alias('c')
-            ->join('goods g', 'g.goods_id=c.goods_id', 'LEFT')
-            ->join('image i', 'c.goods_id=i.goods_id', 'LEFT')
-            ->field('g.goods_id,g.goods_name,c.goods_num,i.image_s_url,g.sell_price,c.selected')
-            ->where(['c.member_id' => $memberId, 'i.is_face' => 1])
+            ->join('goods g','g.goods_id=c.goods_id','left')
+            ->join('image i','i.goods_id=c.goods_id','left')
+            ->field('g.goods_id,g.goods_name,c.goods_num,i.image_s_url,g.sell_price,c.selected,c.cart_id')
+            ->where(['c.member_id'=>$memberId,'i.is_face'=>1])
             ->select();
         //遍历数组，将数值键名改为 goods_id
         foreach ($cartData as $k => $v) {
