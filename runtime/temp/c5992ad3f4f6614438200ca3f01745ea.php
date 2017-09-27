@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"D:\PHPfile\GSY\public/../application/index\view\cart\cart.html";i:1506497922;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"D:\PHPfile\GSY\public/../application/index\view\cart\cart.html";i:1506510512;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -171,7 +171,13 @@
     //直接输入数量实时触发的事件
     $(".goods_num").bind('input oninput', function () {
         var that = $(this);
-        var num = $(this).val();
+        var num = parseInt($(this).val());
+        if(isNaN(num)){
+            num=1;
+        }else if(num<1){
+            num=1;
+        }
+        $(this).val(num);
         var goods_id = $(this).attr('goodsid');
         $.ajax({
             type: "POST",
@@ -179,7 +185,6 @@
             data: {goods_id: goods_id, goods_num: num},
             url: "<?php echo url('Cart/changeNum'); ?>",
             success: function (data) {
-//                console.log(data['price_sum']);
                 $sum = $.makeArray(data.data['price_sum'])[0];
                 if (data.status == 'success') {
                     that.parent('.d1').parent('.sl').siblings('.xj').children("span").html(data.data['count'])[0];
