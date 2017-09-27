@@ -66,10 +66,11 @@ class Cart extends Model{
             ->join('goods g','g.goods_id=c.goods_id','left')
             ->join('image i','i.goods_id=c.goods_id','left')
             ->field('g.goods_id,g.goods_name,c.goods_num,i.image_s_url,g.sell_price,c.selected')
-            ->where(['c.member_id'=>$memberId])
+            ->where(['c.member_id'=>$memberId,'i.is_face'=>'1'])
             ->select();
         foreach ($cartData as $k=>$v){
             $cartData[$k]['price_sum']=$cartData[$k]['goods_num']*$cartData[$k]['sell_price'];
+            //计算选中的商品的总价格
             if($cartData[$k]['selected']==1){
                 $sum+=$cartData[$k]['price_sum'];
             }
@@ -83,6 +84,7 @@ class Cart extends Model{
     static public function addOrigin($data,$member_id){
         foreach ($data as $v){
             $v['member_id']=$member_id;
+
             $goodsData=db('cart')->where(['goods_id'=>$v['goods_id'],'member_id'=>$member_id])->find();
 
             if($goodsData){
