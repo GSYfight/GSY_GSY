@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:58:"E:\PHP\GSY\public/../application/index\view\cart\cart.html";i:1506482053;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:58:"E:\PHP\GSY\public/../application/index\view\cart\cart.html";i:1506511987;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,7 +65,7 @@
             <table>
                 <tr class="tr1">
                     <td class="cb">
-                        <input type="checkbox" name="" checked="checked" class="chk chk_all">
+                        <input type="checkbox" name=""  id="chk_all" class="chk chk_all">
                     </td>
                     <td class="sp">商品</td>
                     <td class="sj">售价</td>
@@ -76,9 +76,7 @@
                 <?php foreach($data as $v): ?>
                 <tr>
                     <td class="cb">
-
-                        <input type="checkbox" name="aaa" checked="checked" class="chk" value="<?php echo $v['goods_id']; ?>">
-
+                        <input type="checkbox" name="" <?php if($v['selected'] == 1): ?> checked="checked" <?php endif; ?> class="checkbox chk" goodsid="<?php echo $v['goods_id']; ?>">
                     </td>
                     <td class="sp">
                         <img src="<?php echo $v['image_s_url']; ?>" alt="<?php echo $v['goods_name']; ?>"
@@ -119,7 +117,6 @@
                         <script>
                             $(function () {
                                 $('#jiesuan').click(function () {
-                                    var money=parseInt($('#allMoneyOne').text());
                                     $.ajax({
                                         type:'POST',
                                         dataType:'json',
@@ -144,15 +141,13 @@
                     <h2>金额明细</h2>
                     <ul>
                         <li class="li1"><span class="left">商品小计</span><span class="right">￥<span
-                                class="allMoney"><?php echo $sum; ?></span></span></li>
+                                id="allMoney4" class="allMoney"><?php echo $sum; ?></span></span></li>
                         <li class="li2">
                             <hr>
                         </li>
-                        <li class="li3"><span class="left ">购买金额</span><span class="right">￥<span class="allMoney"
-                                                                                                  id="allMoneytwo"><?php echo $sum; ?></span></span>
+                        <li class="li3"><span class="left ">购买金额</span><span class="right">￥<span class="allMoney" id="allMoneytwo"><?php echo $sum; ?></span></span>
                         </li>
-                        <li><span class="left">可得积分</span><span class="right"><span
-                                class="allMoney" id="allMoneythr"><?php echo $sum; ?></span>点</span></li>
+                        <li><span class="left">可得积分</span><span class="right"><span class="allMoney" id="allMoneythr"><?php echo $sum; ?></span>点</span></li>
                     </ul>
                     <button class="btn1">查看优惠详情</button>
                 </div>
@@ -168,18 +163,26 @@
 <div class="customerBtn"></div>
 </body>
 <script>
-    $(".goods_num").bind('input oninput', function () {
-        var that = $(this);
-        var num = $(".goods_num").val();
+    $("#chk_all").change(function () {
+        //val是当前属性值
+        if ($(this).prop('checked')){
+            $(".checkbox").prop('checked',true);
+        }else {
+            $(".checkbox").prop('checked',false);
+        }
+    });
+    $(".checkbox").change(function () {
+        if ($(this).prop('checked')==false){
+            $("#chk_all").prop('checked',false);
+        }
         var goods_id = $(this).attr('goodsid');
         $.ajax({
-            type: "POST",
-            datatype: "json",
-            data: {goods_id: goods_id, goods_num: num},
-            url: "<?php echo url('Cart/add'); ?>",
+            type:'POST',
+            dataType:'json',
+            data:{goods_id: goods_id},
+            url:"<?php echo url('Cart/checkSelected'); ?>",
             success: function (data) {
                 if (data.status == 'success') {
-                    that.parent('.d1').parent('.sl').siblings('.xj').children("span").html($.makeArray(data.data[goods_id].price_sum)[0]);
                     $("#allMoneyOne").html(data.sum);
                     $("#allMoneytwo").html(data.sum);
                     $("#allMoneythr").html(data.sum);
@@ -187,13 +190,40 @@
 
                 }
             },
-        })
+        });
     })
+    $(".goods_num").bind('input oninput', function () {
+        var that = $(this);
+        var num = parseInt($(this).val());
+        if(isNaN(num)){
+            num=1;
+        }else if(num<1){
+            num=1;
+        }
+        $(this).val(num);
+        var goods_id = $(this).attr('goodsid');
+        $.ajax({
+            type: "POST",
+            datatype: "json",
+            data: {goods_id: goods_id, goods_num: num},
+            url: "<?php echo url('Cart/changeNum'); ?>",
+            success: function (data) {
+                $sum = $.makeArray(data.data['price_sum'])[0];
+                if (data.status == 'success') {
+                    that.parent('.d1').parent('.sl').siblings('.xj').children("span").html(data.data['count'])[0];
+                    $(".allMoney").html($sum);
+                } else {
+
+                }
+            }
+        })
+    });
+    //总结结算的事件
     $(".sum_bun").click(function (e) {
         var that = $(this);
         e = e || window.event;
         e.preventDefault();
-        var a = -1
+        var a = -1;
         var num = parseInt($(this).siblings(".goods_num").val()) - 1;
         if (num < 1) {
             $(this).css({'cursor': 'no-drop'});
@@ -211,14 +241,13 @@
             success: function (data) {
                 if (data.status == 'success') {
                     that.parent('.d1').parent('.sl').siblings('.xj').children("span").html($.makeArray(data.data[goods_id].price_sum)[0]);
-                    $("#allMoneyOne").html(data.sum);
-                    $("#allMoneytwo").html(data.sum);
-                    $("#allMoneythr").html(data.sum);
+                    $(".allMoney").html(data.sum);
                 } else {
                 }
-            },
+            }
         })
     });
+    //添加按钮点击事件
     $(".add_bun").click(function (e) {
         var that = $(this);
         e = e || window.event;
@@ -227,6 +256,7 @@
         $(this).siblings(".goods_num").val(num + 1).siblings(".sum_bun").css({'cursor': 'pointer'});
         num = parseInt($(this).siblings(".goods_num").val());
         var goods_id = $(this).attr('goodsid');
+
         $.ajax({
             type: "POST",
             datatype: "json",
@@ -235,15 +265,14 @@
             success: function (data) {
                 if (data.status == 'success') {
                     that.parent('.d1').parent('.sl').siblings('.xj').children("span").html($.makeArray(data.data[goods_id].price_sum)[0]);
-                    $("#allMoneyOne").html(data.sum);
-                    $("#allMoneytwo").html(data.sum);
-                    $("#allMoneythr").html(data.sum);
+                    $(".allMoney").html(data.sum);
                 } else {
 
                 }
-            },
+            }
         })
     });
+    //删除商品点击事件
     $(".delOneGoods").click(function (e) {
         e = e || window.event;
         e.preventDefault();
@@ -259,9 +288,11 @@
                 } else {
 
                 }
-            },
+            }
         })
     })
+
+
 
 </script>
 </html>

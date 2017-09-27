@@ -179,6 +179,9 @@ class Cart extends Controller
         //保存session中的member_id
         $member=session('index');
         $member_id=$member['member_id'];
+        if(!$member){
+            $this->redirect('Index/index');
+        }
         //根据member_id查询cart数据表中数据
         $res = CartModel::cartMember($member_id);
         $sum_price= $res['sum'];//商品总价
@@ -211,6 +214,9 @@ class Cart extends Controller
         //获取当前member_id
         $member=session('index');
         $member_id=$member['member_id'];
+        if(!$member){
+            $this->redirect('Index/index');
+        }
         //根据member_id查询购物车商品
         $res = CartModel::cartMember($member_id);
         $sum_price= $res['sum'];//商品总价
