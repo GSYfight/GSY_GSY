@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:68:"D:\PHPfile\GSY\public/../application/index\view\product\product.html";i:1506423648;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:68:"D:\PHPfile\GSY\public/../application/index\view\product\product.html";i:1506511423;}*/ ?>
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -272,7 +272,7 @@ $("#goods_add").click(function (e) {
 $("#add_cart").click(function () {
     var goods_id=$("#goods_num").attr('goodsid');
     var goods_num=$("#goods_num").val();
-//    alert(goods_num);
+
     $.ajax({
         type:"POST",
         datatype:"json",

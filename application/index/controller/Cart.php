@@ -185,6 +185,14 @@ class Cart extends Controller
         $freight = 30;//运费
         $price=$sum_price+$freight;//应付金额
         $data =$res['data'];//商品信息
+        $country_id=1;
+        $province_id=2;
+        $city_id=52;
+        //获取区域表所有数据
+        $province=CartModel::province($country_id);
+        $city=CartModel::city($province_id);
+        $area=CartModel::area($city_id);
+//        dump($province);exit;
         //剔除selected==0的商品
         foreach ($data as $k=>$val){
             if($val['selected']==0){
@@ -201,8 +209,17 @@ class Cart extends Controller
             'sum_price'=>$sum_price,
             'count'=>$count,
             'price'=>$price,
+            'province'=>$province,
+            'city'=>$city,
+            'area'=>$area,
         ]);
         return $this->fetch();
+    }
+    //找地区Id
+    public function areaId(){
+        $area_id=input('province_id');
+        $areaData=CartModel::areaId($area_id);
+        return json($areaData);
     }
     /*
      * 订单结算结束后，付款页面
@@ -337,4 +354,5 @@ class Cart extends Controller
           'data'=>$datas
         ];
     }
+
 }

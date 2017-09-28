@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"D:\PHPfile\GSY\public/../application/index\view\cart\cart.html";i:1506510512;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"D:\PHPfile\GSY\public/../application/index\view\cart\cart.html";i:1506512075;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,7 +65,7 @@
             <table>
                 <tr class="tr1">
                     <td class="cb">
-                        <input type="checkbox" name="" checked="checked" class="chk chk_all">
+                        <input type="checkbox" name=""  id="chk_all" class="chk chk_all">
                     </td>
                     <td class="sp">商品</td>
                     <td class="sj">售价</td>
@@ -76,9 +76,7 @@
                 <?php foreach($data as $v): ?>
                 <tr>
                     <td class="cb">
-
-                        <input type="checkbox" name="aaa" checked="checked" class="chk" value="<?php echo $v['goods_id']; ?>">
-
+                        <input type="checkbox" name="" <?php if($v['selected'] == 1): ?> checked="checked" <?php endif; ?> class="checkbox chk" goodsid="<?php echo $v['goods_id']; ?>">
                     </td>
                     <td class="sp">
                         <img src="<?php echo $v['image_s_url']; ?>" alt="<?php echo $v['goods_name']; ?>"
@@ -119,20 +117,17 @@
                         <script>
                             $(function () {
                                 $('#jiesuan').click(function () {
-                                    var data = document.getElementsByName('aaa');
-                                    var arr = [];
-                                    for (var i = 0; i < data.length; i++) {
-                                        arr.push(data[i].value)
-                                    }
-                                    alert(arr);
                                     $.ajax({
-                                        type: 'POST',
-                                        dataType: 'text',
-                                        data: {'goodsData': arr},
-                                        url: "<?php echo url('Cart/checkout'); ?>",
-                                        traditional: true,
-                                        success: function (d) {
-                                            alert(d);
+                                        type:'POST',
+                                        dataType:'json',
+                                        data:{},
+                                        url:"<?php echo url('Cart/check'); ?>",
+                                        success:function (d) {
+                                            if(d.login=='no'){
+                                                location.href="<?php echo url('Login/login'); ?>"
+                                            }else if(d.login=='yes'){
+                                                location.href="<?php echo url('Cart/checkout'); ?>"
+                                            }
                                         }
                                     })
                                 })
@@ -168,7 +163,35 @@
 <div class="customerBtn"></div>
 </body>
 <script>
-    //直接输入数量实时触发的事件
+    $("#chk_all").change(function () {
+        //val是当前属性值
+        if ($(this).prop('checked')){
+            $(".checkbox").prop('checked',true);
+        }else {
+            $(".checkbox").prop('checked',false);
+        }
+    });
+    $(".checkbox").change(function () {
+        if ($(this).prop('checked')==false){
+            $("#chk_all").prop('checked',false);
+        }
+        var goods_id = $(this).attr('goodsid');
+        $.ajax({
+            type:'POST',
+            dataType:'json',
+            data:{goods_id: goods_id},
+            url:"<?php echo url('Cart/checkSelected'); ?>",
+            success: function (data) {
+                if (data.status == 'success') {
+                    $("#allMoneyOne").html(data.sum);
+                    $("#allMoneytwo").html(data.sum);
+                    $("#allMoneythr").html(data.sum);
+                } else {
+
+                }
+            },
+        });
+    })
     $(".goods_num").bind('input oninput', function () {
         var that = $(this);
         var num = parseInt($(this).val());
@@ -268,6 +291,8 @@
             }
         })
     })
+
+
 
 </script>
 </html>
