@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"F:\php\GSY\public/../application/index\view\widget\header.html";i:1506511068;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:60:"F:\php\GSY\public/../application/index\view\index\index.html";i:1506327864;s:62:"F:\php\GSY\public/../application/index\view\widget\header.html";i:1506523676;}*/ ?>
 <header id="header" class="head">
     <a href="<?php echo url('Index/index'); ?>">
         <div class="icon fl"></div>
@@ -118,7 +118,7 @@
                         <p style="text-align: center;font-size: 12px;">友善会员</p>
                         <a href="">200分</a>
                     </div>
-                    <a href="<?php echo url('Login/login'); ?>">
+                    <a href="<?php echo url('Personal/index'); ?>">
                         <button style="height: 40px;width: 200px;text-align: center">个人中心</button>
                     </a>
                     <hr>
