@@ -1,12 +1,8 @@
 <!DOCTYPE html>
-<!-- saved from url=(0037)https://www.yimishiji.com/member.html -->
 <html lang="zh-CN" slick-uniqueid="4">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-
     <meta name="viewport" content="width=1300">
-
     <script charset="utf-8" src="__STATIC__/index/files/v.js"></script>
     <script type="text/javascript" async="" src="__STATIC__/index/files/analytics.js"></script>
     <script src="__STATIC__/index/files/hm.js"></script>
@@ -28,30 +24,9 @@
     <link rel="shortcut icon" href="https://www.yimishiji.com/public/app/b2c/statics/favicon.ico" type="image/x-icon">
     <link href="__STATIC__/index/files/basic.min.css" rel="stylesheet" media="screen, projection">
     <script src="__STATIC__/index/files/lang(1).js"></script>
-    <script>
-        var Shop = {
-            "url": {
-                "shipping": "\/cart-shipping.html",
-                "total": "\/cart-total.html",
-                "region": "\/tools-selRegion.html",
-                "payment": "\/cart-payment.html",
-                "purchase_shipping": "\/cart-purchase_shipping.html",
-                "purchase_def_addr": "\/cart-purchase_def_addr.html",
-                "purchase_payment": "\/cart-purchase_payment.html",
-                "get_default_info": "\/cart-get_default_info.html",
-                "diff": "\/product-diff.html",
-                "fav_url": "\/member-ajax_fav.html",
-                "datepicker": "https:\/\/www.yimishiji.com\/public\/app\/site\/statics\/js_mini",
-                "placeholder": "https:\/\/www.yimishiji.com\/public\/app\/b2c\/statics\/images\/imglazyload.gif"
-            }, "base_url": "\/"
-        };
-    </script>
     <link href="__STATIC__/index/files/bootstrap.min.css" rel="stylesheet" media="screen, projection">
     <link href="__STATIC__/index/files/bootstrap-theme.min.css" rel="stylesheet" media="screen, projection">
     <script src="__STATIC__/index/files/shop.min.js"></script>
-    <script src="__STATIC__/index/files/jquery-1.12.0.min.js"></script>
-    <script src="__STATIC__/index/files/common-index.js"></script>
-    <link rel="stylesheet" href="__STATIC__/index/files/widgetsproinstance-get_css-yimi-bWVtYmVyLSgxKS5odG1s.html">
     <link rel="stylesheet" href="__STATIC__/index/files/styles-1200.css">
     <link rel="stylesheet" href="__STATIC__/index/files/styles-yimi.css">
     <link rel="stylesheet" href="__STATIC__/index/files/member-1200.css">
@@ -71,7 +46,6 @@
     <div id="container" class="page-container mb-wrap clearfix">
         <div class="inner-wrap">
             <div class="bread-crumbs">
-
             </div>
             <div id="main" class="clearfix">
                 <!-- 左栏 -->
@@ -202,8 +176,6 @@
 
                             </div>
                             <!-- 用户大头与名称 -->
-
-
                             <!-- 用户资讯表 -->
                             <div class="row ac_infoList">
                                 <div class="col-md-6">
@@ -233,7 +205,6 @@
                                         </div>
                                     </div>
                                     <!-- 用户等级 -->
-
                                     <!-- 用户预存款 -->
                                     <div class="row">
                                         <div class="col-md-3">
@@ -249,32 +220,26 @@
                                         </div>
                                     </div>
                                     <!-- 用户预存款 -->
-
-
                                 </div>
                                 <div class="col-md-6">
-
                                     <!-- 订单 -->
                                     <div class="row">
                                         <div class="col-md-3">
                                             <p>交易提醒</p>
                                         </div>
                                         <div class="col-md-9">
-
                                             <p>
                                                 <a class="item"
                                                    href="https://www.yimishiji.com/member-orders-payment-1.html">未付款订单
                                                     <span class="label-disabled">0</span>
                                                 </a>
                                             </p>
-
                                             <p>
                                                 <a class="item"
                                                    href="https://www.yimishiji.com/member-orders-preorder.html"> 预售订单
                                                     <span class="label-alert"></span>
                                                 </a>
                                             </p>
-
                                             <p>
                                                 <a class="item" href="https://www.yimishiji.com/member-notify.html">到货通知
                                                     <span class="label-disabled">0</span>
@@ -286,26 +251,19 @@
                                                     <span class="label-disabled">0</span>
                                                 </a>
                                             </p>
-
-
                                         </div>
                                     </div>
                                     <!-- 订单 -->
-
                                 </div>
                             </div>
                             <!-- 用户资讯表 -->
-
                         </div>
-
                     </div>
-
                     <!-- 最近的订单 -->
                     <div class="ac_sectionHeader">最近的订单
                         <a href="https://www.yimishiji.com/member-orders.html">所有订单 <span
                                 class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
                     </div>
-
                     <div id="member_orders" class="ac_section">
                         <table class="table ac_table ac_orderTable">
                             <thead>
@@ -328,53 +286,7 @@
                         </table>
                     </div>
                     <!-- 最近的订单 -->
-
                 </div>
-                <script>
-
-                    var submit = $('member_welcome').getElement('button[type=submit]');
-
-                    function ajax_callback(type, msg, url) {
-                        if (type == 'error') {
-                            submit.removeClass('disabled');
-                        }
-                        return top.Message(msg, type, function () {
-                            if (url) location.href = url;
-                        });
-                    }
-
-                    function tijiao() {
-                        $('member_welcome').submit();
-                    }
-                </script>
-                <script>
-                    var submit = $('write_admin').getElement('button[type=submit]');
-
-                    function ajax_callback(type, msg, url) {
-                        if (type == 'error') {
-                            //dialog.hide.delay(3000, dialog);
-                            submit.removeClass('disabled');
-                        }
-                        $$('.popup-container').setStyle('display', 'none');
-                        $$('.cover').setStyle('display', 'none');
-                        return top.Message(msg, type, function () {
-                            //dialog.hide.delay(3000, dialog);
-                            if (url) location.href = url;
-                        });
-                    }
-
-                    function write_letter() {
-                        var dialog = new Dialog($('write_admin').wrapped(), {
-                            title: '头像上传',
-                            width: 420,
-                            modal: {
-                                'class': 'cover'
-                            },
-
-                        });
-                    }
-
-                </script>
             </div>
         </div>
     </div>
@@ -386,36 +298,8 @@
         </ul>
     </div>
     <div class="to_top"></div>
-
-    <a onclick="javascript:window.open (&#39;http://a1.7x24cc.com/phone_webChat.html?accountId=N000000007766&amp;chatId=ymsj-fafcac20-4d7e-11e6-b3e8-9f0e86ae5798&#39;,&#39;&#39;, &#39;height=500, width=550, top=100 ,left=400, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no&#39;) "
-       target="_self" class="kefu_new"></a>
-
-    <script>
-        $j = $j || jQuery.noConflict();
-        (function () {
-            var im = $('im_bar'), top = document.querySelector('.to_top');
-            setImTop();
-
-            function setImTop() {
-                im.tween('top', $(document.body).getScroll().y + 300);
-            }
-
-            var body_height = document.documentElement.clientHeight || document.body.offsetHeight;
-            top.addEvent("click", function () {
-                $j(document.body).animate({'scrollTop': '0'}, 1000);
-            });
-            window.addEvent('scroll', function () {
-                if (document.body.scrollTop > body_height) {
-                    $j(top).addClass("show");
-                } else {
-                    $j(top).removeClass("show");
-                }
-                setImTop();
-            });
-        })();
-    </script>
 </div>
 
 {:widget('Widget/footer')}
-    </body>
+</body>
 </html>

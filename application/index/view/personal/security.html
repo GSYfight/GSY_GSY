@@ -1,12 +1,8 @@
 <!DOCTYPE html>
-<!-- saved from url=(0052)https://www.yimishiji.com/member-securitycenter.html -->
 <html lang="zh-CN" slick-uniqueid="4">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-
     <meta name="viewport" content="width=1300">
-
     <script type="text/javascript" async="" src="__STATIC__/index/security/analytics.js"></script>
     <script charset="utf-8" src="__STATIC__/index/security/v.js"></script>
     <script src="__STATIC__/index/security/hm.js"></script>
@@ -28,30 +24,9 @@
     <link rel="shortcut icon" href="https://www.yimishiji.com/public/app/b2c/statics/favicon.ico" type="image/x-icon">
     <link href="__STATIC__/index/security/basic.min.css" rel="stylesheet" media="screen, projection">
     <script src="__STATIC__/index/security/lang(1).js"></script>
-    <script>
-        var Shop = {
-            "url": {
-                "shipping": "\/cart-shipping.html",
-                "total": "\/cart-total.html",
-                "region": "\/tools-selRegion.html",
-                "payment": "\/cart-payment.html",
-                "purchase_shipping": "\/cart-purchase_shipping.html",
-                "purchase_def_addr": "\/cart-purchase_def_addr.html",
-                "purchase_payment": "\/cart-purchase_payment.html",
-                "get_default_info": "\/cart-get_default_info.html",
-                "diff": "\/product-diff.html",
-                "fav_url": "\/member-ajax_fav.html",
-                "datepicker": "https:\/\/www.yimishiji.com\/public\/app\/site\/statics\/js_mini",
-                "placeholder": "https:\/\/www.yimishiji.com\/public\/app\/b2c\/statics\/images\/imglazyload.gif"
-            }, "base_url": "\/"
-        };
-    </script>
     <link href="__STATIC__/index/security/bootstrap.min.css" rel="stylesheet" media="screen, projection">
     <link href="__STATIC__/index/security/bootstrap-theme.min.css" rel="stylesheet" media="screen, projection">
     <script src="__STATIC__/index/security/shop.min.js"></script>
-    <script src="__STATIC__/index/security/jquery-1.12.0.min.js"></script>
-    <script src="__STATIC__/index/security/common-index.js"></script>
-    <link rel="stylesheet" href="__STATIC__/index/security/widgetsproinstance-get_css-yimi-bWVtYmVyLSgxKS5odG1s.html">
     <link rel="stylesheet" href="__STATIC__/index/security/styles-1200.css">
     <link rel="stylesheet" href="__STATIC__/index/security/styles-yimi.css">
     <link rel="stylesheet" href="__STATIC__/index/security/member-1200.css">
@@ -71,7 +46,6 @@
 <div id="container" class="page-container mb-wrap clearfix">
     <div class="inner-wrap">
         <div class="bread-crumbs">
-
         </div>
         <div id="main" class="clearfix">
             <!-- 左栏 -->
@@ -148,7 +122,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- 会员中心主内容区 -->
             <div class="page-article">
                 <!-- 个人信息 -->
@@ -229,66 +202,8 @@
     </ul>
 </div>
 <div class="to_top"></div>
-<script>
-    $j = $j || jQuery.noConflict();
-    (function () {
-        var im = $('im_bar'), top = document.querySelector('.to_top');
-        setImTop();
-
-        function setImTop() {
-            im.tween('top', $(document.body).getScroll().y + 300);
-        }
-
-        var body_height = document.documentElement.clientHeight || document.body.offsetHeight;
-        top.addEvent("click", function () {
-            $j(document.body).animate({'scrollTop': '0'}, 1000);
-        });
-        window.addEvent('scroll', function () {
-            if (document.body.scrollTop > body_height) {
-                $j(top).addClass("show");
-            } else {
-                $j(top).removeClass("show");
-            }
-            setImTop();
-        });
-    })();
-</script>
-
-
 </div>
     {:widget('Widget/footer')}
-
-
-    <script>
-        $$('.menu-cat .tgnavs .cat a').setStyle('background', 'none');
-    </script>
-
-    <!--<script type="text/javascript">-->
-
-
-    <!--</script>-->
-
-
-    <script>
-        var _hmt = _hmt || [];
-        (function () {
-            var hm = document.createElement("script");
-            hm.src = "//hm.baidu.com/hm.js?3f5727f3ee4928b60435ab8698c89360";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
-    <script>
-        tleft = $$('.page-aside').getSize();
-        tmain = $$('.page-article').getSize();
-
-        if (tleft[0].y > tmain[0].y) {
-            //$$('.page-article').setStyle('height',$('main').getSize().y);
-        }
-        if (tleft[0].y < tmain[0].y) {
-            $$('.page-aside').setStyle('height', $('main').getSize().y);
-        }
-    </script>
 
 </body>
 </html>

@@ -1,12 +1,8 @@
 <!DOCTYPE html>
-<!-- saved from url=(0044)https://www.yimishiji.com/member-orders.html -->
 <html lang="zh-CN" slick-uniqueid="4">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-
     <meta name="viewport" content="width=1300">
-
     <script charset="utf-8" src="__STATIC__/index/order/v.js"></script>
     <script type="text/javascript" async="" src="__STATIC__/index/order/analytics.js"></script>
     <script src="__STATIC__/index/order/hm.js"></script>
@@ -28,30 +24,9 @@
     <link rel="shortcut icon" href="https://www.yimishiji.com/public/app/b2c/statics/favicon.ico" type="image/x-icon">
     <link href="__STATIC__/index/order/basic.min.css" rel="stylesheet" media="screen, projection">
     <script src="__STATIC__/index/order/lang(1).js"></script>
-    <script>
-        var Shop = {
-            "url": {
-                "shipping": "\/cart-shipping.html",
-                "total": "\/cart-total.html",
-                "region": "\/tools-selRegion.html",
-                "payment": "\/cart-payment.html",
-                "purchase_shipping": "\/cart-purchase_shipping.html",
-                "purchase_def_addr": "\/cart-purchase_def_addr.html",
-                "purchase_payment": "\/cart-purchase_payment.html",
-                "get_default_info": "\/cart-get_default_info.html",
-                "diff": "\/product-diff.html",
-                "fav_url": "\/member-ajax_fav.html",
-                "datepicker": "https:\/\/www.yimishiji.com\/public\/app\/site\/statics\/js_mini",
-                "placeholder": "https:\/\/www.yimishiji.com\/public\/app\/b2c\/statics\/images\/imglazyload.gif"
-            }, "base_url": "\/"
-        };
-    </script>
     <link href="__STATIC__/index/order/bootstrap.min.css" rel="stylesheet" media="screen, projection">
     <link href="__STATIC__/index/order/bootstrap-theme.min.css" rel="stylesheet" media="screen, projection">
     <script src="__STATIC__/index/order/shop.min.js"></script>
-    <script src="__STATIC__/index/order/jquery-1.12.0.min.js"></script>
-    <script src="__STATIC__/index/order/common-index.js"></script>
-    <link rel="stylesheet" href="__STATIC__/index/order/widgetsproinstance-get_css-yimi-bWVtYmVyLSgxKS5odG1s.html">
     <link rel="stylesheet" href="__STATIC__/index/order/styles-1200.css">
     <link rel="stylesheet" href="__STATIC__/index/order/styles-yimi.css">
     <link rel="stylesheet" href="__STATIC__/index/order/member-1200.css">
@@ -272,8 +247,6 @@
                         </table>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
@@ -285,31 +258,6 @@
         </ul>
     </div>
     <div class="to_top"></div>
-    <script>
-        $j = $j || jQuery.noConflict();
-        (function () {
-            var im = $('im_bar'), top = document.querySelector('.to_top');
-            setImTop();
-
-            function setImTop() {
-                im.tween('top', $(document.body).getScroll().y + 300);
-            }
-
-            var body_height = document.documentElement.clientHeight || document.body.offsetHeight;
-            top.addEvent("click", function () {
-                $j(document.body).animate({'scrollTop': '0'}, 1000);
-            });
-            window.addEvent('scroll', function () {
-                if (document.body.scrollTop > body_height) {
-                    $j(top).addClass("show");
-                } else {
-                    $j(top).removeClass("show");
-                }
-                setImTop();
-            });
-        })();
-    </script>
-
 </div>
 {:widget('Widget/footer')}
     </body>
