@@ -179,12 +179,23 @@ class Cart extends Controller
         //保存session中的member_id
         $member=session('index');
         $member_id=$member['member_id'];
+        if(!$member){
+            $this->redirect('Index/index');
+        }
         //根据member_id查询cart数据表中数据
         $res = CartModel::cartMember($member_id);
         $sum_price= $res['sum'];//商品总价
         $freight = 30;//运费
         $price=$sum_price+$freight;//应付金额
         $data =$res['data'];//商品信息
+        $country_id=1;
+        $province_id=2;
+        $city_id=52;
+        //获取区域表所有数据
+        $province=CartModel::province($country_id);
+        $city=CartModel::city($province_id);
+        $area=CartModel::area($city_id);
+//        dump($province);exit;
         //剔除selected==0的商品
         foreach ($data as $k=>$val){
             if($val['selected']==0){
@@ -201,8 +212,17 @@ class Cart extends Controller
             'sum_price'=>$sum_price,
             'count'=>$count,
             'price'=>$price,
+            'province'=>$province,
+            'city'=>$city,
+            'area'=>$area,
         ]);
         return $this->fetch();
+    }
+    //找地区Id
+    public function areaId(){
+        $area_id=input('province_id');
+        $areaData=CartModel::areaId($area_id);
+        return json($areaData);
     }
     /*
      * 订单结算结束后，付款页面
@@ -211,6 +231,9 @@ class Cart extends Controller
         //获取当前member_id
         $member=session('index');
         $member_id=$member['member_id'];
+        if(!$member){
+            $this->redirect('Index/index');
+        }
         //根据member_id查询购物车商品
         $res = CartModel::cartMember($member_id);
         $sum_price= $res['sum'];//商品总价
@@ -337,4 +360,5 @@ class Cart extends Controller
           'data'=>$datas
         ];
     }
+
 }
