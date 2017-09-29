@@ -93,5 +93,8 @@ class Personal extends Controller{
         ]);
         return $this->fetch();
     }
+    public function address(){
+        return $this->fetch('personal/address');
+    }
 
 }

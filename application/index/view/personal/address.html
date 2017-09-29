@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)https://www.yimishiji.com/member-receiver.html -->
+<html lang="zh-CN" slick-uniqueid="4">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script charset="utf-8" src="__STATIC__/index/address/v.js"></script>
+    <script type="text/javascript" async="" src="__STATIC__/index/address/analytics.js"></script>
+    <script src="__STATIC__/index/address/hm.js"></script>
+    <script src="__STATIC__/index/address/region.js"></script>
+    <script src="__STATIC__/index/address/region_data.js"></script>
+
+
+    <meta name="viewport" content="width=1300">
+
+    <script src="__STATIC__/index/address/push.js"></script>
+    <script async="" src="__STATIC__/index/address/gtm.js"></script>
+    <script src="__STATIC__/index/address/lang.js"></script>
+    <link href="__STATIC__/index/address/typical.css" rel="stylesheet" media="screen, projection">
+    <link href="__STATIC__/index/address/bootstrap.min.css" rel="stylesheet" media="screen, projection">
+    <link href="__STATIC__/index/address/bootstrap-theme.min.css" rel="stylesheet" media="screen, projection">
+    <script src="__STATIC__/index/address/moo.min.js"></script>
+    <style type="text/css" abt="234"></style>
+    <script src="__STATIC__/index/address/ui.min.js"></script>
+    <script src="__STATIC__/index/address/jquery-1.12.0.min.js"></script>
+    <script src="__STATIC__/index/address/common-index.js"></script>
+    <title>个人中心_一米市集</title>
+    <meta name="keywords" content="个人中心__一米市集">
+    <meta name="description" content="个人中心__一米市集">
+    <link rel="icon" href="https://www.yimishiji.com/public/app/b2c/statics/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="https://www.yimishiji.com/public/app/b2c/statics/favicon.ico" type="image/x-icon">
+    <link href="__STATIC__/index/address/basic.min.css" rel="stylesheet" media="screen, projection">
+    <script src="__STATIC__/index/address/lang(1).js"></script>
+    <link href="__STATIC__/index/address/bootstrap.min.css" rel="stylesheet" media="screen, projection">
+    <link href="__STATIC__/index/address/bootstrap-theme.min.css" rel="stylesheet" media="screen, projection">
+    <script src="__STATIC__/index/address/shop.min.js"></script>
+    <script src="__STATIC__/index/address/jquery-1.12.0.min.js"></script>
+    <script src="__STATIC__/index/address/common-index.js"></script>
+    <link rel="stylesheet" href="__STATIC__/index/address/widgetsproinstance-get_css-yimi-bWVtYmVyLSgxKS5odG1s.html">
+    <link rel="stylesheet" href="__STATIC__/index/address/styles-1200.css">
+    <link rel="stylesheet" href="__STATIC__/index/address/styles-yimi.css">
+    <link rel="stylesheet" href="__STATIC__/index/address/member-1200.css">
+    <link rel="stylesheet" href="__STATIC__/index/./css/index.css">
+    <link rel="icon" href="__STATIC__/index/./img/favicon.ico" type="image/x-ico"/>
+</head>
+<body class="hid-nav">
+{:widget('Widget/header')}
+
+<div id="container" class="page-container mb-wrap clearfix">
+    <div class="inner-wrap">
+        <div class="bread-crumbs">
+
+        </div>
+        <div id="main" class="clearfix">
+            <!-- 左栏 -->
+            {:widget('Widget/left')}
+
+            <!-- 会员中心主内容区 -->
+            <div class="page-article">
+                <!-- 我的订单 -->
+                <div id="member_address" class="member-address">
+
+                    <div id="member_address_title" class="member-title" style="display:block;">
+                        <div class="address-actions">
+                            <button type="button" class="btn btn-default action-add-address active">添加收货地址</button>
+                        </div>
+                    </div>
+
+
+                    <!-- 修改收货地址 -->
+                    <div id="member_address_submit" class="member-address-submit address-add">
+                        <form action="https://www.yimishiji.com/member-save_rec.html" method="post"
+                              class="form-handling form-horizontal" id="member_address_form">
+                            <input type="hidden" value="" name="addr_id">
+
+
+                            <!-- bootstrap form groups -->
+                            <div class="form-group">
+                                <label for="area" class="col-sm-2 control-label">收货地区</label>
+                                <div class="col-sm-10">
+                                    <span class="region" vtype="area" id="dom_el_8e11de1">
+                                        <input name="area" package="mainland" type="hidden" value="">
+                                        <select data-level-index="0" class="x-select">
+                                            <option value="_NULL_">请选择</option>
+                                            <option value="21" data-level-index="0">上海</option>
+                                            <option value="45" data-level-index="1">其他</option>
+                                        </select>
+                                        <select data-level-index="1" class="x-select" style="display:none;"></select>
+                                        <select data-level-index="2" class="x-select" style="display:none;"></select>
+                                    </span>
+                                    <script>
+                                        (function () {
+//var isDebug = 'js_mini/',
+                                            var path = 'https://www.yimishiji.com/public/app/ectools/statics/js/';
+                                            var data_path = '/data/misc/';
+                                            var container = $('dom_el_8e11de1');
+                                            var callback = 'selectArea';
+                                            var str = container.getElement('input').value;
+                                            var sels = container.getElements('select');
+// var validate_area;
+                                            var loadRegion = function (region) {
+                                                region.init(container, callback, region_Data);
+                                                if (str) {
+                                                    str = str.split(':')[1].split('/');
+                                                    str.each(function (s, i) {
+                                                        var sel = sels[i];
+                                                        var opt = sel.getChildren().filter(function (el) {
+                                                            return el.get('text') == s;
+                                                        });
+                                                        if (sel) region.changeResponse(sel, opt[0]);
+                                                    });
+                                                }
+                                            };
+                                            try {
+                                                $LAB.script(data_path + 'region_data.js', path + 'region.js').wait(function () {
+                                                    loadRegion(region_sel);
+                                                });
+                                                // validate_area = LANG_formplus['validate']['area'];
+                                            }
+                                            catch (e) {
+                                                Ex_Loader(data_path + 'region_data.js', path + 'region.js', function () {
+                                                    loadRegion(region_sel);
+                                                });
+                                                // validate_area = LANG_Validate['area'];
+                                            }
+                                        })();
+                                    </script>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">详细地址</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="addr" value="" id="addr" size="50"
+                                           class="form-control action-fill-area" vtype="required">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="mail_to" class="col-sm-2 control-label">收货人姓名</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="name" id="mail_to" value="" class="form-control"
+                                           vtype="required">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="mobile" class="col-sm-2 control-label">手机</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="mobile" value="" id="mobile" class="form-control mb"
+                                           vtype="mobile">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="tel" class="col-sm-2 control-label">固定电话</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="tel" value="" class="form-control mb" id="tel" vtype="tel"
+                                           data-caution="请填写手机号码或者固定电话">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="def_addr" value="1" id="for_set_default">
+                                            设为默认
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" class="btn btn-success" rel="_request">确定</button>
+                                    <button type="button" class="btn btn-default action-reset">取消</button>
+                                </div>
+                            </div>
+
+                            <!-- bootstrap form groups -->
+
+                        </form>
+                    </div>
+
+                    <!-- 收货地址列表 -->
+                    <div id="member_address_list" class="member-address-list">
+                        <table class="table ac_table">
+                            <thead>
+                            <tr>
+                                <th>地址</th>
+                                <th>收货人</th>
+                                <th>联系电话</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody class="first">
+                            <tr class=" highlight first">
+                                <td class="">上海市浦东新区浦东新区世纪大道1号</td>
+                                <td class="">大圣</td>
+                                <td class="">18206021539</td>
+                                <td class="actions">
+                                    <span class="edit-text">正在编辑...</span>
+                                    <span class="edit-act">
+                <a href="https://www.yimishiji.com/member-set_default-43660.html"
+                   class="btn btn-default btn-xs action-set-default">设为默认</a>
+                                        <!-- <span class="label-default">默认地址</span> -->
+                <a class="label-default btn btn-success btn-xs">默认地址</a>
+                <a href="https://www.yimishiji.com/member-modify_receiver-43660.html"
+                   class="btn btn-default btn-xs action-edit">编辑</a>
+                <a href="https://www.yimishiji.com/member-del_rec-43660.html"
+                   class="btn btn-default btn-xs action-delete">删除</a>
+              </span>
+                                </td>
+                            </tr>
+                            <tr class="">
+                                <td class="">其他其他其他其他</td>
+                                <td class="">大圣</td>
+                                <td class="">18206021539</td>
+                                <td class="actions">
+                                    <span class="edit-text">正在编辑...</span>
+                                    <span class="edit-act">
+                <a href="https://www.yimishiji.com/member-set_default-43758.html"
+                   class="btn btn-default btn-xs action-set-default">设为默认</a>
+                                        <!-- <span class="label-default">默认地址</span> -->
+                <a class="label-default btn btn-success btn-xs">默认地址</a>
+                <a href="https://www.yimishiji.com/member-modify_receiver-43758.html"
+                   class="btn btn-default btn-xs action-edit">编辑</a>
+                <a href="https://www.yimishiji.com/member-del_rec-43758.html"
+                   class="btn btn-default btn-xs action-delete">删除</a>
+              </span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--添加地址jq-->
+            <script>
+                Object.merge(validatorMap, {
+                    requiredone: function (element, v, type, parent) {
+                        return parent.getElements('input[type=' + type + '][vtype=' + element.get('vtype') + ']').some(function (el) {
+                            return el.value.trim() != '';
+                        });
+                    }
+                });
+
+                var Query = {
+                    options: function (url, data, method, fn) {
+                        if (typeOf(data) == 'object') {
+                            data.request = true;
+                        }
+                        else if (typeOf(data) == 'element') {
+                            data = data.toQueryString() + '&response_json=true';
+                        }
+                        else if (typeOf(data) == 'string') {
+                            data = data + '&response_json=true';
+                        }
+                        else if (!data) {
+                            data = 'response_json=true';
+                        }
+                        return {
+                            url: url,
+                            method: method,
+                            data: data,
+                            link: 'cancel',
+                            onSuccess: function (rs) {
+                                try {
+                                    rs = JSON.decode(rs);
+                                } catch (e) {
+                                }
+                                if (rs && rs.error) return Message.error(rs.error);
+                                if (typeOf(fn) === 'function') fn.call(this, rs);
+                            },
+                            onFailure: function (e) {
+                                Message.error('网络错误，请重试。');
+                            }
+                        };
+                    },
+                    load: function (url, update, data, fn) {
+                        new Request.HTML(Object.merge(Query.options(url, data, 'post', fn), {
+                            update: update
+                        })).send();
+                    },
+                    send: function (url, data, fn) {
+                        new Request(Query.options(url, data, 'post', fn)).send();
+                    }
+                }
+
+                var address = $('member_address');
+                var address_submit = $('member_address_submit');
+                var address_title = $('member_address_title');
+                var address_list = $('member_address_list');
+                address.addEvents({
+                    'click:relay(.action-reset)': function (e) {
+                        if (address_submit.hasClass('address-edit')) {
+                            address_submit.removeClass('address-edit');
+                            resetForm();
+                            address_list.unmask().getElement('.editing').removeClass('editing');
+                        }
+                        else {
+                            closeAddress(address_title.getElement('.active'));
+                        }
+                    },
+                    'click:relay(.action-add-address)': function (e) {
+                        if (address_list.getElements('tbody tr').length >= 10) {
+                            var tips = new Tips(this, '最多添加10个收货地址，请删除后再添加').show();
+                        }
+                        else {
+                            tips && tips.hide();
+                            if (address_submit.hasClass('address-edit')) return;
+                            this.hasClass('active') ? closeAddress(this) : openAddress(this);
+                        }
+                    },
+                    'click:relay(.action-set-default)': function (e) {
+                        e.preventDefault();
+                        var el = this;
+                        Query.send(this.href, null, function (rs) {
+                            var def = el.getParent('tbody').getElement('.highlight');
+                            def && def.removeClass('highlight');
+                            el.getParent('tr').addClass('highlight');
+                        });
+                    },
+                    'click:relay(.action-edit)': function (e) {
+                        e.preventDefault();
+                        // var handle = address_title.getElement('.action-add-address');
+                        // openAddress();
+                        if (address_submit.hasClass('address-add')) {
+                            closeAddress(address_title.getElement('.active'));
+                        }
+                        address_submit.addClass('address-edit');
+                        this.getParent('tr').addClass('editing');
+                        address_list.mask({
+                            'class': 'cover',
+                            'effect': false,
+                            position: true
+                        });
+                        Query.load(this.href, address_submit);
+                    },
+                    'click:relay(.action-delete)': function (e) {
+                        e.preventDefault();
+                        var self = this;
+                        Dialog.confirm('您确定要删除此收货地址吗？', function (e) {
+                            if (e) {
+                                Query.send(self.href, null, function (rs) {
+                                    self.getParent('tr').destroy();
+                                    address.getElement('.address-prompt .warn').innerHTML -= 1;
+                                });
+                            }
+                        });
+                    }
+                });
+
+                function closeAddress(el) {
+                    address_submit.removeClass('address-add');
+                    resetForm();
+                    el && el.removeClass('active');
+                }
+
+                function openAddress(el) {
+                    address_submit.addClass('address-add');
+                    el && el.addClass('active');
+                }
+
+                function resetForm() {
+                    address_submit.getElements('input').set('value', '');
+                    address_submit.getElement('select').set('value', '_NULL_').fireEvent('change');
+                }
+
+                function selectArea(sels) {
+                    var selected = '';
+                    var filled = address_submit.getElement('.action-fill-area');
+                    sels.each(function (s) {
+                        if (s.isDisplayed()) {
+                            var text = s[s.selectedIndex].text.trim();
+                            if (['北京', '天津', '上海', '重庆'].indexOf(text) > -1) return;
+                            selected += text;
+                        }
+                    });
+
+                    filled.value = filled.value.replace(selected, '');
+                }
+            </script>
+            <!--添加地址jq结束-->
+        </div>
+    </div>
+</div>
+<div id="im_bar" class="im clearfix" style="top: 300px;">
+    <ul>
+        <li class="ics online"></li>
+        <li class="ics qes"></li>
+        <li class="ics opin"></li>
+    </ul>
+</div>
+<div class="to_top"></div>
+
+{:widget('Widget/footer')}
+</body>
+</html>

@@ -1,0 +1,74 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:59:"F:\php\GSY\public/../application/index\view\cart\order.html";i:1506512484;}*/ ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>收银台_一米市集</title>
+    <script src="__STATIC__/index/./js/jquery.min.js"></script>
+    <script src="__STATIC__/index/./js/index.js"></script>
+    <link rel="stylesheet" href="__STATIC__/index/./css/index.css">
+    <link rel="stylesheet" href="__STATIC__/index/./css/cart.css">
+    <link rel="icon" href="__STATIC__/index/./img/favicon.ico" type="image/x-ico"/>
+</head>
+<body>
+
+<!--顶部-->
+<div class="top"></div>
+<!--主要内容-->
+<div class="container">
+    <!--头部-->
+    <?php echo widget('Widget/header'); ?>
+    <!--主模块-->
+    <div class="section shouyintai">
+        <div class="head">
+            <div class="cart-icon">
+                <h1>
+                    <img src="__STATIC__/index/./img/ym_icon_cart.png" alt="">
+                    收银台
+                </h1>
+            </div>
+            <div class="liucheng fr">
+                <div class="cartBtn fl ok">
+                    <a href="">1 购物篮</a>
+                </div>
+                <div class="icon_setp_arrow fl"></div>
+                <div class="checkoutBtn fl ok">
+                    <a href="">2 结账</a>
+                </div>
+                <div class="icon_setp_arrow fl "></div>
+                <div class="cashierBtn fl active">
+                    <a href="">3 收银台</a>
+                </div>
+            </div>
+        </div>
+        <div class="data">
+            <div class="info">
+                <p>
+                    <span class="fl">订单生成成功，请选择付款方式</span>
+                    <span class="fr">
+                        订单号 <span><?php echo $order_id; ?></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        订单金额 ￥ <span><?php echo $total_amount; ?></span>
+                    </span>
+                </p>
+            </div>
+            <div class="payStyle">
+                <p>付款方式</p>
+                <p>
+                    <div class="payBtn wxsmpay fl"></div>
+                    <div class="payBtn alipay fl"></div>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--底部-->
+<?php echo widget('Widget/footer'); ?>
+
+<!--回到顶部按钮-->
+<div class="toTopBtn"></div>
+<div class="customerBtn"></div>
+
+
+</body>
+</html>
