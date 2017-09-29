@@ -49,79 +49,7 @@
         </div>
         <div id="main" class="clearfix">
             <!-- 左栏 -->
-            <div class="page-aside" style="height: 628px;">
-                <!-- 会员中心菜单 -->
-                <div id="member_menu" class="member-menu">
-                    <div class="member-menu-mod">
-                        <h2 class="member-menu-title">交易管理</h2>
-                        <ul class="member-menu-list">
-                            <li>
-                                <a href="https://www.yimishiji.com/member-orders.html" class="">
-                                    我的订单 </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="member-menu-mod">
-                        <h2 class="member-menu-title">评论咨询管理</h2>
-                        <ul class="member-menu-list">
-                            <li>
-                                <a href="https://www.yimishiji.com/member-orders-comment-1.html" class="">
-                                    未评论商品 </a>
-                            </li>
-                            <li>
-                                <a href="https://www.yimishiji.com/member-comment.html" class="">
-                                    我的评论 </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="member-menu-mod">
-                        <h2 class="member-menu-title">我的账户</h2>
-                        <ul class="member-menu-list">
-                            <li>
-                                <a href="https://www.yimishiji.com/member-favorite.html" class="">
-                                    我喜欢的 </a>
-                            </li>
-                            <li>
-                                <a href="https://www.yimishiji.com/member-notify.html" class="">
-                                    到货通知 </a>
-                            </li>
-                            <li>
-                                <a href="https://www.yimishiji.com/member-coupon.html" class="">
-                                    我的优惠券 </a>
-                            </li>
-                            <li>
-                                <a href="https://www.yimishiji.com/member-bought_products.html" class="">
-                                    常购商品 </a>
-                            </li>
-                            <li>
-                                <a href="https://www.yimishiji.com/member-gift_card.html" class="">
-                                    我的充值卡 </a>
-                            </li>
-                            <li>
-                                <a href="https://www.yimishiji.com/point-point_detail.html" class="">
-                                    我的积分 </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="member-menu-mod">
-                        <h2 class="member-menu-title">个人信息管理</h2>
-                        <ul class="member-menu-list">
-                            <li>
-                                <a href="https://www.yimishiji.com/member-setting.html" class="active">
-                                    个人信息 </a>
-                            </li>
-                            <li>
-                                <a href="https://www.yimishiji.com/member-securitycenter.html" class="">
-                                    安全中心 </a>
-                            </li>
-                            <li>
-                                <a href="https://www.yimishiji.com/member-receiver.html" class="">
-                                    收货地址 </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+          {:widget('Widget/left')}
             <!-- 会员中心主内容区 -->
             <div class="page-article member-userbox">
                 <!-- 个人信息 -->
@@ -135,11 +63,10 @@
                             <div style="">
                                 <div class="form-group">
                                     <label for="nickname">个人头像<span style="font-size:12px;color:#ddd;margin-left:20px">建议：头像上传为108x108px的图片,格式：jpg,gif,jpeg,png</span></label>
-                                    <img class="profile_picture" src="__STATIC__/index/message/default-avatar.png" alt=""
-                                         href="javascript:void(0);" onclick="write_letter();">
+                                    <img class="profile_picture" src="{$memberData.pic}" alt=""
+                                         href="" onclick="">
                                     <input type="hidden" name="MAX_FILE_SIZE" value="2097150" class="upimg_input">
-                                    <input type="file" name="file" id=""
-                                           accept="image/gif,image/jpg,image/jpeg,image/png">
+                                    <input type="file" name="file" accept="image/gif,image/jpg,image/jpeg,image/png">
                                 </div>
                             </div>
                             <!-- 个人头像 -->
@@ -147,7 +74,7 @@
                             <!--用户名-->
                             <div class="form-group">
                                 <label for="nickname">用 户 名</label>
-                                <input id="nickname" type="text" class="form-control" name="pam[name]" value="">
+                                <input id="nickname" type="text" class="form-control" name="pam[name]" value="{$memberData.username}">
                             </div>
                             <!--用户名-->
                             <!--Email-->
@@ -161,7 +88,7 @@
                             <div class="form-group">
                                 <label for="mobile">手机号</label>
                                 <input id="mobile" class="form-control" type="text" name="pam[mobile]"
-                                       placeholder="请去安全中心完善手机验证" readonly="readonly" value="18206021539">
+                                        readonly="readonly" value="{$memberData.mobile}">
                             </div>
                             <!--手机号-->
                             <!--性别-->

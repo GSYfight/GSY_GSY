@@ -8,6 +8,7 @@
 namespace app\index\model;
 use think\Model;
 
+
 class LoginModel extends Model{
     /*
      * 将数据添加到member数据库
@@ -19,7 +20,7 @@ class LoginModel extends Model{
         return $res=db('member')->insert($data);
     }
     /*
-     * 根据参数mobile获取member数据
+     * 根据参数获取member数据第一个参数为查询信息，第二个参数为查询字段
      * */
     static public function dataByMobile($mobile,$col){
         if(empty($mobile)){
