@@ -265,6 +265,7 @@ class Cart extends Controller
         $orderData=[
             'order_id'=>$order_id,
             'total_amount'=>$price,//订单总价
+            'freight'=>$freight,
             'member_id'=>$member_id,
             'status'=>0,
             'pay_status'=>0,
@@ -281,8 +282,8 @@ class Cart extends Controller
                 'member_id'=>$member_id,
                 'goods_id'=>$v['goods_id'],
                 'goods_num'=>$v['goods_num'],
-                'freight'=>$freight,
                 'subtotal'=>$v['price_sum'],
+                'order_id'=>$order_id
             ];
             $goodsCount[$k]=[
                 'goods_id'=>$v['goods_id'],

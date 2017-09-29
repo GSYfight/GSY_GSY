@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"E:\PHP\GSY\public/../application/index\view\personal\email.html";i:1506656083;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-CN" slick-uniqueid="4">
 <head>
@@ -42,14 +43,14 @@
 <!--主要内容-->
 <div class="container">
     <!--头部-->
-    {:widget('Widget/header')}
+    <?php echo widget('Widget/header'); ?>
 <div id="container" class="page-container mb-wrap clearfix">
     <div class="inner-wrap">
         <div class="bread-crumbs">
         </div>
         <div id="main" class="clearfix">
             <!-- 左栏 -->
-          {:widget('Widget/left')}
+          <?php echo widget('Widget/left'); ?>
             <div class="page-article">
                 <div id="member_security" class="member-security">
 
@@ -79,7 +80,7 @@
                         <div class="col-md-8">
 
                             <div id="verify_content">
-                                <form action="{:url('Login/doVeri')}" method="post">
+                                <form action="<?php echo url('Login/doVeri'); ?>" method="post">
                                     <input name="forward" type="hidden" value="">
                                     <input type="hidden" name="verifyType" value="verifyemail">
 
@@ -106,12 +107,12 @@
                                         </div>
                                         <div class="col-md-8">
                                             <input class="x-input form-control sms-verify-input" type="text" name="" placeholder="填写校验码" data-caution="请正确填写校验码" size="4" maxlength="4" style="width:100px" id="dom_el_802ff21" autocomplete="off" vtype="required&amp;&amp;alphaint">
-                                            <img src="{:captcha_src()}" alt="验证码" title="点击更换验证码" class="verify-code auto-change-verify-handle" id="codeImg">
+                                            <img src="<?php echo captcha_src(); ?>" alt="验证码" title="点击更换验证码" class="verify-code auto-change-verify-handle" id="codeImg">
                                             <a href="#" class="verify-code auto-change-verify-handle lnklike" id="changeOne">看不清楚?换一个</a>
                                             <script>
                                                 $(function () {
                                                     $('#changeOne').click(function () {
-                                                        $('#codeImg').attr('src','{:captcha_src()}');
+                                                        $('#codeImg').attr('src','<?php echo captcha_src(); ?>');
                                                     })
                                                 })
                                             </script>
@@ -123,8 +124,8 @@
                                         </div>
                                         <div class="col-md-8">
                                             <input type="hidden" name="mobile" value="13285979173">
-                                            {$memberData.mobile}
-                                            <a href="#" data-mobile="{$memberData.mobile}" class="btn btn-default action-get-verifycode" id="sendSms">
+                                            <?php echo $memberData['mobile']; ?>
+                                            <a href="#" data-mobile="<?php echo $memberData['mobile']; ?>" class="btn btn-default action-get-verifycode" id="sendSms">
                                             获取验证码</a>
                                             <script>
                                                 $(function () {
@@ -133,7 +134,7 @@
                                                         $.ajax({
                                                             type:'POST',
                                                             dataType:'json',
-                                                            url:"{:url('Login/sendCode',['status'=>'email'])}",
+                                                            url:"<?php echo url('Login/sendCode',['status'=>'email']); ?>",
                                                             data:{mobile:mobile},
                                                             success:function (d) {
                                                                 alert(d.msg);
@@ -187,7 +188,7 @@
     </ul>
 </div>
 <div class="to_top"></div>
-    {:widget('Widget/footer')}
+    <?php echo widget('Widget/footer'); ?>
 </div>
 </body>
 </html>

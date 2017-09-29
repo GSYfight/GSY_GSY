@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"E:\PHP\GSY\public/../application/index\view\personal\security.html";i:1506654069;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-CN" slick-uniqueid="4">
 <head>
@@ -42,14 +43,14 @@
 <!--主要内容-->
 <div class="container">
     <!--头部-->
-    {:widget('Widget/header')}
+    <?php echo widget('Widget/header'); ?>
 <div id="container" class="page-container mb-wrap clearfix">
     <div class="inner-wrap">
         <div class="bread-crumbs">
         </div>
         <div id="main" class="clearfix">
             <!-- 左栏 -->
-            {:widget('Widget/left')}
+            <?php echo widget('Widget/left'); ?>
             <!-- 会员中心主内容区 -->
             <div class="page-article">
                 <!-- 个人信息 -->
@@ -60,7 +61,7 @@
                     </h3>
                     <hr>
                     <div>
-                        <form action="{:url('Personal/setting')}" method="post">
+                        <form action="<?php echo url('Personal/setting'); ?>" method="post">
                             <!-- 登录密码 -->
                             <div class="row ac_securityitem">
                                 <div class="col-md-1 ac_securityIcon">
@@ -87,7 +88,7 @@
                                     <p>手机已验证</p>
                                 </div>
                                 <div class="col-md-7 ac_securityDesc">
-                                    <p>您的验证手机：{$memberData.mobile}</p>
+                                    <p>您的验证手机：<?php echo $memberData['mobile']; ?></p>
                                 </div>
                                 <div class="col-md-2 ac_securityAction">
                                     <a class="btn btn-default"
@@ -96,7 +97,7 @@
                             </div>
                             <!-- 手机已验证 -->
                             <!-- 邮箱未验证 -->
-                            {if condition="$memberData.email neq ''"}
+                            <?php if($memberData['email'] != ''): ?>
                             <div class="row ac_securityitem">
                                 <div class="col-md-1 ac_securityIcon">
                                     <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></p>
@@ -105,14 +106,14 @@
                                     <p>邮箱已验证</p>
                                 </div>
                                 <div class="col-md-7 ac_securityDesc">
-                                    <p>您的验证邮箱：{$memberData.email}</p>
+                                    <p>您的验证邮箱：<?php echo $memberData['email']; ?></p>
                                 </div>
                                 <div class="col-md-2 ac_securityAction">
                                     <a class="btn btn-default"
                                        href="">修改</a>
                                 </div>
                             </div>
-                            {else/}
+                            <?php else: ?>
                             <div class="row ac_securityitem">
                                 <div class="col-md-1 ac_securityIcon">
                                     <p><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></p>
@@ -124,10 +125,10 @@
                                     <p>通过这个验证后，若你忘记了密码，就多了一个找回的办法。</p>
                                 </div>
                                 <div class="col-md-2 ac_securityAction">
-                                    <a class="btn btn-default" href="{:url('Personal/email')}">立即验证</a>
+                                    <a class="btn btn-default" href="<?php echo url('Personal/email'); ?>">立即验证</a>
                                 </div>
                             </div>
-                            {/if}
+                            <?php endif; ?>
                             <!-- 邮箱未验证 -->
                         </form>
                     </div>
@@ -148,7 +149,7 @@
 </div>
 <div class="to_top"></div>
 </div>
-    {:widget('Widget/footer')}
+    <?php echo widget('Widget/footer'); ?>
 
 </body>
 </html>
