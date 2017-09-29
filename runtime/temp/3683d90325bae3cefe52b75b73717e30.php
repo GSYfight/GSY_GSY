@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"D:\PHPfile\GSY\public/../application/index\view\widget\header.html";i:1506594464;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:64:"D:\PHPfile\GSY\public/../application/index\view\index\index.html";i:1506381953;s:66:"D:\PHPfile\GSY\public/../application/index\view\widget\header.html";i:1506663250;}*/ ?>
 <header id="header" class="head">
     <a href="<?php echo url('Index/index'); ?>">
         <div class="icon fl"></div>
@@ -122,7 +122,7 @@
                         <button style="height: 40px;width: 200px;text-align: center">个人中心</button>
                     </a>
                     <hr>
-                    <a href="<?php echo url('Login/register'); ?>">
+                    <a href="<?php echo url('Personal/order'); ?>">
                         <button style="height: 40px;width: 200px;text-align: center">我的订单</button>
                     </a>
                     <hr>

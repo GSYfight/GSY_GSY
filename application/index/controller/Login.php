@@ -52,6 +52,8 @@ class Login extends Controller
                 'password' => input('password'),
                 'ip' => $_SERVER["REMOTE_ADDR"],
             ];
+
+
             //验证
 //            $validate=validate('Login');
 //            if(!$validate->scene('login')->check($data)){

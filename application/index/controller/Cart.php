@@ -188,6 +188,7 @@ class Cart extends Controller
         $freight = 30;//运费
         $price=$sum_price+$freight;//应付金额
         $data =$res['data'];//商品信息
+        $ship=input('ship');
         $country_id=1;
         $province_id=2;
         $city_id=52;
@@ -262,6 +263,7 @@ class Cart extends Controller
             $randNum=rand(10000,99999);
             $order_id=$tt.$ttt.$randNum;
         }
+        //订单表数据
         $orderData=[
             'order_id'=>$order_id,
             'total_amount'=>$price,//订单总价

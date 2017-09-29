@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"D:\PHPfile\GSY\public/../application/index\view\cart\checkout.html";i:1506578350;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"D:\PHPfile\GSY\public/../application/index\view\cart\checkout.html";i:1506679771;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,8 +56,8 @@
             <div class="addLocal">
                 <form action="javascript:;">
                     <p>
-                        <input type="text" name="name" placeholder="收货人" class="name">
-                        <input type="text" name="phone" placeholder="手机/电话" class="phone">
+                        <input type="text" name="name" placeholder="收货人" class="name" id="receiveMan">
+                        <input type="text" name="phone" placeholder="手机/电话" class="phone" id="receivePhone">
                     </p>
                     <p>
                         <select name="province" id="province" class="sec">
@@ -75,7 +75,7 @@
                             <option value="<?php echo $v['area_id']; ?>"><?php echo $v['area_name']; ?></option>
                             <?php endforeach; ?>
                         </select>
-                        <input type="text" name="local" placeholder="收货地址" class="local">
+                        <input type="text" name="local" placeholder="收货地址" class="local" id="receiveAddress">
                     </p>
                     <p>
                         <button>保存地址</button>
@@ -147,14 +147,13 @@
                 <p class="hP">付款</p>
                 <div class="borderAll fk fl">
                     <label>
-                        <input type="radio" name="fukuan" class="radio" checked>
+                        <input type="radio" name="onpay" class="radio" checked id="onpay">
                         <span class="hSpan"><img src="__STATIC__/index/./img/pic_onlinePayment.png" alt=""></span>
                     </label>
                 </div>
                 <div class="borderAll fk fl">
                     <label>
-
-                        <input type="radio" name="fukuan" class="radio">
+                        <input type="radio" name="online" class="radio" id="online">
                         <span class="hSpan"><img src="__STATIC__/index/./img/pic_cashOnDelivery.png" alt=""></span>
                     </label>
 
@@ -240,7 +239,6 @@
                     <textarea name="liuyan" cols="34" rows="2" placeholder="可在此留言给客服"></textarea>
                 </div>
             </div>
-
             <!--商品小计-->
             <div class="xiaoji fr">
                 <p class="fc"><span class="fl">商品小计</span><span class="fr">￥<span><?php echo $sum_price; ?></span></span></p>
@@ -249,9 +247,9 @@
                 <hr class="fc">
                 <p class="fc"><span class="fl">应付金额</span><span class="fr">￥<span><?php echo $price; ?></span></span></p>
                 <p class="fc">
-                    <button id="tijiaoBtn" class="fl" onclick="window.location.href='<?php echo url('Cart/order'); ?>'">订单结算
+                    <button id="tijiaoBtn" class="fl" >订单结算
                     </button>
-
+                    <!--onclick="window.location.href='<?php echo url('Cart/order'); ?>'"-->
                 </p>
                 <p class="fc"><label><input type="checkbox" name="buzai">不在商品清单上打印价格。</label></p>
             </div>
@@ -330,6 +328,49 @@
             }
         })
     });
+    //提交订单
+    $('#tijiaoBtn').click(function () {
+        var ship_name= $("#receiveMan").val();
+        var ship_phone= $("#receivePhone").val();
+        var province=$("#province  option:selected").text();
+        var city=$("#city  option:selected").text();
+        var zone=$("#zone  option:selected").text();
+        var ship_area=province+city+'市'+zone;
+        var ship_address=$("#receiveAddress").val();
+//        var check=$("input:radio[name='onpay']").attr('checked',false);
+//        var status=$("input:radio[name='onpay']:checked").val();
+        if($("input:radio[name='onpay']:checked").val()=='on'){
+            var ship_method='货到付款'
+        }else{
+            var ship_method='在线支付'
+        }
+        var ship={
+            'ship_name':ship_name,
+            'ship_mobile':ship_phone,
+            'ship_area':ship_area,
+            'ship_address':ship_address,
+            'pay_method':ship_method
+        };
+        ship=JSON.stringify(ship);
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            data: {'ship': ship},
+            url: "<?php echo url('OrderTable/index'); ?>",
+            success: function (d) {
+                }
+        })
+    });
+    //支付方式
+    $('#onpay').click(function () {
+        $("input:radio[name='onpay']").attr('checked','checked');
+        $("input:radio[name='online']").attr('checked',false);
+    });
+    $('#online').click(function () {
+        $("input:radio[name='onpay']").attr('checked',false);
+        $("input:radio[name='online']").attr('checked','checked');
+    });
+
     <!--下拉菜单-->
     $('.model .btnD').attr('open1', '0').attr('tabindex', "0");
 
