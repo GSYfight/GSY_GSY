@@ -65,7 +65,7 @@
                         <table>
                             <tbody>
                             <tr>
-                                <td class="step-item step-1 active"><span><q class="icon">P</q><i>1</i>身份验证</span></td>
+                                <td class="step-item step-1 active"><span style="color: white;"><q class="icon">P</q><i>1</i>身份验证</span></td>
                                 <td class="icon step-arrow">(</td>
                                 <td class="step-item step-2"><span><q class="icon">P</q><i>2</i>设置验证信息</span></td>
                                 <td class="icon step-arrow">(</td>
@@ -79,7 +79,7 @@
                         <div class="col-md-8">
 
                             <div id="verify_content">
-                                <form action="https://www.yimishiji.com/member-verify_vcode.html" method="post">
+                                <form action="{:url('Login/doVeri')}" method="post">
                                     <input name="forward" type="hidden" value="">
                                     <input type="hidden" name="verifyType" value="verifyemail">
 
@@ -105,7 +105,17 @@
                                             校验码：
                                         </div>
                                         <div class="col-md-8">
-                                            <input class="x-input form-control sms-verify-input" type="text" name="forgotverifycode" placeholder="填写校验码" data-caution="请正确填写校验码" size="4" maxlength="4" style="width:100px" id="dom_el_802ff21" autocomplete="off" vtype="required&amp;&amp;alphaint"> <img src="./个人中心_一米市集_files/index-gen_vcode-LOGINVCODE-4.html" alt="验证码" title="点击更换验证码" class="verify-code auto-change-verify-handle"> <a href="./个人中心_一米市集_files/index-gen_vcode-LOGINVCODE-4.html" class="verify-code auto-change-verify-handle lnklike">看不清楚?换一个</a>                    </div>
+                                            <input class="x-input form-control sms-verify-input" type="text" name="" placeholder="填写校验码" data-caution="请正确填写校验码" size="4" maxlength="4" style="width:100px" id="dom_el_802ff21" autocomplete="off" vtype="required&amp;&amp;alphaint">
+                                            <img src="{:captcha_src()}" alt="验证码" title="点击更换验证码" class="verify-code auto-change-verify-handle" id="codeImg">
+                                            <a href="#" class="verify-code auto-change-verify-handle lnklike" id="changeOne">看不清楚?换一个</a>
+                                            <script>
+                                                $(function () {
+                                                    $('#changeOne').click(function () {
+                                                        $('#codeImg').attr('src','{:captcha_src()}');
+                                                    })
+                                                })
+                                            </script>
+                                        </div>
                                     </div>
                                     <div class="row ac_securityitem">
                                         <div class="col-md-3 ac_securityTitle">
@@ -113,9 +123,25 @@
                                         </div>
                                         <div class="col-md-8">
                                             <input type="hidden" name="mobile" value="13285979173">
-                                            13285979173                    <a href="https://www.yimishiji.com/passport-send_vcode_sms.html" data-mobile="13285979173" class="btn btn-default action-get-verifycode">
-                                            获取验证码
-                                        </a>
+                                            {$memberData.mobile}
+                                            <a href="#" data-mobile="{$memberData.mobile}" class="btn btn-default action-get-verifycode" id="sendSms">
+                                            获取验证码</a>
+                                            <script>
+                                                $(function () {
+                                                    $('#sendSms').click(function () {
+                                                        var mobile=$('#sendSms').attr('data-mobile');
+                                                        $.ajax({
+                                                            type:'POST',
+                                                            dataType:'json',
+                                                            url:"{:url('Login/sendCode',['status'=>'email'])}",
+                                                            data:{mobile:mobile},
+                                                            success:function (d) {
+                                                                alert(d.msg);
+                                                            }
+                                                        })
+                                                    })
+                                                })
+                                            </script>
                                         </div>
                                     </div>
                                     <div class="row ac_securityitem">
@@ -123,12 +149,11 @@
                                             填写验证码：
                                         </div>
                                         <div class="col-md-8">
-                                            <input class="x-input form-control" type="text" name="vcode[mobile]" id="dom_el_802ff22" vtype="required" size="6" maxlength="6" style="width:100px">                  </div>
+                                            <input class="x-input form-control" type="text" name="code" id="dom_el_802ff22" vtype="required" size="6" maxlength="6" style="width:100px">                  </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-
-                                            <button type="submit" class="btn btn-default" rel="_request" data-ajax-config="{onSuccess:function(rs){changeStep(rs, 3, function(e){passwordStrength.init($$(&#39;form .auto-password-check-handle&#39;));});}}">提交</button>
+                                            <button type="submit" class="btn btn-default" rel="_request" >提交</button>
                                         </div>
                                     </div>
                                 </form>

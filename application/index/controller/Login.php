@@ -33,7 +33,6 @@ class Login extends Controller
     public function doLogin()
     {
         //接受参数
-//        var_dump(session("fullUrl"));exit;
         //点击登录时的界面的控制器和方法
         $this->assign('address', input('urlAddress'));
         $urlAddress = str_replace(',', '/', input('urlAddress'));
@@ -169,8 +168,17 @@ class Login extends Controller
         //生成随机验证码
         $randomCode = rand(1000, 9999);
         //将随机验证码添加至数据库
-        $data['register_code'] = $randomCode;
-        $data['register_time'] = time();
+        if(input('status')=='email'){
+            //邮箱验证发送手机验证码
+            $data['email_veri'] = $randomCode;
+            $data['email_veri_time'] = time();
+        }else{
+            //注册发送手机验证码
+            $data['register_code'] = $randomCode;
+            $data['register_time'] = time();
+        }
+
+
         LoginModel::saveCode($data);
         //发送短信验证码
         $response = $demo->sendSms(
@@ -226,7 +234,32 @@ class Login extends Controller
         $fullUrl = input('fullUrl');
         return $fullUrl;
     }
-
+    /*
+     * 邮箱验证
+     * */
+    public function doVeri(){
+            input('mobile');
+        //            //验证码是否正为空
+//            if (input('code') == '') {
+//                $this->error('验证码必须填写');
+//            }
+////        判断验证码是否正确
+//            if (!captcha_check(input('code'))) {
+//                $this->error('验证码错误', url('Login/register'));
+//            }
+//            //短信验证码是否正确.根据手机号查找code表数据,并返回数据
+//            $res = LoginModel::codeByMobile($data['mobile']);
+//            //判断验证码是否超时
+//            if(time()-$res['email_veri_time']>300){
+//                $this->error('短信验证码失效');
+//            }
+//            if(!$res){
+//                $this->error('请获取短信验证码');
+//            }else if(input('smsCode')!=$res['email_veri']){
+//                    $this->error('请填写正确短信验证码');
+//            }
+        return $this->fetch('Personal/email');
+    }
 
 
 

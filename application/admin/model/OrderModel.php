@@ -25,12 +25,12 @@ class OrderModel extends Model{
     }
     //订单详情
     static public function detail($order_id){
-        $data=db('items')
-            ->alias('i')//别名
-            ->field('o.order_id,o.member_id,g.goods_name,i.goods_num,i.subtotal,i.freight')//字段
-            ->join('goods g','g.goods_id=i.goods_id','LEFT')//参数(‘关联的表 别名’，‘关联的条件’)
-            ->join('order o','i.member_id=o.member_id','LEFT')
+        $data=db('order')
+            ->alias('o')//别名
             ->where(['o.order_id'=>$order_id])
+            ->field('o.order_id,o.member_id,g.goods_name,i.goods_num,i.subtotal,i.freight')//字段
+            ->join('items i','o.member_id=i.member_id','LEFT')
+            ->join('goods g','g.goods_id=i.goods_id','LEFT')//参数(‘关联的表 别名’，‘关联的条件’)
             ->paginate(8);
         $page=$data->render();
         $data=$data->all();

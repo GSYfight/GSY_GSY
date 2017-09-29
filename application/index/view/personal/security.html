@@ -96,7 +96,7 @@
                             </div>
                             <!-- 手机已验证 -->
                             <!-- 邮箱未验证 -->
-                            {if condition="$memberData.email neq []"}
+                            {if condition="$memberData.email neq ''"}
                             <div class="row ac_securityitem">
                                 <div class="col-md-1 ac_securityIcon">
                                     <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></p>
@@ -124,7 +124,7 @@
                                     <p>通过这个验证后，若你忘记了密码，就多了一个找回的办法。</p>
                                 </div>
                                 <div class="col-md-2 ac_securityAction">
-                                    <a class="btn btn-default" href="{:url('Person/email')}">立即验证</a>
+                                    <a class="btn btn-default" href="{:url('Personal/email')}">立即验证</a>
                                 </div>
                             </div>
                             {/if}
