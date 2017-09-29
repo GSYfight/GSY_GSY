@@ -78,8 +78,20 @@ class Personal extends Controller{
         ]);
         return $this->fetch('personal/order');
     }
-    public function setting(){
-        var_dump(111);exit;
+    /*
+     * 邮箱验证
+     * */
+    public function email(){
+        $this->isLogin();
+        //获取登录会员信息
+        $member=session('index');
+        $member_id=$member['member_id'];
+        //根据member_id查询用户信息member
+        $memberData=LoginModel::dataByMobile($member_id,'member_id');
+        $this->assign([
+            'memberData'=>$memberData,
+        ]);
+        return $this->fetch();
     }
     public function address(){
         return $this->fetch('personal/address');
