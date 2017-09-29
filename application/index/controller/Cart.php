@@ -10,7 +10,9 @@ namespace app\index\controller;
 
 use app\index\model\Cart as CartModel;
 use app\index\model\orderFourTable;
+use app\index\model\AddressModel;
 use think\Controller;
+
 
 class Cart extends Controller
 {
@@ -156,7 +158,6 @@ class Cart extends Controller
         $member_id = $member['member_id'];
         return $member_id;
     }
-
      /*
      *提交订单，判断是否已登录
      * */
@@ -206,6 +207,15 @@ class Cart extends Controller
         foreach ($data as $k=>$v) {
             $count +=$v['goods_num'];
         }
+        //地址管理栏,查询所有地址
+        $res = AddressModel::findAddress($member_id);
+        $notDefAdd=[];
+        $defAdd=[];
+        if($res){
+            $defAdd = $res['defAdd'];
+            $notDefAdd= $res['notDefAdd'];
+        }
+//        var_dump($res);exit;
         //变量提交至模板
         $this->assign([
             'data'=>$data,
@@ -215,7 +225,10 @@ class Cart extends Controller
             'province'=>$province,
             'city'=>$city,
             'area'=>$area,
+            'defAdd'=>$defAdd,
+            'notDefAdd'=>$notDefAdd,
         ]);
+//        var_dump($notDefAdd);exit.;
         return $this->fetch();
     }
     //找地区Id
@@ -262,6 +275,9 @@ class Cart extends Controller
             $randNum=rand(10000,99999);
             $order_id=$tt.$ttt.$randNum;
         }
+        //读取cookie中的address_id,查找address表数据
+        $cookie = cookie('address');
+        $addressData = AddressModel::addressData($cookie);
         $orderData=[
             'order_id'=>$order_id,
             'total_amount'=>$price,//订单总价
@@ -271,6 +287,10 @@ class Cart extends Controller
             'pay_status'=>0,
             'create_time'=>$t,
             'last_modify'=>$t,
+            'ship_name'=>$addressData['name'],
+            'ship_mobile'=>$addressData['phone'],
+            'ship_address'=>$addressData['address'],
+            'ship_area'=>$addressData['province'].$addressData['city'].$addressData['zone'],
         ];
 //       添加数据到订单详情表中,商品表中增加冻结库存,生成订单,删除购物车选中商品
 //        四条sql语句进行事务操作
@@ -300,11 +320,8 @@ class Cart extends Controller
             ]);
             return $this->fetch();
         }else{
-            $this->error('订单提交失败');
+            return $this->error('订单提交失败');
         }
-
-
-
     }
 
     /*

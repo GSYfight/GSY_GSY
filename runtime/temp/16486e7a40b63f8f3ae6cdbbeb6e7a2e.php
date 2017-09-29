@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"E:\PHP\GSY\public/../application/index\view\cart\checkout.html";i:1506664909;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"E:\PHP\GSY\public/../application/index\view\cart\checkout.html";i:1506675522;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,11 +43,27 @@
         <div class="data">
             <!--收货地址-->
             <div class="model">
-                <p class="hP">收货信息</p>
+                <p class="hP">收货信息<?php echo $defAdd['address']; ?></p>
                 <div class="checkbox">
                     <div class="btnD"></div>
-                    <p class="cbxP">请选择收货地址</p>
+                    <p class="cbxP" id="address">请选择收货地址</p>
                     <ul>
+                        <?php if($defAdd != []): ?>
+                        <li class="localBtn" areaid="<?php echo $defAdd['addr_id']; ?>"><span></span>
+                            中国<?php echo $defAdd['province']; ?><?php echo $defAdd['city']; ?><?php echo $defAdd['zone']; ?><?php echo $defAdd['address']; ?></li>
+                            <?php if($notDefAdd != []): foreach($notDefAdd as $val): ?>
+                                <li class="localBtn" areaid="<?php echo $val['addr_id']; ?>">中国<?php echo $val['province']; ?><?php echo $val['city']; ?><?php echo $val['zone']; ?><?php echo $val['address']; ?></li>
+                                <?php endforeach; endif; endif; ?>
+                        <script>
+                            $(function () {
+                                $('.localBtn').click(function () {
+                                    var val=$(this).text();
+                                    var areaid=$(this).attr('areaid');
+                                    $('#address').text(val);
+                                    $.cookie('address',areaid); // 存储 cookie
+                                })
+                            })
+                        </script>
                         <li class="addLocalBtn">+添加新地址</li>
                     </ul>
                 </div>
@@ -81,7 +97,21 @@
                             <input type="text" name="local" placeholder="收货地址" class="local">
                         <br/>
                     <!--<button>保存地址</button>-->
-                        <input type="submit" value="保存地址" style="margin-top: 20px;">
+                        <input type="submit" value="保存地址" style="margin-top: 20px;" id="submitBtn">
+                        <script>
+                            $(function () {
+                                $('#submitBtn').click(function () {
+                                    var name = $('input[name=name]').val();
+                                    var phone = $('input[name=phone]').val();
+                                    var local = $('input[name=local]').val();
+                                    if(!name||!phone||!local){
+                                        alert("资料请填写完整");
+                                        return false;
+                                    }
+
+                                })
+                            })
+                        </script>
                     </p>
                 </form>
             </div>
