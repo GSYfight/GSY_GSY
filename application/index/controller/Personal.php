@@ -81,5 +81,8 @@ class Personal extends Controller{
     public function setting(){
         var_dump(111);exit;
     }
+    public function address(){
+        return $this->fetch('personal/address');
+    }
 
 }

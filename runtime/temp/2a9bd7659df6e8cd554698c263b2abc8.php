@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"F:\php\GSY\public/../application/index\view\personal\security.html";i:1506561493;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"F:\php\GSY\public/../application/index\view\personal\security.html";i:1506654159;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-CN" slick-uniqueid="4">
 <head>
@@ -50,79 +50,7 @@
         </div>
         <div id="main" class="clearfix">
             <!-- 左栏 -->
-            <div class="page-aside">
-                <!-- 会员中心菜单 -->
-                <div id="member_menu" class="member-menu">
-                    <div class="member-menu-mod">
-                        <h2 class="member-menu-title">交易管理</h2>
-                        <ul class="member-menu-list">
-                            <li>
-                                <a href="https://www.yimishiji.com/member-orders.html" class="">
-                                    我的订单 </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="member-menu-mod">
-                        <h2 class="member-menu-title">评论咨询管理</h2>
-                        <ul class="member-menu-list">
-                            <li>
-                                <a href="https://www.yimishiji.com/member-orders-comment-1.html" class="">
-                                    未评论商品 </a>
-                            </li>
-                            <li>
-                                <a href="https://www.yimishiji.com/member-comment.html" class="">
-                                    我的评论 </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="member-menu-mod">
-                        <h2 class="member-menu-title">我的账户</h2>
-                        <ul class="member-menu-list">
-                            <li>
-                                <a href="https://www.yimishiji.com/member-favorite.html" class="">
-                                    我喜欢的 </a>
-                            </li>
-                            <li>
-                                <a href="https://www.yimishiji.com/member-notify.html" class="">
-                                    到货通知 </a>
-                            </li>
-                            <li>
-                                <a href="https://www.yimishiji.com/member-coupon.html" class="">
-                                    我的优惠券 </a>
-                            </li>
-                            <li>
-                                <a href="https://www.yimishiji.com/member-bought_products.html" class="">
-                                    常购商品 </a>
-                            </li>
-                            <li>
-                                <a href="https://www.yimishiji.com/member-gift_card.html" class="">
-                                    我的充值卡 </a>
-                            </li>
-                            <li>
-                                <a href="https://www.yimishiji.com/point-point_detail.html" class="">
-                                    我的积分 </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="member-menu-mod">
-                        <h2 class="member-menu-title">个人信息管理</h2>
-                        <ul class="member-menu-list">
-                            <li>
-                                <a href="https://www.yimishiji.com/member-setting.html" class="">
-                                    个人信息 </a>
-                            </li>
-                            <li>
-                                <a href="https://www.yimishiji.com/member-securitycenter.html" class="active">
-                                    安全中心 </a>
-                            </li>
-                            <li>
-                                <a href="https://www.yimishiji.com/member-receiver.html" class="">
-                                    收货地址 </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <?php echo widget('Widget/left'); ?>
             <!-- 会员中心主内容区 -->
             <div class="page-article">
                 <!-- 个人信息 -->
@@ -133,7 +61,7 @@
                     </h3>
                     <hr>
                     <div>
-                        <form action="https://www.yimishiji.com/member-save_setting.html" method="post">
+                        <form action="<?php echo url('Personal/setting'); ?>" method="post">
                             <!-- 登录密码 -->
                             <div class="row ac_securityitem">
                                 <div class="col-md-1 ac_securityIcon">
@@ -147,7 +75,7 @@
                                 </div>
                                 <div class="col-md-2 ac_securityAction">
                                     <a class="btn btn-default"
-                                       href="https://www.yimishiji.com/member-security.html">修改</a>
+                                       href="">修改</a>
                                 </div>
                             </div>
                             <!-- 登录密码 -->
@@ -160,15 +88,32 @@
                                     <p>手机已验证</p>
                                 </div>
                                 <div class="col-md-7 ac_securityDesc">
-                                    <p>您的验证手机：18206021539</p>
+                                    <p>您的验证手机：<?php echo $memberData['mobile']; ?></p>
                                 </div>
                                 <div class="col-md-2 ac_securityAction">
                                     <a class="btn btn-default"
-                                       href="https://www.yimishiji.com/member-verify-setmobile.html">修改</a>
+                                       href="">修改</a>
                                 </div>
                             </div>
                             <!-- 手机已验证 -->
                             <!-- 邮箱未验证 -->
+                            <?php if($memberData['email'] != []): ?>
+                            <div class="row ac_securityitem">
+                                <div class="col-md-1 ac_securityIcon">
+                                    <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></p>
+                                </div>
+                                <div class="col-md-2 ac_securityTitle">
+                                    <p>邮箱已验证</p>
+                                </div>
+                                <div class="col-md-7 ac_securityDesc">
+                                    <p>您的验证邮箱：<?php echo $memberData['email']; ?></p>
+                                </div>
+                                <div class="col-md-2 ac_securityAction">
+                                    <a class="btn btn-default"
+                                       href="">修改</a>
+                                </div>
+                            </div>
+                            <?php else: ?>
                             <div class="row ac_securityitem">
                                 <div class="col-md-1 ac_securityIcon">
                                     <p><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></p>
@@ -180,10 +125,10 @@
                                     <p>通过这个验证后，若你忘记了密码，就多了一个找回的办法。</p>
                                 </div>
                                 <div class="col-md-2 ac_securityAction">
-                                    <a class="btn btn-default"
-                                       href="https://www.yimishiji.com/member-verify-verifyemail.html">立即验证</a>
+                                    <a class="btn btn-default" href="<?php echo url('Person/email'); ?>">立即验证</a>
                                 </div>
                             </div>
+                            <?php endif; ?>
                             <!-- 邮箱未验证 -->
                         </form>
                     </div>

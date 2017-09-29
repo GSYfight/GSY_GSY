@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:66:"F:\php\GSY\public/../application/index\view\personal\security.html";i:1506654159;s:62:"F:\php\GSY\public/../application/index\view\widget\header.html";i:1506654159;s:60:"F:\php\GSY\public/../application/index\view\widget\left.html";i:1506654976;}*/ ?>
 <div class="page-aside">
     <!-- 会员中心菜单 -->
     <div id="member_menu" class="member-menu">
@@ -5,7 +6,7 @@
             <h2 class="member-menu-title">交易管理</h2>
             <ul class="member-menu-list">
                 <li>
-                    <a href="{:url('Personal/order')}" class="">
+                    <a href="<?php echo url('Personal/order'); ?>" class="">
                         我的订单 </a>
                 </li>
             </ul>
@@ -56,15 +57,15 @@
             <h2 class="member-menu-title">个人信息管理</h2>
             <ul class="member-menu-list">
                 <li>
-                    <a href="{:url('Personal/message')}" class="">
+                    <a href="<?php echo url('Personal/message'); ?>" class="">
                         个人信息 </a>
                 </li>
                 <li>
-                    <a href="{:url('Personal/security')}" class="">
+                    <a href="<?php echo url('Personal/security'); ?>" class="">
                         安全中心 </a>
                 </li>
                 <li>
-                    <a href="{:url('Personal/address')}" class="">
+                    <a href="<?php echo url('Personal/address'); ?>" class="">
                         收货地址 </a>
                 </li>
             </ul>

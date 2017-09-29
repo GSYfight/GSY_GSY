@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"F:\php\GSY\public/../application/index\view\personal\order.html";i:1506561493;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"F:\php\GSY\public/../application/index\view\personal\order.html";i:1506654159;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-CN" slick-uniqueid="4">
 <head>
@@ -52,105 +52,33 @@
             </div>
             <div id="main" class="clearfix">
                 <!-- 左栏 -->
-                <div class="page-aside">
-                    <!-- 会员中心菜单 -->
-                    <div id="member_menu" class="member-menu">
-                        <div class="member-menu-mod">
-                            <h2 class="member-menu-title">交易管理</h2>
-                            <ul class="member-menu-list">
-                                <li>
-                                    <a href="https://www.yimishiji.com/member-orders.html" class="active">
-                                        我的订单 </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="member-menu-mod">
-                            <h2 class="member-menu-title">评论咨询管理</h2>
-                            <ul class="member-menu-list">
-                                <li>
-                                    <a href="https://www.yimishiji.com/member-orders-comment-1.html" class="">
-                                        未评论商品 </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.yimishiji.com/member-comment.html" class="">
-                                        我的评论 </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="member-menu-mod">
-                            <h2 class="member-menu-title">我的账户</h2>
-                            <ul class="member-menu-list">
-                                <li>
-                                    <a href="https://www.yimishiji.com/member-favorite.html" class="">
-                                        我喜欢的 </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.yimishiji.com/member-notify.html" class="">
-                                        到货通知 </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.yimishiji.com/member-coupon.html" class="">
-                                        我的优惠券 </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.yimishiji.com/member-bought_products.html" class="">
-                                        常购商品 </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.yimishiji.com/member-gift_card.html" class="">
-                                        我的充值卡 </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.yimishiji.com/point-point_detail.html" class="">
-                                        我的积分 </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="member-menu-mod">
-                            <h2 class="member-menu-title">个人信息管理</h2>
-                            <ul class="member-menu-list">
-                                <li>
-                                    <a href="https://www.yimishiji.com/member-setting.html" class="">
-                                        个人信息 </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.yimishiji.com/member-securitycenter.html" class="">
-                                        安全中心 </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.yimishiji.com/member-receiver.html" class="">
-                                        收货地址 </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+      <?php echo widget('Widget/left'); ?>
 
                 <!-- 会员中心主内容区 -->
                 <div class="page-article" >
                     <ul class="nav nav-tabs"  style="margin: 0 0 -530px 0">
                         <li role="presentation" class=" active">
-                            <a href="https://www.yimishiji.com/member-orders-all-1.html">全部订单</a>
+                            <a href="">全部订单</a>
                         </li>
                         <li role="presentation" class="">
-                            <a href="https://www.yimishiji.com/member-orders-preorder-1.html">预售</a>
+                            <a href="">预售</a>
                         </li>
                         <li role="presentation" class="">
-                            <a href="https://www.yimishiji.com/member-orders-payment-1.html">待付款</a>
+                            <a href="">待付款</a>
                         </li>
                         <li role="presentation" class="">
-                            <a href="https://www.yimishiji.com/member-orders-shipping-1.html">待发货</a>
+                            <a href="">待发货</a>
                         </li>
                         <li role="presentation" class="">
-                            <a href="https://www.yimishiji.com/member-orders-delivering-1.html">待收货</a>
+                            <a href="">待收货</a>
                         </li>
                         <li role="presentation" class="">
-                            <a href="https://www.yimishiji.com/member-orders-comment-1.html">
+                            <a href="">
                                 待评价
                             </a>
                         </li>
                         <li role="presentation" class="">
-                            <a href="https://www.yimishiji.com/member-orders-dead-1.html">已作废</a>
+                            <a href="">已作废</a>
                         </li>
                     </ul>
                     <div id="member_orders" class="member-orders member-mod">
@@ -165,39 +93,35 @@
                                 <th>操作</th>
                             </tr>
                             </thead>
-
+                            <?php if($orderData == []): ?>
+                            <tbody>
+                            <tr class="no-information">
+                                <td colspan="6">暂无记录,去农场逛逛看</td>
+                            </tr>
+                            </tbody>
+                            <?php else: foreach($orderData as $val): ?>
                             <tbody class="unfold first">
                             <tr>
-
                                 <!-- 商品编号 -->
                                 <td>
-                                    <a href="https://www.yimishiji.com/member-orderdetail-170927235595376.html">
-                                        170927235595376 </a>
-
+                                    <a href=""><?php echo $val['order_id']; ?></a>
                                 </td>
-                                <td>￥47.00</td>
-                                <td>17/09/27</td>
-
+                                <td>￥<?php echo $val['total_amount']; ?></td>
+                                <td><?php echo date('y-m-d',$val['create_time']); ?></td>
                                 <!-- 订单状态 -->
                                 <td class="actions">
-                                    <!--普通订单-->
-                                    等待发货                <!--预售订单-->
+                                    <?php if($val['status'] == 0): ?>未发货
+                                    <?php elseif($val['status'] == 1): ?>配送中
+                                    <?php elseif($val['status'] == 1): ?>已完成
+                                    <?php else: ?>已取消
+                                    <?php endif; ?>
                                 </td>
-                                <td>货到付款</td>
+                                <td><?php echo $val['pay_method']; ?></td>
                                 <td rowspan="2">
-
-                                    <!--普通订单-->
-
-                                    <!--预售订单-->
-                                    <!--预售订单-->
-                                    <!--预售订单-->
-
-
-                                    <a href="https://www.yimishiji.com/member-orderdetail-170927235595376.html"
+                                    <a href=""
                                        class="btn btn-default btn-xs">查看订单</a>
-
                                     <a class="btn btn-default btn-xs"
-                                       href="https://www.yimishiji.com/member-cancel-170927235595376.html">取消订单</a>
+                                       href="">取消订单</a>
                                 </td>
                             </tr>
                             <tr class="ac_goods-row">
@@ -205,46 +129,7 @@
                                 </td>
                             </tr>
                             </tbody>
-                            <tbody class="unfold">
-                            <tr>
-
-                                <!-- 商品编号 -->
-                                <td>
-                                    <a href="https://www.yimishiji.com/member-orderdetail-170927235487014.html">
-                                        170927235487014 </a>
-
-                                </td>
-                                <td>￥67.00</td>
-                                <td>17/09/27</td>
-
-                                <!-- 订单状态 -->
-                                <td class="actions">
-                                    <!--普通订单-->
-                                    等待发货                <!--预售订单-->
-                                </td>
-                                <td>货到付款</td>
-                                <td rowspan="2">
-
-                                    <!--普通订单-->
-
-                                    <!--预售订单-->
-                                    <!--预售订单-->
-                                    <!--预售订单-->
-
-
-                                    <a href="https://www.yimishiji.com/member-orderdetail-170927235487014.html"
-                                       class="btn btn-default btn-xs">查看订单</a>
-
-                                    <a class="btn btn-default btn-xs"
-                                       href="https://www.yimishiji.com/member-cancel-170927235487014.html">取消订单</a>
-                                </td>
-                            </tr>
-                            <tr class="ac_goods-row">
-                                <td colspan="5">
-                                </td>
-                            </tr>
-                            </tbody>
-
+                            <?php endforeach; endif; ?>
                         </table>
                     </div>
                 </div>
