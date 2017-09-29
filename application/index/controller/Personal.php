@@ -26,7 +26,9 @@ class Personal extends Controller{
         //根据member_id查询用户信息member
         $memberData=LoginModel::dataByMobile($member_id,'member_id');
         //根据membe_id查询order用户所有订单
+
         $orderData=orderModel::selectData($member_id,'member_id');
+
         $this->assign([
             'memberData'=>$memberData,
             'orderData'=>$orderData,
