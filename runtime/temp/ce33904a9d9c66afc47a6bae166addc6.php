@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"F:\php\GSY\public/../application/index\view\cart\checkout.html";i:1506646959;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"F:\php\GSY\public/../application/index\view\cart\checkout.html";i:1506666784;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,31 +54,34 @@
             </div>
             <!--添加地址表单-->
             <div class="addLocal">
-                <form action="javascript:;">
+                <form action="<?php echo url('Address/save'); ?>" method="post">
                     <p>
                         <input type="text" name="name" placeholder="收货人" class="name">
                         <input type="text" name="phone" placeholder="手机/电话" class="phone">
                     </p>
                     <p>
-                        <select name="province" id="province" class="sec">
-                            <?php foreach($province as $k=>$v): ?>
-                            <option value="<?php echo $v['area_id']; ?>"><?php echo $v['area_name']; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                        <select name="city" id="city" class="sec">
-                            <?php foreach($city as $k=>$v): ?>
-                            <option value="<?php echo $v['area_id']; ?>" class="cityName"><?php echo $v['area_name']; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                        <select name="zone" id="zone" class="sec">
-                            <?php foreach($area as $k=>$v): ?>
-                            <option value="<?php echo $v['area_id']; ?>"><?php echo $v['area_name']; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                        <input type="text" name="local" placeholder="收货地址" class="local">
-                    </p>
-                    <p>
-                        <button>保存地址</button>
+                        <label for="province"></label>
+                            <select name="province" id="province" class="sec">
+                                <?php foreach($province as $k=>$v): ?>
+                                <option value="<?php echo $v['area_id']; ?>"><?php echo $v['area_name']; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        <label for="city"></label>
+                            <select name="city" id="city" class="sec">
+                                <?php foreach($city as $k=>$v): ?>
+                                <option value="<?php echo $v['area_id']; ?>" class="cityName"><?php echo $v['area_name']; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        <label for="zone"></label>
+                            <select name="zone" id="zone" class="sec">
+                                <?php foreach($area as $k=>$v): ?>
+                                <option value="<?php echo $v['area_id']; ?>"><?php echo $v['area_name']; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            <input type="text" name="local" placeholder="收货地址" class="local">
+                        <br/>
+                    <!--<button>保存地址</button>-->
+                        <input type="submit" value="保存地址" style="margin-top: 20px;">
                     </p>
                 </form>
             </div>

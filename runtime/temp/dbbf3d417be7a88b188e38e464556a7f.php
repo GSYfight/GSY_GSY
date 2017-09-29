@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:66:"F:\php\GSY\public/../application/index\view\personal\security.html";i:1506654159;s:62:"F:\php\GSY\public/../application/index\view\widget\header.html";i:1506654159;s:60:"F:\php\GSY\public/../application/index\view\widget\left.html";i:1506654976;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:66:"F:\php\GSY\public/../application/index\view\personal\personal.html";i:1506654159;s:62:"F:\php\GSY\public/../application/index\view\widget\header.html";i:1506654159;s:60:"F:\php\GSY\public/../application/index\view\widget\left.html";i:1506654976;}*/ ?>
 <div class="page-aside">
     <!-- 会员中心菜单 -->
     <div id="member_menu" class="member-menu">

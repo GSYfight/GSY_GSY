@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:59:"F:\php\GSY\public/../application/admin\view\order\edit.html";i:1506611882;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:59:"F:\php\GSY\public/../application/admin\view\order\edit.html";i:1506667798;}*/ ?>
 <?php echo widget('Widget/header'); ?>
 
 <!-- /头部 -->
@@ -48,6 +48,15 @@
                                             <div class="col-sm-6">
                                                 <input class="form-control" id="total_amount" name="total_amount"
                                                        value="<?php echo $data['total_amount']; ?>"
+                                                       required="" type="text">
+                                            </div>
+                                            <p class="help-block col-sm-4 red">* 必填</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="freight" class="col-sm-2 control-label no-padding-right">运费</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control" id="freight" name="freight"
+                                                       value="<?php echo $data['freight']; ?>"
                                                        required="" type="text">
                                             </div>
                                             <p class="help-block col-sm-4 red">* 必填</p>

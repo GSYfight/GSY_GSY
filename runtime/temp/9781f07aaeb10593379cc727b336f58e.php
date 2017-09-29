@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:59:"F:\php\GSY\public/../application/admin\view\order\list.html";i:1506570966;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:59:"F:\php\GSY\public/../application/admin\view\order\list.html";i:1506682974;}*/ ?>
 <?php echo widget('Widget/header'); ?>
 <!-- /头部 -->
 <div class="main-container container-fluid">
@@ -35,6 +35,7 @@
                                     <tr>
                                         <th class="text-center">订单号</th>
                                         <th class="text-center">订单总价</th>
+                                        <th class="text-center">运费</th>
                                         <th class="text-center">用户ID</th>
                                         <th class="text-center">订单状态</th>
                                         <th class="text-center">支付状态</th>
@@ -53,6 +54,7 @@
                                     <tr>
                                         <td align="center"><?php echo $v['order_id']; ?></td>
                                         <td align="center"><?php echo $v['total_amount']; ?></td>
+                                        <td align="center"><?php echo $v['freight']; ?></td>
                                         <td align="center"><?php echo $v['member_id']; ?></td>
                                         <td align="center">
                                             <?php if($v['status'] == 0): ?>未发货
@@ -80,15 +82,15 @@
                                                 <i class="fa fa-edit"></i> 详情
                                             </a>
                                             <!--判断id 是不是为1，如果不是1，加删除按钮neq不等于--eq是等于-->
-                                            <?php if($v['status'] == 0): ?>
-                                            <a href="#" onClick="warning('确实要删除吗','<?php echo url('Order/del',['order_id'=>$v['order_id']]); ?>')"
-                                               class="btn btn-danger btn-sm shiny">
-                                                <i class="fa fa-trash-o"></i> 取消
-                                            </a>
-                                            <?php else: ?>
-                                            <a href="#" onClick="warning('确实要删除吗','<?php echo url('Order/backDel',['order_id'=>$v['order_id']]); ?>')"
+                                            <?php if($v['status'] == 3): ?>
+                                            <a href="#" onClick="warning('确实要取消吗','<?php echo url('Order/cancel',['order_id'=>$v['order_id'],'status'=>$v['status']]); ?>')"
                                                class="btn btn-danger btn-sm shiny">
                                                 <i class="fa fa-trash-o"></i> 撤销取消
+                                            </a>
+                                            <?php else: ?>
+                                            <a href="#" onClick="warning('确实要取消吗','<?php echo url('Order/cancel',['order_id'=>$v['order_id'],'status'=>$v['status']]); ?>')"
+                                               class="btn btn-danger btn-sm shiny">
+                                                <i class="fa fa-trash-o"></i> 取消订单
                                             </a>
                                             <?php endif; ?>
                                         </td>

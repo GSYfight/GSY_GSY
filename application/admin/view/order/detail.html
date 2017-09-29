@@ -35,9 +35,9 @@
                                         <th class="text-center">订单号</th>
                                         <th class="text-center">用户ID</th>
                                         <th class="text-center">商品</th>
+                                        <th class="text-center">单价</th>
                                         <th class="text-center">数量</th>
                                         <th class="text-center">金额</th>
-                                        <th class="text-center">运费</th>
                                         <th class="text-center">操作</th>
                                     </tr>
                                     </thead>
@@ -47,19 +47,45 @@
                                         <td align="center">{$v.order_id}</td>
                                         <td align="center">{$v.member_id}</td>
                                         <td align="center">{$v.goods_name}</td>
+                                        <td align="center">{$v.sell_price}</td>
                                         <td align="center">{$v.goods_num}</td>
                                         <td align="center">{$v.subtotal}</td>
-                                        <td align="center">{$v.freight}</td>
                                         <td align="center">
-                                            <a href="{:url('Order/edit',['order_id'=>$v.order_id])}" class="btn btn-primary btn-sm shiny">
-                                                <i class="fa fa-edit"></i> 编辑
-                                            </a>
-                                            <a href="{:url('Order/detail',['order_id'=>$v.order_id])}" class="btn btn-primary btn-sm shiny">
-                                                <i class="fa fa-edit"></i> 删除
-                                            </a>
+                                            <!--<a href="{:url('Order/edit',['order_id'=>$v.order_id])}" class="btn btn-primary btn-sm shiny">-->
+                                                <!--<i class="fa fa-edit"></i> 编辑-->
+                                            <!--</a>-->
+                                            <!--<a href="{:url('Order/detail',['order_id'=>$v.order_id])}" class="btn btn-primary btn-sm shiny">-->
+                                                <!--<i class="fa fa-edit"></i> 删除-->
+                                            <!--</a>-->
                                         </td>
                                     </tr>
                                     {/foreach}
+                                    <tr>
+                                        <td align="center"></td>
+                                        <td align="center"></td>
+                                        <td align="center"></td>
+                                        <td align="center"></td>
+                                        <td align="center"><b>运费:</b></td>
+                                        <td align="center"><b>{$data['freight']}</b></td>
+                                        <td align="center">
+                                            <a href="{:url('Order/change',['order_id'=>$v.order_id,'status'=>1])}" class="btn btn-primary btn-sm shiny">
+                                                <i class="fa fa-edit"></i> 编辑
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center"></td>
+                                        <td align="center"></td>
+                                        <td align="center"></td>
+                                        <td align="center"></td>
+                                        <td align="center"><b>总价:</b></td>
+                                        <td align="center"><b>{$data['total_amount']}</b></td>
+                                        <td align="center">
+                                            <a href="{:url('Order/change',['order_id'=>$v.order_id,'status'=>2])}" class="btn btn-primary btn-sm shiny">
+                                                <i class="fa fa-edit"></i> 编辑
+                                            </a>
+                                        </td>
+                                    </tr>
                                     </tbody>
                                 </table>
                             </div>
