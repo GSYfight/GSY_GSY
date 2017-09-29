@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:60:"F:\php\GSY\public/../application/index\view\login\login.html";i:1506404889;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:64:"D:\PHPfile\GSY\public/../application/index\view\login\login.html";i:1506594464;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +23,7 @@
             <h1 class="borderD">登录</h1>
             <!--登录表单-->
             <form action="<?php echo url('Login/doLogin'); ?>" method="post">
-                <p>登录账号</p>
+                <p>登录账号<?php echo $fullUrl; ?></p>
                 <p><input type="text" placeholder="用户名/邮箱地址/手机号" name="mobile"></p>
                 <p>密码</p>
                 <p><input type="password" placeholder="填写密码" name="password"></p>

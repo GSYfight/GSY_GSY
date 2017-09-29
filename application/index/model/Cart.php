@@ -157,4 +157,24 @@ class Cart extends Model
         //遍历购物车 结算该用户的总价格
         return $data;
     }
+    //查找地区表所有数据
+    static public function province($province){
+        $area=db("area")->where(['parent_id'=>$province])->select();
+        return $area;
+    }
+    static public function city($city){
+        $area=db("area")->where(['parent_id'=>$city])->select();
+        return $area;
+    }
+    static public function area($area){
+        $area=db("area")->where(['parent_id'=>$area])->select();
+        return $area;
+    }
+
+    //根据地区id寻找数据
+    static public function areaId($areaId){
+        $data=db('area')->where(['parent_id'=>$areaId])->select();
+        return $data;
+    }
+
 }

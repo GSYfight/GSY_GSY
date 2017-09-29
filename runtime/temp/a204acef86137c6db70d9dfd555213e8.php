@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"F:\php\GSY\public/../application/index\view\cart\checkout.html";i:1506512484;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"D:\PHPfile\GSY\public/../application/index\view\cart\checkout.html";i:1506578350;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,15 +60,20 @@
                         <input type="text" name="phone" placeholder="手机/电话" class="phone">
                     </p>
                     <p>
-                        <select name="province" id="province" disabled class="sec secDis">
-                            <option value="上海" selected>上海</option>
+                        <select name="province" id="province" class="sec">
+                            <?php foreach($province as $k=>$v): ?>
+                            <option value="<?php echo $v['area_id']; ?>"><?php echo $v['area_name']; ?></option>
+                            <?php endforeach; ?>
                         </select>
-                        <select name="city" id="city" disabled class="sec secDis">
-                            <option value="上海市" selected>上海市</option>
+                        <select name="city" id="city" class="sec">
+                            <?php foreach($city as $k=>$v): ?>
+                            <option value="<?php echo $v['area_id']; ?>" class="cityName"><?php echo $v['area_name']; ?></option>
+                            <?php endforeach; ?>
                         </select>
                         <select name="zone" id="zone" class="sec">
-                            <option value="请选择">请选择</option>
-                            <option value="黄浦区">黄浦区</option>
+                            <?php foreach($area as $k=>$v): ?>
+                            <option value="<?php echo $v['area_id']; ?>"><?php echo $v['area_name']; ?></option>
+                            <?php endforeach; ?>
                         </select>
                         <input type="text" name="local" placeholder="收货地址" class="local">
                     </p>
@@ -165,7 +170,7 @@
                         <img src="<?php echo $val['image_s_url']; ?>" alt="" style="margin-right: 10px;">
                         <?php endforeach; ?>
                         <span class="fr" style="margin-right: 30px">共 <span
-                            class="spNum"><?php echo $count; ?></span> 件商品</span></p>
+                                class="spNum"><?php echo $count; ?></span> 件商品</span></p>
                     <div class="qingdanDiv fl">
                         <div class="left fl">
                             <table>
@@ -244,7 +249,8 @@
                 <hr class="fc">
                 <p class="fc"><span class="fl">应付金额</span><span class="fr">￥<span><?php echo $price; ?></span></span></p>
                 <p class="fc">
-                    <button id="tijiaoBtn" class="fl" onclick="window.location.href='<?php echo url('Cart/order'); ?>'">订单结算</button>
+                    <button id="tijiaoBtn" class="fl" onclick="window.location.href='<?php echo url('Cart/order'); ?>'">订单结算
+                    </button>
 
                 </p>
                 <p class="fc"><label><input type="checkbox" name="buzai">不在商品清单上打印价格。</label></p>
@@ -271,6 +277,59 @@
 </body>
 
 <script>
+    //    市选择
+    $("#province").change(function () {
+         var that=$(this);
+        //获取选中项的value  value是选中项的area_id
+        var provinceId = this.options[this.options.selectedIndex].value;
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            data: {'province_id': provinceId},
+            url: "<?php echo url('Cart/areaId'); ?>",
+            success: function (d) {
+                $("#city").find("option").remove();
+                $("#zone").find("option").remove();
+                for (var i = 0; i < d.length; i++) {
+                    var parent_id = d[i].area_id;
+                    $("#city").append('<option value=' + parent_id + '>' + d[i].area_name + '</option>');
+                }
+                //获取市级框的第一个元素的area_id
+                var cityId=that.siblings('#city').children("option:first-child").val();
+                $.ajax({
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {'province_id': cityId},
+                    url: "<?php echo url('Cart/areaId'); ?>",
+                    success: function (d) {
+                        $("#zone").find("option").remove();
+                        for (var i = 0; i < d.length; i++) {
+                            var parent_id = d[i].area_id;
+                            $("#zone").append('<option value=' + parent_id + '>' + d[i].area_name + '</option>');
+                        }
+                    }
+                })
+            }
+        })
+    });
+    //   区选择
+    $("#city").change(function () {
+        //获取选中项的value  value是选中项的area_id
+        var cityId = this.options[this.options.selectedIndex].value;
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            data: {'province_id': cityId},
+            url: "<?php echo url('Cart/areaId'); ?>",
+            success: function (d) {
+                $("#zone").find("option").remove();
+                for (var i = 0; i < d.length; i++) {
+                    var parent_id = d[i].area_id;
+                    $("#zone").append('<option value=' + parent_id + '>' + d[i].area_name + '</option>');
+                }
+            }
+        })
+    });
     <!--下拉菜单-->
     $('.model .btnD').attr('open1', '0').attr('tabindex', "0");
 
