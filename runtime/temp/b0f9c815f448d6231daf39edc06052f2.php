@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:70:"D:\PHPfile\GSY\public/../application/index\view\personal\personal.html";i:1506594464;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-CN" slick-uniqueid="4">
 <head>
@@ -42,14 +43,86 @@
 <!--主要内容-->
 <div class="container">
     <!--头部-->
-    {:widget('Widget/header')}
+    <?php echo widget('Widget/header'); ?>
     <div id="container" class="page-container mb-wrap clearfix">
         <div class="inner-wrap">
             <div class="bread-crumbs">
             </div>
             <div id="main" class="clearfix">
                 <!-- 左栏 -->
-                {:widget('Widget/left')}
+                <div class="page-aside">
+                    <!-- 会员中心菜单 -->
+                    <div id="member_menu" class="member-menu">
+                        <div class="member-menu-mod">
+                            <h2 class="member-menu-title">交易管理</h2>
+                            <ul class="member-menu-list">
+                                <li>
+                                    <a href="<?php echo url('Personal/order'); ?>" class="">
+                                        我的订单 </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="member-menu-mod">
+                            <h2 class="member-menu-title">评论咨询管理</h2>
+                            <ul class="member-menu-list">
+                                <li>
+                                    <a href="https://www.yimishiji.com/member-orders-comment-1.html" class="">
+                                        未评论商品 </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.yimishiji.com/member-comment.html" class="">
+                                        我的评论 </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="member-menu-mod">
+                            <h2 class="member-menu-title">我的账户</h2>
+                            <ul class="member-menu-list">
+                                <li>
+                                    <a href="https://www.yimishiji.com/member-favorite.html" class="">
+                                        我喜欢的 </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.yimishiji.com/member-notify.html" class="">
+                                        到货通知 </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.yimishiji.com/member-coupon.html" class="">
+                                        我的优惠券 </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.yimishiji.com/member-bought_products.html" class="">
+                                        常购商品 </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.yimishiji.com/member-gift_card.html" class="">
+                                        我的充值卡 </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.yimishiji.com/point-point_detail.html" class="">
+                                        我的积分 </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="member-menu-mod">
+                            <h2 class="member-menu-title">个人信息管理</h2>
+                            <ul class="member-menu-list">
+                                <li>
+                                    <a href="<?php echo url('Personal/message'); ?>" class="">
+                                        个人信息 </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo url('Personal/security'); ?>" class="">
+                                        安全中心 </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.yimishiji.com/member-receiver.html" class="">
+                                        收货地址 </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- 会员中心主内容区 -->
                 <div class="page-article">
@@ -61,14 +134,42 @@
                             <!-- 用户大头与名称 -->
                             <div class="row ac_userProfile">
                                 <div class="row">
+                                    <!-- <img class='ac_userPhoto' src="../themes/yimi/images/ym_icon_user.png" alt="" href="javascript:void(0);" onclick='write_letter();'> -->
+                                    <div class="ac_userPhoto" alt="" href="javascript:void(0);"
+                                         onclick="write_letter();"></div>
 
-                                    <div class="ac_userPhoto" alt="" >
-                                        <img class='ac_userPhoto' src="{$memberData.pic}" alt="" style="margin: 0;">
+                                    <!-- 头像上传 -->
+                                    <div id="write_admin" class="product-notify spe_photo-notify"
+                                         style="padding: 35px;display:none;">
+                                        <iframe src="__STATIC__/index/files/saved_resource.html" name="upload"
+                                                frameborder="0" class="hide"></iframe>
+                                        <form action="https://www.yimishiji.com/member-save.html" method="post"
+                                              class="descrip" enctype="multipart/form-data" target="upload">
+                                            <ul>
+                                                <li class="form-item up_photoimg">
+                                                    <label for="" class="form-label">上传头像</label>
+                                                    <span class="form-act">
+                    <input type="hidden" name="MAX_FILE_SIZE" value="2097154">
+                    <input type="file" name="file" id="" accept="image/gif,image/jpg,image/jpeg,image/png">
+                  </span>
+                                                </li>
+                                                <li class="tips_img">
+                                                    <span class="font_comm12">建议：头像上传为108x108px的图片,格式：jpg,gif,jpeg,png</span>
+                                                </li>
+                                                <li class="form-item-normal">
+                <span class="form-act">
+                  <button type="submit" onclick="tijiao();"
+                          class="btn btn-caution"><span><span>保 存</span></span></button>
+                </span>
+                                                </li>
+                                            </ul>
+                                        </form>
                                     </div>
+                                    <!-- 头像上传 -->
                                 </div>
 
                                 <div class="ac_basicInfo">
-                                    <p class="ac_accountName">{$memberData.username}</p>
+                                    <p class="ac_accountName">18206021539</p>
                                     <p class="ac_accountLevel">友善会员 </p>
                                     <p class="ac_accountPoint">200分</p>
                                     <!-- <p class='ac_accountDesc'>   <a  class="com_right15" href="https://www.yimishiji.com/point-point_detail.html">查看积分记录 &raquo;</a>    （积分累积到1000可成为金卡会员） </p> -->
@@ -161,7 +262,7 @@
                     </div>
                     <!-- 最近的订单 -->
                     <div class="ac_sectionHeader">最近的订单
-                        <a href="{:url('Personal/order')}">所有订单 <span
+                        <a href="https://www.yimishiji.com/member-orders.html">所有订单 <span
                                 class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
                     </div>
                     <div id="member_orders" class="ac_section">
@@ -176,48 +277,13 @@
                                 <th>操作</th>
                             </tr>
                             </thead>
-                            {if condition="$orderData eq []"}
+
                             <tbody>
                             <tr class="no-information">
                                 <td colspan="6">暂无记录,去农场逛逛看</td>
                             </tr>
                             </tbody>
-                            {else/}
-                            <tbody class="fold first">
-                            {foreach $orderData as $k=>$val}
-                            {if condition="$k lt 5"}
-                            <tr>
-                                <!-- 商品编号 -->
-                                <td>
-                                    <a href="">{$val.order_id}</a>
 
-                                </td>
-                                <td>￥{$val.total_amount}</td>
-                                <td>{$val.create_time|date='y-m-d',###}</td>
-
-                                <!-- 订单状态 -->
-                                <td class="actions">
-                                    {if condition="$val.status eq 0"}未发货
-                                    {elseif condition="$val.status eq 1"/}配送中
-                                    {elseif condition="$val.status eq 1"/}已完成
-                                    {else/"}已取消
-                                    {/if}
-                                </td>
-                                <td>{$val.pay_method}</td>
-                                <td rowspan="2">
-                                    <a href="" class="btn btn-default btn-xs">查看订单</a>
-                                    <a href="" class="btn btn-default btn-xs">再次购买</a>
-                                    <a class="btn btn-default btn-xs" href="">删除订单</a>
-                                </td>
-                            </tr>
-                            <tr class="ac_goods-row">
-                                <td colspan="5">
-                                </td>
-                            </tr>
-                            {/if}
-                            {/foreach}
-                            </tbody>
-                            {/if}
                         </table>
                     </div>
                     <!-- 最近的订单 -->
@@ -235,6 +301,6 @@
     <div class="to_top"></div>
 </div>
 
-{:widget('Widget/footer')}
+<?php echo widget('Widget/footer'); ?>
 </body>
 </html>

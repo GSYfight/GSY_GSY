@@ -31,5 +31,8 @@ class Widget extends Controller{
     public function footer(){
         return $this->fetch('widget/footer');
     }
+    public function left(){
+        return $this->fetch('widget/left');
+    }
 }
 
