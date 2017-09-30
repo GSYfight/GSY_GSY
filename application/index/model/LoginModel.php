@@ -76,4 +76,14 @@ class LoginModel extends Model{
         }
         return $res = db('code')->where('mobile',$mobile)->find();
     }
+    /*
+     * 判断邮箱是否已经注册
+     * */
+    static public function checkEmail($email){
+        if(empty($email)){
+            return false;
+        }
+        return $res = db('member')->where('email',$email)->find();
+
+    }
 }
