@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"D:\PHPfile\GSY\public/../application/index\view\cart\checkout.html";i:1506686789;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"D:\PHPfile\GSY\public/../application/index\view\cart\checkout.html";i:1506736547;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -282,7 +282,7 @@
                 <hr class="fc">
                 <p class="fc"><span class="fl">应付金额</span><span class="fr">￥<span><?php echo $price; ?></span></span></p>
                 <p class="fc">
-                    <button id="tijiaoBtn" class="fl"  onclick="window.location.href='<?php echo url('Cart/order'); ?>'">订单结算</button>
+                    <button id="tijiaoBtn" class="fl" onclick="window.location.href='<?php echo url('Cart/order'); ?>'">订单结算</button>
                 </p>
                 <p class="fc"><label><input type="checkbox" name="buzai">不在商品清单上打印价格。</label></p>
             </div>

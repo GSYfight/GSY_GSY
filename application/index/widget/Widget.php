@@ -22,7 +22,11 @@ class Widget extends Controller{
             $res = WidgetModel::memberData($isLogined);
         }
         $this->assign('res',$res);
-        //返回当前页面的url
+        /*返回当前页面的url  'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'];
+         获取域名或主机地址 $_SERVER['HTTP_HOST']
+         获取网页地址  $_SERVER['PHP_SELF']
+         获取网址参数  $_SERVER["QUERY_STRING"]
+        */
         $fullUrl = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'];
         $this->assign('fullUrl',$fullUrl);
         return $this->fetch('widget/header');

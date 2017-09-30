@@ -177,8 +177,6 @@ class Login extends Controller
             $data['register_code'] = $randomCode;
             $data['register_time'] = time();
         }
-
-
         LoginModel::saveCode($data);
         //发送短信验证码
         $response = $demo->sendSms(
