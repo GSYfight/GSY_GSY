@@ -278,9 +278,9 @@ class Cart extends Controller
         }
         //订单表数据
         //读取cookie中的address_id,查找address表数据
+        $pay_method=cookie('method');
         $cookie = cookie('address');
         $addressData = AddressModel::addressData($cookie);
-
         $orderData=[
             'order_id'=>$order_id,
             'total_amount'=>$price,//订单总价
@@ -291,9 +291,10 @@ class Cart extends Controller
             'create_time'=>$t,
             'last_modify'=>$t,
             'ship_name'=>$addressData['name'],
-            'ship_mobile'=>$addressData['phone'],
+            'ship_mobile'=>$addressData['mobile'],
             'ship_address'=>$addressData['address'],
             'ship_area'=>$addressData['province'].$addressData['city'].$addressData['zone'],
+            'pay_method'=>$pay_method,
         ];
 //       添加数据到订单详情表中,商品表中增加冻结库存,生成订单,删除购物车选中商品
 //        四条sql语句进行事务操作
@@ -316,6 +317,7 @@ class Cart extends Controller
         }
 //        var_dump($cartCount);exit;
         $res =  orderFourTable::submitOrder($orderData,$itemsData,$goodsCount,$cartCount);
+
         if($res){
             $this->assign([
                 'order_id'=>$order_id,

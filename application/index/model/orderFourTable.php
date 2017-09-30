@@ -21,10 +21,11 @@ class orderFourTable extends Model{
      * */
     static public function submitOrder($order,$items,$goods,$cart){
         // 启动事务
+
         Db::startTrans();
         try{
-            db('order')->insert($order);//添加订单数据
-            db('items')->insertAll($items);//添加订单详情数据
+           db('order')->insert($order);//添加订单数据
+           db('items')->insertAll($items);//添加订单详情数据
             foreach ($goods as $k=>$v){
                 db('goods')->where('goods_id',$k)->setInc('freez',$v['goods_num']);
             }
