@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"D:\PHPfile\GSY\public/../application/index\view\cart\checkout.html";i:1506686789;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +16,7 @@
 <!--主要内容-->
 <div class="container">
     <!--头部-->
-    {:widget('Widget/header')}
+    <?php echo widget('Widget/header'); ?>
     <!--主模块-->
     <div class="section cart-has">
         <div class="head">
@@ -42,20 +43,17 @@
         <div class="data">
             <!--收货地址-->
             <div class="model">
-                <p class="hP">收货信息{$defAdd.address}</p>
+                <p class="hP">收货信息<?php echo $defAdd['address']; ?></p>
                 <div class="checkbox">
                     <div class="btnD"></div>
                     <p class="cbxP" id="address">请选择收货地址</p>
                     <ul>
-                        {if condition="$defAdd neq []"}
-                        <li class="localBtn" areaid="{$defAdd.addr_id}"><span></span>
-                            中国{$defAdd.province}{$defAdd.city}{$defAdd.zone}{$defAdd.address}</li>
-                            {if condition="$notDefAdd neq []"}
-                                {foreach $notDefAdd as $val}
-                                <li class="localBtn" areaid="{$val.addr_id}">中国{$val.province}{$val.city}{$val.zone}{$val.address}</li>
-                                {/foreach}
-                            {/if}
-                        {/if}
+                        <?php if($defAdd != []): ?>
+                        <li class="localBtn" areaid="<?php echo $defAdd['addr_id']; ?>"><span></span>
+                            中国<?php echo $defAdd['province']; ?><?php echo $defAdd['city']; ?><?php echo $defAdd['zone']; ?><?php echo $defAdd['address']; ?></li>
+                            <?php if($notDefAdd != []): foreach($notDefAdd as $val): ?>
+                                <li class="localBtn" areaid="<?php echo $val['addr_id']; ?>">中国<?php echo $val['province']; ?><?php echo $val['city']; ?><?php echo $val['zone']; ?><?php echo $val['address']; ?></li>
+                                <?php endforeach; endif; endif; ?>
                         <script>
                             $(function () {
                                 $('.localBtn').click(function () {
@@ -73,7 +71,7 @@
             </div>
             <!--添加地址表单-->
             <div class="addLocal">
-                <form action="{:url('Address/save')}" method="post">
+                <form action="<?php echo url('Address/save'); ?>" method="post">
                     <p>
                         <input type="text" name="name" placeholder="收货人" class="name" id="receiveMan">
                         <input type="text" name="phone" placeholder="手机/电话" class="phone" id="receivePhone">
@@ -81,21 +79,21 @@
                     <p>
                         <label for="province"></label>
                             <select name="province" id="province" class="sec">
-                                {foreach $province as $k=>$v}
-                                <option value="{$v.area_id}">{$v.area_name}</option>
-                                {/foreach}
+                                <?php foreach($province as $k=>$v): ?>
+                                <option value="<?php echo $v['area_id']; ?>"><?php echo $v['area_name']; ?></option>
+                                <?php endforeach; ?>
                             </select>
                         <label for="city"></label>
                             <select name="city" id="city" class="sec">
-                                {foreach $city as $k=>$v}
-                                <option value="{$v.area_id}" class="cityName">{$v.area_name}</option>
-                                {/foreach}
+                                <?php foreach($city as $k=>$v): ?>
+                                <option value="<?php echo $v['area_id']; ?>" class="cityName"><?php echo $v['area_name']; ?></option>
+                                <?php endforeach; ?>
                             </select>
                         <label for="zone"></label>
                             <select name="zone" id="zone" class="sec">
-                                {foreach $area as $k=>$v}
-                                <option value="{$v.area_id}">{$v.area_name}</option>
-                                {/foreach}
+                                <?php foreach($area as $k=>$v): ?>
+                                <option value="<?php echo $v['area_id']; ?>"><?php echo $v['area_name']; ?></option>
+                                <?php endforeach; ?>
                             </select>
                             <input type="text" name="local" placeholder="收货地址" class="local">
                         <br/>
@@ -202,11 +200,11 @@
                 <div class="checkbox qingdan borderD fl">
                     <div class="btnDiv"></div>
                     <p class="dataP">
-                        {foreach $data as $val}
-                        <img src="{$val.image_s_url}" alt="" style="margin-right: 10px;">
-                        {/foreach}
+                        <?php foreach($data as $val): ?>
+                        <img src="<?php echo $val['image_s_url']; ?>" alt="" style="margin-right: 10px;">
+                        <?php endforeach; ?>
                         <span class="fr" style="margin-right: 30px">共 <span
-                                class="spNum">{$count}</span> 件商品</span></p>
+                                class="spNum"><?php echo $count; ?></span> 件商品</span></p>
                     <div class="qingdanDiv fl">
                         <div class="left fl">
                             <table>
@@ -221,18 +219,18 @@
                                         <hr>
                                     </td>
                                 </tr>
-                                {foreach $data as $val}
+                                <?php foreach($data as $val): ?>
                                 <tr>
                                     <td class="hTd1">
                                         <a href="">
-                                            <img src="{$val.image_s_url}" alt=""><span>{$val.goods_name}</span>
+                                            <img src="<?php echo $val['image_s_url']; ?>" alt=""><span><?php echo $val['goods_name']; ?></span>
                                         </a>
                                     </td>
-                                    <td class="hTd2"><span>{$val.goods_num}</span></td>
-                                    <td class="hTd2">￥ <span>{$val.sell_price}</span></td>
-                                    <td class="hTd2">￥ <span>{$val.price_sum}</span></td>
+                                    <td class="hTd2"><span><?php echo $val['goods_num']; ?></span></td>
+                                    <td class="hTd2">￥ <span><?php echo $val['sell_price']; ?></span></td>
+                                    <td class="hTd2">￥ <span><?php echo $val['price_sum']; ?></span></td>
                                 </tr>
-                                {/foreach}
+                                <?php endforeach; ?>
 
                             </table>
                         </div>
@@ -278,13 +276,13 @@
             </div>
             <!--商品小计-->
             <div class="xiaoji fr">
-                <p class="fc"><span class="fl">商品小计</span><span class="fr">￥<span>{$sum_price}</span></span></p>
+                <p class="fc"><span class="fl">商品小计</span><span class="fr">￥<span><?php echo $sum_price; ?></span></span></p>
                 <p class="fc"><span class="fl">优惠</span><span class="fr">-￥<span>0.00</span></span></p>
                 <p class="fc"><span class="fl">运费</span><span class="fr">+￥<span>30.00</span></span></p>
                 <hr class="fc">
-                <p class="fc"><span class="fl">应付金额</span><span class="fr">￥<span>{$price}</span></span></p>
+                <p class="fc"><span class="fl">应付金额</span><span class="fr">￥<span><?php echo $price; ?></span></span></p>
                 <p class="fc">
-                    <button id="tijiaoBtn" class="fl"  onclick="window.location.href='{:url(\'Cart/order\')}'">订单结算</button>
+                    <button id="tijiaoBtn" class="fl"  onclick="window.location.href='<?php echo url('Cart/order'); ?>'">订单结算</button>
                 </p>
                 <p class="fc"><label><input type="checkbox" name="buzai">不在商品清单上打印价格。</label></p>
             </div>
@@ -296,7 +294,7 @@
 </div>
 
 <!--底部-->
-{:widget('Widget/footer')}
+<?php echo widget('Widget/footer'); ?>
 
 <!--回到顶部按钮-->
 <div class="toTopBtn"></div>
@@ -319,7 +317,7 @@
             type: 'POST',
             dataType: 'json',
             data: {'province_id': provinceId},
-            url: "{:url('Cart/areaId')}",
+            url: "<?php echo url('Cart/areaId'); ?>",
             success: function (d) {
                 $("#city").find("option").remove();
                 $("#zone").find("option").remove();
@@ -333,7 +331,7 @@
                     type: 'POST',
                     dataType: 'json',
                     data: {'province_id': cityId},
-                    url: "{:url('Cart/areaId')}",
+                    url: "<?php echo url('Cart/areaId'); ?>",
                     success: function (d) {
                         $("#zone").find("option").remove();
                         for (var i = 0; i < d.length; i++) {
@@ -353,7 +351,7 @@
             type: 'POST',
             dataType: 'json',
             data: {'province_id': cityId},
-            url: "{:url('Cart/areaId')}",
+            url: "<?php echo url('Cart/areaId'); ?>",
             success: function (d) {
                 $("#zone").find("option").remove();
                 for (var i = 0; i < d.length; i++) {
