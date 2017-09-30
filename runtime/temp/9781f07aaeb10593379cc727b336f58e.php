@@ -1,9 +1,10 @@
-{:widget('Widget/header')}
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:59:"F:\php\GSY\public/../application/admin\view\order\list.html";i:1506682974;}*/ ?>
+<?php echo widget('Widget/header'); ?>
 <!-- /头部 -->
 <div class="main-container container-fluid">
     <div class="page-container">
         <!-- Page Sidebar -->
-        {:widget('Widget/left')}
+        <?php echo widget('Widget/left'); ?>
     <!-- /Page Sidebar -->
     <!-- Page Content -->
     <div class="page-content">
@@ -22,7 +23,7 @@
         <div class="page-body">
 
             <!--<button type="button" tooltip="添加订单" class="btn btn-sm btn-azure btn-addon"-->
-                    <!--onClick="javascript:window.location.href = '{:url('Goods/add')}'"><i class="fa fa-plus"></i> Add-->
+                    <!--onClick="javascript:window.location.href = '<?php echo url('Goods/add'); ?>'"><i class="fa fa-plus"></i> Add-->
             <!--</button>-->
             <div class="row">
                 <div class="col-lg-12 col-sm-12 col-xs-12">
@@ -49,52 +50,52 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    {foreach $data as $v}
+                                    <?php foreach($data as $v): ?>
                                     <tr>
-                                        <td align="center">{$v.order_id}</td>
-                                        <td align="center">{$v.total_amount}</td>
-                                        <td align="center">{$v.freight}</td>
-                                        <td align="center">{$v.member_id}</td>
+                                        <td align="center"><?php echo $v['order_id']; ?></td>
+                                        <td align="center"><?php echo $v['total_amount']; ?></td>
+                                        <td align="center"><?php echo $v['freight']; ?></td>
+                                        <td align="center"><?php echo $v['member_id']; ?></td>
                                         <td align="center">
-                                            {if condition='$v.status eq 0'}未发货
-                                            {elseif condition='$v.status eq 1'}发货中
-                                            {elseif condition='$v.status eq 2'}已完成
-                                            {else/}已取消
-                                            {/if}
+                                            <?php if($v['status'] == 0): ?>未发货
+                                            <?php elseif($v['status'] == 1): ?>发货中
+                                            <?php elseif($v['status'] == 2): ?>已完成
+                                            <?php else: ?>已取消
+                                            <?php endif; ?>
                                         </td>
                                         <td align="center">
-                                            {if condition='$v.pay_status eq 0'}未支付
-                                            {else/}已支付
-                                            {/if}</td>
-                                        <td align="center">{$v.pay_method}</td>
-                                        <td align="center">{$v.create_time|date='Y-m-d H:i:s',###}</td>
-                                        <td align="center">{$v.last_modify|date='Y-m-d H:i:s',###}</td>
-                                        <td align="center">{$v.ship_name}</td>
-                                        <td align="center">{$v.ship_mobile}</td>
-                                        <td align="center">{$v.ship_area}</td>
-                                        <td align="center">{$v.ship_address}</td>
+                                            <?php if($v['pay_status'] == 0): ?>未支付
+                                            <?php else: ?>已支付
+                                            <?php endif; ?></td>
+                                        <td align="center"><?php echo $v['pay_method']; ?></td>
+                                        <td align="center"><?php echo date('Y-m-d H:i:s',$v['create_time']); ?></td>
+                                        <td align="center"><?php echo date('Y-m-d H:i:s',$v['last_modify']); ?></td>
+                                        <td align="center"><?php echo $v['ship_name']; ?></td>
+                                        <td align="center"><?php echo $v['ship_mobile']; ?></td>
+                                        <td align="center"><?php echo $v['ship_area']; ?></td>
+                                        <td align="center"><?php echo $v['ship_address']; ?></td>
                                         <td align="center">
-                                            <a href="{:url('Order/edit',['order_id'=>$v.order_id])}" class="btn btn-primary btn-sm shiny">
+                                            <a href="<?php echo url('Order/edit',['order_id'=>$v['order_id']]); ?>" class="btn btn-primary btn-sm shiny">
                                                 <i class="fa fa-edit"></i> 编辑
                                             </a>
-                                            <a href="{:url('Order/detail',['order_id'=>$v.order_id])}" class="btn btn-primary btn-sm shiny">
+                                            <a href="<?php echo url('Order/detail',['order_id'=>$v['order_id']]); ?>" class="btn btn-primary btn-sm shiny">
                                                 <i class="fa fa-edit"></i> 详情
                                             </a>
                                             <!--判断id 是不是为1，如果不是1，加删除按钮neq不等于--eq是等于-->
-                                            {if condition='$v.status eq 3'}
-                                            <a href="#" onClick="warning('确实要取消吗','{:url('Order/cancel',['order_id'=>$v.order_id,'status'=>$v.status])}')"
+                                            <?php if($v['status'] == 3): ?>
+                                            <a href="#" onClick="warning('确实要取消吗','<?php echo url('Order/cancel',['order_id'=>$v['order_id'],'status'=>$v['status']]); ?>')"
                                                class="btn btn-danger btn-sm shiny">
                                                 <i class="fa fa-trash-o"></i> 撤销取消
                                             </a>
-                                            {else/}
-                                            <a href="#" onClick="warning('确实要取消吗','{:url('Order/cancel',['order_id'=>$v.order_id,\'status\'=>$v.status])}')"
+                                            <?php else: ?>
+                                            <a href="#" onClick="warning('确实要取消吗','<?php echo url('Order/cancel',['order_id'=>$v['order_id'],'status'=>$v['status']]); ?>')"
                                                class="btn btn-danger btn-sm shiny">
                                                 <i class="fa fa-trash-o"></i> 取消订单
                                             </a>
-                                            {/if}
+                                            <?php endif; ?>
                                         </td>
                                     </tr>
-                                    {/foreach}
+                                    <?php endforeach; ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -104,7 +105,7 @@
                     </div>
                 </div>
             </div>
-            {$data->render()}
+            <?php echo $data->render(); ?>
         </div>
         <!-- /Page Body -->
     </div>

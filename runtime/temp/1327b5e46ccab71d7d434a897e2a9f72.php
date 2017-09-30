@@ -1,11 +1,12 @@
-{:widget('Widget/header')}
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:59:"F:\php\GSY\public/../application/admin\view\order\edit.html";i:1506667798;}*/ ?>
+<?php echo widget('Widget/header'); ?>
 
 <!-- /头部 -->
 
 <div class="main-container container-fluid">
     <div class="page-container">
         <!-- Page Sidebar -->
-        {:widget('Widget/left')}
+        <?php echo widget('Widget/left'); ?>
         <!-- Page Content -->
         <div class="page-content">
             <!-- Page Breadcrumb -->
@@ -15,7 +16,7 @@
                         <a href="#">系统</a>
                     </li>
                     <li>
-                        <a href="{:url('Order/index')}">订单管理</a>
+                        <a href="<?php echo url('Order/index'); ?>">订单管理</a>
                     </li>
                     <li class="active">>订单编辑</li>
                 </ul>
@@ -32,13 +33,13 @@
                             </div>
                             <div class="widget-body">
                                 <div id="horizontal-form">
-                                    <form class="form-horizontal" role="form" action="{:url('Order/upd')}"
+                                    <form class="form-horizontal" role="form" action="<?php echo url('Order/upd'); ?>"
                                           method="post" enctype="multipart/form-data">
                                         <div class="form-group">
                                             <label for="order_id" class="col-sm-2 control-label no-padding-right">订单号</label>
                                             <div class="col-sm-6">
-                                                <input class="form-control" id="order_id" placeholder="{$data.order_id}"
-                                                       readonly="readonly" name="order_id" value="{$data.order_id}"
+                                                <input class="form-control" id="order_id" placeholder="<?php echo $data['order_id']; ?>"
+                                                       readonly="readonly" name="order_id" value="<?php echo $data['order_id']; ?>"
                                                        type="text">
                                             </div>
                                         </div>
@@ -46,7 +47,7 @@
                                             <label for="total_amount" class="col-sm-2 control-label no-padding-right">订单总价</label>
                                             <div class="col-sm-6">
                                                 <input class="form-control" id="total_amount" name="total_amount"
-                                                       value="{$data.total_amount}"
+                                                       value="<?php echo $data['total_amount']; ?>"
                                                        required="" type="text">
                                             </div>
                                             <p class="help-block col-sm-4 red">* 必填</p>
@@ -55,7 +56,7 @@
                                             <label for="freight" class="col-sm-2 control-label no-padding-right">运费</label>
                                             <div class="col-sm-6">
                                                 <input class="form-control" id="freight" name="freight"
-                                                       value="{$data.freight}"
+                                                       value="<?php echo $data['freight']; ?>"
                                                        required="" type="text">
                                             </div>
                                             <p class="help-block col-sm-4 red">* 必填</p>
@@ -65,29 +66,29 @@
                                                    class="col-sm-2 control-label no-padding-right">订单状态</label>
                                             <div class="col-sm-6">
                                                 <select name="status" style="width: 100%;">
-                                                    <option value="{$data.status}">{if condition='$data.status eq 0'}未发货
-                                                        {elseif condition='$data.status eq 1'}发货中
-                                                        {elseif condition='$data.status eq 2'}已完成
-                                                        {else/}已取消
-                                                        {/if}
+                                                    <option value="<?php echo $data['status']; ?>"><?php if($data['status'] == 0): ?>未发货
+                                                        <?php elseif($data['status'] == 1): ?>发货中
+                                                        <?php elseif($data['status'] == 2): ?>已完成
+                                                        <?php else: ?>已取消
+                                                        <?php endif; ?>
                                                     </option>
-                                                    {if condition="$data.status eq 0"}
+                                                    <?php if($data['status'] == 0): ?>
                                                     <option value="1">发货中</option>
                                                     <option value="2">已完成</option>
                                                     <option value="3">已取消</option>
-                                                    {elseif condition='$data.status eq 1'}
+                                                    <?php elseif($data['status'] == 1): ?>
                                                     <option value="0">未发货</option>
                                                     <option value="2">已完成</option>
                                                     <option value="3">已取消</option>
-                                                    {elseif condition='$data.status eq 2'}
+                                                    <?php elseif($data['status'] == 2): ?>
                                                     <option value="0">未发货</option>
                                                     <option value="1">发货中</option>
                                                     <option value="3">已取消</option>
-                                                    {else/}
+                                                    <?php else: ?>
                                                     <option value="0">未发货</option>
                                                     <option value="1">发货中</option>
                                                     <option value="2">已完成</option>
-                                                    {/if}
+                                                    <?php endif; ?>
                                                 </select>
                                             </div>
                                             <p class="help-block col-sm-4 red">* 必填</p>
@@ -97,16 +98,16 @@
                                                    class="col-sm-2 control-label no-padding-right">是否付款</label>
                                             <div class="col-sm-6">
                                                 <select name="pay_status" style="width: 100%;">
-                                                    <option value="{$data.pay_status}">{if condition='$data.pay_status
-                                                        eq 0'}未付款
-                                                        {else/}已付款
-                                                        {/if}
+                                                    <option value="<?php echo $data['pay_status']; ?>"><?php if($data['pay_status']
+                                                        == 0): ?>未付款
+                                                        <?php else: ?>已付款
+                                                        <?php endif; ?>
                                                     </option>
-                                                    {if condition="$data.pay_status eq 0"}
+                                                    <?php if($data['pay_status'] == 0): ?>
                                                     <option value="1">已付款</option>
-                                                    {else/}
+                                                    <?php else: ?>
                                                     <option value="0">未付款</option>
-                                                    {/if}
+                                                    <?php endif; ?>
                                                 </select>
                                             </div>
                                             <p class="help-block col-sm-4 red">* 必填</p>
@@ -116,7 +117,7 @@
                                                    class="col-sm-2 control-label no-padding-right">收货人</label>
                                             <div class="col-sm-6">
                                                 <input class="form-control" id="ship_name" placeholder=""
-                                                       name="ship_name" value="{$data.ship_name}"
+                                                       name="ship_name" value="<?php echo $data['ship_name']; ?>"
                                                        required="" type="text">
                                             </div>
                                             <p class="help-block col-sm-4 red">* 必填</p>
@@ -126,7 +127,7 @@
                                                    class="col-sm-2 control-label no-padding-right">手机号</label>
                                             <div class="col-sm-6">
                                                 <input class="form-control" id="ship_mobile" placeholder=""
-                                                       name="ship_mobile" value="{$data.ship_mobile}"
+                                                       name="ship_mobile" value="<?php echo $data['ship_mobile']; ?>"
                                                        required="" type="text">
                                             </div>
                                             <p class="help-block col-sm-4 red">* 必填</p>
@@ -136,7 +137,7 @@
                                                    class="col-sm-2 control-label no-padding-right">地区</label>
                                             <div class="col-sm-6">
                                                 <input class="form-control" id="ship_area" placeholder=""
-                                                       name="ship_area" value="{$data.ship_area}"
+                                                       name="ship_area" value="<?php echo $data['ship_area']; ?>"
                                                        required="" type="text">
                                             </div>
                                             <p class="help-block col-sm-4 red">* 必填</p>
@@ -146,7 +147,7 @@
                                                    class="col-sm-2 control-label no-padding-right">地址</label>
                                             <div class="col-sm-6">
                                                 <input class="form-control" id="ship_address" placeholder=""
-                                                       name="ship_address" value="{$data.ship_address}"
+                                                       name="ship_address" value="<?php echo $data['ship_address']; ?>"
                                                        required="" type="text">
                                             </div>
                                             <p class="help-block col-sm-4 red">* 必填</p>
