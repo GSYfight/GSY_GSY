@@ -236,8 +236,8 @@ class Login extends Controller
      * 邮箱验证
      * */
     public function doVeri(){
-            input('mobile');
-        //            //验证码是否正为空
+//            $mobile=session('index');
+//                    //验证码是否正为空
 //            if (input('code') == '') {
 //                $this->error('验证码必须填写');
 //            }
@@ -246,7 +246,7 @@ class Login extends Controller
 //                $this->error('验证码错误', url('Login/register'));
 //            }
 //            //短信验证码是否正确.根据手机号查找code表数据,并返回数据
-//            $res = LoginModel::codeByMobile($data['mobile']);
+//            $res = LoginModel::codeByMobile($mobile['mobile']);
 //            //判断验证码是否超时
 //            if(time()-$res['email_veri_time']>300){
 //                $this->error('短信验证码失效');
@@ -256,7 +256,7 @@ class Login extends Controller
 //            }else if(input('smsCode')!=$res['email_veri']){
 //                    $this->error('请填写正确短信验证码');
 //            }
-        return $this->fetch('Personal/email');
+        return $this->fetch('Personal/sendCode');
     }
 
 

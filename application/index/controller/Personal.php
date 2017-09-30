@@ -98,5 +98,23 @@ class Personal extends Controller{
     public function address(){
         return $this->fetch('personal/address');
     }
+    //将邮箱插入用户表
+    public function jumpToPersonal(){
+        $code=input('code');
+        $vcode=input('vcode');
+        if($code==$vcode){
+            $member=session('index');
+            $member['email']=input('Email');
+            $res=LoginModel::loginUpd($member);
+            if ($res !==false){
+                $this->success('验证成功！',url('personal/index'));
+            }else{
+                $this->error('验证码输入错误');
+            }
+        }else{
+            $this->error('验证码输入错误');
+        }
+
+    }
 
 }
